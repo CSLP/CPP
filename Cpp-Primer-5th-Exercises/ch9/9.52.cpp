@@ -2,7 +2,8 @@
 #include<stack>
 #include<vector>
 using namespace std;
-//预处理，删除空格，判断负号,调用braMatch函数判断括号是否匹配,并转换成为vector<string>
+//预处理，删除空格，判断负号,调用braMatch函数判断括号是否匹配,并转换成为vector<string>  
+//好好学习,天天向上啊
 vector<string> preProcess(const string &s);
 void braMatch(const string &s);
 void print(const string &s);
