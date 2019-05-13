@@ -1,0 +1,31 @@
+QMainWindow{
+        background-image: url(:/image/beijing01.png);
+}
+QPushButton{
+        background-color: rgb(75, 221, 10);
+        border-style:outset;
+        border-width:4px;
+        border-radius:10px;
+
+        font: 57 14pt "Ubuntu";
+        color: rgb(34, 72, 233);
+        border-color: rgb(245, 37, 241);
+        padding:6px;
+}
+QPushButton:hover{
+background-color: rgb(255, 0, 0);
+        border-color: rgb(20, 24, 95);
+        color: rgb(230, 233, 37);
+}
+QPushButton::pressed{
+        background-color: rgb(217, 84, 31);
+        border-color: rgb(28, 239, 87);
+        border-style:inset;
+        color: rgb(242, 245, 208);
+}
+QSlider::handle:horizontal{
+        background-image: url(:/image/sliderHandle.png);
+}
+QSlider::sub-page:horizontal{
+background-image: url(:/image/slider.png);
+}

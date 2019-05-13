@@ -49,60 +49,52 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(985, 596);
-        MainWindow->setStyleSheet(QLatin1String("QPushButton{\n"
-"	background-color: rgb(234, 30, 30);\n"
-"	\n"
-"	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(255, 0, 0, 255), stop:0.339795 rgba(255, 0, 0, 255), stop:0.339799 rgba(255, 255, 255, 255), stop:0.662444 rgba(255, 255, 255, 255), stop:0.662469 rgba(0, 0, 255, 255), stop:1 rgba(0, 0, 255, 255));\n"
-"}\n"
-"QSlider{\n"
-"	border-color: qradialgradient(spread:repeat, cx:0.5, cy:0.5, radius:0.077, fx:0.5, fy:0.5, stop:0 rgba(0, 169, 255, 147), stop:0.497326 rgba(0, 0, 0, 147), stop:1 rgba(0, 169, 255, 147));\n"
-"	background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(0, 0, 0, 255), stop:0.19397 rgba(0, 0, 0, 255), stop:0.202312 rgba(122, 97, 0, 255), stop:0.495514 rgba(76, 58, 0, 255), stop:0.504819 rgba(255, 255, 255, 255), stop:0.79 rgba(255, 255, 255, 255), stop:1 rgba(255, 158, 158, 255));\n"
-"}"));
+        MainWindow->resize(1116, 668);
+        MainWindow->setStyleSheet(QStringLiteral(""));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         pushButton = new QPushButton(centralWidget);
         pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(260, 130, 441, 111));
+        pushButton->setGeometry(QRect(20, 20, 441, 111));
         horizontalSlider = new QSlider(centralWidget);
         horizontalSlider->setObjectName(QStringLiteral("horizontalSlider"));
-        horizontalSlider->setGeometry(QRect(270, 310, 431, 111));
+        horizontalSlider->setGeometry(QRect(540, 30, 461, 111));
         horizontalSlider->setOrientation(Qt::Horizontal);
         pushButton_2 = new QPushButton(centralWidget);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        pushButton_2->setGeometry(QRect(110, 100, 120, 32));
+        pushButton_2->setGeometry(QRect(50, 150, 120, 32));
         pushButton_3 = new QPushButton(centralWidget);
         pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
-        pushButton_3->setGeometry(QRect(110, 220, 120, 32));
+        pushButton_3->setGeometry(QRect(50, 210, 120, 32));
         pushButton_4 = new QPushButton(centralWidget);
         pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
-        pushButton_4->setGeometry(QRect(90, 340, 120, 32));
+        pushButton_4->setGeometry(QRect(40, 330, 120, 32));
         verticalScrollBar = new QScrollBar(centralWidget);
         verticalScrollBar->setObjectName(QStringLiteral("verticalScrollBar"));
-        verticalScrollBar->setGeometry(QRect(250, 470, 16, 160));
+        verticalScrollBar->setGeometry(QRect(660, 160, 16, 160));
         verticalScrollBar->setOrientation(Qt::Vertical);
         verticalScrollBar_2 = new QScrollBar(centralWidget);
         verticalScrollBar_2->setObjectName(QStringLiteral("verticalScrollBar_2"));
-        verticalScrollBar_2->setGeometry(QRect(50, 420, 16, 160));
+        verticalScrollBar_2->setGeometry(QRect(380, 140, 16, 160));
         verticalScrollBar_2->setOrientation(Qt::Vertical);
         horizontalScrollBar = new QScrollBar(centralWidget);
         horizontalScrollBar->setObjectName(QStringLiteral("horizontalScrollBar"));
-        horizontalScrollBar->setGeometry(QRect(130, 370, 160, 16));
+        horizontalScrollBar->setGeometry(QRect(200, 180, 160, 16));
         horizontalScrollBar->setOrientation(Qt::Horizontal);
         verticalScrollBar_3 = new QScrollBar(centralWidget);
         verticalScrollBar_3->setObjectName(QStringLiteral("verticalScrollBar_3"));
-        verticalScrollBar_3->setGeometry(QRect(410, 400, 16, 160));
+        verticalScrollBar_3->setGeometry(QRect(490, 130, 16, 160));
         verticalScrollBar_3->setOrientation(Qt::Vertical);
         dial = new QDial(centralWidget);
         dial->setObjectName(QStringLiteral("dial"));
-        dial->setGeometry(QRect(580, 400, 50, 64));
+        dial->setGeometry(QRect(580, 210, 50, 64));
         dial_2 = new QDial(centralWidget);
         dial_2->setObjectName(QStringLiteral("dial_2"));
-        dial_2->setGeometry(QRect(450, 470, 50, 64));
+        dial_2->setGeometry(QRect(860, 160, 50, 64));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 985, 30));
+        menuBar->setGeometry(QRect(0, 0, 1116, 30));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -119,7 +111,7 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
-        pushButton->setText(QApplication::translate("MainWindow", "PushButton", 0));
+        pushButton->setText(QApplication::translate("MainWindow", "ChangeSkin", 0));
         pushButton_2->setText(QApplication::translate("MainWindow", "PushButton", 0));
         pushButton_3->setText(QApplication::translate("MainWindow", "PushButton", 0));
         pushButton_4->setText(QApplication::translate("MainWindow", "PushButton", 0));

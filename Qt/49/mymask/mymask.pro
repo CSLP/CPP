@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2019-05-13T08:58:19
+# Project created by QtCreator 2019-05-13T09:52:31
 #
 #-------------------------------------------------
 
@@ -8,20 +8,16 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = mystylesheets
+TARGET = mymask
 TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        widget.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += widget.h
 
-FORMS    += mainwindow.ui
+FORMS    += widget.ui
 
 RESOURCES += \
-    myresource.qrc
-
-DISTFILES += \
-    my.qss \
-    my1.qss
+    resource.qrc
