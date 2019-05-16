@@ -1,5 +1,6 @@
 #include "stringlistmodel.h"
-
+#include<QMimeData>
+#include<QDataStream>
 
 int StringListModel::rowCount(const QModelIndex &parent) const
 {
@@ -32,8 +33,8 @@ QVariant StringListModel::headerData(int section, Qt::Orientation orientation, i
 Qt::ItemFlags StringListModel::flags(const QModelIndex &index) const
 {
     if(!index.isValid())
-        return Qt::ItemIsEnabled;
-    return  QAbstractItemModel::flags(index) | Qt::ItemIsEditable;
+        return Qt::ItemIsEnabled|Qt::ItemIsDropEnabled;
+    return  QAbstractItemModel::flags(index) | Qt::ItemIsEditable | Qt::ItemIsDragEnabled | Qt::ItemIsDropEnabled;
 }
 
 bool StringListModel::setData(const QModelIndex &index, const QVariant &value, int role)
@@ -66,5 +67,68 @@ bool StringListModel::removeRows(int position, int rows, const QModelIndex &inde
         stringList.removeAt(position);
     }
     endRemoveRows();
+    return true;
+}
+
+Qt::DropActions StringListModel::supportedDropActions() const
+{
+    return (Qt::CopyAction | Qt::MoveAction);
+
+}
+
+QStringList StringListModel::mimeTypes() const
+{
+    QStringList types;
+    types<<"application/vnd.text.list";
+    return types;
+}
+
+QMimeData *StringListModel::mimeData(const QModelIndexList &indexes) const
+{
+    QMimeData  *mimeData=new QMimeData();
+    QByteArray encodedData;
+    QDataStream stream(&encodedData,QIODevice::WriteOnly);
+    foreach(const QModelIndex&index,indexes)
+    {
+        QString text=data(index,Qt::DisplayRole).toString();
+        stream<<text;
+    }
+    mimeData->setData("application/vnd.text.list",encodedData);
+    return mimeData;
+}
+
+bool StringListModel::dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent)
+{
+    if(action==Qt::IgnoreAction)
+        return true;
+    if(!data->hasFormat("application/vnd.text.list"));
+    return false;
+    if(column>0)
+        return false;
+    int beginRow;
+    if(row!=-1)
+        beginRow=row;
+    else if(parent.isValid())
+        beginRow=parent.row();
+    else
+        beginRow=rowCount(QModelIndex());
+    QByteArray encodedData=data->data("application/vnd.text.list");
+    QDataStream stream(&encodedData,QIODevice::ReadOnly);
+    QStringList newItems;
+    int rows=0;
+    while(!stream.atEnd())
+    {
+        QString text;
+        stream>>text;
+        newItems<<text;
+        ++rows;
+    }
+    insertRows(beginRow,rows,QModelIndex());
+    foreach(const QString &text,newItems)
+    {
+        QModelIndex idx=index(beginRow,0,QModelIndex());
+        setData(idx,text);
+        beginRow++;
+    }
     return true;
 }

@@ -15,6 +15,12 @@ public:
     bool setData(const QModelIndex &index, const QVariant &value, int role=Qt::EditRole);
     bool insertRows(int position,int rows,const QModelIndex&index=QModelIndex());
     bool removeRows(int position,int rows,const QModelIndex&index=QModelIndex());
+    Qt::DropActions supportedDropActions()const;
+    QStringList mimeTypes()const;
+    QMimeData *mimeData(const QModelIndexList&indexes)const;
+    bool dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent);
+
+
 private :
     QStringList stringList;
 };
