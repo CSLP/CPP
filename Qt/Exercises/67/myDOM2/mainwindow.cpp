@@ -175,3 +175,18 @@ void MainWindow::on_pushButton_4_clicked()
     ui->listWidget->clear();
     ui->listWidget->addItem(tr("AddSuccess!"));
 }
+
+void MainWindow::on_pushButton_clicked()
+{
+    doXml("find");
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    doXml("delete");
+}
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    doXml("update");
+}
