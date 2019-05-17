@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BookStore>
+    <Book ID="1">
+        <BookName>Qt</BookName>
+        <Author>shiming</Author>
+    </Book>
+    <Book ID="2">
+        <BookName>Linux</BookName>
+        <Author>LiPeng</Author>
+    </Book>
+</BookStore>

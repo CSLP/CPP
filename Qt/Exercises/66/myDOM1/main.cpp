@@ -17,7 +17,9 @@ int main(int argc, char *argv[])
     file.close();
     QDomNode firstNode=doc.firstChild();
     qDebug()<<firstNode.nodeName()<<qPrintable(firstNode.nodeName())<<qPrintable(firstNode.nodeValue());
-    QDomElement docElem=doc.documentElement();
+    //QDomElement docElem=doc.documentElement();
+    QDomNode x=firstNode.nextSibling();
+    QDomElement docElem=x.toElement();
     QDomNode n=docElem.firstChild();
     while(!n.isNull())
     {
