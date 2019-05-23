@@ -1,6 +1,7 @@
 #include "signup.h"
 #include "ui_signup.h"
 #include<QMessageBox>
+#include<QDebug>
 SignUp::SignUp(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::SignUp)
@@ -16,7 +17,12 @@ SignUp::~SignUp()
 void SignUp::on_goToLoginPushButton_clicked()
 {
     close();
-    this->parentWidget()->show();
+    ui->userLineEdit->clear();
+    ui->idLineEdit->clear();
+    ui->depLineEdit->clear();
+    ui->pwd1LineEdit->clear();
+    ui->pwd2LineEdit->clear();
+    ui->genderLineEdit->clear();
 
 }
 
@@ -40,6 +46,9 @@ void SignUp::on_signupPushButton_clicked()
 
     }
     else
-       QMessageBox::warning(this,tr("Warning"),tr("Input cannot be empty!"),QMessageBox::Ok);
-
+    {
+       qDebug()<<"sb";
+       QMessageBox::information(this,tr("Warning"),tr("Input cannot be empty!"),QMessageBox::Ok);
+       qDebug()<<"laji";
+    }
 }

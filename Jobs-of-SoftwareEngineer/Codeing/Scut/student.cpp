@@ -11,6 +11,7 @@ Student::Student(QWidget *parent) :
 Student::~Student()
 {
     delete ui;
+    ui->tabWidget->addTab(this,,tr("sb"));
 }
 
 void Student::on_loginAgainPushButton_clicked()

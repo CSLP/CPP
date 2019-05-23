@@ -7,7 +7,7 @@
 #include<QMessageBox>
 bool loginMatch(string type,string id,string passwd)
 {
-    if(type=="teacher"&&id=="110"&&passwd=="scut")
+    if(type=="student"&&id=="110"&&passwd=="scut")
         return true;
     return false;
 
@@ -38,7 +38,10 @@ void Login::on_signInPushButton_clicked()
                 type="teacher";
             if(loginMatch(type,ui->idLineEdit->text().toStdString(),ui->passwdLineEdit->text().toStdString()))
             {
-                student->show();
+                if(ui->stuRadioButton->isChecked())
+                    student->show();
+                else
+                    teacher->show();
                 ui->idLineEdit->clear();
                 ui->passwdLineEdit->clear();
                 hide();
@@ -55,5 +58,4 @@ void Login::on_signUpPushButton_clicked()
     signup->show();
     ui->idLineEdit->clear();
     ui->passwdLineEdit->clear();
-    hide();
 }
