@@ -17,9 +17,10 @@ SOURCES += main.cpp\
     login.cpp \
     signup.cpp
 
-HEADERS  += mainwindow.h \
+HEADERS  += \
     login.h \
-    signup.h
+    signup.h \
+    student1.h
 
 FORMS    += mainwindow.ui \
     login.ui \

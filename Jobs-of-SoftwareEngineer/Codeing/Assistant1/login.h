@@ -3,6 +3,8 @@
 
 #include <QDialog>
 #include<string>
+#include"student1.h"
+#include""
 using std::string;
 namespace Ui {
 class Login;
@@ -25,6 +27,7 @@ private slots:
 
 private:
     Ui::Login *ui;
+
 };
 bool loginMatch(string ,string ,string );
 #endif // LOGIN_H
