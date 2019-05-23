@@ -2,7 +2,8 @@
 #define LOGIN_H
 
 #include <QDialog>
-
+#include<string>
+using std::string;
 namespace Ui {
 class Login;
 }
@@ -15,11 +16,14 @@ public:
     explicit Login(QWidget *parent = 0);
     ~Login();
 
-private slots:
-    void on_pushButton_clicked();
+public slots:
+
+    bool on_signInPushButton_clicked();
+
+    bool on_signUpPushButton_clicked();
 
 private:
     Ui::Login *ui;
 };
-
+bool loginMatch(string ,string ,string );
 #endif // LOGIN_H

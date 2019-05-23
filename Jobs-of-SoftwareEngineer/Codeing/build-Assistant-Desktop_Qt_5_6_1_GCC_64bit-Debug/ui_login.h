@@ -30,18 +30,18 @@ class Ui_Login
 public:
     QWidget *widget;
     QHBoxLayout *horizontalLayout;
-    QRadioButton *radioButton;
-    QRadioButton *radioButton_2;
+    QRadioButton *stuRadioButton;
+    QRadioButton *teaRadioButton;
     QWidget *widget1;
     QGridLayout *gridLayout;
     QLabel *label;
-    QLineEdit *lineEdit;
+    QLineEdit *idLineEdit;
     QLabel *label_2;
-    QLineEdit *lineEdit_2;
+    QLineEdit *passwdLineEdit;
     QWidget *widget2;
     QHBoxLayout *horizontalLayout_2;
-    QPushButton *pushButton;
-    QPushButton *pushButton_2;
+    QPushButton *signInPushButton;
+    QPushButton *signUpPushButton;
 
     void setupUi(QDialog *Login)
     {
@@ -54,16 +54,16 @@ public:
         horizontalLayout = new QHBoxLayout(widget);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        radioButton = new QRadioButton(widget);
-        radioButton->setObjectName(QStringLiteral("radioButton"));
-        radioButton->setChecked(true);
+        stuRadioButton = new QRadioButton(widget);
+        stuRadioButton->setObjectName(QStringLiteral("stuRadioButton"));
+        stuRadioButton->setChecked(true);
 
-        horizontalLayout->addWidget(radioButton);
+        horizontalLayout->addWidget(stuRadioButton);
 
-        radioButton_2 = new QRadioButton(widget);
-        radioButton_2->setObjectName(QStringLiteral("radioButton_2"));
+        teaRadioButton = new QRadioButton(widget);
+        teaRadioButton->setObjectName(QStringLiteral("teaRadioButton"));
 
-        horizontalLayout->addWidget(radioButton_2);
+        horizontalLayout->addWidget(teaRadioButton);
 
         widget1 = new QWidget(Login);
         widget1->setObjectName(QStringLiteral("widget1"));
@@ -76,21 +76,21 @@ public:
 
         gridLayout->addWidget(label, 0, 0, 1, 1);
 
-        lineEdit = new QLineEdit(widget1);
-        lineEdit->setObjectName(QStringLiteral("lineEdit"));
+        idLineEdit = new QLineEdit(widget1);
+        idLineEdit->setObjectName(QStringLiteral("idLineEdit"));
 
-        gridLayout->addWidget(lineEdit, 0, 1, 1, 1);
+        gridLayout->addWidget(idLineEdit, 0, 1, 1, 1);
 
         label_2 = new QLabel(widget1);
         label_2->setObjectName(QStringLiteral("label_2"));
 
         gridLayout->addWidget(label_2, 1, 0, 1, 1);
 
-        lineEdit_2 = new QLineEdit(widget1);
-        lineEdit_2->setObjectName(QStringLiteral("lineEdit_2"));
-        lineEdit_2->setEchoMode(QLineEdit::Password);
+        passwdLineEdit = new QLineEdit(widget1);
+        passwdLineEdit->setObjectName(QStringLiteral("passwdLineEdit"));
+        passwdLineEdit->setEchoMode(QLineEdit::Password);
 
-        gridLayout->addWidget(lineEdit_2, 1, 1, 1, 1);
+        gridLayout->addWidget(passwdLineEdit, 1, 1, 1, 1);
 
         widget2 = new QWidget(Login);
         widget2->setObjectName(QStringLiteral("widget2"));
@@ -99,16 +99,16 @@ public:
         horizontalLayout_2->setSpacing(100);
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
         horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
-        pushButton = new QPushButton(widget2);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
+        signInPushButton = new QPushButton(widget2);
+        signInPushButton->setObjectName(QStringLiteral("signInPushButton"));
 
-        horizontalLayout_2->addWidget(pushButton);
+        horizontalLayout_2->addWidget(signInPushButton);
 
-        pushButton_2 = new QPushButton(widget2);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        pushButton_2->setEnabled(true);
+        signUpPushButton = new QPushButton(widget2);
+        signUpPushButton->setObjectName(QStringLiteral("signUpPushButton"));
+        signUpPushButton->setEnabled(true);
 
-        horizontalLayout_2->addWidget(pushButton_2);
+        horizontalLayout_2->addWidget(signUpPushButton);
 
 
         retranslateUi(Login);
@@ -119,12 +119,13 @@ public:
     void retranslateUi(QDialog *Login)
     {
         Login->setWindowTitle(QApplication::translate("Login", "Login", 0));
-        radioButton->setText(QApplication::translate("Login", "Student", 0));
-        radioButton_2->setText(QApplication::translate("Login", "Teacher", 0));
+        stuRadioButton->setText(QApplication::translate("Login", "Student", 0));
+        teaRadioButton->setText(QApplication::translate("Login", "Teacher", 0));
         label->setText(QApplication::translate("Login", "ID", 0));
         label_2->setText(QApplication::translate("Login", "Password", 0));
-        pushButton->setText(QApplication::translate("Login", "Sign In", 0));
-        pushButton_2->setText(QApplication::translate("Login", "Sign Up", 0));
+        passwdLineEdit->setText(QString());
+        signInPushButton->setText(QApplication::translate("Login", "Sign In", 0));
+        signUpPushButton->setText(QApplication::translate("Login", "Sign Up", 0));
     } // retranslateUi
 
 };
