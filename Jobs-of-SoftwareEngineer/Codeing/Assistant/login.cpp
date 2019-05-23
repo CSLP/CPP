@@ -6,9 +6,10 @@ bool loginMatch(string type,string id,string passwd)
 {
     if(type=="teacher"&&id=="110"&&passwd=="scut")
         return true;
-    return false;
+    return true;
 
 }
+string Login::type="";
 Login::Login(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Login)
@@ -21,7 +22,7 @@ Login::~Login()
     delete ui;
 }
 
-bool Login::on_signInPushButton_clicked()
+void Login::on_signInPushButton_clicked()
 {
     if(!ui->idLineEdit->text().isEmpty()&&!ui->passwdLineEdit->text().isEmpty())
     {
@@ -33,21 +34,19 @@ bool Login::on_signInPushButton_clicked()
             if(loginMatch(type,ui->idLineEdit->text().toStdString(),ui->passwdLineEdit->text().toStdString()))
             {
                 accept();
-                return true;
+                Login::type="student";
             }
             else
                 QMessageBox::warning(this,tr("Warning"),tr("Incorrect ID or password. Please re-enter!"),QMessageBox::Ok);
     }
     else
        QMessageBox::warning(this,tr("Warning"),tr("Input cannot be empty!"),QMessageBox::Ok);
-    return 0;
-
 
 }
 
-bool Login::on_signUpPushButton_clicked()
+void Login::on_signUpPushButton_clicked()
 {
-    accept();
-    return false;
+   type="signup";
+   accept();
 }
 

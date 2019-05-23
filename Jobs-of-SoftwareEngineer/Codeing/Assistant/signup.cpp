@@ -1,6 +1,7 @@
 #include "signup.h"
 #include "ui_signup.h"
 #include<QMessageBox>
+#include"login.h"
 SignUp::SignUp(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::SignUp)
@@ -16,6 +17,8 @@ SignUp::~SignUp()
 void SignUp::on_goToLoginPushButton_clicked()
 {
     close();
+    Login login;
+    if(login.exec()==QDialog::Accepted&&login.type=="signup") show();
 }
 
 void SignUp::on_signupPushButton_clicked()

@@ -6,7 +6,7 @@
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../Assistant/login.h"
+#include "../test/login.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
@@ -20,7 +20,7 @@
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_Login_t {
     QByteArrayData data[4];
-    char stringdata0[63];
+    char stringdata0[53];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -30,13 +30,13 @@ struct qt_meta_stringdata_Login_t {
 static const qt_meta_stringdata_Login_t qt_meta_stringdata_Login = {
     {
 QT_MOC_LITERAL(0, 0, 5), // "Login"
-QT_MOC_LITERAL(1, 6, 27), // "on_signInPushButton_clicked"
-QT_MOC_LITERAL(2, 34, 0), // ""
-QT_MOC_LITERAL(3, 35, 27) // "on_signUpPushButton_clicked"
+QT_MOC_LITERAL(1, 6, 21), // "on_pushButton_clicked"
+QT_MOC_LITERAL(2, 28, 0), // ""
+QT_MOC_LITERAL(3, 29, 23) // "on_pushButton_2_clicked"
 
     },
-    "Login\0on_signInPushButton_clicked\0\0"
-    "on_signUpPushButton_clicked"
+    "Login\0on_pushButton_clicked\0\0"
+    "on_pushButton_2_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -70,8 +70,8 @@ void Login::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
         Login *_t = static_cast<Login *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->on_signInPushButton_clicked(); break;
-        case 1: _t->on_signUpPushButton_clicked(); break;
+        case 0: _t->on_pushButton_clicked(); break;
+        case 1: _t->on_pushButton_2_clicked(); break;
         default: ;
         }
     }
