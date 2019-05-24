@@ -7,6 +7,7 @@ SendFile::SendFile(QWidget *parent) :
     ui(new Ui::SendFile)
 {
     ui->setupUi(this);
+    ui->textBrowser->hide();
 }
 
 SendFile::~SendFile()
@@ -16,6 +17,18 @@ SendFile::~SendFile()
 
 void SendFile::on_openPushButton_clicked()
 {
-    QString fileName=QFileDialog::getOpenFileName(this,tr("File Dialog"),"/home/wuyulp");
-    qDebug()<<fileName;
+    QStringList fileName=QFileDialog::getOpenFileNames(this,tr("File Dialog"),"/home/wuyulp");
+    ui->textBrowser->setVisible(true);
+    ui->textBrowser->clear();
+    ui->textBrowser->setText(tr("The files you selected are:"));
+    foreach(auto &a,fileName)
+    {
+        ui->textBrowser->append(a);
+    }
+}
+
+
+void SendFile::on_cancelPushButton_clicked()
+{
+    close();
 }

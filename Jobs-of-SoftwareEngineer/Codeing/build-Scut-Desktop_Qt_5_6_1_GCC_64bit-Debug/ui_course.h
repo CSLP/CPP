@@ -50,7 +50,7 @@ public:
     {
         if (Course->objectName().isEmpty())
             Course->setObjectName(QStringLiteral("Course"));
-        Course->resize(1121, 667);
+        Course->resize(1234, 765);
         horizontalLayout = new QHBoxLayout(Course);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         tabWidget = new QTabWidget(Course);
@@ -59,7 +59,7 @@ public:
         tab->setObjectName(QStringLiteral("tab"));
         verticalLayoutWidget = new QWidget(tab);
         verticalLayoutWidget->setObjectName(QStringLiteral("verticalLayoutWidget"));
-        verticalLayoutWidget->setGeometry(QRect(60, 110, 341, 161));
+        verticalLayoutWidget->setGeometry(QRect(120, 90, 341, 161));
         verticalLayout = new QVBoxLayout(verticalLayoutWidget);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
@@ -75,7 +75,7 @@ public:
 
         verticalLayoutWidget_2 = new QWidget(tab);
         verticalLayoutWidget_2->setObjectName(QStringLiteral("verticalLayoutWidget_2"));
-        verticalLayoutWidget_2->setGeometry(QRect(640, 110, 311, 161));
+        verticalLayoutWidget_2->setGeometry(QRect(660, 90, 311, 161));
         verticalLayout_2 = new QVBoxLayout(verticalLayoutWidget_2);
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);
@@ -92,7 +92,7 @@ public:
 
         verticalLayoutWidget_3 = new QWidget(tab);
         verticalLayoutWidget_3->setObjectName(QStringLiteral("verticalLayoutWidget_3"));
-        verticalLayoutWidget_3->setGeometry(QRect(30, 340, 1061, 201));
+        verticalLayoutWidget_3->setGeometry(QRect(100, 320, 991, 201));
         verticalLayout_3 = new QVBoxLayout(verticalLayoutWidget_3);
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
         verticalLayout_3->setContentsMargins(0, 0, 0, 0);
@@ -109,10 +109,10 @@ public:
 
         submitPushButton = new QPushButton(tab);
         submitPushButton->setObjectName(QStringLiteral("submitPushButton"));
-        submitPushButton->setGeometry(QRect(150, 570, 211, 32));
+        submitPushButton->setGeometry(QRect(260, 600, 211, 32));
         backPushButton = new QPushButton(tab);
         backPushButton->setObjectName(QStringLiteral("backPushButton"));
-        backPushButton->setGeometry(QRect(750, 570, 120, 32));
+        backPushButton->setGeometry(QRect(750, 590, 120, 32));
         tabWidget->addTab(tab, QString());
 
         horizontalLayout->addWidget(tabWidget);

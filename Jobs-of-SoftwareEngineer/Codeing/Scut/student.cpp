@@ -8,6 +8,7 @@ Student::Student(QWidget *parent) :
     ui(new Ui::Student)
 {
     ui->setupUi(this);
+    this->move(400,160);
     QPixmap pixmap(":/image/1.png");
     ui->label1->setPixmap(pixmap);
     ui->label2->resize(ui->label1->size());
@@ -79,5 +80,4 @@ void Student::on_pushButton1_clicked()
 {
     Course *x=new Course(this);
     x->show();
-    hide();
 }

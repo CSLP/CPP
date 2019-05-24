@@ -6,6 +6,7 @@ Course::Course(QWidget *parent) :
     ui(new Ui::Course)
 {
     ui->setupUi(this);
+    this->move(390,155);
     ui->textBrowser->append("nimasil");
 }
 
@@ -16,7 +17,6 @@ Course::~Course()
 
 void Course::on_backPushButton_clicked()
 {
-   this->parentWidget()->show();
     close();
 }
 

@@ -26,6 +26,9 @@ private:
 public slots:
     void idInfomation(string);
     void courseInformation(string);
+signals:
+    void corInfo(string);
+
 };
 
 #endif // STUDENT_H

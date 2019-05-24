@@ -19,54 +19,99 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QProgressBar>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QWidget>
+#include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QTextBrowser>
+#include <QtWidgets/QVBoxLayout>
 
 QT_BEGIN_NAMESPACE
 
 class Ui_SendFile
 {
 public:
-    QProgressBar *progressBar;
+    QVBoxLayout *verticalLayout;
     QLabel *label;
-    QWidget *widget;
+    QSpacerItem *verticalSpacer_3;
+    QHBoxLayout *horizontalLayout_2;
+    QSpacerItem *horizontalSpacer;
+    QProgressBar *progressBar;
+    QSpacerItem *horizontalSpacer_2;
+    QSpacerItem *verticalSpacer;
     QHBoxLayout *horizontalLayout;
     QPushButton *openPushButton;
-    QPushButton *pushButton_2;
-    QPushButton *pushButton_3;
+    QPushButton *submitPushButton;
+    QPushButton *cancelPushButton;
+    QTextBrowser *textBrowser;
+    QSpacerItem *verticalSpacer_2;
 
     void setupUi(QDialog *SendFile)
     {
         if (SendFile->objectName().isEmpty())
             SendFile->setObjectName(QStringLiteral("SendFile"));
-        SendFile->resize(407, 312);
-        progressBar = new QProgressBar(SendFile);
-        progressBar->setObjectName(QStringLiteral("progressBar"));
-        progressBar->setGeometry(QRect(100, 140, 181, 41));
-        progressBar->setValue(24);
+        SendFile->resize(438, 330);
+        verticalLayout = new QVBoxLayout(SendFile);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         label = new QLabel(SendFile);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(70, 60, 251, 31));
-        widget = new QWidget(SendFile);
-        widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(50, 220, 287, 34));
-        horizontalLayout = new QHBoxLayout(widget);
+        label->setAlignment(Qt::AlignCenter);
+
+        verticalLayout->addWidget(label);
+
+        verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Fixed);
+
+        verticalLayout->addItem(verticalSpacer_3);
+
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        horizontalSpacer = new QSpacerItem(50, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+
+        horizontalLayout_2->addItem(horizontalSpacer);
+
+        progressBar = new QProgressBar(SendFile);
+        progressBar->setObjectName(QStringLiteral("progressBar"));
+        progressBar->setValue(0);
+
+        horizontalLayout_2->addWidget(progressBar);
+
+        horizontalSpacer_2 = new QSpacerItem(50, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+
+        horizontalLayout_2->addItem(horizontalSpacer_2);
+
+
+        verticalLayout->addLayout(horizontalLayout_2);
+
+        verticalSpacer = new QSpacerItem(20, 50, QSizePolicy::Minimum, QSizePolicy::Fixed);
+
+        verticalLayout->addItem(verticalSpacer);
+
+        horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(15);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        openPushButton = new QPushButton(widget);
+        openPushButton = new QPushButton(SendFile);
         openPushButton->setObjectName(QStringLiteral("openPushButton"));
 
         horizontalLayout->addWidget(openPushButton);
 
-        pushButton_2 = new QPushButton(widget);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
+        submitPushButton = new QPushButton(SendFile);
+        submitPushButton->setObjectName(QStringLiteral("submitPushButton"));
 
-        horizontalLayout->addWidget(pushButton_2);
+        horizontalLayout->addWidget(submitPushButton);
 
-        pushButton_3 = new QPushButton(widget);
-        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
+        cancelPushButton = new QPushButton(SendFile);
+        cancelPushButton->setObjectName(QStringLiteral("cancelPushButton"));
 
-        horizontalLayout->addWidget(pushButton_3);
+        horizontalLayout->addWidget(cancelPushButton);
+
+
+        verticalLayout->addLayout(horizontalLayout);
+
+        textBrowser = new QTextBrowser(SendFile);
+        textBrowser->setObjectName(QStringLiteral("textBrowser"));
+
+        verticalLayout->addWidget(textBrowser);
+
+        verticalSpacer_2 = new QSpacerItem(30, 20, QSizePolicy::Minimum, QSizePolicy::Fixed);
+
+        verticalLayout->addItem(verticalSpacer_2);
 
 
         retranslateUi(SendFile);
@@ -79,8 +124,8 @@ public:
         SendFile->setWindowTitle(QApplication::translate("SendFile", "Dialog", 0));
         label->setText(QApplication::translate("SendFile", "Please select the file to send!", 0));
         openPushButton->setText(QApplication::translate("SendFile", "Open", 0));
-        pushButton_2->setText(QApplication::translate("SendFile", "Submit", 0));
-        pushButton_3->setText(QApplication::translate("SendFile", "Cancel", 0));
+        submitPushButton->setText(QApplication::translate("SendFile", "Submit", 0));
+        cancelPushButton->setText(QApplication::translate("SendFile", "Cancel", 0));
     } // retranslateUi
 
 };

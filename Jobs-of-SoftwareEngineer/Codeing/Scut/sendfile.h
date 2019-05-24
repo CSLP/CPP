@@ -18,6 +18,9 @@ public:
 private slots:
     void on_openPushButton_clicked();
 
+
+    void on_cancelPushButton_clicked();
+
 private:
     Ui::SendFile *ui;
 };
