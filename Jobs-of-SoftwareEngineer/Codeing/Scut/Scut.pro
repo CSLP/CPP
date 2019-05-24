@@ -19,7 +19,8 @@ SOURCES += main.cpp\
     teacher.cpp \
     studentab.cpp \
     interface.cpp \
-    course.cpp
+    course.cpp \
+    sendfile.cpp
 
 HEADERS  += login.h \
     signup.h \
@@ -27,13 +28,15 @@ HEADERS  += login.h \
     teacher.h \
     studentab.h \
     interface.h \
-    course.h
+    course.h \
+    sendfile.h
 
 FORMS    += login.ui \
     signup.ui \
     student.ui \
     teacher.ui \
-    course.ui
+    course.ui \
+    sendfile.ui
 
 RESOURCES += \
     resource.qrc

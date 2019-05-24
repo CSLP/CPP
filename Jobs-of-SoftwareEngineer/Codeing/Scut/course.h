@@ -18,6 +18,8 @@ public:
 private slots:
     void on_backPushButton_clicked();
 
+    void on_submitPushButton_clicked();
+
 private:
     Ui::Course *ui;
 };
