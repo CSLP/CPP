@@ -18,19 +18,22 @@ SOURCES += main.cpp\
     student.cpp \
     teacher.cpp \
     studentab.cpp \
-    interface.cpp
+    interface.cpp \
+    course.cpp
 
 HEADERS  += login.h \
     signup.h \
     student.h \
     teacher.h \
     studentab.h \
-    interface.h
+    interface.h \
+    course.h
 
 FORMS    += login.ui \
     signup.ui \
     student.ui \
-    teacher.ui
+    teacher.ui \
+    course.ui
 
 RESOURCES += \
     resource.qrc

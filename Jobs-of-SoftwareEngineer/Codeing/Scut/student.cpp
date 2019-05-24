@@ -2,6 +2,7 @@
 #include "ui_student.h"
 #include"interface.h"
 #include<QDebug>
+#include"course.h"
 Student::Student(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Student)
@@ -72,4 +73,11 @@ void Student::courseInformation(std::__cxx11::string  id)
         ui->label66->setText(QString::fromStdString(co_it->second));
         ui->pushButton6->setText(QString::fromStdString(co_it->first));
     }
+}
+
+void Student::on_pushButton1_clicked()
+{
+    Course *x=new Course(this);
+    x->show();
+    hide();
 }

@@ -14,7 +14,7 @@ list<std::__cxx11::string> getInfoStringList(string id)
         {
             x.push_back("ID: 201630610571");
             x.push_back("Gender: Man");
-            x.push_back("Departant: Computer");
+            x.push_back("Departant: Computerjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj");
             x.push_back("Birthday: 1996/02/11");
             return x;
         }
