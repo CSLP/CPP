@@ -21,9 +21,29 @@ Student::Student(QWidget *parent) :
     ui->label6->setPixmap(pixmap);
     ui->label6->resize(ui->label1->size());
     ui->tabWidget->setCurrentIndex(0);
-    AnalogClock *clock=new AnalogClock(this);
-    QVBoxLayout *layout=new QVBoxLayout;
-    layout->addWidget(clock);
+    QWidget *widget=new QWidget(this);
+    AnalogClock *clock=new AnalogClock(widget);
+    QVBoxLayout *layout1=new QVBoxLayout;
+    QVBoxLayout *layout2=new QVBoxLayout;
+    QVBoxLayout *layout3=new QVBoxLayout;
+    QHBoxLayout *layout4=new QHBoxLayout;
+    QVBoxLayout *layout= new QVBoxLayout;
+   /* layout1->addWidget(ui->labela);
+    layout1->addWidget(ui->listWidget1);
+    layout2->addWidget(ui->labelb);
+    layout2->addWidget(ui->listWidget2);
+    layout3->addWidget(clock);
+    layout3->addWidget(ui->calendarWidget);
+    layout4->addLayout(layout1);
+    layout4->addLayout(layout2);
+    layout4->addLayout(layout3);
+    layout->addLayout(layout4);
+    layout->addWidget(ui->loginAgainPushButton);
+    ui->homeTab->setLayout(layout3);
+    */
+    layout->addWidget(widget);
+    layout->addWidget(ui->listWidget1);
+    layout->setStretch(1,1);
     ui->homeTab->setLayout(layout);
 }
 
@@ -47,7 +67,7 @@ void Student::idInfomation(std::__cxx11::string idinfo)
    {
        in<<QString::fromStdString(a);
    }
-   ui->listWidget->insertItems(0,in);
+   ui->listWidget1->insertItems(0,in);
 
 }
 
