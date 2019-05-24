@@ -9,6 +9,8 @@ Student::Student(QWidget *parent) :
 {
     ui->setupUi(this);
     this->move(400,160);
+    cor=new Course(this);
+    connect(this,&Student::corInfo,cor,&Course::courseInfo);
     QPixmap pixmap(":/image/1.png");
     ui->label1->setPixmap(pixmap);
     ui->label2->resize(ui->label1->size());
@@ -78,6 +80,36 @@ void Student::courseInformation(std::__cxx11::string  id)
 
 void Student::on_pushButton1_clicked()
 {
-    Course *x=new Course(this);
-    x->show();
+    cor->show();
+    emit corInfo(ui->pushButton1->text().toStdString());
+}
+
+void Student::on_pushButton2_clicked()
+{
+    cor->show();
+    emit corInfo(ui->pushButton2->text().toStdString());
+}
+
+void Student::on_pushButton3_clicked()
+{
+    cor->show();
+    emit corInfo(ui->pushButton3->text().toStdString());
+}
+
+void Student::on_pushButton4_clicked()
+{
+    cor->show();
+    emit corInfo(ui->pushButton4->text().toStdString());
+}
+
+void Student::on_pushButton5_clicked()
+{
+    cor->show();
+    emit corInfo(ui->pushButton5->text().toStdString());
+}
+
+void Student::on_pushButton6_clicked()
+{
+    cor->show();
+    emit corInfo(ui->pushButton6->text().toStdString());
 }

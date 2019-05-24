@@ -65,6 +65,7 @@ public:
         verticalLayout->setContentsMargins(0, 0, 0, 0);
         label = new QLabel(verticalLayoutWidget);
         label->setObjectName(QStringLiteral("label"));
+        label->setAlignment(Qt::AlignCenter);
 
         verticalLayout->addWidget(label);
 

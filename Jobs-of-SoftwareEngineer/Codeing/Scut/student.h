@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include<string>
+class Course;
 using std::string;
 namespace Ui {
 class Student;
@@ -21,8 +22,19 @@ private slots:
 
     void on_pushButton1_clicked();
 
+    void on_pushButton2_clicked();
+
+    void on_pushButton3_clicked();
+
+    void on_pushButton4_clicked();
+
+    void on_pushButton5_clicked();
+
+    void on_pushButton6_clicked();
+
 private:
     Ui::Student *ui;
+    Course *cor;
 public slots:
     void idInfomation(string);
     void courseInformation(string);

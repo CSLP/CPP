@@ -28,8 +28,12 @@ void Course::on_submitPushButton_clicked()
 
 void Course::courseInfo(std::__cxx11::string info)
 {
-   // string teacherInfo=getTeacherInfoByCourseName(info);
-    //string courseInfo=getCourseInfoByCourseName(info);
-    //list<string> homeworkInfo=getHomeworkInfoByCourseName(info);
-    //ui->textBrowser
+    string teacherInfo=getTeacherInfoByCourseName(info);
+    string courseInfo=getCourseInfoByCourseName(info);
+    list<string> homeworkInfo=getHomeworkInfoByCourseName(info);
+    ui->teaTextBrowser->clear();
+    ui->teaTextBrowser->setText(teacherInfo);
+    ui->corTextBrowser->clear();
+    ui->corTextBrowser->setText(courseInfo);
+    ui->
 }
