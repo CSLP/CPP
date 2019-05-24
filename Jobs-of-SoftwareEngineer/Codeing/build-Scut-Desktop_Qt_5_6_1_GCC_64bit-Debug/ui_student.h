@@ -107,7 +107,7 @@ public:
         loginAgainPushButton->setAutoFillBackground(false);
         calendarWidget = new QCalendarWidget(homeTab);
         calendarWidget->setObjectName(QStringLiteral("calendarWidget"));
-        calendarWidget->setGeometry(QRect(890, 260, 231, 221));
+        calendarWidget->setGeometry(QRect(890, 180, 231, 221));
         labela = new QLabel(homeTab);
         labela->setObjectName(QStringLiteral("labela"));
         labela->setGeometry(QRect(100, 60, 171, 22));
@@ -284,7 +284,7 @@ public:
 
         retranslateUi(Student);
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(Student);
