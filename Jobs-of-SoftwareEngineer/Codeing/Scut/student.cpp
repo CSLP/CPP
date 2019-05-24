@@ -1,6 +1,7 @@
 #include "student.h"
 #include "ui_student.h"
 #include"interface.h"
+#include"analogclock.h"
 #include<QDebug>
 Student::Student(QWidget *parent) :
     QMainWindow(parent),
@@ -20,6 +21,10 @@ Student::Student(QWidget *parent) :
     ui->label6->setPixmap(pixmap);
     ui->label6->resize(ui->label1->size());
     ui->tabWidget->setCurrentIndex(0);
+    AnalogClock *clock=new AnalogClock(this);
+    QVBoxLayout *layout=new QVBoxLayout;
+    layout->addWidget(clock);
+    ui->homeTab->setLayout(layout);
 }
 
 Student::~Student()

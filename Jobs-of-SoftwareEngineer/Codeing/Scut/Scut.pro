@@ -18,14 +18,16 @@ SOURCES += main.cpp\
     student.cpp \
     teacher.cpp \
     studentab.cpp \
-    interface.cpp
+    interface.cpp \
+    analogclock.cpp
 
 HEADERS  += login.h \
     signup.h \
     student.h \
     teacher.h \
     studentab.h \
-    interface.h
+    interface.h \
+    analogclock.h
 
 FORMS    += login.ui \
     signup.ui \
