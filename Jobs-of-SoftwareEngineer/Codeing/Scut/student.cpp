@@ -1,7 +1,6 @@
 #include "student.h"
 #include "ui_student.h"
 #include"interface.h"
-#include"analogclock.h"
 #include<QDebug>
 Student::Student(QWidget *parent) :
     QMainWindow(parent),

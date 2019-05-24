@@ -19,7 +19,6 @@ SOURCES += main.cpp\
     teacher.cpp \
     studentab.cpp \
     interface.cpp \
-    analogclock.cpp
 
 HEADERS  += login.h \
     signup.h \
@@ -27,7 +26,6 @@ HEADERS  += login.h \
     teacher.h \
     studentab.h \
     interface.h \
-    analogclock.h
 
 FORMS    += login.ui \
     signup.ui \
