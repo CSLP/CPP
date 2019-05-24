@@ -37,7 +37,7 @@ public:
     QTextBrowser *homTextBrowser;
     QPushButton *submitPushButton;
     QPushButton *backPushButton;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QHBoxLayout *horizontalLayout_4;
     QVBoxLayout *verticalLayout;
     QLabel *label;
@@ -45,6 +45,7 @@ public:
     QVBoxLayout *verticalLayout_2;
     QLabel *label_2;
     QTextBrowser *corTextBrowser;
+    QWidget *resourceTab;
 
     void setupUi(QDialog *Course)
     {
@@ -80,22 +81,22 @@ public:
         backPushButton = new QPushButton(tab);
         backPushButton->setObjectName(QStringLiteral("backPushButton"));
         backPushButton->setGeometry(QRect(750, 590, 120, 32));
-        widget = new QWidget(tab);
-        widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(100, 43, 991, 271));
-        horizontalLayout_4 = new QHBoxLayout(widget);
+        layoutWidget = new QWidget(tab);
+        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
+        layoutWidget->setGeometry(QRect(100, 43, 991, 271));
+        horizontalLayout_4 = new QHBoxLayout(layoutWidget);
         horizontalLayout_4->setSpacing(50);
         horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
         horizontalLayout_4->setContentsMargins(0, 0, 0, 0);
         verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        label = new QLabel(widget);
+        label = new QLabel(layoutWidget);
         label->setObjectName(QStringLiteral("label"));
         label->setAlignment(Qt::AlignCenter);
 
         verticalLayout->addWidget(label);
 
-        teaTextBrowser = new QTextBrowser(widget);
+        teaTextBrowser = new QTextBrowser(layoutWidget);
         teaTextBrowser->setObjectName(QStringLiteral("teaTextBrowser"));
 
         verticalLayout->addWidget(teaTextBrowser);
@@ -105,13 +106,13 @@ public:
 
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
-        label_2 = new QLabel(widget);
+        label_2 = new QLabel(layoutWidget);
         label_2->setObjectName(QStringLiteral("label_2"));
         label_2->setAlignment(Qt::AlignCenter);
 
         verticalLayout_2->addWidget(label_2);
 
-        corTextBrowser = new QTextBrowser(widget);
+        corTextBrowser = new QTextBrowser(layoutWidget);
         corTextBrowser->setObjectName(QStringLiteral("corTextBrowser"));
 
         verticalLayout_2->addWidget(corTextBrowser);
@@ -120,13 +121,16 @@ public:
         horizontalLayout_4->addLayout(verticalLayout_2);
 
         tabWidget->addTab(tab, QString());
+        resourceTab = new QWidget();
+        resourceTab->setObjectName(QStringLiteral("resourceTab"));
+        tabWidget->addTab(resourceTab, QString());
 
         horizontalLayout->addWidget(tabWidget);
 
 
         retranslateUi(Course);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(Course);
@@ -146,6 +150,7 @@ public:
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">fdjlk;kjffkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkjflkjsjdfafds</p></body></html>", 0));
         label_2->setText(QApplication::translate("Course", "CourseInformation", 0));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("Course", "Home", 0));
+        tabWidget->setTabText(tabWidget->indexOf(resourceTab), QApplication::translate("Course", "Resource", 0));
     } // retranslateUi
 
 };

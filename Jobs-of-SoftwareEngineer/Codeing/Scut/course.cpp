@@ -1,6 +1,9 @@
 #include "course.h"
 #include "ui_course.h"
 #include"sendfile.h"
+#include<QDir>
+#include<QFileSystemModel>
+#include<QTreeView>
 Course::Course(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Course)
@@ -8,6 +11,14 @@ Course::Course(QWidget *parent) :
     ui->setupUi(this);
     this->move(390,155);
     ui->teaTextBrowser->append("nimasil");
+    QFileSystemModel model;
+    QTreeView *tree=new QTreeView(this);
+    model.setRootPath(QDir::currentPath());
+    tree->setModel(&model);
+    tree->setRootIndex(model.index(QDir::currentPath()));
+    QVBoxLayout *layout=new QVBoxLayout;
+    layout->addWidget(tree);
+    ui->resourceTab->setLayout(layout);
 }
 
 Course::~Course()
