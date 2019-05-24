@@ -2,6 +2,7 @@
 #include "ui_student.h"
 #include"interface.h"
 #include<QDebug>
+#include"clock.h"
 Student::Student(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Student)
@@ -20,6 +21,21 @@ Student::Student(QWidget *parent) :
     ui->label6->setPixmap(pixmap);
     ui->label6->resize(ui->label1->size());
     ui->tabWidget->setCurrentIndex(0);
+    QVBoxLayout *layout2=new QVBoxLayout;
+    Clock *clock=new Clock();
+    qDebug()<<ui->calendarWidget->parentWidget();
+    QLabel *label=new QLabel;
+    label->setText(tr("nimasile"));
+    QCalendarWidget *cal=new QCalendarWidget;
+    QListWidget *li=new QListWidget;
+    QVBoxLayout *layout1=new QVBoxLayout;
+    layout1->addWidget(li);
+    QHBoxLayout *layout=new QHBoxLayout;
+    layout2->addWidget(clock);
+    layout2->addWidget(label);
+    layout->addLayout(layout1);
+    layout->addLayout(layout2);
+    ui->homeTab->setLayout(layout);
 }
 
 Student::~Student()

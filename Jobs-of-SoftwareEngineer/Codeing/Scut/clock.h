@@ -14,7 +14,8 @@ class Clock : public QWidget
 public:
     explicit Clock(QWidget *parent = 0);
     ~Clock();
-
+private slots:
+    void timerUpdate();
 private:
     Ui::Clock *ui;
 };
