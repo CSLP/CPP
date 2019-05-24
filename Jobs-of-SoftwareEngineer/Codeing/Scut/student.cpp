@@ -39,7 +39,7 @@ void Student::on_loginAgainPushButton_clicked()
 
 void Student::idInfomation(std::__cxx11::string idinfo)
 {
-   list<string> info =getInfoStringList(idinfo);
+   list<string> info =getStudentInfoByStudentId(idinfo);
    QString x;
    QStringList in;
    for(string &a:info)
@@ -52,7 +52,7 @@ void Student::idInfomation(std::__cxx11::string idinfo)
 
 void Student::courseInformation(std::__cxx11::string  id)
 {
-    auto co=getCoursesMap(id);
+    auto co=getCourseInfoByStudentId(id);
     if(co.size()!=6)
         qDebug()<<"wrong";
     else

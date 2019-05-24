@@ -7,7 +7,7 @@ Course::Course(QWidget *parent) :
 {
     ui->setupUi(this);
     this->move(390,155);
-    ui->textBrowser->append("nimasil");
+    ui->teaTextBrowser->append("nimasil");
 }
 
 Course::~Course()
@@ -26,10 +26,18 @@ void Course::on_submitPushButton_clicked()
    s->show();
 }
 
-void Course::courseInfo(std::__cxx11::string info)
+void Course::courseInfo(std::__cxx11::string corName)
 {
-   // string teacherInfo=getTeacherInfoByCourseName(info);
-    //string courseInfo=getCourseInfoByCourseName(info);
-    //list<string> homeworkInfo=getHomeworkInfoByCourseName(info);
-    //ui->textBrowser
+    string teacherInfo=getTeacherInfoByCourseName(corName);
+    string courseInfo=getCourseInfoByCourseName(corName);
+    list<string> homeworkInfo=getHomeworkInfoByCourseName(corName);
+    ui->teaTextBrowser->clear();
+    ui->teaTextBrowser->setText(QString::fromStdString(teacherInfo));
+    ui->corTextBrowser->clear();
+    ui->corTextBrowser->setText(QString::fromStdString(courseInfo));
+    ui->homTextBrowser->clear();
+    foreach(auto &a,homeworkInfo)
+    {
+        ui->homTextBrowser->append(QString::fromStdString(a));
+    }
 }

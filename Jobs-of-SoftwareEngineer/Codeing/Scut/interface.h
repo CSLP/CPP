@@ -9,7 +9,9 @@ using std::list;
 using std::map;
 bool loginMatch(string ,string ,string );
 void signUpInfo(string,string,string,string,string,string,QDate);
-list<string>  getInfoStringList(string);
-map<string,string> getCoursesMap(string);
-
+list<string>  getStudentInfoByStudentId(string);
+map<string,string> getCourseInfoByStudentId(string);
+string getTeacherInfoByCourseName(string);
+string getCourseInfoByCourseName(string);
+list<string> getHomeworkInfoByCourseName(string);
 #endif // INTERFACE_H

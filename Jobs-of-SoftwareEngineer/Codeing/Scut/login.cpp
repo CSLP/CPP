@@ -3,7 +3,6 @@
 #include"student.h"
 #include"teacher.h"
 #include"signup.h"
-#include"studentab.h"
 #include<string>
 #include<QMessageBox>
 #include"interface.h"

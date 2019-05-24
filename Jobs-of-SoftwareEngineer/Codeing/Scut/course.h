@@ -4,6 +4,7 @@
 #include <QDialog>
 #include<string>
 #include<list>
+#include"interface.h"
 using std::list;
 using std::string;
 namespace Ui {
