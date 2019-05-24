@@ -35,7 +35,7 @@ COMPRESS      = gzip -9f
 DISTNAME      = Scut1.0.0
 DISTDIR = /home/wuyulp/Program/C++/C-Plus-Plus/Jobs-of-SoftwareEngineer/Codeing/build-Scut-Desktop_Qt_5_6_1_GCC_64bit-Debug/.tmp/Scut1.0.0
 LINK          = g++
-LFLAGS        = -Wl,-rpath,/home/wuyulp/Qt5.6.1/5.6/gcc_64/lib
+LFLAGS        = -no-pie -Wl,-rpath,/home/wuyulp/Qt5.6.1/5.6/gcc_64/lib
 LIBS          = $(SUBLIBS) -L/home/wuyulp/Qt5.6.1/5.6/gcc_64/lib -lQt5Widgets -L/usr/lib64 -lQt5Gui -lQt5Core -lGL -lpthread 
 AR            = ar cqs
 RANLIB        = 
@@ -1478,11 +1478,61 @@ login.o: ../Scut/login.cpp ../Scut/login.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qvector2d.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qtouchdevice.h \
 		ui_login.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/QVariant \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QAction \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qaction.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qicon.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qactiongroup.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QApplication \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qapplication.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qcoreapplication.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qeventloop.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qguiapplication.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qinputmethod.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QButtonGroup \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QGridLayout \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qgridlayout.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qlayout.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qboxlayout.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QHBoxLayout \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QHeaderView \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qheaderview.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qframe.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qstyleoption.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qvalidator.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qregularexpression.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qslider.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qabstractslider.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qstyle.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qtabbar.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qtabwidget.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qrubberband.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QLabel \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qlabel.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QLineEdit \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qlineedit.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qtextcursor.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qtextformat.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qpen.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qtextoption.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QPushButton \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qpushbutton.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QRadioButton \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qradiobutton.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QWidget \
 		../Scut/student.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QMainWindow \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qmainwindow.h \
-		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qtabwidget.h \
-		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qicon.h \
 		../Scut/teacher.h \
 		../Scut/signup.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QMessageBox \
@@ -1599,9 +1649,63 @@ signup.o: ../Scut/signup.cpp ../Scut/signup.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qvector2d.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qtouchdevice.h \
 		ui_signup.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/QVariant \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QAction \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qaction.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qicon.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qactiongroup.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QApplication \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qapplication.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qcoreapplication.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qeventloop.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qguiapplication.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qinputmethod.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QButtonGroup \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QDateEdit \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qdatetimeedit.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qdatetime.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qvalidator.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qregularexpression.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QHBoxLayout \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qboxlayout.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qlayout.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qgridlayout.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QHeaderView \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qheaderview.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qframe.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qstyleoption.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qslider.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qabstractslider.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qstyle.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qtabbar.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qtabwidget.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qrubberband.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QLabel \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qlabel.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QLineEdit \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qlineedit.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qtextcursor.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qtextformat.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qpen.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qtextoption.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QPushButton \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qpushbutton.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QRadioButton \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qradiobutton.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QVBoxLayout \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QWidget \
 		../Scut/interface.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/QDate \
-		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qdatetime.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QMessageBox \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qmessagebox.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/QDebug
@@ -1716,6 +1820,68 @@ student.o: ../Scut/student.cpp ../Scut/student.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qtabwidget.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qicon.h \
 		ui_student.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/QVariant \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QAction \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qaction.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qactiongroup.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QApplication \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qapplication.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qcoreapplication.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qeventloop.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qguiapplication.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qinputmethod.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QButtonGroup \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QGridLayout \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qgridlayout.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qlayout.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qboxlayout.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QHBoxLayout \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QHeaderView \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qheaderview.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qframe.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qstyleoption.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qvalidator.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qregularexpression.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qslider.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qabstractslider.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qstyle.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qtabbar.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qrubberband.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QLabel \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qlabel.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QLineEdit \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qlineedit.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qtextcursor.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qtextformat.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qpen.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qtextoption.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QListWidget \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qlistwidget.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qlistview.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QMenuBar \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qmenubar.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qmenu.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QPushButton \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qpushbutton.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QStatusBar \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qstatusbar.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QTabWidget \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QTextBrowser \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qtextbrowser.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qtextedit.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qtextdocument.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QVBoxLayout \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QWidget \
 		../Scut/interface.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/QDate \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qdatetime.h \
@@ -1833,7 +1999,49 @@ teacher.o: ../Scut/teacher.cpp ../Scut/teacher.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qtouchdevice.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qtabwidget.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qicon.h \
-		ui_teacher.h
+		ui_teacher.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/QVariant \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QAction \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qaction.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qactiongroup.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QApplication \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qapplication.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qcoreapplication.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qeventloop.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qguiapplication.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qinputmethod.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QButtonGroup \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QHBoxLayout \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qboxlayout.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qlayout.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qgridlayout.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QHeaderView \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qheaderview.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qframe.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qstyleoption.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qvalidator.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qregularexpression.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qslider.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qabstractslider.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qstyle.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qtabbar.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qrubberband.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QMenuBar \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qmenubar.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qmenu.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QStatusBar \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qstatusbar.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QTabWidget \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o teacher.o ../Scut/teacher.cpp
 
 interface.o: ../Scut/interface.cpp ../Scut/interface.h \
@@ -1998,6 +2206,59 @@ course.o: ../Scut/course.cpp ../Scut/course.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/QDate \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qdatetime.h \
 		ui_course.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/QVariant \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QAction \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qaction.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qicon.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qactiongroup.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QApplication \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qapplication.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qcoreapplication.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qeventloop.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qguiapplication.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qinputmethod.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QButtonGroup \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QHBoxLayout \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qboxlayout.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qlayout.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qgridlayout.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QHeaderView \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qheaderview.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qframe.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qstyleoption.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qvalidator.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qregularexpression.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qslider.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qabstractslider.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qstyle.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qtabbar.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qtabwidget.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qrubberband.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QLabel \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qlabel.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QPushButton \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qpushbutton.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QTabWidget \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QTextBrowser \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qtextbrowser.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qtextedit.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qtextdocument.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qtextoption.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qtextcursor.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qtextformat.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qpen.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QVBoxLayout \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QWidget \
 		../Scut/sendfile.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o course.o ../Scut/course.cpp
 
@@ -2108,6 +2369,60 @@ sendfile.o: ../Scut/sendfile.cpp ../Scut/sendfile.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qvector2d.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qtouchdevice.h \
 		ui_sendfile.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/QVariant \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QAction \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qaction.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qicon.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qactiongroup.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QApplication \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qapplication.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qcoreapplication.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qeventloop.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qguiapplication.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qinputmethod.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QButtonGroup \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QHBoxLayout \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qboxlayout.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qlayout.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qgridlayout.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QHeaderView \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qheaderview.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qframe.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qstyleoption.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qvalidator.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qregularexpression.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qslider.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qabstractslider.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qstyle.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qtabbar.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qtabwidget.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qrubberband.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QLabel \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qlabel.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QProgressBar \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qprogressbar.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QPushButton \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qpushbutton.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QSpacerItem \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QTextBrowser \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qtextbrowser.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qtextedit.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qtextdocument.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qtextoption.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qtextcursor.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qtextformat.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qpen.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QVBoxLayout \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QFileDialog \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qfiledialog.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qdir.h \
