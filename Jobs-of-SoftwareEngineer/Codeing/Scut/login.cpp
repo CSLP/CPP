@@ -3,13 +3,14 @@
 #include"student.h"
 #include"teacher.h"
 #include"signup.h"
+#include"studentab.h"
 #include<string>
 #include<QMessageBox>
 bool loginMatch(string type,string id,string passwd)
 {
     if(type=="student"&&id=="110"&&passwd=="scut")
         return true;
-    return false;
+    return true;
 
 }
 Login::Login(QWidget *parent) :
@@ -20,6 +21,11 @@ Login::Login(QWidget *parent) :
     student=new Student(this);
     teacher=new Teacher(this);
     signup=new SignUp(this);
+    QStringList l;
+    QMap<QString,QString> b;
+    QMap<QString,QString> c;
+
+    stu=new studentab(l,b,c,this);
 }
 
 Login::~Login()

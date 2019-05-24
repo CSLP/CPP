@@ -16,14 +16,20 @@ SOURCES += main.cpp\
         login.cpp \
     signup.cpp \
     student.cpp \
-    teacher.cpp
+    teacher.cpp \
+    studentab.cpp
 
 HEADERS  += login.h \
     signup.h \
     student.h \
-    teacher.h
+    teacher.h \
+    studentab.h \
+    interface.h
 
 FORMS    += login.ui \
     signup.ui \
     student.ui \
     teacher.ui
+
+RESOURCES += \
+    resource.qrc

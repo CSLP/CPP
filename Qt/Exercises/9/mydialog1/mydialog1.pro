@@ -18,3 +18,7 @@ SOURCES += main.cpp\
 HEADERS  += mywidget.h
 
 FORMS    += mywidget.ui
+
+DISTFILES += \
+    FfForm.ui.qml \
+    Ff.qml
