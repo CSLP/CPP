@@ -33,8 +33,8 @@ Student::~Student()
 
 void Student::on_loginAgainPushButton_clicked()
 {
-    close();
     this->parentWidget()->show();
+    close();
 }
 
 void Student::idInfomation(std::__cxx11::string idinfo)
