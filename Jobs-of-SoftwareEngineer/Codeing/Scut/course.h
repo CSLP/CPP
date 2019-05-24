@@ -15,6 +15,9 @@ public:
     explicit Course(QWidget *parent = 0);
     ~Course();
 
+private slots:
+    void on_backPushButton_clicked();
+
 private:
     Ui::Course *ui;
 };

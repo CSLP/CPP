@@ -6,9 +6,16 @@ Course::Course(QWidget *parent) :
     ui(new Ui::Course)
 {
     ui->setupUi(this);
+    ui->textBrowser->append("nimasil");
 }
 
 Course::~Course()
 {
     delete ui;
+}
+
+void Course::on_backPushButton_clicked()
+{
+   this->parentWidget()->show();
+    close();
 }
