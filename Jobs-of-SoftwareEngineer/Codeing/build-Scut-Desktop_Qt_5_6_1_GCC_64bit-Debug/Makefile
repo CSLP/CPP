@@ -53,7 +53,8 @@ SOURCES       = ../Scut/main.cpp \
 		../Scut/signup.cpp \
 		../Scut/student.cpp \
 		../Scut/teacher.cpp \
-		../Scut/studentab.cpp qrc_resource.cpp \
+		../Scut/studentab.cpp \
+		../Scut/interface.cpp qrc_resource.cpp \
 		moc_login.cpp \
 		moc_signup.cpp \
 		moc_student.cpp \
@@ -65,6 +66,7 @@ OBJECTS       = main.o \
 		student.o \
 		teacher.o \
 		studentab.o \
+		interface.o \
 		qrc_resource.o \
 		moc_login.o \
 		moc_signup.o \
@@ -210,12 +212,14 @@ DIST          = /home/wuyulp/Qt5.6.1/5.6/gcc_64/mkspecs/features/spec_pre.prf \
 		../Scut/signup.h \
 		../Scut/student.h \
 		../Scut/teacher.h \
-		../Scut/studentab.h ../Scut/main.cpp \
+		../Scut/studentab.h \
+		../Scut/interface.h ../Scut/main.cpp \
 		../Scut/login.cpp \
 		../Scut/signup.cpp \
 		../Scut/student.cpp \
 		../Scut/teacher.cpp \
-		../Scut/studentab.cpp
+		../Scut/studentab.cpp \
+		../Scut/interface.cpp
 QMAKE_TARGET  = Scut
 DESTDIR       = 
 TARGET        = Scut
@@ -523,8 +527,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../Scut/resource.qrc $(DISTDIR)/
-	$(COPY_FILE) --parents ../Scut/login.h ../Scut/signup.h ../Scut/student.h ../Scut/teacher.h ../Scut/studentab.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../Scut/main.cpp ../Scut/login.cpp ../Scut/signup.cpp ../Scut/student.cpp ../Scut/teacher.cpp ../Scut/studentab.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../Scut/login.h ../Scut/signup.h ../Scut/student.h ../Scut/teacher.h ../Scut/studentab.h ../Scut/interface.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../Scut/main.cpp ../Scut/login.cpp ../Scut/signup.cpp ../Scut/student.cpp ../Scut/teacher.cpp ../Scut/studentab.cpp ../Scut/interface.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../Scut/login.ui ../Scut/signup.ui ../Scut/student.ui ../Scut/teacher.ui $(DISTDIR)/
 
 
@@ -1241,7 +1245,8 @@ main.o: ../Scut/main.cpp ../Scut/login.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qeventloop.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qdesktopwidget.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qguiapplication.h \
-		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qinputmethod.h
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qinputmethod.h \
+		../Scut/studentab.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../Scut/main.cpp
 
 login.o: ../Scut/login.cpp ../Scut/login.h \
@@ -1408,8 +1413,10 @@ login.o: ../Scut/login.cpp ../Scut/login.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qmainwindow.h \
 		../Scut/teacher.h \
 		../Scut/signup.h \
+		../Scut/studentab.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QMessageBox \
-		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qmessagebox.h
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qmessagebox.h \
+		../Scut/interface.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o login.o ../Scut/login.cpp
 
 signup.o: ../Scut/signup.cpp ../Scut/signup.h \
@@ -1864,6 +1871,11 @@ teacher.o: ../Scut/teacher.cpp ../Scut/teacher.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qinputmethod.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QButtonGroup \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QHBoxLayout \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qboxlayout.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qlayout.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qgridlayout.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QHeaderView \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qheaderview.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qabstractitemview.h \
@@ -1886,6 +1898,7 @@ teacher.o: ../Scut/teacher.cpp ../Scut/teacher.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qmenu.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QStatusBar \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qstatusbar.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QTabWidget \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o teacher.o ../Scut/teacher.cpp
 
@@ -2338,6 +2351,9 @@ studentab.o: ../Scut/studentab.cpp ../Scut/studentab.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qtoolbutton.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qtwidgetsversion.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o studentab.o ../Scut/studentab.cpp
+
+interface.o: ../Scut/interface.cpp ../Scut/interface.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o interface.o ../Scut/interface.cpp
 
 qrc_resource.o: qrc_resource.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_resource.o qrc_resource.cpp

@@ -2,7 +2,8 @@
 #define STUDENT_H
 
 #include <QMainWindow>
-
+#include<string>
+using std::string;
 namespace Ui {
 class Student;
 }
@@ -20,6 +21,9 @@ private slots:
 
 private:
     Ui::Student *ui;
+public slots:
+    void idInfomation(string);
+    void courseInformation(string);
 };
 
 #endif // STUDENT_H

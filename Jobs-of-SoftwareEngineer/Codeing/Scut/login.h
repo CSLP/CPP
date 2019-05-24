@@ -5,7 +5,6 @@
 class Student;
 class Teacher;
 class SignUp;
-class studentab;
 using std::string;
 namespace Ui {
 class Login;
@@ -29,8 +28,7 @@ private:
     Student * student;
     Teacher * teacher;
     SignUp * signup;
-    studentab*stu;
-
+signals:
+    void idInfo(string);
 };
-bool loginMatch(string ,string ,string );
 #endif // LOGIN_H

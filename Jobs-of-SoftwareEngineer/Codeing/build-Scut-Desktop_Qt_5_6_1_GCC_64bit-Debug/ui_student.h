@@ -14,15 +14,17 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QCalendarWidget>
+#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QListView>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTabWidget>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -34,25 +36,38 @@ public:
     QHBoxLayout *horizontalLayout;
     QTabWidget *tabWidget;
     QWidget *homeTab;
-    QListView *listView;
     QPushButton *loginAgainPushButton;
     QCalendarWidget *calendarWidget;
     QLabel *label;
-    QListView *listView_2;
     QLabel *label_2;
+    QListWidget *listWidget;
+    QListWidget *listWidget_2;
     QWidget *courseTab;
-    QLabel *label_3;
-    QLabel *label_4;
-    QLabel *label_5;
-    QLabel *label_6;
-    QLabel *label_7;
-    QLabel *label_8;
-    QPushButton *pushButton;
-    QPushButton *pushButton_2;
-    QPushButton *pushButton_3;
-    QPushButton *pushButton_4;
-    QPushButton *pushButton_5;
-    QPushButton *pushButton_6;
+    QGridLayout *gridLayout;
+    QVBoxLayout *verticalLayout;
+    QLabel *label1;
+    QLabel *label11;
+    QPushButton *pushButton1;
+    QVBoxLayout *verticalLayout_2;
+    QLabel *label2;
+    QLabel *label22;
+    QPushButton *pushButton2;
+    QVBoxLayout *verticalLayout_3;
+    QLabel *label3;
+    QLabel *label33;
+    QPushButton *pushButton3;
+    QVBoxLayout *verticalLayout_4;
+    QLabel *label4;
+    QLabel *label44;
+    QPushButton *pushButton4;
+    QVBoxLayout *verticalLayout_5;
+    QLabel *label5;
+    QLabel *label55;
+    QPushButton *pushButton5;
+    QVBoxLayout *verticalLayout_6;
+    QLabel *label6;
+    QLabel *label66;
+    QPushButton *pushButton6;
     QWidget *forumTab;
     QHBoxLayout *horizontalLayout_2;
     QMenuBar *menubar;
@@ -62,7 +77,7 @@ public:
     {
         if (Student->objectName().isEmpty())
             Student->setObjectName(QStringLiteral("Student"));
-        Student->resize(1159, 678);
+        Student->resize(1186, 712);
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -75,11 +90,9 @@ public:
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         tabWidget = new QTabWidget(centralwidget);
         tabWidget->setObjectName(QStringLiteral("tabWidget"));
+        tabWidget->setContextMenuPolicy(Qt::CustomContextMenu);
         homeTab = new QWidget();
         homeTab->setObjectName(QStringLiteral("homeTab"));
-        listView = new QListView(homeTab);
-        listView->setObjectName(QStringLiteral("listView"));
-        listView->setGeometry(QRect(30, 90, 241, 341));
         loginAgainPushButton = new QPushButton(homeTab);
         loginAgainPushButton->setObjectName(QStringLiteral("loginAgainPushButton"));
         loginAgainPushButton->setGeometry(QRect(90, 480, 115, 32));
@@ -98,55 +111,160 @@ public:
         label = new QLabel(homeTab);
         label->setObjectName(QStringLiteral("label"));
         label->setGeometry(QRect(100, 60, 171, 22));
-        listView_2 = new QListView(homeTab);
-        listView_2->setObjectName(QStringLiteral("listView_2"));
-        listView_2->setGeometry(QRect(400, 80, 256, 331));
         label_2 = new QLabel(homeTab);
         label_2->setObjectName(QStringLiteral("label_2"));
         label_2->setGeometry(QRect(470, 60, 85, 22));
+        listWidget = new QListWidget(homeTab);
+        listWidget->setObjectName(QStringLiteral("listWidget"));
+        listWidget->setGeometry(QRect(20, 90, 256, 351));
+        listWidget_2 = new QListWidget(homeTab);
+        listWidget_2->setObjectName(QStringLiteral("listWidget_2"));
+        listWidget_2->setGeometry(QRect(390, 100, 256, 341));
         tabWidget->addTab(homeTab, QString());
         courseTab = new QWidget();
         courseTab->setObjectName(QStringLiteral("courseTab"));
-        label_3 = new QLabel(courseTab);
-        label_3->setObjectName(QStringLiteral("label_3"));
-        label_3->setGeometry(QRect(60, 50, 211, 121));
-        label_3->setScaledContents(true);
-        label_3->setAlignment(Qt::AlignHCenter|Qt::AlignTop);
-        label_4 = new QLabel(courseTab);
-        label_4->setObjectName(QStringLiteral("label_4"));
-        label_4->setGeometry(QRect(470, 110, 131, 51));
-        label_4->setScaledContents(true);
-        label_5 = new QLabel(courseTab);
-        label_5->setObjectName(QStringLiteral("label_5"));
-        label_5->setGeometry(QRect(850, 90, 85, 22));
-        label_6 = new QLabel(courseTab);
-        label_6->setObjectName(QStringLiteral("label_6"));
-        label_6->setGeometry(QRect(150, 380, 85, 22));
-        label_7 = new QLabel(courseTab);
-        label_7->setObjectName(QStringLiteral("label_7"));
-        label_7->setGeometry(QRect(500, 270, 85, 22));
-        label_8 = new QLabel(courseTab);
-        label_8->setObjectName(QStringLiteral("label_8"));
-        label_8->setGeometry(QRect(880, 280, 85, 22));
-        pushButton = new QPushButton(courseTab);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(150, 240, 120, 32));
-        pushButton_2 = new QPushButton(courseTab);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        pushButton_2->setGeometry(QRect(540, 170, 120, 32));
-        pushButton_3 = new QPushButton(courseTab);
-        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
-        pushButton_3->setGeometry(QRect(900, 180, 120, 32));
-        pushButton_4 = new QPushButton(courseTab);
-        pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
-        pushButton_4->setGeometry(QRect(100, 460, 120, 32));
-        pushButton_5 = new QPushButton(courseTab);
-        pushButton_5->setObjectName(QStringLiteral("pushButton_5"));
-        pushButton_5->setGeometry(QRect(470, 350, 120, 32));
-        pushButton_6 = new QPushButton(courseTab);
-        pushButton_6->setObjectName(QStringLiteral("pushButton_6"));
-        pushButton_6->setGeometry(QRect(920, 360, 120, 32));
+        gridLayout = new QGridLayout(courseTab);
+        gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        gridLayout->setHorizontalSpacing(30);
+        gridLayout->setVerticalSpacing(20);
+        verticalLayout = new QVBoxLayout();
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        label1 = new QLabel(courseTab);
+        label1->setObjectName(QStringLiteral("label1"));
+        label1->setScaledContents(false);
+        label1->setAlignment(Qt::AlignCenter);
+
+        verticalLayout->addWidget(label1);
+
+        label11 = new QLabel(courseTab);
+        label11->setObjectName(QStringLiteral("label11"));
+        label11->setAlignment(Qt::AlignCenter);
+
+        verticalLayout->addWidget(label11);
+
+        pushButton1 = new QPushButton(courseTab);
+        pushButton1->setObjectName(QStringLiteral("pushButton1"));
+
+        verticalLayout->addWidget(pushButton1);
+
+
+        gridLayout->addLayout(verticalLayout, 0, 0, 1, 1);
+
+        verticalLayout_2 = new QVBoxLayout();
+        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        label2 = new QLabel(courseTab);
+        label2->setObjectName(QStringLiteral("label2"));
+        label2->setScaledContents(false);
+        label2->setAlignment(Qt::AlignCenter);
+
+        verticalLayout_2->addWidget(label2);
+
+        label22 = new QLabel(courseTab);
+        label22->setObjectName(QStringLiteral("label22"));
+        label22->setAlignment(Qt::AlignCenter);
+
+        verticalLayout_2->addWidget(label22);
+
+        pushButton2 = new QPushButton(courseTab);
+        pushButton2->setObjectName(QStringLiteral("pushButton2"));
+
+        verticalLayout_2->addWidget(pushButton2);
+
+
+        gridLayout->addLayout(verticalLayout_2, 0, 1, 1, 1);
+
+        verticalLayout_3 = new QVBoxLayout();
+        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
+        label3 = new QLabel(courseTab);
+        label3->setObjectName(QStringLiteral("label3"));
+        label3->setScaledContents(false);
+        label3->setAlignment(Qt::AlignCenter);
+
+        verticalLayout_3->addWidget(label3);
+
+        label33 = new QLabel(courseTab);
+        label33->setObjectName(QStringLiteral("label33"));
+        label33->setAlignment(Qt::AlignCenter);
+
+        verticalLayout_3->addWidget(label33);
+
+        pushButton3 = new QPushButton(courseTab);
+        pushButton3->setObjectName(QStringLiteral("pushButton3"));
+
+        verticalLayout_3->addWidget(pushButton3);
+
+
+        gridLayout->addLayout(verticalLayout_3, 0, 2, 1, 1);
+
+        verticalLayout_4 = new QVBoxLayout();
+        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
+        label4 = new QLabel(courseTab);
+        label4->setObjectName(QStringLiteral("label4"));
+        label4->setScaledContents(false);
+        label4->setAlignment(Qt::AlignCenter);
+
+        verticalLayout_4->addWidget(label4);
+
+        label44 = new QLabel(courseTab);
+        label44->setObjectName(QStringLiteral("label44"));
+        label44->setAlignment(Qt::AlignCenter);
+
+        verticalLayout_4->addWidget(label44);
+
+        pushButton4 = new QPushButton(courseTab);
+        pushButton4->setObjectName(QStringLiteral("pushButton4"));
+
+        verticalLayout_4->addWidget(pushButton4);
+
+
+        gridLayout->addLayout(verticalLayout_4, 1, 0, 1, 1);
+
+        verticalLayout_5 = new QVBoxLayout();
+        verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
+        label5 = new QLabel(courseTab);
+        label5->setObjectName(QStringLiteral("label5"));
+        label5->setAlignment(Qt::AlignCenter);
+
+        verticalLayout_5->addWidget(label5);
+
+        label55 = new QLabel(courseTab);
+        label55->setObjectName(QStringLiteral("label55"));
+        label55->setAlignment(Qt::AlignCenter);
+
+        verticalLayout_5->addWidget(label55);
+
+        pushButton5 = new QPushButton(courseTab);
+        pushButton5->setObjectName(QStringLiteral("pushButton5"));
+
+        verticalLayout_5->addWidget(pushButton5);
+
+
+        gridLayout->addLayout(verticalLayout_5, 1, 1, 1, 1);
+
+        verticalLayout_6 = new QVBoxLayout();
+        verticalLayout_6->setObjectName(QStringLiteral("verticalLayout_6"));
+        label6 = new QLabel(courseTab);
+        label6->setObjectName(QStringLiteral("label6"));
+        label6->setAlignment(Qt::AlignCenter);
+
+        verticalLayout_6->addWidget(label6);
+
+        label66 = new QLabel(courseTab);
+        label66->setObjectName(QStringLiteral("label66"));
+        label66->setAlignment(Qt::AlignCenter);
+
+        verticalLayout_6->addWidget(label66);
+
+        pushButton6 = new QPushButton(courseTab);
+        pushButton6->setObjectName(QStringLiteral("pushButton6"));
+
+        verticalLayout_6->addWidget(pushButton6);
+
+
+        gridLayout->addLayout(verticalLayout_6, 1, 2, 1, 1);
+
         tabWidget->addTab(courseTab, QString());
+        label44->raise();
         forumTab = new QWidget();
         forumTab->setObjectName(QStringLiteral("forumTab"));
         horizontalLayout_2 = new QHBoxLayout(forumTab);
@@ -158,7 +276,7 @@ public:
         Student->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Student);
         menubar->setObjectName(QStringLiteral("menubar"));
-        menubar->setGeometry(QRect(0, 0, 1159, 30));
+        menubar->setGeometry(QRect(0, 0, 1186, 30));
         Student->setMenuBar(menubar);
         statusbar = new QStatusBar(Student);
         statusbar->setObjectName(QStringLiteral("statusbar"));
@@ -179,18 +297,24 @@ public:
         label->setText(QApplication::translate("Student", "Information", 0));
         label_2->setText(QApplication::translate("Student", "Bulletin", 0));
         tabWidget->setTabText(tabWidget->indexOf(homeTab), QApplication::translate("Student", "Home", 0));
-        label_3->setText(QApplication::translate("Student", "<html><head/><body><p><img src=\":/image/1.png\"/></p></body></html>", 0));
-        label_4->setText(QApplication::translate("Student", "TextLabel", 0));
-        label_5->setText(QApplication::translate("Student", "TextLabel", 0));
-        label_6->setText(QApplication::translate("Student", "TextLabel", 0));
-        label_7->setText(QApplication::translate("Student", "TextLabel", 0));
-        label_8->setText(QApplication::translate("Student", "TextLabel", 0));
-        pushButton->setText(QApplication::translate("Student", "PushButton", 0));
-        pushButton_2->setText(QApplication::translate("Student", "PushButton", 0));
-        pushButton_3->setText(QApplication::translate("Student", "PushButton", 0));
-        pushButton_4->setText(QApplication::translate("Student", "PushButton", 0));
-        pushButton_5->setText(QApplication::translate("Student", "PushButton", 0));
-        pushButton_6->setText(QApplication::translate("Student", "PushButton", 0));
+        label1->setText(QApplication::translate("Student", "<html><head/><body><p><img src=\":/image/1.png\"/></p></body></html>", 0));
+        label11->setText(QApplication::translate("Student", "TextLabel", 0));
+        pushButton1->setText(QApplication::translate("Student", "PushButton", 0));
+        label2->setText(QApplication::translate("Student", "TextLabel", 0));
+        label22->setText(QApplication::translate("Student", "TextLabel", 0));
+        pushButton2->setText(QApplication::translate("Student", "PushButton", 0));
+        label3->setText(QApplication::translate("Student", "TextLabel", 0));
+        label33->setText(QApplication::translate("Student", "TextLabel", 0));
+        pushButton3->setText(QApplication::translate("Student", "PushButton", 0));
+        label4->setText(QApplication::translate("Student", "TextLabel", 0));
+        label44->setText(QApplication::translate("Student", "TextLabel", 0));
+        pushButton4->setText(QApplication::translate("Student", "PushButton", 0));
+        label5->setText(QApplication::translate("Student", "TextLabel", 0));
+        label55->setText(QApplication::translate("Student", "TextLabel", 0));
+        pushButton5->setText(QApplication::translate("Student", "PushButton", 0));
+        label6->setText(QApplication::translate("Student", "TextLabel", 0));
+        label66->setText(QApplication::translate("Student", "TextLabel", 0));
+        pushButton6->setText(QApplication::translate("Student", "PushButton", 0));
         tabWidget->setTabText(tabWidget->indexOf(courseTab), QApplication::translate("Student", "Courses", 0));
         tabWidget->setTabText(tabWidget->indexOf(forumTab), QApplication::translate("Student", "Forum", 0));
     } // retranslateUi

@@ -1,5 +1,6 @@
 #include "signup.h"
 #include "ui_signup.h"
+#include"interface.h"
 #include<QMessageBox>
 #include<QDebug>
 SignUp::SignUp(QWidget *parent) :
@@ -40,15 +41,19 @@ void SignUp::on_signupPushButton_clicked()
         }
         else
         {
+            QString type;
+            if(ui->stuRadioButton->isChecked())
+                type="student";
+            else
+                type="teacher";
             QMessageBox::information(this,tr("Hint"),tr("Register Success"),QMessageBox::Ok);
-            // signUpInfo(string,string,string,string,string,string,string,string);
+            signUpInfo(ui->userLineEdit->text().toStdString(),ui->idLineEdit->text().toStdString(),ui->depLineEdit->text().toStdString(),ui->genderLineEdit->text().toStdString(),ui->pwd1LineEdit->text().toStdString(),type.toStdString(),ui->dateEdit->date());
+
         }
 
     }
     else
     {
-       qDebug()<<"sb";
        QMessageBox::information(this,tr("Warning"),tr("Input cannot be empty!"),QMessageBox::Ok);
-       qDebug()<<"laji";
     }
 }

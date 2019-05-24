@@ -17,7 +17,8 @@ SOURCES += main.cpp\
     signup.cpp \
     student.cpp \
     teacher.cpp \
-    studentab.cpp
+    studentab.cpp \
+    interface.cpp
 
 HEADERS  += login.h \
     signup.h \

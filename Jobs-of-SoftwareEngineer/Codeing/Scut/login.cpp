@@ -6,13 +6,7 @@
 #include"studentab.h"
 #include<string>
 #include<QMessageBox>
-bool loginMatch(string type,string id,string passwd)
-{
-    if(type=="student"&&id=="110"&&passwd=="scut")
-        return true;
-    return true;
-
-}
+#include"interface.h"
 Login::Login(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Login)
@@ -21,11 +15,8 @@ Login::Login(QWidget *parent) :
     student=new Student(this);
     teacher=new Teacher(this);
     signup=new SignUp(this);
-    QStringList l;
-    QMap<QString,QString> b;
-    QMap<QString,QString> c;
-
-    stu=new studentab(l,b,c,this);
+    connect(this,&Login::idInfo,student,&Student::idInfomation);
+    connect(this,&Login::idInfo,student,&Student::courseInformation);
 }
 
 Login::~Login()
@@ -45,7 +36,11 @@ void Login::on_signInPushButton_clicked()
             if(loginMatch(type,ui->idLineEdit->text().toStdString(),ui->passwdLineEdit->text().toStdString()))
             {
                 if(ui->stuRadioButton->isChecked())
+                {
+                    string id=ui->idLineEdit->text().toStdString();
+                    emit idInfo(id);
                     student->show();
+                }
                 else
                     teacher->show();
                 ui->idLineEdit->clear();
