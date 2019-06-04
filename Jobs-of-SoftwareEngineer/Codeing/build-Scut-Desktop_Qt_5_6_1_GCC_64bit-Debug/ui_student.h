@@ -48,6 +48,7 @@ public:
     QHBoxLayout *horizontalLayout_5;
     QSpacerItem *horizontalSpacer;
     QPushButton *loginAgainPushButton;
+    QPushButton *modifyPushButton;
     QSpacerItem *horizontalSpacer_2;
     QVBoxLayout *verticalLayout_9;
     QLabel *label;
@@ -180,7 +181,12 @@ public:
 
         horizontalLayout_5->addWidget(loginAgainPushButton);
 
-        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        modifyPushButton = new QPushButton(homeTab);
+        modifyPushButton->setObjectName(QStringLiteral("modifyPushButton"));
+
+        horizontalLayout_5->addWidget(modifyPushButton);
+
+        horizontalSpacer_2 = new QSpacerItem(50, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_5->addItem(horizontalSpacer_2);
 
@@ -441,6 +447,7 @@ public:
         labelb->setText(QApplication::translate("Student", "Bulletin", 0));
         labela->setText(QApplication::translate("Student", "Information", 0));
         loginAgainPushButton->setText(QApplication::translate("Student", "LoginAgain", 0));
+        modifyPushButton->setText(QApplication::translate("Student", "ModifyInfo", 0));
         label->setText(QApplication::translate("Student", "Email", 0));
 
         const bool __sortingEnabled = listWidget->isSortingEnabled();

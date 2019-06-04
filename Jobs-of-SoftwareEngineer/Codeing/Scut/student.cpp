@@ -8,6 +8,7 @@
 #include<QTextBrowser>
 #include<QGroupBox>
 #include<QWidget>
+#include"updateinfo.h"
 Student::Student(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Student)
@@ -16,6 +17,8 @@ Student::Student(QWidget *parent) :
     this->move(400,160);
     //this->resize(1000,1000);
     cor=new Course(this);
+    upd=new UpdateInfo(this);
+    connect(upd,&UpdateInfo::updateStatus,this,&Student::completUpd);
     connect(this,&Student::corInfo,cor,&Course::courseInfo);
     QPixmap pixmap(":/image/1.png");
     ui->label1->setPixmap(pixmap);
@@ -148,6 +151,15 @@ void Student::courseInformation(std::__cxx11::string  id)
     }
 }
 
+void Student::completUpd(bool x)
+{
+   if(x)
+   {
+        ui->listWidget1->clear();
+        close();
+   }
+}
+
 void Student::on_pushButton1_clicked()
 {
     cor->show();
@@ -182,4 +194,9 @@ void Student::on_pushButton6_clicked()
 {
     cor->show();
     emit corInfo(ui->pushButton6->text().toStdString());
+}
+
+void Student::on_modifyPushButton_clicked()
+{
+    upd->show();
 }

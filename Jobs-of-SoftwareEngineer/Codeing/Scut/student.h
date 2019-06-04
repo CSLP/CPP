@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include<string>
 class Course;
+class UpdateInfo;
 using std::string;
 namespace Ui {
 class Student;
@@ -32,12 +33,16 @@ private slots:
 
     void on_pushButton6_clicked();
 
+    void on_modifyPushButton_clicked();
+
 private:
     Ui::Student *ui;
     Course *cor;
+    UpdateInfo * upd;
 public slots:
     void idInfomation(string);
     void courseInformation(string);
+    void completUpd(bool);
 signals:
     void corInfo(string);
 

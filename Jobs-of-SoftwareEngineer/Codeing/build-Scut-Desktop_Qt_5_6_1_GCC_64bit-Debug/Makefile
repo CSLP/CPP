@@ -55,13 +55,15 @@ SOURCES       = ../Scut/main.cpp \
 		../Scut/teacher.cpp \
 		../Scut/interface.cpp \
 		../Scut/course.cpp \
-		../Scut/sendfile.cpp qrc_resource.cpp \
+		../Scut/sendfile.cpp \
+		../Scut/updateinfo.cpp qrc_resource.cpp \
 		moc_login.cpp \
 		moc_signup.cpp \
 		moc_student.cpp \
 		moc_teacher.cpp \
 		moc_course.cpp \
-		moc_sendfile.cpp
+		moc_sendfile.cpp \
+		moc_updateinfo.cpp
 OBJECTS       = main.o \
 		login.o \
 		signup.o \
@@ -70,13 +72,15 @@ OBJECTS       = main.o \
 		interface.o \
 		course.o \
 		sendfile.o \
+		updateinfo.o \
 		qrc_resource.o \
 		moc_login.o \
 		moc_signup.o \
 		moc_student.o \
 		moc_teacher.o \
 		moc_course.o \
-		moc_sendfile.o
+		moc_sendfile.o \
+		moc_updateinfo.o
 DIST          = /home/wuyulp/Qt5.6.1/5.6/gcc_64/mkspecs/features/spec_pre.prf \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/mkspecs/common/unix.conf \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/mkspecs/common/linux.conf \
@@ -218,14 +222,16 @@ DIST          = /home/wuyulp/Qt5.6.1/5.6/gcc_64/mkspecs/features/spec_pre.prf \
 		../Scut/teacher.h \
 		../Scut/interface.h \
 		../Scut/course.h \
-		../Scut/sendfile.h ../Scut/main.cpp \
+		../Scut/sendfile.h \
+		../Scut/updateinfo.h ../Scut/main.cpp \
 		../Scut/login.cpp \
 		../Scut/signup.cpp \
 		../Scut/student.cpp \
 		../Scut/teacher.cpp \
 		../Scut/interface.cpp \
 		../Scut/course.cpp \
-		../Scut/sendfile.cpp
+		../Scut/sendfile.cpp \
+		../Scut/updateinfo.cpp
 QMAKE_TARGET  = Scut
 DESTDIR       = 
 TARGET        = Scut
@@ -234,7 +240,7 @@ TARGET        = Scut
 first: all
 ####### Build rules
 
-$(TARGET): ui_login.h ui_signup.h ui_student.h ui_teacher.h ui_course.h ui_sendfile.h $(OBJECTS)  
+$(TARGET): ui_login.h ui_signup.h ui_student.h ui_teacher.h ui_course.h ui_sendfile.h ui_updateinfo.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: ../Scut/Scut.pro /home/wuyulp/Qt5.6.1/5.6/gcc_64/mkspecs/linux-g++/qmake.conf /home/wuyulp/Qt5.6.1/5.6/gcc_64/mkspecs/features/spec_pre.prf \
@@ -533,9 +539,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../Scut/resource.qrc $(DISTDIR)/
-	$(COPY_FILE) --parents ../Scut/login.h ../Scut/signup.h ../Scut/student.h ../Scut/teacher.h ../Scut/interface.h ../Scut/course.h ../Scut/sendfile.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../Scut/main.cpp ../Scut/login.cpp ../Scut/signup.cpp ../Scut/student.cpp ../Scut/teacher.cpp ../Scut/interface.cpp ../Scut/course.cpp ../Scut/sendfile.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../Scut/login.ui ../Scut/signup.ui ../Scut/student.ui ../Scut/teacher.ui ../Scut/course.ui ../Scut/sendfile.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../Scut/login.h ../Scut/signup.h ../Scut/student.h ../Scut/teacher.h ../Scut/interface.h ../Scut/course.h ../Scut/sendfile.h ../Scut/updateinfo.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../Scut/main.cpp ../Scut/login.cpp ../Scut/signup.cpp ../Scut/student.cpp ../Scut/teacher.cpp ../Scut/interface.cpp ../Scut/course.cpp ../Scut/sendfile.cpp ../Scut/updateinfo.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../Scut/login.ui ../Scut/signup.ui ../Scut/student.ui ../Scut/teacher.ui ../Scut/course.ui ../Scut/sendfile.ui ../Scut/updateinfo.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -565,9 +571,9 @@ qrc_resource.cpp: ../Scut/resource.qrc \
 		../Scut/1.png
 	/home/wuyulp/Qt5.6.1/5.6/gcc_64/bin/rcc -name resource ../Scut/resource.qrc -o qrc_resource.cpp
 
-compiler_moc_header_make_all: moc_login.cpp moc_signup.cpp moc_student.cpp moc_teacher.cpp moc_course.cpp moc_sendfile.cpp
+compiler_moc_header_make_all: moc_login.cpp moc_signup.cpp moc_student.cpp moc_teacher.cpp moc_course.cpp moc_sendfile.cpp moc_updateinfo.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_login.cpp moc_signup.cpp moc_student.cpp moc_teacher.cpp moc_course.cpp moc_sendfile.cpp
+	-$(DEL_FILE) moc_login.cpp moc_signup.cpp moc_student.cpp moc_teacher.cpp moc_course.cpp moc_sendfile.cpp moc_updateinfo.cpp
 moc_login.cpp: /home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QDialog \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qdialog.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qwidget.h \
@@ -1112,6 +1118,7 @@ moc_course.cpp: /home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QDialog \
 		../Scut/interface.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/QDate \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qdatetime.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/QDebug \
 		../Scut/course.h
 	/home/wuyulp/Qt5.6.1/5.6/gcc_64/bin/moc $(DEFINES) -I/home/wuyulp/Qt5.6.1/5.6/gcc_64/mkspecs/linux-g++ -I/home/wuyulp/Program/C++/C-Plus-Plus/Jobs-of-SoftwareEngineer/Codeing/Scut -I/home/wuyulp/Qt5.6.1/5.6/gcc_64/include -I/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets -I/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui -I/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore -I. ../Scut/course.h -o moc_course.cpp
 
@@ -1223,11 +1230,119 @@ moc_sendfile.cpp: /home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QDialog \
 		../Scut/sendfile.h
 	/home/wuyulp/Qt5.6.1/5.6/gcc_64/bin/moc $(DEFINES) -I/home/wuyulp/Qt5.6.1/5.6/gcc_64/mkspecs/linux-g++ -I/home/wuyulp/Program/C++/C-Plus-Plus/Jobs-of-SoftwareEngineer/Codeing/Scut -I/home/wuyulp/Qt5.6.1/5.6/gcc_64/include -I/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets -I/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui -I/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore -I. ../Scut/sendfile.h -o moc_sendfile.cpp
 
+moc_updateinfo.cpp: /home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QDialog \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qdialog.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qwidget.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qglobal.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qconfig.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qfeatures.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qtypetraits.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qisenum.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qsysinfo.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qlogging.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qflags.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qatomic.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qatomic_gcc.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qatomic_armv7.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qatomic_armv6.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qatomic_armv5.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qatomic_ia64.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qatomic_x86.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qatomic_unix.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qmutex.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qnumeric.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qversiontagging.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qnamespace.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qobject.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qstring.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qchar.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qbytearray.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qrefcount.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qarraydata.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qlist.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qalgorithms.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qiterator.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qpair.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qstringlist.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qregexp.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qcoreevent.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qmetatype.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qobject_impl.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qmargins.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qrect.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qsize.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qpoint.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qpalette.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qcolor.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qrgb.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qrgba64.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qbrush.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qvector.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qmatrix.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qpolygon.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qregion.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qdatastream.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qiodevice.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qline.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qtransform.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qpainterpath.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qimage.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qpixelformat.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qpixmap.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qshareddata.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qhash.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qfont.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qfontmetrics.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qfontinfo.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qcursor.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qkeysequence.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qevent.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qvariant.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qmap.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qdebug.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qtextstream.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qlocale.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qset.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qurl.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qurlquery.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qfile.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qfiledevice.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qvector2d.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qtouchdevice.h \
+		../Scut/updateinfo.h
+	/home/wuyulp/Qt5.6.1/5.6/gcc_64/bin/moc $(DEFINES) -I/home/wuyulp/Qt5.6.1/5.6/gcc_64/mkspecs/linux-g++ -I/home/wuyulp/Program/C++/C-Plus-Plus/Jobs-of-SoftwareEngineer/Codeing/Scut -I/home/wuyulp/Qt5.6.1/5.6/gcc_64/include -I/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets -I/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui -I/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore -I. ../Scut/updateinfo.h -o moc_updateinfo.cpp
+
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_login.h ui_signup.h ui_student.h ui_teacher.h ui_course.h ui_sendfile.h
+compiler_uic_make_all: ui_login.h ui_signup.h ui_student.h ui_teacher.h ui_course.h ui_sendfile.h ui_updateinfo.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_login.h ui_signup.h ui_student.h ui_teacher.h ui_course.h ui_sendfile.h
+	-$(DEL_FILE) ui_login.h ui_signup.h ui_student.h ui_teacher.h ui_course.h ui_sendfile.h ui_updateinfo.h
 ui_login.h: ../Scut/login.ui
 	/home/wuyulp/Qt5.6.1/5.6/gcc_64/bin/uic ../Scut/login.ui -o ui_login.h
 
@@ -1245,6 +1360,9 @@ ui_course.h: ../Scut/course.ui
 
 ui_sendfile.h: ../Scut/sendfile.ui
 	/home/wuyulp/Qt5.6.1/5.6/gcc_64/bin/uic ../Scut/sendfile.ui -o ui_sendfile.h
+
+ui_updateinfo.h: ../Scut/updateinfo.ui
+	/home/wuyulp/Qt5.6.1/5.6/gcc_64/bin/uic ../Scut/updateinfo.ui -o ui_updateinfo.h
 
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
@@ -1539,7 +1657,8 @@ login.o: ../Scut/login.cpp ../Scut/login.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qmessagebox.h \
 		../Scut/interface.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/QDate \
-		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qdatetime.h
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qdatetime.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/QDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o login.o ../Scut/login.cpp
 
 signup.o: ../Scut/signup.cpp ../Scut/signup.h \
@@ -1706,9 +1825,9 @@ signup.o: ../Scut/signup.cpp ../Scut/signup.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QWidget \
 		../Scut/interface.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/QDate \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/QDebug \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QMessageBox \
-		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qmessagebox.h \
-		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/QDebug
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qmessagebox.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o signup.o ../Scut/signup.cpp
 
 student.o: ../Scut/student.cpp ../Scut/student.h \
@@ -1858,12 +1977,6 @@ student.o: ../Scut/student.cpp ../Scut/student.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qrubberband.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QLabel \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qlabel.h \
-		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QLineEdit \
-		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qlineedit.h \
-		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qtextcursor.h \
-		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qtextformat.h \
-		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qpen.h \
-		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qtextoption.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QListWidget \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qlistwidget.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qlistview.h \
@@ -1873,13 +1986,12 @@ student.o: ../Scut/student.cpp ../Scut/student.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QPushButton \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qpushbutton.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QSpacerItem \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QStackedWidget \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qstackedwidget.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QStatusBar \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qstatusbar.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QTabWidget \
-		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QTextBrowser \
-		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qtextbrowser.h \
-		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qtextedit.h \
-		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qtextdocument.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QVBoxLayout \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QWidget \
 		../Scut/interface.h \
@@ -1888,7 +2000,19 @@ student.o: ../Scut/student.cpp ../Scut/student.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/QDebug \
 		../Scut/course.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QDialog \
-		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qdialog.h
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qdialog.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/QColor \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QTextBrowser \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qtextbrowser.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qtextedit.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qtextdocument.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qtextoption.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qtextcursor.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qtextformat.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qpen.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QGroupBox \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qgroupbox.h \
+		../Scut/updateinfo.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o student.o ../Scut/student.cpp
 
 teacher.o: ../Scut/teacher.cpp ../Scut/teacher.h \
@@ -2093,7 +2217,27 @@ interface.o: ../Scut/interface.cpp ../Scut/interface.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qbytearraylist.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qstringlist.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qregexp.h \
-		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qstringmatcher.h
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/QDebug \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qdebug.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qmap.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qtextstream.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qiodevice.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qobject.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qcoreevent.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qmetatype.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qobject_impl.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qlocale.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qvariant.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qvector.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qpoint.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qset.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qcontiguouscache.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o interface.o ../Scut/interface.cpp
 
 course.o: ../Scut/course.cpp ../Scut/course.h \
@@ -2205,6 +2349,7 @@ course.o: ../Scut/course.cpp ../Scut/course.h \
 		../Scut/interface.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/QDate \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qdatetime.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/QDebug \
 		ui_course.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/QVariant \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QAction \
@@ -2259,7 +2404,17 @@ course.o: ../Scut/course.cpp ../Scut/course.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qpen.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QVBoxLayout \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QWidget \
-		../Scut/sendfile.h
+		../Scut/sendfile.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/QDir \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qdir.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qfileinfo.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QFileSystemModel \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qfilesystemmodel.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qdiriterator.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QTreeView \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qtreeview.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QGroupBox \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qgroupbox.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o course.o ../Scut/course.cpp
 
 sendfile.o: ../Scut/sendfile.cpp ../Scut/sendfile.h \
@@ -2427,8 +2582,122 @@ sendfile.o: ../Scut/sendfile.cpp ../Scut/sendfile.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qfiledialog.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qdir.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qfileinfo.h \
-		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/QDebug
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/QDebug \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QMessageBox \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qmessagebox.h \
+		../Scut/interface.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/QDate \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qdatetime.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o sendfile.o ../Scut/sendfile.cpp
+
+updateinfo.o: ../Scut/updateinfo.cpp ../Scut/updateinfo.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QDialog \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qdialog.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qwidget.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qglobal.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qconfig.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qfeatures.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qtypetraits.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qisenum.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qsysinfo.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qlogging.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qflags.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qatomic.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qatomic_gcc.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qatomic_armv7.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qatomic_armv6.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qatomic_armv5.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qatomic_ia64.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qatomic_x86.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qatomic_unix.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qmutex.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qnumeric.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qversiontagging.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qnamespace.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qobject.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qstring.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qchar.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qbytearray.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qrefcount.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qarraydata.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qlist.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qalgorithms.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qiterator.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qpair.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qstringlist.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qregexp.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qcoreevent.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qmetatype.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qobject_impl.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qmargins.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qrect.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qsize.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qpoint.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qpalette.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qcolor.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qrgb.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qrgba64.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qbrush.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qvector.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qmatrix.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qpolygon.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qregion.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qdatastream.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qiodevice.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qline.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qtransform.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qpainterpath.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qimage.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qpixelformat.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qpixmap.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qshareddata.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qhash.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qfont.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qfontmetrics.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qfontinfo.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qcursor.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qkeysequence.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qevent.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qvariant.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qmap.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qdebug.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qtextstream.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qlocale.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qset.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qurl.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qurlquery.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qfile.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qfiledevice.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qvector2d.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qtouchdevice.h \
+		ui_updateinfo.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o updateinfo.o ../Scut/updateinfo.cpp
 
 qrc_resource.o: qrc_resource.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_resource.o qrc_resource.cpp
@@ -2450,6 +2719,9 @@ moc_course.o: moc_course.cpp
 
 moc_sendfile.o: moc_sendfile.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_sendfile.o moc_sendfile.cpp
+
+moc_updateinfo.o: moc_updateinfo.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_updateinfo.o moc_updateinfo.cpp
 
 ####### Install
 
