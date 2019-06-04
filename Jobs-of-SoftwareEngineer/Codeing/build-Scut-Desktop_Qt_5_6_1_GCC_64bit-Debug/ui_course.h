@@ -30,7 +30,7 @@ class Ui_Course
 public:
     QHBoxLayout *horizontalLayout;
     QTabWidget *tabWidget;
-    QWidget *tab;
+    QWidget *homeTab;
     QWidget *verticalLayoutWidget_3;
     QVBoxLayout *verticalLayout_3;
     QLabel *label_3;
@@ -56,9 +56,9 @@ public:
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         tabWidget = new QTabWidget(Course);
         tabWidget->setObjectName(QStringLiteral("tabWidget"));
-        tab = new QWidget();
-        tab->setObjectName(QStringLiteral("tab"));
-        verticalLayoutWidget_3 = new QWidget(tab);
+        homeTab = new QWidget();
+        homeTab->setObjectName(QStringLiteral("homeTab"));
+        verticalLayoutWidget_3 = new QWidget(homeTab);
         verticalLayoutWidget_3->setObjectName(QStringLiteral("verticalLayoutWidget_3"));
         verticalLayoutWidget_3->setGeometry(QRect(100, 320, 991, 201));
         verticalLayout_3 = new QVBoxLayout(verticalLayoutWidget_3);
@@ -75,13 +75,13 @@ public:
 
         verticalLayout_3->addWidget(homTextBrowser);
 
-        submitPushButton = new QPushButton(tab);
+        submitPushButton = new QPushButton(homeTab);
         submitPushButton->setObjectName(QStringLiteral("submitPushButton"));
         submitPushButton->setGeometry(QRect(260, 600, 211, 32));
-        backPushButton = new QPushButton(tab);
+        backPushButton = new QPushButton(homeTab);
         backPushButton->setObjectName(QStringLiteral("backPushButton"));
         backPushButton->setGeometry(QRect(750, 590, 120, 32));
-        layoutWidget = new QWidget(tab);
+        layoutWidget = new QWidget(homeTab);
         layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
         layoutWidget->setGeometry(QRect(100, 43, 991, 271));
         horizontalLayout_4 = new QHBoxLayout(layoutWidget);
@@ -120,7 +120,7 @@ public:
 
         horizontalLayout_4->addLayout(verticalLayout_2);
 
-        tabWidget->addTab(tab, QString());
+        tabWidget->addTab(homeTab, QString());
         resourceTab = new QWidget();
         resourceTab->setObjectName(QStringLiteral("resourceTab"));
         tabWidget->addTab(resourceTab, QString());
@@ -130,7 +130,7 @@ public:
 
         retranslateUi(Course);
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(Course);
@@ -149,7 +149,7 @@ public:
 "</style></head><body style=\" font-family:'Ubuntu'; font-size:14pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">fdjlk;kjffkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkjflkjsjdfafds</p></body></html>", 0));
         label_2->setText(QApplication::translate("Course", "CourseInformation", 0));
-        tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("Course", "Home", 0));
+        tabWidget->setTabText(tabWidget->indexOf(homeTab), QApplication::translate("Course", "Home", 0));
         tabWidget->setTabText(tabWidget->indexOf(resourceTab), QApplication::translate("Course", "Resource", 0));
     } // retranslateUi
 

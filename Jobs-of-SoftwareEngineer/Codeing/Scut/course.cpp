@@ -11,6 +11,7 @@ Course::Course(QWidget *parent) :
     ui->setupUi(this);
     this->move(390,155);
     ui->teaTextBrowser->append("nimasil");
+    ui->tabWidget->setCurrentIndex(0);
     QFileSystemModel model;
     QTreeView *tree=new QTreeView(this);
     model.setRootPath(QDir::currentPath());

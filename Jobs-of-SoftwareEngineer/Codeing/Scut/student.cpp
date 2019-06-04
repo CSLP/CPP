@@ -10,6 +10,7 @@ Student::Student(QWidget *parent) :
 {
     ui->setupUi(this);
     this->move(400,160);
+    //this->resize(1000,1000);
     cor=new Course(this);
     connect(this,&Student::corInfo,cor,&Course::courseInfo);
     QPixmap pixmap(":/image/1.png");
@@ -25,6 +26,8 @@ Student::Student(QWidget *parent) :
     ui->label6->setPixmap(pixmap);
     ui->label6->resize(ui->label1->size());
     ui->tabWidget->setCurrentIndex(0);
+    ui->toolBox->setItemText(2,"第三题怎么做");
+
 }
 
 Student::~Student()
