@@ -34,6 +34,7 @@ Student::~Student()
 void Student::on_loginAgainPushButton_clicked()
 {
     this->parentWidget()->show();
+    ui->listWidget1->clear();
     close();
 }
 

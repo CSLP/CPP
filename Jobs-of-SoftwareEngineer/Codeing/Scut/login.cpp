@@ -44,7 +44,7 @@ void Login::on_signInPushButton_clicked()
                     teacher->show();
                 ui->idLineEdit->clear();
                 ui->passwdLineEdit->clear();
-                hide();
+                //hide();
             }
             else
                 QMessageBox::warning(this,tr("Warning"),tr("Incorrect ID or password. Please re-enter!"),QMessageBox::Ok);
