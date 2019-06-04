@@ -167,7 +167,7 @@
              </font>
             </property>
             <property name="text">
-             <string>Discussion</string>
+             <string>Email</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -175,67 +175,97 @@
            </widget>
           </item>
           <item>
-           <widget class="QToolBox" name="toolBox">
-            <property name="currentIndex">
+           <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,10">
+            <property name="spacing">
              <number>0</number>
             </property>
-            <widget class="QWidget" name="page1">
-             <property name="geometry">
-              <rect>
-               <x>0</x>
-               <y>0</y>
-               <width>758</width>
-               <height>403</height>
-              </rect>
-             </property>
-             <attribute name="label">
-              <string>第一题怎么做</string>
-             </attribute>
-             <layout class="QHBoxLayout" name="horizontalLayout_4">
+            <item>
+             <widget class="QListWidget" name="listWidget">
               <item>
-               <widget class="QScrollArea" name="scrollArea">
-                <property name="widgetResizable">
-                 <bool>true</bool>
-                </property>
-                <widget class="QWidget" name="scrollAreaWidgetContents">
-                 <property name="geometry">
-                  <rect>
-                   <x>0</x>
-                   <y>0</y>
-                   <width>738</width>
-                   <height>383</height>
-                  </rect>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>0</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                </widget>
-               </widget>
+               <property name="text">
+                <string>写信</string>
+               </property>
               </item>
-             </layout>
-            </widget>
-            <widget class="QWidget" name="page2">
-             <property name="geometry">
-              <rect>
-               <x>0</x>
-               <y>0</y>
-               <width>758</width>
-               <height>403</height>
-              </rect>
-             </property>
-             <attribute name="label">
-              <string>第二题怎么做</string>
-             </attribute>
-            </widget>
-            <widget class="QWidget" name="page3">
-             <attribute name="label">
-              <string>Page</string>
-             </attribute>
-            </widget>
-           </widget>
+              <item>
+               <property name="text">
+                <string>收件箱</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>草稿箱</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item>
+             <widget class="QStackedWidget" name="stackedWidget">
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="currentIndex">
+               <number>2</number>
+              </property>
+              <widget class="QWidget" name="page1">
+               <widget class="QLabel" name="label_5">
+                <property name="geometry">
+                 <rect>
+                  <x>70</x>
+                  <y>300</y>
+                  <width>85</width>
+                  <height>22</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>TextLabel</string>
+                </property>
+               </widget>
+               <widget class="QLineEdit" name="lineEdit_2">
+                <property name="geometry">
+                 <rect>
+                  <x>180</x>
+                  <y>290</y>
+                  <width>113</width>
+                  <height>32</height>
+                 </rect>
+                </property>
+               </widget>
+              </widget>
+              <widget class="QWidget" name="page">
+               <widget class="QLabel" name="label_4">
+                <property name="geometry">
+                 <rect>
+                  <x>210</x>
+                  <y>200</y>
+                  <width>85</width>
+                  <height>22</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>收件箱</string>
+                </property>
+               </widget>
+               <zorder>label_4</zorder>
+               <zorder>listWidget</zorder>
+              </widget>
+              <widget class="QWidget" name="page2">
+               <widget class="QLabel" name="label_2">
+                <property name="geometry">
+                 <rect>
+                  <x>200</x>
+                  <y>220</y>
+                  <width>85</width>
+                  <height>22</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>草稿箱</string>
+                </property>
+               </widget>
+              </widget>
+             </widget>
+            </item>
+           </layout>
           </item>
          </layout>
         </item>
@@ -469,5 +499,22 @@
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>listWidget</sender>
+   <signal>currentRowChanged(int)</signal>
+   <receiver>stackedWidget</receiver>
+   <slot>setCurrentIndex(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>452</x>
+     <y>453</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>575</x>
+     <y>453</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

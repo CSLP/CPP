@@ -18,8 +18,10 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QScrollArea>
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QTextBrowser>
+#include <QtWidgets/QToolBox>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -45,13 +47,20 @@ public:
     QVBoxLayout *verticalLayout_2;
     QLabel *label_2;
     QTextBrowser *corTextBrowser;
+    QWidget *discussTab;
+    QHBoxLayout *horizontalLayout_2;
+    QToolBox *toolBox;
+    QWidget *page;
+    QVBoxLayout *verticalLayout_4;
+    QScrollArea *scrollArea;
+    QWidget *scrollAreaWidgetContents;
     QWidget *resourceTab;
 
     void setupUi(QDialog *Course)
     {
         if (Course->objectName().isEmpty())
             Course->setObjectName(QStringLiteral("Course"));
-        Course->resize(1234, 765);
+        Course->resize(1154, 672);
         horizontalLayout = new QHBoxLayout(Course);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         tabWidget = new QTabWidget(Course);
@@ -77,7 +86,7 @@ public:
 
         submitPushButton = new QPushButton(homeTab);
         submitPushButton->setObjectName(QStringLiteral("submitPushButton"));
-        submitPushButton->setGeometry(QRect(260, 600, 211, 32));
+        submitPushButton->setGeometry(QRect(260, 580, 211, 32));
         backPushButton = new QPushButton(homeTab);
         backPushButton->setObjectName(QStringLiteral("backPushButton"));
         backPushButton->setGeometry(QRect(750, 590, 120, 32));
@@ -121,6 +130,32 @@ public:
         horizontalLayout_4->addLayout(verticalLayout_2);
 
         tabWidget->addTab(homeTab, QString());
+        discussTab = new QWidget();
+        discussTab->setObjectName(QStringLiteral("discussTab"));
+        horizontalLayout_2 = new QHBoxLayout(discussTab);
+        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        toolBox = new QToolBox(discussTab);
+        toolBox->setObjectName(QStringLiteral("toolBox"));
+        page = new QWidget();
+        page->setObjectName(QStringLiteral("page"));
+        page->setGeometry(QRect(0, 0, 1114, 562));
+        verticalLayout_4 = new QVBoxLayout(page);
+        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
+        scrollArea = new QScrollArea(page);
+        scrollArea->setObjectName(QStringLiteral("scrollArea"));
+        scrollArea->setWidgetResizable(true);
+        scrollAreaWidgetContents = new QWidget();
+        scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 1094, 542));
+        scrollArea->setWidget(scrollAreaWidgetContents);
+
+        verticalLayout_4->addWidget(scrollArea);
+
+        toolBox->addItem(page, QStringLiteral("Page 1"));
+
+        horizontalLayout_2->addWidget(toolBox);
+
+        tabWidget->addTab(discussTab, QString());
         resourceTab = new QWidget();
         resourceTab->setObjectName(QStringLiteral("resourceTab"));
         tabWidget->addTab(resourceTab, QString());
@@ -130,7 +165,8 @@ public:
 
         retranslateUi(Course);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(1);
+        toolBox->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(Course);
@@ -150,6 +186,8 @@ public:
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">fdjlk;kjffkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkjflkjsjdfafds</p></body></html>", 0));
         label_2->setText(QApplication::translate("Course", "CourseInformation", 0));
         tabWidget->setTabText(tabWidget->indexOf(homeTab), QApplication::translate("Course", "Home", 0));
+        toolBox->setItemText(toolBox->indexOf(page), QApplication::translate("Course", "Page 1", 0));
+        tabWidget->setTabText(tabWidget->indexOf(discussTab), QApplication::translate("Course", "Discussion", 0));
         tabWidget->setTabText(tabWidget->indexOf(resourceTab), QApplication::translate("Course", "Resource", 0));
     } // retranslateUi
 

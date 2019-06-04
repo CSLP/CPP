@@ -17,15 +17,15 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QScrollArea>
 #include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTabWidget>
-#include <QtWidgets/QToolBox>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -52,13 +52,16 @@ public:
     QSpacerItem *horizontalSpacer_2;
     QVBoxLayout *verticalLayout_9;
     QLabel *label;
-    QToolBox *toolBox;
+    QHBoxLayout *horizontalLayout_2;
+    QListWidget *listWidget;
+    QStackedWidget *stackedWidget;
     QWidget *page1;
-    QHBoxLayout *horizontalLayout_4;
-    QScrollArea *scrollArea;
-    QWidget *scrollAreaWidgetContents;
+    QLabel *label_5;
+    QLineEdit *lineEdit_2;
+    QWidget *page;
+    QLabel *label_4;
     QWidget *page2;
-    QWidget *page3;
+    QLabel *label_2;
     QWidget *courseTab;
     QGridLayout *gridLayout;
     QVBoxLayout *verticalLayout;
@@ -203,34 +206,50 @@ public:
 
         verticalLayout_9->addWidget(label);
 
-        toolBox = new QToolBox(homeTab);
-        toolBox->setObjectName(QStringLiteral("toolBox"));
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setSpacing(0);
+        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        listWidget = new QListWidget(homeTab);
+        new QListWidgetItem(listWidget);
+        new QListWidgetItem(listWidget);
+        new QListWidgetItem(listWidget);
+        listWidget->setObjectName(QStringLiteral("listWidget"));
+
+        horizontalLayout_2->addWidget(listWidget);
+
+        stackedWidget = new QStackedWidget(homeTab);
+        stackedWidget->setObjectName(QStringLiteral("stackedWidget"));
+        stackedWidget->setFrameShape(QFrame::StyledPanel);
         page1 = new QWidget();
         page1->setObjectName(QStringLiteral("page1"));
-        page1->setGeometry(QRect(0, 0, 758, 403));
-        horizontalLayout_4 = new QHBoxLayout(page1);
-        horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
-        scrollArea = new QScrollArea(page1);
-        scrollArea->setObjectName(QStringLiteral("scrollArea"));
-        scrollArea->setWidgetResizable(true);
-        scrollAreaWidgetContents = new QWidget();
-        scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 738, 383));
-        scrollAreaWidgetContents->setMinimumSize(QSize(0, 0));
-        scrollArea->setWidget(scrollAreaWidgetContents);
-
-        horizontalLayout_4->addWidget(scrollArea);
-
-        toolBox->addItem(page1, QString::fromUtf8("\347\254\254\344\270\200\351\242\230\346\200\216\344\271\210\345\201\232"));
+        label_5 = new QLabel(page1);
+        label_5->setObjectName(QStringLiteral("label_5"));
+        label_5->setGeometry(QRect(70, 300, 85, 22));
+        lineEdit_2 = new QLineEdit(page1);
+        lineEdit_2->setObjectName(QStringLiteral("lineEdit_2"));
+        lineEdit_2->setGeometry(QRect(180, 290, 113, 32));
+        stackedWidget->addWidget(page1);
+        page = new QWidget();
+        page->setObjectName(QStringLiteral("page"));
+        label_4 = new QLabel(page);
+        label_4->setObjectName(QStringLiteral("label_4"));
+        label_4->setGeometry(QRect(210, 200, 85, 22));
+        stackedWidget->addWidget(page);
+        label_4->raise();
+        listWidget->raise();
         page2 = new QWidget();
         page2->setObjectName(QStringLiteral("page2"));
-        page2->setGeometry(QRect(0, 0, 758, 403));
-        toolBox->addItem(page2, QString::fromUtf8("\347\254\254\344\272\214\351\242\230\346\200\216\344\271\210\345\201\232"));
-        page3 = new QWidget();
-        page3->setObjectName(QStringLiteral("page3"));
-        toolBox->addItem(page3, QStringLiteral("Page"));
+        label_2 = new QLabel(page2);
+        label_2->setObjectName(QStringLiteral("label_2"));
+        label_2->setGeometry(QRect(200, 220, 85, 22));
+        stackedWidget->addWidget(page2);
 
-        verticalLayout_9->addWidget(toolBox);
+        horizontalLayout_2->addWidget(stackedWidget);
+
+        horizontalLayout_2->setStretch(0, 1);
+        horizontalLayout_2->setStretch(1, 10);
+
+        verticalLayout_9->addLayout(horizontalLayout_2);
 
 
         horizontalLayout_6->addLayout(verticalLayout_9);
@@ -394,9 +413,10 @@ public:
         Student->setStatusBar(statusbar);
 
         retranslateUi(Student);
+        QObject::connect(listWidget, SIGNAL(currentRowChanged(int)), stackedWidget, SLOT(setCurrentIndex(int)));
 
         tabWidget->setCurrentIndex(0);
-        toolBox->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(Student);
@@ -408,10 +428,21 @@ public:
         labelb->setText(QApplication::translate("Student", "Bulletin", 0));
         labela->setText(QApplication::translate("Student", "Information", 0));
         loginAgainPushButton->setText(QApplication::translate("Student", "LoginAgain", 0));
-        label->setText(QApplication::translate("Student", "Discussion", 0));
-        toolBox->setItemText(toolBox->indexOf(page1), QApplication::translate("Student", "\347\254\254\344\270\200\351\242\230\346\200\216\344\271\210\345\201\232", 0));
-        toolBox->setItemText(toolBox->indexOf(page2), QApplication::translate("Student", "\347\254\254\344\272\214\351\242\230\346\200\216\344\271\210\345\201\232", 0));
-        toolBox->setItemText(toolBox->indexOf(page3), QApplication::translate("Student", "Page", 0));
+        label->setText(QApplication::translate("Student", "Email", 0));
+
+        const bool __sortingEnabled = listWidget->isSortingEnabled();
+        listWidget->setSortingEnabled(false);
+        QListWidgetItem *___qlistwidgetitem = listWidget->item(0);
+        ___qlistwidgetitem->setText(QApplication::translate("Student", "\345\206\231\344\277\241", 0));
+        QListWidgetItem *___qlistwidgetitem1 = listWidget->item(1);
+        ___qlistwidgetitem1->setText(QApplication::translate("Student", "\346\224\266\344\273\266\347\256\261", 0));
+        QListWidgetItem *___qlistwidgetitem2 = listWidget->item(2);
+        ___qlistwidgetitem2->setText(QApplication::translate("Student", "\350\215\211\347\250\277\347\256\261", 0));
+        listWidget->setSortingEnabled(__sortingEnabled);
+
+        label_5->setText(QApplication::translate("Student", "TextLabel", 0));
+        label_4->setText(QApplication::translate("Student", "\346\224\266\344\273\266\347\256\261", 0));
+        label_2->setText(QApplication::translate("Student", "\350\215\211\347\250\277\347\256\261", 0));
         tabWidget->setTabText(tabWidget->indexOf(homeTab), QApplication::translate("Student", "Home", 0));
         label1->setText(QApplication::translate("Student", "<html><head/><body><p><img src=\":/image/1.png\"/></p></body></html>", 0));
         label11->setText(QApplication::translate("Student", "TextLabel", 0));

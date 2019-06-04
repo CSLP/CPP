@@ -32,7 +32,7 @@ Student::Student(QWidget *parent) :
     ui->tabWidget->setCurrentIndex(0);
 
 
-    ui->toolBox->setItemText(2,"第三题怎么做");
+    /*ui->toolBox->setItemText(2,"第三题怎么做");
     QWidget *page3=new QWidget;
     QScrollArea *scroll=new QScrollArea(page3);
     QWidget *x=new QWidget;
@@ -79,6 +79,7 @@ Student::Student(QWidget *parent) :
     group2->setLayout(layout2);
     layout->addWidget(group2);
     ui->scrollArea->widget()->setLayout(layout);
+    */
 }
 
 Student::~Student()
