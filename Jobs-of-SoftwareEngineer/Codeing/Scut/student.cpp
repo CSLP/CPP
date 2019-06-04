@@ -7,6 +7,7 @@
 #include<QVBoxLayout>
 #include<QTextBrowser>
 #include<QGroupBox>
+#include<QWidget>
 Student::Student(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Student)
@@ -29,10 +30,25 @@ Student::Student(QWidget *parent) :
     ui->label6->setPixmap(pixmap);
     ui->label6->resize(ui->label1->size());
     ui->tabWidget->setCurrentIndex(0);
+
+
     ui->toolBox->setItemText(2,"第三题怎么做");
+    QWidget *page3=new QWidget;
+    QScrollArea *scroll=new QScrollArea(page3);
+    QWidget *x=new QWidget;
+    scroll->setWidget(x);
+    QVBoxLayout *vlayout=new QVBoxLayout(page3);
+    vlayout->addWidget(scroll);
+    QVBoxLayout *l=new QVBoxLayout;
+    QPushButton	*y=new QPushButton("nimasil");
+    l->addWidget(y);
+    scroll->setLayout(l);
+    ui->toolBox->addItem(page3,"第四题怎么做");
+
     QVBoxLayout * layout=new QVBoxLayout;
     QVBoxLayout * layout1=new QVBoxLayout;
     QGroupBox * group1=new QGroupBox;
+    group1->setTitle("JYP");
     QTextBrowser *answer=new QTextBrowser;
     QTextBrowser *comment=new QTextBrowser;
     answer->setText("jfffjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj");
@@ -49,20 +65,19 @@ Student::Student(QWidget *parent) :
 
     QVBoxLayout * layout2=new QVBoxLayout;
     QGroupBox * group2=new QGroupBox;
+    group2->setTitle("LP");
     QTextBrowser *answer2=new QTextBrowser;
     QTextBrowser *comment2=new QTextBrowser;
-    answer2->setText("jfffjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj");
+    answer2->setText("jfffjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj\nfjj\njfkd\njfkjd\nfjd\nfjdk");
     comment2->setText("wokannizhedoushishuodeyaoyan,woyanzhongbutongyi,renzaimeiguo,gangxiafeiji");
     QPushButton *btn12=new QPushButton("ShowComments");
     QPushButton *btn22=new QPushButton("FoldComments");
-    layout2->addWidget(answer);
+    layout2->addWidget(answer2);
     layout2->addWidget(btn12);
     layout2->addWidget(btn22);
-    layout2->addWidget(comment);
+    layout2->addWidget(comment2);
     group2->setLayout(layout2);
     layout->addWidget(group2);
-    //layout->addWidget(group2);
-    //layout->addWidget(group1);
     ui->scrollArea->widget()->setLayout(layout);
 }
 
