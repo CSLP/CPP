@@ -4,6 +4,7 @@
 #include<list>
 #include<map>
 #include<QDate>
+#include<QDebug>
 using std::string;
 using std::list;
 using std::map;
@@ -14,4 +15,5 @@ map<string,string> getCourseInfoByStudentId(string);
 string getTeacherInfoByCourseName(string);
 string getCourseInfoByCourseName(string);
 list<string> getHomeworkInfoByCourseName(string);
+bool sendToSubmitFilePaths(list<string>);
 #endif // INTERFACE_H

@@ -83,3 +83,12 @@ list<std::__cxx11::string> getHomeworkInfoByCourseName(std::__cxx11::string corN
     else
         return homeInfo;
 }
+
+bool sendToSubmitFilePaths(list<std::__cxx11::string> paths)
+{
+    for(auto a:paths)
+    {
+        qDebug()<<QString::fromStdString(a);
+    }
+    return true;
+}

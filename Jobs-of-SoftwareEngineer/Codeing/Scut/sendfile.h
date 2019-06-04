@@ -21,8 +21,10 @@ private slots:
 
     void on_cancelPushButton_clicked();
 
+    void on_submitPushButton_clicked();
 private:
     Ui::SendFile *ui;
+    QStringList filePaths;
 };
 
 #endif // SENDFILE_H
