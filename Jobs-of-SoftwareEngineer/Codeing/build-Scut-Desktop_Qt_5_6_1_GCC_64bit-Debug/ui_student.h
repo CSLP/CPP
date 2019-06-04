@@ -17,7 +17,6 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
@@ -55,13 +54,14 @@ public:
     QHBoxLayout *horizontalLayout_2;
     QListWidget *listWidget;
     QStackedWidget *stackedWidget;
-    QWidget *page1;
-    QLabel *label_5;
-    QLineEdit *lineEdit_2;
     QWidget *page;
-    QLabel *label_4;
-    QWidget *page2;
     QLabel *label_2;
+    QWidget *page_2;
+    QLabel *label_3;
+    QWidget *page_3;
+    QLabel *label_4;
+    QWidget *page_4;
+    QLabel *label_5;
     QWidget *courseTab;
     QGridLayout *gridLayout;
     QVBoxLayout *verticalLayout;
@@ -210,9 +210,19 @@ public:
         horizontalLayout_2->setSpacing(0);
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
         listWidget = new QListWidget(homeTab);
-        new QListWidgetItem(listWidget);
-        new QListWidgetItem(listWidget);
-        new QListWidgetItem(listWidget);
+        QFont font3;
+        font3.setFamily(QStringLiteral("FZKai-Z03"));
+        font3.setPointSize(20);
+        font3.setBold(true);
+        font3.setWeight(75);
+        QListWidgetItem *__qlistwidgetitem = new QListWidgetItem(listWidget);
+        __qlistwidgetitem->setFont(font3);
+        QListWidgetItem *__qlistwidgetitem1 = new QListWidgetItem(listWidget);
+        __qlistwidgetitem1->setFont(font3);
+        QListWidgetItem *__qlistwidgetitem2 = new QListWidgetItem(listWidget);
+        __qlistwidgetitem2->setFont(font3);
+        QListWidgetItem *__qlistwidgetitem3 = new QListWidgetItem(listWidget);
+        __qlistwidgetitem3->setFont(font3);
         listWidget->setObjectName(QStringLiteral("listWidget"));
 
         horizontalLayout_2->addWidget(listWidget);
@@ -220,34 +230,37 @@ public:
         stackedWidget = new QStackedWidget(homeTab);
         stackedWidget->setObjectName(QStringLiteral("stackedWidget"));
         stackedWidget->setFrameShape(QFrame::StyledPanel);
-        page1 = new QWidget();
-        page1->setObjectName(QStringLiteral("page1"));
-        label_5 = new QLabel(page1);
-        label_5->setObjectName(QStringLiteral("label_5"));
-        label_5->setGeometry(QRect(70, 300, 85, 22));
-        lineEdit_2 = new QLineEdit(page1);
-        lineEdit_2->setObjectName(QStringLiteral("lineEdit_2"));
-        lineEdit_2->setGeometry(QRect(180, 290, 113, 32));
-        stackedWidget->addWidget(page1);
         page = new QWidget();
         page->setObjectName(QStringLiteral("page"));
-        label_4 = new QLabel(page);
-        label_4->setObjectName(QStringLiteral("label_4"));
-        label_4->setGeometry(QRect(210, 200, 85, 22));
-        stackedWidget->addWidget(page);
-        label_4->raise();
-        listWidget->raise();
-        page2 = new QWidget();
-        page2->setObjectName(QStringLiteral("page2"));
-        label_2 = new QLabel(page2);
+        label_2 = new QLabel(page);
         label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(200, 220, 85, 22));
-        stackedWidget->addWidget(page2);
+        label_2->setGeometry(QRect(210, 100, 201, 71));
+        stackedWidget->addWidget(page);
+        page_2 = new QWidget();
+        page_2->setObjectName(QStringLiteral("page_2"));
+        label_3 = new QLabel(page_2);
+        label_3->setObjectName(QStringLiteral("label_3"));
+        label_3->setGeometry(QRect(210, 160, 241, 111));
+        stackedWidget->addWidget(page_2);
+        page_3 = new QWidget();
+        page_3->setObjectName(QStringLiteral("page_3"));
+        label_4 = new QLabel(page_3);
+        label_4->setObjectName(QStringLiteral("label_4"));
+        label_4->setGeometry(QRect(240, 250, 161, 71));
+        stackedWidget->addWidget(page_3);
+        page_4 = new QWidget();
+        page_4->setObjectName(QStringLiteral("page_4"));
+        label_5 = new QLabel(page_4);
+        label_5->setObjectName(QStringLiteral("label_5"));
+        label_5->setGeometry(QRect(200, 220, 85, 22));
+        stackedWidget->addWidget(page_4);
+        label_5->raise();
+        listWidget->raise();
 
         horizontalLayout_2->addWidget(stackedWidget);
 
         horizontalLayout_2->setStretch(0, 1);
-        horizontalLayout_2->setStretch(1, 10);
+        horizontalLayout_2->setStretch(1, 5);
 
         verticalLayout_9->addLayout(horizontalLayout_2);
 
@@ -416,7 +429,7 @@ public:
         QObject::connect(listWidget, SIGNAL(currentRowChanged(int)), stackedWidget, SLOT(setCurrentIndex(int)));
 
         tabWidget->setCurrentIndex(0);
-        stackedWidget->setCurrentIndex(2);
+        stackedWidget->setCurrentIndex(3);
 
 
         QMetaObject::connectSlotsByName(Student);
@@ -438,11 +451,14 @@ public:
         ___qlistwidgetitem1->setText(QApplication::translate("Student", "\346\224\266\344\273\266\347\256\261", 0));
         QListWidgetItem *___qlistwidgetitem2 = listWidget->item(2);
         ___qlistwidgetitem2->setText(QApplication::translate("Student", "\350\215\211\347\250\277\347\256\261", 0));
+        QListWidgetItem *___qlistwidgetitem3 = listWidget->item(3);
+        ___qlistwidgetitem3->setText(QApplication::translate("Student", "\346\234\252\350\257\273\351\202\256\344\273\266", 0));
         listWidget->setSortingEnabled(__sortingEnabled);
 
-        label_5->setText(QApplication::translate("Student", "TextLabel", 0));
-        label_4->setText(QApplication::translate("Student", "\346\224\266\344\273\266\347\256\261", 0));
-        label_2->setText(QApplication::translate("Student", "\350\215\211\347\250\277\347\256\261", 0));
+        label_2->setText(QApplication::translate("Student", "Write", 0));
+        label_3->setText(QApplication::translate("Student", "accept", 0));
+        label_4->setText(QApplication::translate("Student", "draft", 0));
+        label_5->setText(QApplication::translate("Student", "to read", 0));
         tabWidget->setTabText(tabWidget->indexOf(homeTab), QApplication::translate("Student", "Home", 0));
         label1->setText(QApplication::translate("Student", "<html><head/><body><p><img src=\":/image/1.png\"/></p></body></html>", 0));
         label11->setText(QApplication::translate("Student", "TextLabel", 0));

@@ -175,7 +175,7 @@
            </widget>
           </item>
           <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,10">
+           <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,5">
             <property name="spacing">
              <number>0</number>
             </property>
@@ -185,15 +185,52 @@
                <property name="text">
                 <string>写信</string>
                </property>
+               <property name="font">
+                <font>
+                 <family>FZKai-Z03</family>
+                 <pointsize>20</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
               </item>
               <item>
                <property name="text">
                 <string>收件箱</string>
                </property>
+               <property name="font">
+                <font>
+                 <family>FZKai-Z03</family>
+                 <pointsize>20</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
               </item>
               <item>
                <property name="text">
                 <string>草稿箱</string>
+               </property>
+               <property name="font">
+                <font>
+                 <family>FZKai-Z03</family>
+                 <pointsize>20</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>未读邮件</string>
+               </property>
+               <property name="font">
+                <font>
+                 <family>FZKai-Z03</family>
+                 <pointsize>20</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
                </property>
               </item>
              </widget>
@@ -204,52 +241,55 @@
                <enum>QFrame::StyledPanel</enum>
               </property>
               <property name="currentIndex">
-               <number>2</number>
+               <number>3</number>
               </property>
-              <widget class="QWidget" name="page1">
-               <widget class="QLabel" name="label_5">
-                <property name="geometry">
-                 <rect>
-                  <x>70</x>
-                  <y>300</y>
-                  <width>85</width>
-                  <height>22</height>
-                 </rect>
-                </property>
-                <property name="text">
-                 <string>TextLabel</string>
-                </property>
-               </widget>
-               <widget class="QLineEdit" name="lineEdit_2">
-                <property name="geometry">
-                 <rect>
-                  <x>180</x>
-                  <y>290</y>
-                  <width>113</width>
-                  <height>32</height>
-                 </rect>
-                </property>
-               </widget>
-              </widget>
               <widget class="QWidget" name="page">
-               <widget class="QLabel" name="label_4">
+               <widget class="QLabel" name="label_2">
                 <property name="geometry">
                  <rect>
                   <x>210</x>
-                  <y>200</y>
-                  <width>85</width>
-                  <height>22</height>
+                  <y>100</y>
+                  <width>201</width>
+                  <height>71</height>
                  </rect>
                 </property>
                 <property name="text">
-                 <string>收件箱</string>
+                 <string>Write</string>
                 </property>
                </widget>
-               <zorder>label_4</zorder>
-               <zorder>listWidget</zorder>
               </widget>
-              <widget class="QWidget" name="page2">
-               <widget class="QLabel" name="label_2">
+              <widget class="QWidget" name="page_2">
+               <widget class="QLabel" name="label_3">
+                <property name="geometry">
+                 <rect>
+                  <x>210</x>
+                  <y>160</y>
+                  <width>241</width>
+                  <height>111</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>accept</string>
+                </property>
+               </widget>
+              </widget>
+              <widget class="QWidget" name="page_3">
+               <widget class="QLabel" name="label_4">
+                <property name="geometry">
+                 <rect>
+                  <x>240</x>
+                  <y>250</y>
+                  <width>161</width>
+                  <height>71</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>draft</string>
+                </property>
+               </widget>
+              </widget>
+              <widget class="QWidget" name="page_4">
+               <widget class="QLabel" name="label_5">
                 <property name="geometry">
                  <rect>
                   <x>200</x>
@@ -259,9 +299,11 @@
                  </rect>
                 </property>
                 <property name="text">
-                 <string>草稿箱</string>
+                 <string>to read</string>
                 </property>
                </widget>
+               <zorder>label_5</zorder>
+               <zorder>listWidget</zorder>
               </widget>
              </widget>
             </item>
@@ -507,12 +549,12 @@
    <slot>setCurrentIndex(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>452</x>
-     <y>453</y>
+     <x>495</x>
+     <y>364</y>
     </hint>
     <hint type="destinationlabel">
-     <x>575</x>
-     <y>453</y>
+     <x>577</x>
+     <y>364</y>
     </hint>
    </hints>
   </connection>

@@ -16,16 +16,13 @@ Course::Course(QWidget *parent) :
     this->move(390,155);
     ui->teaTextBrowser->append("nimasil");
     ui->tabWidget->setCurrentIndex(0);
-   /* QFileSystemModel model;
-    QTreeView *tree=new QTreeView(this);
+    QFileSystemModel model;
+    QTreeView view;
     model.setRootPath(QDir::currentPath());
-    tree->setModel(&model);
-    tree->setRootIndex(model.index(QDir::currentPath()));
-    QVBoxLayout *layout=new QVBoxLayout;
-    layout->addWidget(tree);
-    ui->resourceTab->setLayout(layout);
-   */
-
+    view.setModel(&model);
+    view.setRootIndex(model.index(QDir::currentPath()));
+    view.show();
+    /*
     QVBoxLayout * layout=new QVBoxLayout;
     QVBoxLayout * layout1=new QVBoxLayout;
     QGroupBox * group1=new QGroupBox;
@@ -47,7 +44,7 @@ Course::Course(QWidget *parent) :
     group1->setLayout(layout1);
     layout->addWidget(group1);
     ui->scrollArea->widget()->setLayout(layout);
-
+    */
 }
 
 Course::~Course()
