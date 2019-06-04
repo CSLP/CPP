@@ -4,6 +4,9 @@
 #include<QDebug>
 #include"course.h"
 #include<QColor>
+#include<QVBoxLayout>
+#include<QTextBrowser>
+#include<QGroupBox>
 Student::Student(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Student)
@@ -27,7 +30,40 @@ Student::Student(QWidget *parent) :
     ui->label6->resize(ui->label1->size());
     ui->tabWidget->setCurrentIndex(0);
     ui->toolBox->setItemText(2,"第三题怎么做");
+    QVBoxLayout * layout=new QVBoxLayout;
+    QVBoxLayout * layout1=new QVBoxLayout;
+    QGroupBox * group1=new QGroupBox;
+    QTextBrowser *answer=new QTextBrowser;
+    QTextBrowser *comment=new QTextBrowser;
+    answer->setText("jfffjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj");
+    comment->setText("wokannizhedoushishuodeyaoyan,woyanzhongbutongyi,renzaimeiguo,gangxiafeiji");
+    QPushButton *btn1=new QPushButton("ShowComments");
+    QPushButton *btn2=new QPushButton("FoldComments");
+    layout1->addWidget(answer);
+    layout1->addWidget(btn1);
+    layout1->addWidget(btn2);
+    layout1->addWidget(comment);
+    group1->setLayout(layout1);
+    layout->addWidget(group1);
 
+
+    QVBoxLayout * layout2=new QVBoxLayout;
+    QGroupBox * group2=new QGroupBox;
+    QTextBrowser *answer2=new QTextBrowser;
+    QTextBrowser *comment2=new QTextBrowser;
+    answer2->setText("jfffjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj");
+    comment2->setText("wokannizhedoushishuodeyaoyan,woyanzhongbutongyi,renzaimeiguo,gangxiafeiji");
+    QPushButton *btn12=new QPushButton("ShowComments");
+    QPushButton *btn22=new QPushButton("FoldComments");
+    layout2->addWidget(answer);
+    layout2->addWidget(btn12);
+    layout2->addWidget(btn22);
+    layout2->addWidget(comment);
+    group2->setLayout(layout2);
+    layout->addWidget(group2);
+    //layout->addWidget(group2);
+    //layout->addWidget(group1);
+    ui->scrollArea->widget()->setLayout(layout);
 }
 
 Student::~Student()

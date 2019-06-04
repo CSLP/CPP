@@ -17,7 +17,6 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
@@ -26,7 +25,6 @@
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTabWidget>
-#include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QToolBox>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -59,13 +57,8 @@ public:
     QHBoxLayout *horizontalLayout_4;
     QScrollArea *scrollArea;
     QWidget *scrollAreaWidgetContents;
-    QTextBrowser *textBrowser;
-    QTextBrowser *textBrowser_2;
     QWidget *page2;
     QWidget *page3;
-    QHBoxLayout *horizontalLayout_2;
-    QLineEdit *lineEdit;
-    QPushButton *pushButton;
     QWidget *courseTab;
     QGridLayout *gridLayout;
     QVBoxLayout *verticalLayout;
@@ -194,6 +187,8 @@ public:
 
         verticalLayout_10->addLayout(verticalLayout_7);
 
+        verticalLayout_10->setStretch(0, 2);
+        verticalLayout_10->setStretch(1, 3);
 
         horizontalLayout_6->addLayout(verticalLayout_10);
 
@@ -212,7 +207,7 @@ public:
         toolBox->setObjectName(QStringLiteral("toolBox"));
         page1 = new QWidget();
         page1->setObjectName(QStringLiteral("page1"));
-        page1->setGeometry(QRect(0, 0, 758, 363));
+        page1->setGeometry(QRect(0, 0, 758, 403));
         horizontalLayout_4 = new QHBoxLayout(page1);
         horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
         scrollArea = new QScrollArea(page1);
@@ -220,14 +215,8 @@ public:
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, -660, 1000, 1000));
-        scrollAreaWidgetContents->setMinimumSize(QSize(1000, 1000));
-        textBrowser = new QTextBrowser(scrollAreaWidgetContents);
-        textBrowser->setObjectName(QStringLiteral("textBrowser"));
-        textBrowser->setGeometry(QRect(10, 640, 256, 192));
-        textBrowser_2 = new QTextBrowser(scrollAreaWidgetContents);
-        textBrowser_2->setObjectName(QStringLiteral("textBrowser_2"));
-        textBrowser_2->setGeometry(QRect(40, 420, 256, 192));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 738, 383));
+        scrollAreaWidgetContents->setMinimumSize(QSize(0, 0));
         scrollArea->setWidget(scrollAreaWidgetContents);
 
         horizontalLayout_4->addWidget(scrollArea);
@@ -235,28 +224,13 @@ public:
         toolBox->addItem(page1, QString::fromUtf8("\347\254\254\344\270\200\351\242\230\346\200\216\344\271\210\345\201\232"));
         page2 = new QWidget();
         page2->setObjectName(QStringLiteral("page2"));
-        page2->setGeometry(QRect(0, 0, 758, 363));
+        page2->setGeometry(QRect(0, 0, 758, 403));
         toolBox->addItem(page2, QString::fromUtf8("\347\254\254\344\272\214\351\242\230\346\200\216\344\271\210\345\201\232"));
         page3 = new QWidget();
         page3->setObjectName(QStringLiteral("page3"));
         toolBox->addItem(page3, QStringLiteral("Page"));
 
         verticalLayout_9->addWidget(toolBox);
-
-        horizontalLayout_2 = new QHBoxLayout();
-        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
-        lineEdit = new QLineEdit(homeTab);
-        lineEdit->setObjectName(QStringLiteral("lineEdit"));
-
-        horizontalLayout_2->addWidget(lineEdit);
-
-        pushButton = new QPushButton(homeTab);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-
-        horizontalLayout_2->addWidget(pushButton);
-
-
-        verticalLayout_9->addLayout(horizontalLayout_2);
 
 
         horizontalLayout_6->addLayout(verticalLayout_9);
@@ -422,7 +396,7 @@ public:
         retranslateUi(Student);
 
         tabWidget->setCurrentIndex(0);
-        toolBox->setCurrentIndex(2);
+        toolBox->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(Student);
@@ -438,7 +412,6 @@ public:
         toolBox->setItemText(toolBox->indexOf(page1), QApplication::translate("Student", "\347\254\254\344\270\200\351\242\230\346\200\216\344\271\210\345\201\232", 0));
         toolBox->setItemText(toolBox->indexOf(page2), QApplication::translate("Student", "\347\254\254\344\272\214\351\242\230\346\200\216\344\271\210\345\201\232", 0));
         toolBox->setItemText(toolBox->indexOf(page3), QApplication::translate("Student", "Page", 0));
-        pushButton->setText(QApplication::translate("Student", "Send", 0));
         tabWidget->setTabText(tabWidget->indexOf(homeTab), QApplication::translate("Student", "Home", 0));
         label1->setText(QApplication::translate("Student", "<html><head/><body><p><img src=\":/image/1.png\"/></p></body></html>", 0));
         label11->setText(QApplication::translate("Student", "TextLabel", 0));
