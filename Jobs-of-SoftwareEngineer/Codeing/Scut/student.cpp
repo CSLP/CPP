@@ -3,6 +3,7 @@
 #include"interface.h"
 #include<QDebug>
 #include"course.h"
+#include<QColor>
 Student::Student(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Student)
@@ -41,14 +42,27 @@ void Student::on_loginAgainPushButton_clicked()
 void Student::idInfomation(std::__cxx11::string idinfo)
 {
    list<string> info =getStudentInfoByStudentId(idinfo);
-   QString x;
+   list<string> inf=getStudentAttendanceByStudentId(idinfo);
    QStringList in;
+   QStringList inn;
    for(string &a:info)
    {
        in<<QString::fromStdString(a);
    }
-   ui->listWidget1->insertItems(0,in);
-
+   for(string &b:inf)
+   {
+       inn<<QString::fromStdString(b);
+   }
+   QListWidgetItem * listWidgetItem1=new QListWidgetItem;
+   QListWidgetItem * listWidgetItem2=new QListWidgetItem;
+   listWidgetItem1->setText("          	Basic Info");
+   listWidgetItem1->setTextColor("blue");
+   listWidgetItem2->setText("        Attendance Record  ");
+   listWidgetItem2->setTextColor("red");
+   ui->listWidget1->insertItem(0,listWidgetItem1);
+   ui->listWidget1->insertItems(1,in);
+   ui->listWidget1->insertItem(5,listWidgetItem2);
+   ui->listWidget1->insertItems(6,inn);
 }
 
 void Student::courseInformation(std::__cxx11::string  id)

@@ -92,3 +92,15 @@ bool sendToSubmitFilePaths(list<std::__cxx11::string> paths)
     }
     return true;
 }
+
+list<std::__cxx11::string> getStudentAttendanceByStudentId(std::__cxx11::string id)
+{
+        list<string> x;
+        if(id=="110")
+        {
+            x.push_back("PKI:1");
+            x.push_back("Linux:1");
+            x.push_back("Ubuntu:2");
+        }
+        return x;
+}
