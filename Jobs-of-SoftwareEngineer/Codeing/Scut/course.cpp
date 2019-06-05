@@ -77,5 +77,6 @@ void Course::courseInfo(std::__cxx11::string corName)
         item->setSizeHint(QSize(0,300));
     }
     qDebug()<<tops.size();
+    //connect(listWidget,&QListWidget::itemCli,listWidget,&QListWidget::itemWidget)
     //list<string> comments=getCommentsByTopic;
 }

@@ -17,6 +17,7 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QTextBrowser>
@@ -47,6 +48,8 @@ public:
     QTextBrowser *corTextBrowser;
     QWidget *discussTab;
     QWidget *resourceTab;
+    QListWidget *listWidget;
+    QPushButton *pushButton;
 
     void setupUi(QDialog *Course)
     {
@@ -127,6 +130,13 @@ public:
         tabWidget->addTab(discussTab, QString());
         resourceTab = new QWidget();
         resourceTab->setObjectName(QStringLiteral("resourceTab"));
+        listWidget = new QListWidget(resourceTab);
+        new QListWidgetItem(listWidget);
+        listWidget->setObjectName(QStringLiteral("listWidget"));
+        listWidget->setGeometry(QRect(70, 140, 461, 321));
+        pushButton = new QPushButton(resourceTab);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+        pushButton->setGeometry(QRect(620, 220, 120, 32));
         tabWidget->addTab(resourceTab, QString());
 
         horizontalLayout->addWidget(tabWidget);
@@ -134,7 +144,7 @@ public:
 
         retranslateUi(Course);
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(Course);
@@ -155,6 +165,14 @@ public:
         label_2->setText(QApplication::translate("Course", "CourseInformation", 0));
         tabWidget->setTabText(tabWidget->indexOf(homeTab), QApplication::translate("Course", "Home", 0));
         tabWidget->setTabText(tabWidget->indexOf(discussTab), QApplication::translate("Course", "Discussion", 0));
+
+        const bool __sortingEnabled = listWidget->isSortingEnabled();
+        listWidget->setSortingEnabled(false);
+        QListWidgetItem *___qlistwidgetitem = listWidget->item(0);
+        ___qlistwidgetitem->setText(QApplication::translate("Course", "New Itemffff", 0));
+        listWidget->setSortingEnabled(__sortingEnabled);
+
+        pushButton->setText(QApplication::translate("Course", "PushButton", 0));
         tabWidget->setTabText(tabWidget->indexOf(resourceTab), QApplication::translate("Course", "Resource", 0));
     } // retranslateUi
 

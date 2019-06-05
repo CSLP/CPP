@@ -6,10 +6,15 @@ Topic::Topic(Message msg, QWidget *parent) :
     ui(new Ui::Topic)
 {
     ui->setupUi(this);
-    //ui->scrollArea->hide();
+    ui->scrollArea->hide();
 }
 
 Topic::~Topic()
 {
     delete ui;
+}
+
+void Topic::change()
+{
+   ui->scrollArea->setVisible(true);
 }

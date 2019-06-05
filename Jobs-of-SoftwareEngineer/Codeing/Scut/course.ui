@@ -17,7 +17,7 @@
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>1</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="homeTab">
       <attribute name="title">
@@ -141,6 +141,34 @@ p, li { white-space: pre-wrap; }
       <attribute name="title">
        <string>Resource</string>
       </attribute>
+      <widget class="QListWidget" name="listWidget">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>140</y>
+         <width>461</width>
+         <height>321</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string>New Itemffff</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QPushButton" name="pushButton">
+       <property name="geometry">
+        <rect>
+         <x>620</x>
+         <y>220</y>
+         <width>120</width>
+         <height>32</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>PushButton</string>
+       </property>
+      </widget>
      </widget>
     </widget>
    </item>

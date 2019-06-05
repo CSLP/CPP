@@ -14,7 +14,8 @@ class Topic : public QWidget
 public:
     explicit Topic(Message,QWidget *parent = 0);
     ~Topic();
-
+public slots:
+    void change();
 private:
     Ui::Topic *ui;
 };
