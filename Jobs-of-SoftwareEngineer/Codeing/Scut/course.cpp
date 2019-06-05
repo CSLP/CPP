@@ -94,7 +94,7 @@ void Course::display(int a)
         }
         else
         {
-            items[i]->setSizeHint(QSize(0,300));
+            items[i]->setSizeHint(QSize(0,600));
             tops[i]->setVis(true);
         }
     }

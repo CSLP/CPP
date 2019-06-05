@@ -20,6 +20,7 @@ string getTeacherInfoByCourseName(string);
 string getCourseInfoByCourseName(string);
 vector<Message> getTopicsByCourseName(string);
 vector<Message> getCommentsByTopicId(int);
+vector<Message> getReplysByCommentId(int);
 list<string> getHomeworkInfoByCourseName(string);
 bool sendToSubmitFilePaths(list<string>);
 #endif // INTERFACE_H

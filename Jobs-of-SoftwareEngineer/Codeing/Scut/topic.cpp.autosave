@@ -22,7 +22,7 @@ Topic::Topic(Message msg, QWidget *parent) :
     QVBoxLayout *layout=new QVBoxLayout;
     QString comTitle;
     vector<QWidget *> rps;
-    vector<QPushButton *> shows;
+   	vector<QPushButton *> shows;
     vector<QPushButton *> folds;
 
     for(int i=0;i<comments.size();++i)

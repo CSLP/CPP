@@ -124,15 +124,32 @@ vector<Message> getCommentsByTopicId(int id)
     {
         case 1:
                 {
-                    comment.push_back(Message("wuyulp","去年秋冬，ONE实验室作者生活在《乘风破浪》剧组中间，见证了拍摄过\n\
-                                                    fsdffdsafffffffffffffffffffffffffffffffffffffffffffff\n\
-                                                    fjadksl;fjadsjfl;jadslkfjla;dksjflk;dasjlfkjadlks;jfkl;"
+                    comment.push_back(Message("Tom","去年秋冬，ONE实验室作者生活在《乘风破浪》剧组中间，见证了拍摄过\n\
+fsdffdsafffffffffffffffffffffffffffffffffffffffffffff写给那个茶水妹的《乘风破浪》诞生记写给那个茶水妹的《乘风破浪》诞生记\
+写给那个茶水妹的《乘风破浪》诞生记写给那个茶水妹的《乘风破浪》诞生记写给那个茶水妹的《乘风破浪》诞生记写给那个茶水妹的《乘风破浪》诞生记"
                                                    ,1,"2000-02-02",""));
-                    comment.push_back(Message("Jyp","去年秋冬，ONE实验室作者生活在《乘风破浪》剧组中间，见证了拍摄过\n\
+                    comment.push_back(Message("Brunce","去年秋冬，ONE实验室作者生活在《乘风破浪》剧组中间，见证了拍摄过\n\
+fsdffdsafffffffffffffffffffffffffffffffffffffffffffff写给那个茶水妹的《乘风破浪》诞生记写给那个茶水妹的《乘风破浪》诞生记\
+写给那个茶水妹的《乘风破浪》诞生记写给那个茶水妹的《乘风破浪》诞生记写给那个茶水妹的《乘风破浪》诞生记写给那个茶水妹的《乘风破浪》诞生记"
+                                                   ,2,"2000-02-02",""));
+                    comment.push_back(Message("Tony","去年秋冬，ONE实验室作者生活在《乘风破浪》剧组中间，见证了拍摄过\n\
                                                     fsdffdsafffffffffffffffffffffffffffffffffffffffffffff\n\
                                                     fjadksl;fjadsjfl;jadslkfjla;dksjflk;dasjlfkjadlks;jfkl;"
-                                                   ,2,"2000-02-02",""));
+                                                   ,3,"2000-02-02",""));
                  }
     }
     return comment;
+}
+
+vector<Message> getReplysByCommentId(int id)
+{
+    vector<Message> reply;
+    switch(id)
+    {
+        case 1:
+            reply.push_back(Message("File","求你不要真眼说瞎话了",1,"2000-02-02","LP"));
+            reply.push_back(Message("Edit","求你不要真眼说瞎话了",2,"2000-02-02","JYP"));
+            reply.push_back(Message("Build","求你不要真眼说瞎话了",3,"2000-02-02","ZYH"));
+    }
+    return reply;
 }
