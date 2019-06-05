@@ -1,6 +1,7 @@
 #include "course.h"
 #include "ui_course.h"
 #include"sendfile.h"
+#include"topic.h"
 #include<QDir>
 #include<QFileSystemModel>
 #include<QTreeView>
@@ -11,6 +12,7 @@
 #include<QScrollArea>
 #include<QListWidget>
 #include<QDebug>
+#include"message.h"
 Course::Course(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Course)
@@ -25,49 +27,6 @@ Course::Course(QWidget *parent) :
     view.setModel(&model);
     view.setRootIndex(model.index(QDir::currentPath()));
     view.show();
-
-    QListWidget*comment=new QListWidget;
-    QHBoxLayout *layout=new QHBoxLayout;
-    layout->addWidget(comment);
-    ui->resourceTab->setLayout(layout);
-    QWidget *x=new QWidget;
-    QHBoxLayout *z=new QHBoxLayout;
-    QPushButton *tt=new QPushButton("nimasile");
-    QPushButton *at=new QPushButton("fkdjflknimasile");
-    z->addWidget(tt);
-    z->addWidget(at);
-    x->setLayout(z);
-    QListWidgetItem * y=new QListWidgetItem;
-    y->setSizeHint(QSize(0,100));
-
-    comment->setItemHidden(0,true);
-    comment->addItem(y);
-    y->setHidden(false);
-    //if(tt->clicked()) qDebug()<<"nimaxi";
-    comment->setItemWidget(y,x);
-    /*
-    QVBoxLayout * layout=new QVBoxLayout;
-    QVBoxLayout * layout1=new QVBoxLayout;
-    QGroupBox * group1=new QGroupBox;
-    group1->setTitle("JYP");
-    QTextBrowser *answer=new QTextBrowser;
-    QTextBrowser *comment=new QTextBrowser;
-    answer->setText("jfffjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj");
-    comment->setText("wokannizhedoushishuodeyaoyan,woyanzhongbutongyi,renzaimeiguo,gangxiafeiji");
-    QPushButton *btn1=new QPushButton("ShowComments");
-    QPushButton *btn2=new QPushButton("FoldComments");
-    QGroupBox* g=new QGroupBox;
-    QHBoxLayout *ll=new QHBoxLayout;
-    ll->addWidget(btn1);
-    ll->addWidget(btn2);
-    g->setLayout(ll);
-    layout1->addWidget(answer);
-    layout1->addWidget(g);
-    layout1->addWidget(comment);
-    group1->setLayout(layout1);
-    layout->addWidget(group1);
-    ui->scrollArea->widget()->setLayout(layout);
-    */
 }
 
 Course::~Course()
@@ -100,6 +59,23 @@ void Course::courseInfo(std::__cxx11::string corName)
     {
         ui->homTextBrowser->append(QString::fromStdString(a));
     }
-    //list<string> topics=getTopicsByCoursename(corName);
+    vector<Message> topics=getTopicsByCourseName(corName);
+    QVBoxLayout * layout=new QVBoxLayout;
+    QListWidget *listWidget=new QListWidget;
+    layout->addWidget(listWidget);
+    ui->discussTab->setLayout(layout);
+    int topicNum=topics.size();
+    qDebug()<<topicNum;
+    vector<Topic*> tops;
+    for(int i=0;i<topicNum;++i)
+    {
+        Topic * t=new Topic(topics.at(i));
+        tops.push_back(t);
+        QListWidgetItem * item=new QListWidgetItem(listWidget);
+        listWidget->addItem(item);
+        listWidget->setItemWidget(item,t);
+        item->setSizeHint(QSize(0,300));
+    }
+    qDebug()<<tops.size();
     //list<string> comments=getCommentsByTopic;
 }

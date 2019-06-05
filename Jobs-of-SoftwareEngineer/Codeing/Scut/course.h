@@ -4,9 +4,11 @@
 #include <QDialog>
 #include<string>
 #include<list>
+#include<vector>
 #include"interface.h"
 using std::list;
 using std::string;
+using std::vector;
 namespace Ui {
 class Course;
 }
