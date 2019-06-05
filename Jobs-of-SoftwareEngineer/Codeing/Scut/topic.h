@@ -1,8 +1,9 @@
 #ifndef TOPIC_H
 #define TOPIC_H
-
+#include<vector>
 #include <QWidget>
 #include"message.h"
+using std::vector;
 namespace Ui {
 class Topic;
 }
@@ -18,6 +19,9 @@ public :
     void setVis(bool);
 private:
     Ui::Topic *ui;
+    vector<QWidget *> rps;
+private slots:
+    void setRVis(bool );
 };
 
 #endif // TOPIC_H

@@ -37,7 +37,6 @@ private slots:
 
 private:
     Ui::Student *ui;
-    Course *cor;
     UpdateInfo * upd;
 public slots:
     void idInfomation(string);

@@ -13,6 +13,7 @@ public:
     int  id;
     QString time;
     QString sendTo;
+    Message();
 };
 
 #endif // MESSAGE_H

@@ -22,12 +22,7 @@ Course::Course(QWidget *parent) :
     ui->teaTextBrowser->append("nimasil");
     ui->tabWidget->setCurrentIndex(0);
     topicNum=0;
-    QFileSystemModel model;
-    QTreeView view;
-    model.setRootPath(QDir::currentPath());
-    view.setModel(&model);
-    view.setRootIndex(model.index(QDir::currentPath()));
-    view.show();
+
 }
 
 Course::~Course()

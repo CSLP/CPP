@@ -1,9 +1,0 @@
-#include "comment.h"
-
-Comment::Comment(std::__cxx11::string a, std::__cxx11::string c, int, std::__cxx11::string i, std::__cxx11::string to)
-{
-	author=a;
-    content=c;
-    id=i;
-    sendTo=to;
-}

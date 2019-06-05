@@ -224,7 +224,7 @@ public:
 
         retranslateUi(Course);
 
-        tabWidget->setCurrentIndex(2);
+        tabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(Course);

@@ -15,11 +15,8 @@ Student::Student(QWidget *parent) :
 {
     ui->setupUi(this);
     this->move(400,160);
-    //this->resize(1000,1000);
-    cor=new Course(this);
     upd=new UpdateInfo(this);
     connect(upd,&UpdateInfo::updateStatus,this,&Student::completUpd);
-    connect(this,&Student::corInfo,cor,&Course::courseInfo);
     QPixmap pixmap(":/image/1.png");
     ui->label1->setPixmap(pixmap);
     ui->label2->resize(ui->label1->size());
@@ -33,56 +30,6 @@ Student::Student(QWidget *parent) :
     ui->label6->setPixmap(pixmap);
     ui->label6->resize(ui->label1->size());
     ui->tabWidget->setCurrentIndex(0);
-
-
-    /*ui->toolBox->setItemText(2,"第三题怎么做");
-    QWidget *page3=new QWidget;
-    QScrollArea *scroll=new QScrollArea(page3);
-    QWidget *x=new QWidget;
-    scroll->setWidget(x);
-    QVBoxLayout *vlayout=new QVBoxLayout(page3);
-    vlayout->addWidget(scroll);
-    QVBoxLayout *l=new QVBoxLayout;
-    QPushButton	*y=new QPushButton("nimasil");
-    l->addWidget(y);
-    scroll->setLayout(l);
-    ui->toolBox->addItem(page3,"第四题怎么做");
-
-    QVBoxLayout * layout=new QVBoxLayout;
-    QVBoxLayout * layout1=new QVBoxLayout;
-    QGroupBox * group1=new QGroupBox;
-    group1->setTitle("JYP");
-    QTextBrowser *answer=new QTextBrowser;
-    QTextBrowser *comment=new QTextBrowser;
-    answer->setText("jfffjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj");
-    comment->setText("wokannizhedoushishuodeyaoyan,woyanzhongbutongyi,renzaimeiguo,gangxiafeiji");
-    QPushButton *btn1=new QPushButton("ShowComments");
-    QPushButton *btn2=new QPushButton("FoldComments");
-    layout1->addWidget(answer);
-    layout1->addWidget(btn1);
-    layout1->addWidget(btn2);
-    layout1->addWidget(comment);
-    group1->setLayout(layout1);
-    layout->addWidget(group1);
-
-
-    QVBoxLayout * layout2=new QVBoxLayout;
-    QGroupBox * group2=new QGroupBox;
-    group2->setTitle("LP");
-    QTextBrowser *answer2=new QTextBrowser;
-    QTextBrowser *comment2=new QTextBrowser;
-    answer2->setText("jfffjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj\nfjj\njfkd\njfkjd\nfjd\nfjdk");
-    comment2->setText("wokannizhedoushishuodeyaoyan,woyanzhongbutongyi,renzaimeiguo,gangxiafeiji");
-    QPushButton *btn12=new QPushButton("ShowComments");
-    QPushButton *btn22=new QPushButton("FoldComments");
-    layout2->addWidget(answer2);
-    layout2->addWidget(btn12);
-    layout2->addWidget(btn22);
-    layout2->addWidget(comment2);
-    group2->setLayout(layout2);
-    layout->addWidget(group2);
-    ui->scrollArea->widget()->setLayout(layout);
-    */
 }
 
 Student::~Student()
@@ -162,37 +109,49 @@ void Student::completUpd(bool x)
 
 void Student::on_pushButton1_clicked()
 {
+    Course *cor=new Course(this);
     cor->show();
+    connect(this,&Student::corInfo,cor,&Course::courseInfo);
     emit corInfo(ui->pushButton1->text().toStdString());
 }
 
 void Student::on_pushButton2_clicked()
 {
+    Course *cor=new Course(this);
     cor->show();
+    connect(this,&Student::corInfo,cor,&Course::courseInfo);
     emit corInfo(ui->pushButton2->text().toStdString());
 }
 
 void Student::on_pushButton3_clicked()
 {
+    Course *cor=new Course(this);
     cor->show();
+    connect(this,&Student::corInfo,cor,&Course::courseInfo);
     emit corInfo(ui->pushButton3->text().toStdString());
 }
 
 void Student::on_pushButton4_clicked()
 {
+    Course *cor=new Course(this);
     cor->show();
+    connect(this,&Student::corInfo,cor,&Course::courseInfo);
     emit corInfo(ui->pushButton4->text().toStdString());
 }
 
 void Student::on_pushButton5_clicked()
 {
+    Course *cor=new Course(this);
     cor->show();
+    connect(this,&Student::corInfo,cor,&Course::courseInfo);
     emit corInfo(ui->pushButton5->text().toStdString());
 }
 
 void Student::on_pushButton6_clicked()
 {
+    Course *cor=new Course(this);
     cor->show();
+    connect(this,&Student::corInfo,cor,&Course::courseInfo);
     emit corInfo(ui->pushButton6->text().toStdString());
 }
 

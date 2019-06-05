@@ -8,3 +8,12 @@ Message::Message(std::__cxx11::string a, std::__cxx11::string c, int i, std::__c
     time=QString::fromStdString(t);
     sendTo=QString::fromStdString(to);
 }
+
+Message::Message()
+{
+    author="";
+    content="";
+    id=0;
+    time="";
+    sendTo="";
+}
