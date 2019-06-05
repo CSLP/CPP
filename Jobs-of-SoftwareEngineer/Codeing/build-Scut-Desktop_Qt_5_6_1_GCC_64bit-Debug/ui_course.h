@@ -17,6 +17,7 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QListView>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTabWidget>
@@ -50,6 +51,7 @@ public:
     QWidget *resourceTab;
     QListWidget *listWidget;
     QPushButton *pushButton;
+    QListView *listView;
 
     void setupUi(QDialog *Course)
     {
@@ -137,6 +139,9 @@ public:
         pushButton = new QPushButton(resourceTab);
         pushButton->setObjectName(QStringLiteral("pushButton"));
         pushButton->setGeometry(QRect(620, 220, 120, 32));
+        listView = new QListView(resourceTab);
+        listView->setObjectName(QStringLiteral("listView"));
+        listView->setGeometry(QRect(800, 130, 301, 291));
         tabWidget->addTab(resourceTab, QString());
 
         horizontalLayout->addWidget(tabWidget);

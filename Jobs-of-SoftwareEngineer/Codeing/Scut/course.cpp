@@ -21,6 +21,7 @@ Course::Course(QWidget *parent) :
     this->move(390,155);
     ui->teaTextBrowser->append("nimasil");
     ui->tabWidget->setCurrentIndex(0);
+    topicNum=0;
     QFileSystemModel model;
     QTreeView view;
     model.setRootPath(QDir::currentPath());
@@ -64,19 +65,37 @@ void Course::courseInfo(std::__cxx11::string corName)
     QListWidget *listWidget=new QListWidget;
     layout->addWidget(listWidget);
     ui->discussTab->setLayout(layout);
-    int topicNum=topics.size();
-    qDebug()<<topicNum;
-    vector<Topic*> tops;
+    topicNum=topics.size();
+    //qDebug()<<topicNum;
+    //vector<Topic*> tops;
+    //vector<QListWidgetItem*> items;
     for(int i=0;i<topicNum;++i)
     {
         Topic * t=new Topic(topics.at(i));
         tops.push_back(t);
         QListWidgetItem * item=new QListWidgetItem(listWidget);
+        items.push_back(item);
         listWidget->addItem(item);
         listWidget->setItemWidget(item,t);
-        item->setSizeHint(QSize(0,300));
+        item->setSizeHint(QSize(0,50));
     }
-    qDebug()<<tops.size();
-    //connect(listWidget,&QListWidget::itemCli,listWidget,&QListWidget::itemWidget)
-    //list<string> comments=getCommentsByTopic;
+    // qDebug()<<tops.size();
+    connect(listWidget,&QListWidget::currentRowChanged,this,&Course::display);
+}
+
+void Course::display(int a)
+{
+    for(int i=0;i<topicNum;++i)
+    {
+        if(i!=a)
+        {
+            items[i]->setSizeHint(QSize(0,50));
+            tops[i]->setVis(false);
+        }
+        else
+        {
+            items[i]->setSizeHint(QSize(0,300));
+            tops[i]->setVis(true);
+        }
+    }
 }

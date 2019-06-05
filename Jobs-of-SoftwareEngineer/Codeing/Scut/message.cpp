@@ -2,9 +2,9 @@
 
 Message::Message(std::__cxx11::string a, std::__cxx11::string c, int i, std::__cxx11::string t, std::__cxx11::string to)
 {
-    author=a;
-    content=a;
+    author=QString::fromStdString(a);
+    content=QString::fromStdString(c);
     id=i;
-    time=t;
-    sendTo=to;
+    time=QString::fromStdString(t);
+    sendTo=QString::fromStdString(to);
 }

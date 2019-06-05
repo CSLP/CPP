@@ -1,17 +1,18 @@
 #ifndef MESSAGE_H
 #define MESSAGE_H
 #include<string>
+#include<QString>
 using std::string;
 
 class Message
 {
 public:
     Message(string,string,int,string,string);
-    string author;
-    string content;
+    QString author;
+    QString content;
     int  id;
-    string time;
-    string sendTo;
+    QString time;
+    QString sendTo;
 };
 
 #endif // MESSAGE_H

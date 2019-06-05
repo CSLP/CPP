@@ -116,3 +116,23 @@ vector<Message> getTopicsByCourseName(std::__cxx11::string corname)
     }
     return topic;
 }
+
+vector<Message> getCommentsByTopicId(int id)
+{
+    vector<Message> comment;
+    switch(id)
+    {
+        case 1:
+                {
+                    comment.push_back(Message("wuyulp","去年秋冬，ONE实验室作者生活在《乘风破浪》剧组中间，见证了拍摄过\n\
+                                                    fsdffdsafffffffffffffffffffffffffffffffffffffffffffff\n\
+                                                    fjadksl;fjadsjfl;jadslkfjla;dksjflk;dasjlfkjadlks;jfkl;"
+                                                   ,1,"2000-02-02",""));
+                    comment.push_back(Message("Jyp","去年秋冬，ONE实验室作者生活在《乘风破浪》剧组中间，见证了拍摄过\n\
+                                                    fsdffdsafffffffffffffffffffffffffffffffffffffffffffff\n\
+                                                    fjadksl;fjadsjfl;jadslkfjla;dksjflk;dasjlfkjadlks;jfkl;"
+                                                   ,2,"2000-02-02",""));
+                 }
+    }
+    return comment;
+}

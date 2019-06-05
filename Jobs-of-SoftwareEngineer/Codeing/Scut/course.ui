@@ -169,6 +169,16 @@ p, li { white-space: pre-wrap; }
         <string>PushButton</string>
        </property>
       </widget>
+      <widget class="QListView" name="listView">
+       <property name="geometry">
+        <rect>
+         <x>800</x>
+         <y>130</y>
+         <width>301</width>
+         <height>291</height>
+        </rect>
+       </property>
+      </widget>
      </widget>
     </widget>
    </item>

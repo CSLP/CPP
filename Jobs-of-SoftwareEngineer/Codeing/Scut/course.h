@@ -6,6 +6,8 @@
 #include<list>
 #include<vector>
 #include"interface.h"
+class Topic;
+class QListWidgetItem;
 using std::list;
 using std::string;
 using std::vector;
@@ -27,8 +29,12 @@ private slots:
     void on_submitPushButton_clicked();
 public slots:
     void courseInfo(string);
+    void display(int);
 private:
     Ui::Course *ui;
+    vector<Topic*> tops;
+    vector<QListWidgetItem*> items;
+    int topicNum;
 };
 
 #endif // COURSE_H

@@ -16,7 +16,6 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QScrollArea>
-#include <QtWidgets/QTimeEdit>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -29,7 +28,6 @@ public:
     QLabel *label;
     QScrollArea *scrollArea;
     QWidget *scrollAreaWidgetContents;
-    QTimeEdit *timeEdit;
 
     void setupUi(QWidget *Topic)
     {
@@ -49,9 +47,6 @@ public:
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
         scrollAreaWidgetContents->setGeometry(QRect(0, 0, 1182, 470));
-        timeEdit = new QTimeEdit(scrollAreaWidgetContents);
-        timeEdit->setObjectName(QStringLiteral("timeEdit"));
-        timeEdit->setGeometry(QRect(180, 80, 118, 32));
         scrollArea->setWidget(scrollAreaWidgetContents);
 
         verticalLayout->addWidget(scrollArea);
