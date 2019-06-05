@@ -17,7 +17,9 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QScrollArea>
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QVBoxLayout>
@@ -46,7 +48,9 @@ public:
     QLabel *label_2;
     QTextBrowser *corTextBrowser;
     QWidget *discussTab;
-    QHBoxLayout *horizontalLayout_2;
+    QListWidget *listWidget;
+    QScrollArea *scrollArea;
+    QWidget *scrollAreaWidgetContents;
     QWidget *resourceTab;
 
     void setupUi(QDialog *Course)
@@ -125,8 +129,25 @@ public:
         tabWidget->addTab(homeTab, QString());
         discussTab = new QWidget();
         discussTab->setObjectName(QStringLiteral("discussTab"));
-        horizontalLayout_2 = new QHBoxLayout(discussTab);
-        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        listWidget = new QListWidget(discussTab);
+        QFont font;
+        font.setPointSize(30);
+        QListWidgetItem *__qlistwidgetitem = new QListWidgetItem(listWidget);
+        __qlistwidgetitem->setTextAlignment(Qt::AlignCenter);
+        __qlistwidgetitem->setFont(font);
+        QListWidgetItem *__qlistwidgetitem1 = new QListWidgetItem(listWidget);
+        __qlistwidgetitem1->setTextAlignment(Qt::AlignCenter);
+        __qlistwidgetitem1->setFont(font);
+        listWidget->setObjectName(QStringLiteral("listWidget"));
+        listWidget->setGeometry(QRect(20, 10, 1051, 571));
+        scrollArea = new QScrollArea(discussTab);
+        scrollArea->setObjectName(QStringLiteral("scrollArea"));
+        scrollArea->setGeometry(QRect(420, 250, 120, 80));
+        scrollArea->setWidgetResizable(true);
+        scrollAreaWidgetContents = new QWidget();
+        scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 118, 78));
+        scrollArea->setWidget(scrollAreaWidgetContents);
         tabWidget->addTab(discussTab, QString());
         resourceTab = new QWidget();
         resourceTab->setObjectName(QStringLiteral("resourceTab"));
@@ -137,7 +158,7 @@ public:
 
         retranslateUi(Course);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(Course);
@@ -157,6 +178,15 @@ public:
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">fdjlk;kjffkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkjflkjsjdfafds</p></body></html>", 0));
         label_2->setText(QApplication::translate("Course", "CourseInformation", 0));
         tabWidget->setTabText(tabWidget->indexOf(homeTab), QApplication::translate("Course", "Home", 0));
+
+        const bool __sortingEnabled = listWidget->isSortingEnabled();
+        listWidget->setSortingEnabled(false);
+        QListWidgetItem *___qlistwidgetitem = listWidget->item(0);
+        ___qlistwidgetitem->setText(QApplication::translate("Course", "\344\275\240\345\246\210\346\255\273\344\272\206", 0));
+        QListWidgetItem *___qlistwidgetitem1 = listWidget->item(1);
+        ___qlistwidgetitem1->setText(QApplication::translate("Course", "\344\275\240\345\260\261\346\230\257\344\270\252\345\202\273\351\200\274", 0));
+        listWidget->setSortingEnabled(__sortingEnabled);
+
         tabWidget->setTabText(tabWidget->indexOf(discussTab), QApplication::translate("Course", "Discussion", 0));
         tabWidget->setTabText(tabWidget->indexOf(resourceTab), QApplication::translate("Course", "Resource", 0));
     } // retranslateUi

@@ -17,7 +17,7 @@
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="homeTab">
       <attribute name="title">
@@ -136,7 +136,65 @@ p, li { white-space: pre-wrap; }
       <attribute name="title">
        <string>Discussion</string>
       </attribute>
-      <layout class="QHBoxLayout" name="horizontalLayout_2"/>
+      <widget class="QListWidget" name="listWidget">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>10</y>
+         <width>1051</width>
+         <height>571</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string>你妈死了</string>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>30</pointsize>
+         </font>
+        </property>
+        <property name="textAlignment">
+         <set>AlignCenter</set>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>你就是个傻逼</string>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>30</pointsize>
+         </font>
+        </property>
+        <property name="textAlignment">
+         <set>AlignCenter</set>
+        </property>
+       </item>
+      </widget>
+      <widget class="QScrollArea" name="scrollArea">
+       <property name="geometry">
+        <rect>
+         <x>420</x>
+         <y>250</y>
+         <width>120</width>
+         <height>80</height>
+        </rect>
+       </property>
+       <property name="widgetResizable">
+        <bool>true</bool>
+       </property>
+       <widget class="QWidget" name="scrollAreaWidgetContents">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>118</width>
+          <height>78</height>
+         </rect>
+        </property>
+       </widget>
+      </widget>
      </widget>
      <widget class="QWidget" name="resourceTab">
       <attribute name="title">

@@ -8,6 +8,9 @@
 #include<QTextBrowser>
 #include<QPushButton>
 #include<QGroupBox>
+#include<QScrollArea>
+#include<QListWidget>
+#include<QDebug>
 Course::Course(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Course)
@@ -22,6 +25,26 @@ Course::Course(QWidget *parent) :
     view.setModel(&model);
     view.setRootIndex(model.index(QDir::currentPath()));
     view.show();
+
+    QListWidget*comment=new QListWidget;
+    QHBoxLayout *layout=new QHBoxLayout;
+    layout->addWidget(comment);
+    ui->resourceTab->setLayout(layout);
+    QWidget *x=new QWidget;
+    QHBoxLayout *z=new QHBoxLayout;
+    QPushButton *tt=new QPushButton("nimasile");
+    QPushButton *at=new QPushButton("fkdjflknimasile");
+    z->addWidget(tt);
+    z->addWidget(at);
+    x->setLayout(z);
+    QListWidgetItem * y=new QListWidgetItem;
+    y->setSizeHint(QSize(0,100));
+
+    comment->setItemHidden(0,true);
+    comment->addItem(y);
+    y->setHidden(false);
+    //if(tt->clicked()) qDebug()<<"nimaxi";
+    comment->setItemWidget(y,x);
     /*
     QVBoxLayout * layout=new QVBoxLayout;
     QVBoxLayout * layout1=new QVBoxLayout;
