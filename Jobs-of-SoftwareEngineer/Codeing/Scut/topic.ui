@@ -18,6 +18,11 @@
     <layout class="QHBoxLayout" name="horizontalLayout" stretch="9">
      <item>
       <widget class="QLabel" name="label">
+       <property name="font">
+        <font>
+         <family>Ubuntu</family>
+        </font>
+       </property>
        <property name="text">
         <string>TextLabel</string>
        </property>

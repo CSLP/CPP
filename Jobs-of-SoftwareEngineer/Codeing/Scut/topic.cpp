@@ -13,6 +13,7 @@
 #include<QLineEdit>
 #include<QPlainTextEdit>
 #include"comment.h"
+#include<QLabel>
 using std::vector;
 Topic::Topic(Message msg, QWidget *parent) :
     QWidget(parent),
@@ -23,16 +24,17 @@ Topic::Topic(Message msg, QWidget *parent) :
     QVBoxLayout *layout=new QVBoxLayout;
     QString comTitle;
     QVBoxLayout*la=new QVBoxLayout;
+    QLabel *answer=new QLabel("回答问题");
+    answer->setFont(QFont("FZKai-Z03",16));
+    QPushButton *ok=new QPushButton("提交");
     QHBoxLayout *lb=new QHBoxLayout;
-    QPushButton *answer=new QPushButton("回答问题");
-    QPushButton *ok=new QPushButton("确定");
-    lb->addWidget(answer);
-    lb->addWidget(ok);
-    lb->setSpacing(30);
-    la->addLayout(lb);
+    la->addWidget(answer);
+    la->addWidget(ok);
+    lb->addLayout(la);
     QPlainTextEdit *co=new QPlainTextEdit;
-    la->addWidget(co);
-    layout->addLayout(la);
+    lb->addWidget(co);
+
+    layout->addLayout(lb);
     for(unsigned int i=0;i<comments.size();++i)
     {
         Comment *b=new Comment(comments[i]);

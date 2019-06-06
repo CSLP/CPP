@@ -62,13 +62,21 @@ void Teacher::on_pushButton_3_clicked()
 void Teacher::on_pushButton_5_clicked()
 {
     if(ui->IdLineEdit->text().isEmpty())
-    {
         QMessageBox::warning(this,tr("Warning"),tr("上传材料需要指明课程ID!"),QMessageBox::Ok);
-    }
     else
     {
         SendFile *s=new SendFile(this);
         s->show();
     }
     clearCache();
+}
+
+void Teacher::on_pushButton_clicked()
+{
+    if(ui->IdLineEdit->text().isEmpty()||ui->textEdit->toPlainText().isEmpty())
+        QMessageBox::warning(this,tr("Warning"),tr("输入不能为空!"),QMessageBox::Ok);
+    else
+    {
+
+    }
 }

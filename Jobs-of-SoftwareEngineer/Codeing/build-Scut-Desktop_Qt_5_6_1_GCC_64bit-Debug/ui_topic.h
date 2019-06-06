@@ -42,6 +42,9 @@ public:
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         label = new QLabel(Topic);
         label->setObjectName(QStringLiteral("label"));
+        QFont font;
+        font.setFamily(QStringLiteral("Ubuntu"));
+        label->setFont(font);
 
         horizontalLayout->addWidget(label);
 

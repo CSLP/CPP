@@ -298,6 +298,11 @@ public:
         label_4->setText(QApplication::translate("Teacher", "\346\255\243\346\226\207", 0));
         pushButton->setText(QApplication::translate("Teacher", "\345\217\221\351\200\201", 0));
         pushButton_5->setText(QApplication::translate("Teacher", "\344\270\212\344\274\240", 0));
+        textEdit->setHtml(QApplication::translate("Teacher", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Ubuntu'; font-size:14pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">fadsfdsaf</p></body></html>", 0));
         groupBox_2->setTitle(QString());
         label_2->setText(QApplication::translate("Teacher", "\350\200\203\345\213\244", 0));
         label_5->setText(QApplication::translate("Teacher", "\345\255\246\347\224\237ID", 0));
