@@ -35,16 +35,16 @@ void Login::on_signInPushButton_clicked()
                 type="teacher";
             if(loginMatch(type,ui->idLineEdit->text().toStdString(),ui->passwdLineEdit->text().toStdString()))
             {
-                if(ui->stuRadioButton->isChecked())
+                if(type=="student")
                 {
                     string id=ui->idLineEdit->text().toStdString();
-                    emit idInfo(id);
+                    emit idInfo(type,id);
                     student->show();
                 }
                 else
                 {
                     string id=ui->idLineEdit->text().toStdString();
-                    emit idInfo(id);
+                    emit idInfo(type,id);
                     teacher->show();
                 }
                 ui->idLineEdit->clear();

@@ -22,11 +22,13 @@ public:
 private:
     Ui::Teacher *ui;
     vector<CourseInfo> cors;
+    void clearCache();
 public slots:
-    void corListInfo(string);
+    void corListInfo(string,string);
     void display(int);
 private slots:
     void on_pushButton_3_clicked();
+    void on_pushButton_5_clicked();
 };
 
 #endif // TEACHER_H

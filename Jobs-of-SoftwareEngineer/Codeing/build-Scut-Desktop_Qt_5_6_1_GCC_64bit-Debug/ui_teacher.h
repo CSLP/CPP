@@ -49,8 +49,9 @@ public:
     QLabel *label_4;
     QSpacerItem *verticalSpacer;
     QPushButton *pushButton;
+    QPushButton *pushButton_5;
     QVBoxLayout *verticalLayout_2;
-    QLineEdit *lineEdit;
+    QLineEdit *IdLineEdit;
     QTextEdit *textEdit;
     QGroupBox *groupBox_2;
     QHBoxLayout *horizontalLayout_6;
@@ -85,7 +86,7 @@ public:
         horizontalLayout_10 = new QHBoxLayout(centralwidget);
         horizontalLayout_10->setObjectName(QStringLiteral("horizontalLayout_10"));
         horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setSpacing(20);
+        horizontalLayout->setSpacing(5);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         listWidget = new QListWidget(centralwidget);
         listWidget->setObjectName(QStringLiteral("listWidget"));
@@ -140,15 +141,20 @@ public:
 
         verticalLayout->addWidget(pushButton);
 
+        pushButton_5 = new QPushButton(groupBox);
+        pushButton_5->setObjectName(QStringLiteral("pushButton_5"));
+
+        verticalLayout->addWidget(pushButton_5);
+
 
         horizontalLayout_2->addLayout(verticalLayout);
 
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
-        lineEdit = new QLineEdit(groupBox);
-        lineEdit->setObjectName(QStringLiteral("lineEdit"));
+        IdLineEdit = new QLineEdit(groupBox);
+        IdLineEdit->setObjectName(QStringLiteral("IdLineEdit"));
 
-        verticalLayout_2->addWidget(lineEdit);
+        verticalLayout_2->addWidget(IdLineEdit);
 
         textEdit = new QTextEdit(groupBox);
         textEdit->setObjectName(QStringLiteral("textEdit"));
@@ -287,10 +293,11 @@ public:
     {
         Teacher->setWindowTitle(QApplication::translate("Teacher", "Teacher", 0));
         groupBox->setTitle(QString());
-        label->setText(QApplication::translate("Teacher", "\345\217\221\351\200\232\347\237\245", 0));
+        label->setText(QApplication::translate("Teacher", "\345\217\221\351\200\232\347\237\245&\344\270\212\344\274\240\346\235\220\346\226\231", 0));
         label_3->setText(QApplication::translate("Teacher", "\350\257\276\347\250\213ID", 0));
         label_4->setText(QApplication::translate("Teacher", "\346\255\243\346\226\207", 0));
         pushButton->setText(QApplication::translate("Teacher", "\345\217\221\351\200\201", 0));
+        pushButton_5->setText(QApplication::translate("Teacher", "\344\270\212\344\274\240", 0));
         groupBox_2->setTitle(QString());
         label_2->setText(QApplication::translate("Teacher", "\350\200\203\345\213\244", 0));
         label_5->setText(QApplication::translate("Teacher", "\345\255\246\347\224\237ID", 0));

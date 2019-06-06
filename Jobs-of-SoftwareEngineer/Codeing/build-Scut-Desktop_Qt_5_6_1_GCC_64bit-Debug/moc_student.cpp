@@ -81,9 +81,9 @@ static const uint qt_meta_data_Student[] = {
        9,    0,   82,    2, 0x08 /* Private */,
       10,    0,   83,    2, 0x08 /* Private */,
       11,    0,   84,    2, 0x08 /* Private */,
-      12,    1,   85,    2, 0x0a /* Public */,
-      13,    1,   88,    2, 0x0a /* Public */,
-      14,    1,   91,    2, 0x0a /* Public */,
+      12,    2,   85,    2, 0x0a /* Public */,
+      13,    2,   90,    2, 0x0a /* Public */,
+      14,    1,   95,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, 0x80000000 | 3,    2,
@@ -97,8 +97,8 @@ static const uint qt_meta_data_Student[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 3,    2,
-    QMetaType::Void, 0x80000000 | 3,    2,
+    QMetaType::Void, 0x80000000 | 3, 0x80000000 | 3,    2,    2,
+    QMetaType::Void, 0x80000000 | 3, 0x80000000 | 3,    2,    2,
     QMetaType::Void, QMetaType::Bool,    2,
 
        0        // eod
@@ -119,8 +119,8 @@ void Student::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         case 6: _t->on_pushButton5_clicked(); break;
         case 7: _t->on_pushButton6_clicked(); break;
         case 8: _t->on_modifyPushButton_clicked(); break;
-        case 9: _t->idInfomation((*reinterpret_cast< string(*)>(_a[1]))); break;
-        case 10: _t->courseInformation((*reinterpret_cast< string(*)>(_a[1]))); break;
+        case 9: _t->idInfomation((*reinterpret_cast< string(*)>(_a[1])),(*reinterpret_cast< string(*)>(_a[2]))); break;
+        case 10: _t->courseInformation((*reinterpret_cast< string(*)>(_a[1])),(*reinterpret_cast< string(*)>(_a[2]))); break;
         case 11: _t->completUpd((*reinterpret_cast< bool(*)>(_a[1]))); break;
         default: ;
         }

@@ -4,6 +4,8 @@
 #include"interface.h"
 #include<QListWidgetItem>
 #include<studentinfo.h>
+#include<QMessageBox>
+#include"sendfile.h"
 Teacher::Teacher(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Teacher)
@@ -17,8 +19,9 @@ Teacher::~Teacher()
     delete ui;
 }
 
-void Teacher::corListInfo(string id)
+void Teacher::corListInfo(string type, std::__cxx11::string  id)
 {
+        if(type=="student") return;
         vector<CourseInfo> cor=getCourseListByTeacherId(id);
         QString t;
         for(unsigned int i=0;i<cor.size();++i)
@@ -44,8 +47,28 @@ void Teacher::display(int a)
         }
 }
 
+void Teacher::clearCache()
+{
+    ui->IdLineEdit->clear();
+    ui->textEdit->clear();
+}
+
 void Teacher::on_pushButton_3_clicked()
 {
     close();
     ui->listWidget->clear();
+}
+
+void Teacher::on_pushButton_5_clicked()
+{
+    if(ui->IdLineEdit->text().isEmpty())
+    {
+        QMessageBox::warning(this,tr("Warning"),tr("上传材料需要指明课程ID!"),QMessageBox::Ok);
+    }
+    else
+    {
+        SendFile *s=new SendFile(this);
+        s->show();
+    }
+    clearCache();
 }

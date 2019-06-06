@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_Teacher_t {
-    QByteArrayData data[6];
-    char stringdata0[60];
+    QByteArrayData data[7];
+    char stringdata0[84];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -34,11 +34,12 @@ QT_MOC_LITERAL(1, 8, 11), // "corListInfo"
 QT_MOC_LITERAL(2, 20, 0), // ""
 QT_MOC_LITERAL(3, 21, 6), // "string"
 QT_MOC_LITERAL(4, 28, 7), // "display"
-QT_MOC_LITERAL(5, 36, 23) // "on_pushButton_3_clicked"
+QT_MOC_LITERAL(5, 36, 23), // "on_pushButton_3_clicked"
+QT_MOC_LITERAL(6, 60, 23) // "on_pushButton_5_clicked"
 
     },
     "Teacher\0corListInfo\0\0string\0display\0"
-    "on_pushButton_3_clicked"
+    "on_pushButton_3_clicked\0on_pushButton_5_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -48,7 +49,7 @@ static const uint qt_meta_data_Teacher[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       3,   14, // methods
+       4,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -56,13 +57,15 @@ static const uint qt_meta_data_Teacher[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    1,   29,    2, 0x0a /* Public */,
-       4,    1,   32,    2, 0x0a /* Public */,
-       5,    0,   35,    2, 0x08 /* Private */,
+       1,    2,   34,    2, 0x0a /* Public */,
+       4,    1,   39,    2, 0x0a /* Public */,
+       5,    0,   42,    2, 0x08 /* Private */,
+       6,    0,   43,    2, 0x08 /* Private */,
 
  // slots: parameters
-    QMetaType::Void, 0x80000000 | 3,    2,
+    QMetaType::Void, 0x80000000 | 3, 0x80000000 | 3,    2,    2,
     QMetaType::Void, QMetaType::Int,    2,
+    QMetaType::Void,
     QMetaType::Void,
 
        0        // eod
@@ -74,9 +77,10 @@ void Teacher::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         Teacher *_t = static_cast<Teacher *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->corListInfo((*reinterpret_cast< string(*)>(_a[1]))); break;
+        case 0: _t->corListInfo((*reinterpret_cast< string(*)>(_a[1])),(*reinterpret_cast< string(*)>(_a[2]))); break;
         case 1: _t->display((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 2: _t->on_pushButton_3_clicked(); break;
+        case 3: _t->on_pushButton_5_clicked(); break;
         default: ;
         }
     }
@@ -107,13 +111,13 @@ int Teacher::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 3)
+        if (_id < 4)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 3;
+        _id -= 4;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 3)
+        if (_id < 4)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 3;
+        _id -= 4;
     }
     return _id;
 }

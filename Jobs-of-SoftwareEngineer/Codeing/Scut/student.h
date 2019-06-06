@@ -39,8 +39,8 @@ private:
     Ui::Student *ui;
     UpdateInfo * upd;
 public slots:
-    void idInfomation(string);
-    void courseInformation(string);
+    void idInfomation(string,string);
+    void courseInformation(string,string);
     void completUpd(bool);
 signals:
     void corInfo(string);

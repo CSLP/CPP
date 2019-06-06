@@ -29,6 +29,6 @@ private:
     Teacher * teacher;
     SignUp * signup;
 signals:
-    void idInfo(string);
+    void idInfo(string,string);
 };
 #endif // LOGIN_H

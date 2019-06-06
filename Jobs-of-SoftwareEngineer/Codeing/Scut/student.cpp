@@ -45,7 +45,7 @@ void Student::on_loginAgainPushButton_clicked()
     close();
 }
 
-void Student::idInfomation(std::__cxx11::string idinfo)
+void Student::idInfomation(std::__cxx11::string type, std::__cxx11::string idinfo)
 {
    list<string> info =getStudentInfoByStudentId(idinfo);
    list<string> inf=getStudentAttendanceByStudentId(idinfo);
@@ -71,7 +71,7 @@ void Student::idInfomation(std::__cxx11::string idinfo)
    ui->listWidget1->insertItems(6,inn);
 }
 
-void Student::courseInformation(std::__cxx11::string  id)
+void Student::courseInformation(std::__cxx11::string  type, std::__cxx11::string id)
 {
     auto co=getCourseInfoByStudentId(id);
     if(co.size()!=6)
