@@ -31,11 +31,15 @@ private slots:
 public slots:
     void courseInfo(string);
     void display(int);
+    void changeTag(int);
+signals:
+    void perfect(int);
 private:
     Ui::Course *ui;
     vector<Topic*> tops;
     vector<QListWidgetItem*> items;
     int topicNum;
+    int tag;
 };
 
 #endif // COURSE_H

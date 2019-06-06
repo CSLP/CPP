@@ -18,6 +18,7 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QTextBrowser>
@@ -49,6 +50,7 @@ public:
     QWidget *discussTab;
     QWidget *resourceTab;
     QFrame *line_2;
+    QListWidget *listWidget;
 
     void setupUi(QDialog *Course)
     {
@@ -137,6 +139,18 @@ public:
         line_2->setGeometry(QRect(360, 480, 3, 61));
         line_2->setFrameShape(QFrame::VLine);
         line_2->setFrameShadow(QFrame::Sunken);
+        listWidget = new QListWidget(resourceTab);
+        QBrush brush(QColor(0, 0, 0, 0));
+        brush.setStyle(Qt::NoBrush);
+        QListWidgetItem *__qlistwidgetitem = new QListWidgetItem(listWidget);
+        __qlistwidgetitem->setBackground(brush);
+        new QListWidgetItem(listWidget);
+        QListWidgetItem *__qlistwidgetitem1 = new QListWidgetItem(listWidget);
+        __qlistwidgetitem1->setText(QStringLiteral("New Item"));
+        new QListWidgetItem(listWidget);
+        new QListWidgetItem(listWidget);
+        listWidget->setObjectName(QStringLiteral("listWidget"));
+        listWidget->setGeometry(QRect(220, 170, 331, 301));
         tabWidget->addTab(resourceTab, QString());
 
         horizontalLayout->addWidget(tabWidget);
@@ -165,6 +179,19 @@ public:
         label_2->setText(QApplication::translate("Course", "CourseInformation", 0));
         tabWidget->setTabText(tabWidget->indexOf(homeTab), QApplication::translate("Course", "Home", 0));
         tabWidget->setTabText(tabWidget->indexOf(discussTab), QApplication::translate("Course", "Discussion", 0));
+
+        const bool __sortingEnabled = listWidget->isSortingEnabled();
+        listWidget->setSortingEnabled(false);
+        QListWidgetItem *___qlistwidgetitem = listWidget->item(0);
+        ___qlistwidgetitem->setText(QApplication::translate("Course", "New Item", 0));
+        QListWidgetItem *___qlistwidgetitem1 = listWidget->item(1);
+        ___qlistwidgetitem1->setText(QApplication::translate("Course", "New Item", 0));
+        QListWidgetItem *___qlistwidgetitem2 = listWidget->item(3);
+        ___qlistwidgetitem2->setText(QApplication::translate("Course", "New Item", 0));
+        QListWidgetItem *___qlistwidgetitem3 = listWidget->item(4);
+        ___qlistwidgetitem3->setText(QApplication::translate("Course", "New Item", 0));
+        listWidget->setSortingEnabled(__sortingEnabled);
+
         tabWidget->setTabText(tabWidget->indexOf(resourceTab), QApplication::translate("Course", "Resource", 0));
     } // retranslateUi
 

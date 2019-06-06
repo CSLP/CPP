@@ -546,7 +546,7 @@ public:
 
     void retranslateUi(QMainWindow *Student)
     {
-        Student->setWindowTitle(QApplication::translate("Student", "MainWindow", 0));
+        Student->setWindowTitle(QApplication::translate("Student", "Student", 0));
         labelb->setText(QApplication::translate("Student", "Bulletin", 0));
         labela->setText(QApplication::translate("Student", "Information", 0));
         loginAgainPushButton->setText(QApplication::translate("Student", "LoginAgain", 0));

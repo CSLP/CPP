@@ -24,6 +24,8 @@ Course::Course(QWidget *parent) :
     ui->teaTextBrowser->append("nimasil");
     ui->tabWidget->setCurrentIndex(0);
     topicNum=0;
+    connect(ui->tabWidget,&QTabWidget::currentChanged,this,&Course::changeTag);
+    connect(this,&Course::perfect,this,&Course::display);
 }
 
 Course::~Course()
@@ -76,6 +78,7 @@ void Course::courseInfo(std::__cxx11::string corName)
     connect(submit,&QPushButton::clicked,brow,&QPlainTextEdit::hide);
     connect(submit,&QPushButton::clicked,submit,&QPushButton::hide);
     QListWidget *listWidget=new QListWidget;
+    listWidget->setStyleSheet("QListView::item:selected{color:black;background-color:rgb(255,255,255);}");
     layout->addWidget(listWidget);
     layout->addLayout(la);
     layout->setStretch(0,2);
@@ -110,4 +113,10 @@ void Course::display(int a)
             tops[i]->setVis(true);
         }
     }
+}
+
+void Course::changeTag(int a)
+{
+   a+=10;
+   emit perfect(a);
 }
