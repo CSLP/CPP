@@ -17,11 +17,13 @@ public:
     ~Topic();
 public :
     void setVis(bool);
+private slots:
+    void on_showPushButton_clicked();
+
+    void on_foldPushButton_clicked();
+
 private:
     Ui::Topic *ui;
-    vector<QWidget *> rps;
-private slots:
-    void setRVis(bool );
 };
 
 #endif // TOPIC_H

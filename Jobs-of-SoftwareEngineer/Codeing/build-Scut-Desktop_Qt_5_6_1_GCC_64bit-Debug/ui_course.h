@@ -14,13 +14,10 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QDialog>
-#include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QScrollArea>
-#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QVBoxLayout>
@@ -50,22 +47,6 @@ public:
     QTextBrowser *corTextBrowser;
     QWidget *discussTab;
     QWidget *resourceTab;
-    QHBoxLayout *horizontalLayout_2;
-    QScrollArea *scrollArea;
-    QWidget *scrollAreaWidgetContents;
-    QVBoxLayout *verticalLayout_4;
-    QGroupBox *groupBox;
-    QVBoxLayout *verticalLayout_5;
-    QTextBrowser *textBrowser;
-    QHBoxLayout *horizontalLayout_3;
-    QSpacerItem *horizontalSpacer;
-    QPushButton *pushButton;
-    QPushButton *pushButton_2;
-    QSpacerItem *horizontalSpacer_2;
-    QTextBrowser *textBrowser_2;
-    QGroupBox *groupBox_2;
-    QVBoxLayout *verticalLayout_6;
-    QTextBrowser *textBrowser_3;
 
     void setupUi(QDialog *Course)
     {
@@ -146,77 +127,6 @@ public:
         tabWidget->addTab(discussTab, QString());
         resourceTab = new QWidget();
         resourceTab->setObjectName(QStringLiteral("resourceTab"));
-        horizontalLayout_2 = new QHBoxLayout(resourceTab);
-        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
-        scrollArea = new QScrollArea(resourceTab);
-        scrollArea->setObjectName(QStringLiteral("scrollArea"));
-        scrollArea->setWidgetResizable(true);
-        scrollAreaWidgetContents = new QWidget();
-        scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 1099, 2000));
-        scrollAreaWidgetContents->setMinimumSize(QSize(0, 2000));
-        verticalLayout_4 = new QVBoxLayout(scrollAreaWidgetContents);
-        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
-        groupBox = new QGroupBox(scrollAreaWidgetContents);
-        groupBox->setObjectName(QStringLiteral("groupBox"));
-        verticalLayout_5 = new QVBoxLayout(groupBox);
-        verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
-        textBrowser = new QTextBrowser(groupBox);
-        textBrowser->setObjectName(QStringLiteral("textBrowser"));
-
-        verticalLayout_5->addWidget(textBrowser);
-
-        horizontalLayout_3 = new QHBoxLayout();
-        horizontalLayout_3->setSpacing(20);
-        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
-        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_3->addItem(horizontalSpacer);
-
-        pushButton = new QPushButton(groupBox);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-
-        horizontalLayout_3->addWidget(pushButton);
-
-        pushButton_2 = new QPushButton(groupBox);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-
-        horizontalLayout_3->addWidget(pushButton_2);
-
-        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_3->addItem(horizontalSpacer_2);
-
-
-        verticalLayout_5->addLayout(horizontalLayout_3);
-
-        textBrowser_2 = new QTextBrowser(groupBox);
-        textBrowser_2->setObjectName(QStringLiteral("textBrowser_2"));
-
-        verticalLayout_5->addWidget(textBrowser_2);
-
-        verticalLayout_5->setStretch(0, 8);
-        verticalLayout_5->setStretch(1, 1);
-        verticalLayout_5->setStretch(2, 8);
-
-        verticalLayout_4->addWidget(groupBox);
-
-        groupBox_2 = new QGroupBox(scrollAreaWidgetContents);
-        groupBox_2->setObjectName(QStringLiteral("groupBox_2"));
-        verticalLayout_6 = new QVBoxLayout(groupBox_2);
-        verticalLayout_6->setObjectName(QStringLiteral("verticalLayout_6"));
-        textBrowser_3 = new QTextBrowser(groupBox_2);
-        textBrowser_3->setObjectName(QStringLiteral("textBrowser_3"));
-
-        verticalLayout_6->addWidget(textBrowser_3);
-
-
-        verticalLayout_4->addWidget(groupBox_2);
-
-        scrollArea->setWidget(scrollAreaWidgetContents);
-
-        horizontalLayout_2->addWidget(scrollArea);
-
         tabWidget->addTab(resourceTab, QString());
 
         horizontalLayout->addWidget(tabWidget);
@@ -224,7 +134,7 @@ public:
 
         retranslateUi(Course);
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(Course);
@@ -245,10 +155,6 @@ public:
         label_2->setText(QApplication::translate("Course", "CourseInformation", 0));
         tabWidget->setTabText(tabWidget->indexOf(homeTab), QApplication::translate("Course", "Home", 0));
         tabWidget->setTabText(tabWidget->indexOf(discussTab), QApplication::translate("Course", "Discussion", 0));
-        groupBox->setTitle(QApplication::translate("Course", "GroupBox", 0));
-        pushButton->setText(QApplication::translate("Course", "PushButton", 0));
-        pushButton_2->setText(QApplication::translate("Course", "PushButton", 0));
-        groupBox_2->setTitle(QApplication::translate("Course", "GroupBox", 0));
         tabWidget->setTabText(tabWidget->indexOf(resourceTab), QApplication::translate("Course", "Resource", 0));
     } // retranslateUi
 

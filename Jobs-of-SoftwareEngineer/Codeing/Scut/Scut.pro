@@ -23,7 +23,9 @@ SOURCES += main.cpp\
     updateinfo.cpp \
     topic.cpp \
     message.cpp \
-    comment.cpp
+    comment.cpp \
+    clock.cpp \
+    myclock.cpp
 
 HEADERS  += login.h \
     signup.h \
@@ -35,7 +37,9 @@ HEADERS  += login.h \
     updateinfo.h \
     topic.h \
     message.h \
-    comment.h
+    comment.h \
+    clock.h \
+    myclock.h
 
 FORMS    += login.ui \
     signup.ui \
@@ -45,7 +49,8 @@ FORMS    += login.ui \
     sendfile.ui \
     updateinfo.ui \
     topic.ui \
-    comment.ui
+    comment.ui \
+    myclock.ui
 
 RESOURCES += \
     resource.qrc

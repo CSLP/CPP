@@ -17,6 +17,7 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
@@ -25,6 +26,7 @@
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTabWidget>
+#include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -56,7 +58,25 @@ public:
     QListWidget *listWidget;
     QStackedWidget *stackedWidget;
     QWidget *page;
+    QHBoxLayout *horizontalLayout_4;
+    QGridLayout *gridLayout_2;
+    QVBoxLayout *verticalLayout_11;
+    QLabel *label_6;
+    QLabel *label_7;
+    QLabel *label_8;
+    QSpacerItem *verticalSpacer;
     QLabel *label_2;
+    QVBoxLayout *verticalLayout_12;
+    QLineEdit *receiveLineEdit;
+    QLineEdit *themeLineEdit;
+    QTextBrowser *textBrowser;
+    QLabel *senderInfo;
+    QHBoxLayout *horizontalLayout_3;
+    QSpacerItem *horizontalSpacer_3;
+    QPushButton *sendPushButton;
+    QSpacerItem *horizontalSpacer_4;
+    QPushButton *savePushButton;
+    QSpacerItem *horizontalSpacer_5;
     QWidget *page_2;
     QLabel *label_3;
     QWidget *page_3;
@@ -238,9 +258,94 @@ public:
         stackedWidget->setFrameShape(QFrame::StyledPanel);
         page = new QWidget();
         page->setObjectName(QStringLiteral("page"));
+        horizontalLayout_4 = new QHBoxLayout(page);
+        horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
+        gridLayout_2 = new QGridLayout();
+        gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
+        verticalLayout_11 = new QVBoxLayout();
+        verticalLayout_11->setObjectName(QStringLiteral("verticalLayout_11"));
+        label_6 = new QLabel(page);
+        label_6->setObjectName(QStringLiteral("label_6"));
+
+        verticalLayout_11->addWidget(label_6);
+
+        label_7 = new QLabel(page);
+        label_7->setObjectName(QStringLiteral("label_7"));
+
+        verticalLayout_11->addWidget(label_7);
+
+        label_8 = new QLabel(page);
+        label_8->setObjectName(QStringLiteral("label_8"));
+
+        verticalLayout_11->addWidget(label_8);
+
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_11->addItem(verticalSpacer);
+
         label_2 = new QLabel(page);
         label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(210, 100, 201, 71));
+
+        verticalLayout_11->addWidget(label_2);
+
+
+        gridLayout_2->addLayout(verticalLayout_11, 0, 0, 1, 1);
+
+        verticalLayout_12 = new QVBoxLayout();
+        verticalLayout_12->setObjectName(QStringLiteral("verticalLayout_12"));
+        receiveLineEdit = new QLineEdit(page);
+        receiveLineEdit->setObjectName(QStringLiteral("receiveLineEdit"));
+
+        verticalLayout_12->addWidget(receiveLineEdit);
+
+        themeLineEdit = new QLineEdit(page);
+        themeLineEdit->setObjectName(QStringLiteral("themeLineEdit"));
+
+        verticalLayout_12->addWidget(themeLineEdit);
+
+        textBrowser = new QTextBrowser(page);
+        textBrowser->setObjectName(QStringLiteral("textBrowser"));
+
+        verticalLayout_12->addWidget(textBrowser);
+
+        senderInfo = new QLabel(page);
+        senderInfo->setObjectName(QStringLiteral("senderInfo"));
+
+        verticalLayout_12->addWidget(senderInfo);
+
+
+        gridLayout_2->addLayout(verticalLayout_12, 0, 1, 1, 1);
+
+        horizontalLayout_3 = new QHBoxLayout();
+        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
+        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_3->addItem(horizontalSpacer_3);
+
+        sendPushButton = new QPushButton(page);
+        sendPushButton->setObjectName(QStringLiteral("sendPushButton"));
+
+        horizontalLayout_3->addWidget(sendPushButton);
+
+        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_3->addItem(horizontalSpacer_4);
+
+        savePushButton = new QPushButton(page);
+        savePushButton->setObjectName(QStringLiteral("savePushButton"));
+
+        horizontalLayout_3->addWidget(savePushButton);
+
+        horizontalSpacer_5 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_3->addItem(horizontalSpacer_5);
+
+
+        gridLayout_2->addLayout(horizontalLayout_3, 1, 0, 1, 2);
+
+
+        horizontalLayout_4->addLayout(gridLayout_2);
+
         stackedWidget->addWidget(page);
         page_2 = new QWidget();
         page_2->setObjectName(QStringLiteral("page_2"));
@@ -260,8 +365,6 @@ public:
         label_5->setObjectName(QStringLiteral("label_5"));
         label_5->setGeometry(QRect(200, 220, 85, 22));
         stackedWidget->addWidget(page_4);
-        label_5->raise();
-        listWidget->raise();
 
         horizontalLayout_2->addWidget(stackedWidget);
 
@@ -435,7 +538,7 @@ public:
         QObject::connect(listWidget, SIGNAL(currentRowChanged(int)), stackedWidget, SLOT(setCurrentIndex(int)));
 
         tabWidget->setCurrentIndex(0);
-        stackedWidget->setCurrentIndex(3);
+        stackedWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(Student);
@@ -462,7 +565,13 @@ public:
         ___qlistwidgetitem3->setText(QApplication::translate("Student", "\346\234\252\350\257\273\351\202\256\344\273\266", 0));
         listWidget->setSortingEnabled(__sortingEnabled);
 
-        label_2->setText(QApplication::translate("Student", "Write", 0));
+        label_6->setText(QApplication::translate("Student", "\346\224\266\344\273\266\344\272\272", 0));
+        label_7->setText(QApplication::translate("Student", "\344\270\273\351\242\230", 0));
+        label_8->setText(QApplication::translate("Student", "\346\255\243\346\226\207", 0));
+        label_2->setText(QApplication::translate("Student", "\345\217\221\344\273\266\344\272\272:", 0));
+        senderInfo->setText(QApplication::translate("Student", "\344\275\240\346\230\257\344\270\215\345\202\273(201630610571)", 0));
+        sendPushButton->setText(QApplication::translate("Student", "Send", 0));
+        savePushButton->setText(QApplication::translate("Student", "SaveDraft", 0));
         label_3->setText(QApplication::translate("Student", "accept", 0));
         label_4->setText(QApplication::translate("Student", "draft", 0));
         label_5->setText(QApplication::translate("Student", "to read", 0));

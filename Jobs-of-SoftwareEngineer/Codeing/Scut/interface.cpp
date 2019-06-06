@@ -110,9 +110,9 @@ vector<Message> getTopicsByCourseName(std::__cxx11::string corname)
     vector<Message> topic;
     if(corname=="Linux")
     {
-       topic.push_back(Message("wuyulp","c++中map容量",1,"2017-02-02",""));
-       topic.push_back(Message("jyp","软件工程大作业怎么做",2,"2019-06-04",""));
-       topic.push_back(Message("LP","你是真的牛逼",3,"2000-02-02",""));
+       topic.push_back(Message("wuyulp","PKI的第七章第八题考不考?",1,"2017-02-02",""));
+       topic.push_back(Message("jyp","软件工程大作业怎么做?",2,"2019-06-04",""));
+       topic.push_back(Message("LP","你是真的牛逼?",3,"2000-02-02",""));
     }
     return topic;
 }

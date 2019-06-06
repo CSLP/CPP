@@ -13,6 +13,8 @@
 #include<QListWidget>
 #include<QDebug>
 #include"message.h"
+#include"clock.h"
+#include"myclock.h"
 Course::Course(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Course)
@@ -22,7 +24,15 @@ Course::Course(QWidget *parent) :
     ui->teaTextBrowser->append("nimasil");
     ui->tabWidget->setCurrentIndex(0);
     topicNum=0;
-
+    MyClock * clock=new MyClock;
+    QVBoxLayout *la=new QVBoxLayout;
+    QVBoxLayout *lb=new QVBoxLayout;
+    QPushButton *btn=new QPushButton;
+    QTextBrowser *b=new QTextBrowser;
+    //la->addWidget(btn);
+    //la->addWidget(b);
+    la->addWidget(clock);
+    ui->resourceTab->setLayout(la);
 }
 
 Course::~Course()
@@ -61,9 +71,6 @@ void Course::courseInfo(std::__cxx11::string corName)
     layout->addWidget(listWidget);
     ui->discussTab->setLayout(layout);
     topicNum=topics.size();
-    //qDebug()<<topicNum;
-    //vector<Topic*> tops;
-    //vector<QListWidgetItem*> items;
     for(int i=0;i<topicNum;++i)
     {
         Topic * t=new Topic(topics.at(i));
@@ -74,7 +81,6 @@ void Course::courseInfo(std::__cxx11::string corName)
         listWidget->setItemWidget(item,t);
         item->setSizeHint(QSize(0,50));
     }
-    // qDebug()<<tops.size();
     connect(listWidget,&QListWidget::currentRowChanged,this,&Course::display);
 }
 

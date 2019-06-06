@@ -45,7 +45,13 @@ void Topic::setVis(bool v)
     ui->scrollArea->setVisible(v);
 }
 
-void Topic::setRVis(bool)
+
+void Topic::on_showPushButton_clicked()
 {
-//    rps
+    ui->scrollArea->setVisible(true);
+}
+
+void Topic::on_foldPushButton_clicked()
+{
+    ui->scrollArea->setVisible(false);
 }
