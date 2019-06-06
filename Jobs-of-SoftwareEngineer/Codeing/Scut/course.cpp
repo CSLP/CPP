@@ -13,7 +13,6 @@
 #include<QListWidget>
 #include<QDebug>
 #include"message.h"
-#include"clock.h"
 #include"myclock.h"
 Course::Course(QWidget *parent) :
     QDialog(parent),
@@ -24,22 +23,6 @@ Course::Course(QWidget *parent) :
     ui->teaTextBrowser->append("nimasil");
     ui->tabWidget->setCurrentIndex(0);
     topicNum=0;
-    clock=new MyClock();
-    Clock *c=new Clock;
-    QScrollArea *y=new QScrollArea;
-    QHBoxLayout *la=new QHBoxLayout;
-    QVBoxLayout *lb=new QVBoxLayout;
-    QPushButton *btn=new QPushButton;
-    QTextBrowser *b=new QTextBrowser;
-    //la->addWidget(btn);
-    lb->addWidget(btn);
-    lb->addWidget(b);
-    lb->addWidget(clock);
-    la->addWidget(y);
-    la->addLayout(lb);
-    la->setStretch(0,8);
-    la->setStretch(1,1);
-    ui->resourceTab->setLayout(la);
 }
 
 Course::~Course()

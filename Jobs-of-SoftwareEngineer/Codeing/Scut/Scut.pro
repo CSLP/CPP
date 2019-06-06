@@ -24,7 +24,6 @@ SOURCES += main.cpp\
     topic.cpp \
     message.cpp \
     comment.cpp \
-    clock.cpp \
     myclock.cpp
 
 HEADERS  += login.h \
@@ -38,7 +37,6 @@ HEADERS  += login.h \
     topic.h \
     message.h \
     comment.h \
-    clock.h \
     myclock.h
 
 FORMS    += login.ui \

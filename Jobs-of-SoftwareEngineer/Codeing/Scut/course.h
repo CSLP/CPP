@@ -36,7 +36,6 @@ private:
     vector<Topic*> tops;
     vector<QListWidgetItem*> items;
     int topicNum;
-    MyClock *clock;
 };
 
 #endif // COURSE_H
