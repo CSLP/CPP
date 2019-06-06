@@ -17,8 +17,7 @@
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
-#include <QtWidgets/QStackedWidget>
-#include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -28,11 +27,8 @@ class Ui_Teacher
 public:
     QWidget *centralwidget;
     QListWidget *listWidget;
-    QStackedWidget *stackedWidget;
-    QWidget *page;
-    QWidget *page_2;
+    QTextBrowser *textBrowser;
     QMenuBar *menubar;
-    QStatusBar *statusbar;
 
     void setupUi(QMainWindow *Teacher)
     {
@@ -43,24 +39,15 @@ public:
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         listWidget = new QListWidget(centralwidget);
         listWidget->setObjectName(QStringLiteral("listWidget"));
-        listWidget->setGeometry(QRect(9, 9, 256, 192));
-        stackedWidget = new QStackedWidget(centralwidget);
-        stackedWidget->setObjectName(QStringLiteral("stackedWidget"));
-        stackedWidget->setGeometry(QRect(530, 0, 541, 608));
-        page = new QWidget();
-        page->setObjectName(QStringLiteral("page"));
-        stackedWidget->addWidget(page);
-        page_2 = new QWidget();
-        page_2->setObjectName(QStringLiteral("page_2"));
-        stackedWidget->addWidget(page_2);
+        listWidget->setGeometry(QRect(70, 60, 571, 551));
+        textBrowser = new QTextBrowser(centralwidget);
+        textBrowser->setObjectName(QStringLiteral("textBrowser"));
+        textBrowser->setGeometry(QRect(650, 110, 361, 331));
         Teacher->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Teacher);
         menubar->setObjectName(QStringLiteral("menubar"));
         menubar->setGeometry(QRect(0, 0, 1107, 30));
         Teacher->setMenuBar(menubar);
-        statusbar = new QStatusBar(Teacher);
-        statusbar->setObjectName(QStringLiteral("statusbar"));
-        Teacher->setStatusBar(statusbar);
 
         retranslateUi(Teacher);
 

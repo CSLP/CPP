@@ -1,6 +1,0 @@
-#include "courseinfo.h"
-
-CourseInfo::CourseInfo(std::__cxx11::string, std::__cxx11::string)
-{
-	
-}

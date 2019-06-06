@@ -16,6 +16,7 @@ Login::Login(QWidget *parent) :
     signup=new SignUp(this);
     connect(this,&Login::idInfo,student,&Student::idInfomation);
     connect(this,&Login::idInfo,student,&Student::courseInformation);
+    connect(this,&Login::idInfo,teacher,&Teacher::corListInfo);
 }
 
 Login::~Login()
@@ -41,7 +42,11 @@ void Login::on_signInPushButton_clicked()
                     student->show();
                 }
                 else
+                {
+                    string id=ui->idLineEdit->text().toStdString();
+                    emit idInfo(id);
                     teacher->show();
+                }
                 ui->idLineEdit->clear();
                 ui->passwdLineEdit->clear();
                 //hide();

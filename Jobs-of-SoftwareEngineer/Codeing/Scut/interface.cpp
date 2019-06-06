@@ -153,3 +153,18 @@ vector<Message> getReplysByCommentId(int id)
     }
     return reply;
 }
+
+vector<CourseInfo> getCourseListByTeacherId(std::__cxx11::string id)
+{
+    vector<CourseInfo>  l;
+    if(id=="110")
+    {
+        l.push_back(CourseInfo(1,"PKI"));
+        l.push_back(CourseInfo(2,"PKI"));
+        l.push_back(CourseInfo(3,"PKI"));
+        l.push_back(CourseInfo(4,"PKI"));
+        l.push_back(CourseInfo(5,"PKI"));
+        l.push_back(CourseInfo(6,"PKI"));
+    }
+    return l;
+}

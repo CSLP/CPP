@@ -2,7 +2,11 @@
 #define TEACHER_H
 
 #include <QMainWindow>
-
+#include<string>
+#include<vector>
+class CourseInfo;
+using std::vector;
+using std::string;
 namespace Ui {
 class Teacher;
 }
@@ -17,6 +21,10 @@ public:
 
 private:
     Ui::Teacher *ui;
+    vector<CourseInfo> cors;
+    int corNum;
+public slots:
+    void corListInfo(string);
 };
 
 #endif // TEACHER_H
