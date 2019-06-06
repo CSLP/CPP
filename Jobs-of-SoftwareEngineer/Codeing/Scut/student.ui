@@ -250,7 +250,7 @@
               <property name="currentIndex">
                <number>0</number>
               </property>
-              <widget class="QWidget" name="page">
+              <widget class="QWidget" name="sendPage">
                <layout class="QHBoxLayout" name="horizontalLayout_4">
                 <item>
                  <layout class="QGridLayout" name="gridLayout_2">
@@ -308,7 +308,7 @@
                      <widget class="QLineEdit" name="themeLineEdit"/>
                     </item>
                     <item>
-                     <widget class="QTextBrowser" name="textBrowser"/>
+                     <widget class="QPlainTextEdit" name="plainTextEdit"/>
                     </item>
                     <item>
                      <widget class="QLabel" name="senderInfo">
@@ -380,7 +380,7 @@
                 </item>
                </layout>
               </widget>
-              <widget class="QWidget" name="page_2">
+              <widget class="QWidget" name="receivePage">
                <widget class="QLabel" name="label_3">
                 <property name="geometry">
                  <rect>
@@ -395,7 +395,7 @@
                 </property>
                </widget>
               </widget>
-              <widget class="QWidget" name="page_3">
+              <widget class="QWidget" name="draftPage">
                <widget class="QLabel" name="label_4">
                 <property name="geometry">
                  <rect>
@@ -410,7 +410,7 @@
                 </property>
                </widget>
               </widget>
-              <widget class="QWidget" name="page_4">
+              <widget class="QWidget" name="unreadPage">
                <widget class="QLabel" name="label_5">
                 <property name="geometry">
                  <rect>

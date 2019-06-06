@@ -108,6 +108,7 @@ void Student::completUpd(bool x)
    }
 }
 
+
 void Student::on_pushButton1_clicked()
 {
     Course *cor=new Course(this);

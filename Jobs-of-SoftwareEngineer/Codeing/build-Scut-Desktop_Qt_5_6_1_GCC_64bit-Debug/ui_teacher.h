@@ -13,12 +13,12 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QStatusBar>
-#include <QtWidgets/QTabWidget>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -27,10 +27,10 @@ class Ui_Teacher
 {
 public:
     QWidget *centralwidget;
-    QHBoxLayout *horizontalLayout;
-    QTabWidget *tabWidget;
-    QWidget *tab;
-    QWidget *tab_2;
+    QListWidget *listWidget;
+    QStackedWidget *stackedWidget;
+    QWidget *page;
+    QWidget *page_2;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -41,19 +41,18 @@ public:
         Teacher->resize(1107, 683);
         centralwidget = new QWidget(Teacher);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
-        horizontalLayout = new QHBoxLayout(centralwidget);
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        tabWidget = new QTabWidget(centralwidget);
-        tabWidget->setObjectName(QStringLiteral("tabWidget"));
-        tab = new QWidget();
-        tab->setObjectName(QStringLiteral("tab"));
-        tabWidget->addTab(tab, QString());
-        tab_2 = new QWidget();
-        tab_2->setObjectName(QStringLiteral("tab_2"));
-        tabWidget->addTab(tab_2, QString());
-
-        horizontalLayout->addWidget(tabWidget);
-
+        listWidget = new QListWidget(centralwidget);
+        listWidget->setObjectName(QStringLiteral("listWidget"));
+        listWidget->setGeometry(QRect(9, 9, 256, 192));
+        stackedWidget = new QStackedWidget(centralwidget);
+        stackedWidget->setObjectName(QStringLiteral("stackedWidget"));
+        stackedWidget->setGeometry(QRect(530, 0, 541, 608));
+        page = new QWidget();
+        page->setObjectName(QStringLiteral("page"));
+        stackedWidget->addWidget(page);
+        page_2 = new QWidget();
+        page_2->setObjectName(QStringLiteral("page_2"));
+        stackedWidget->addWidget(page_2);
         Teacher->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Teacher);
         menubar->setObjectName(QStringLiteral("menubar"));
@@ -65,17 +64,12 @@ public:
 
         retranslateUi(Teacher);
 
-        tabWidget->setCurrentIndex(1);
-
-
         QMetaObject::connectSlotsByName(Teacher);
     } // setupUi
 
     void retranslateUi(QMainWindow *Teacher)
     {
-        Teacher->setWindowTitle(QApplication::translate("Teacher", "MainWindow", 0));
-        tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("Teacher", "Tab 1", 0));
-        tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("Teacher", "Tab 2", 0));
+        Teacher->setWindowTitle(QApplication::translate("Teacher", "Teacher", 0));
     } // retranslateUi
 
 };

@@ -21,6 +21,7 @@ Course::Course(QWidget *parent) :
 {
     ui->setupUi(this);
     this->move(390,155);
+    this->resize(1300,750);
     ui->teaTextBrowser->append("nimasil");
     ui->tabWidget->setCurrentIndex(0);
     topicNum=0;

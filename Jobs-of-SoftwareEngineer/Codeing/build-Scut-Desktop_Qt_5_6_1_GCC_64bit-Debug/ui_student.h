@@ -21,12 +21,12 @@
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPlainTextEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTabWidget>
-#include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -57,7 +57,7 @@ public:
     QHBoxLayout *horizontalLayout_2;
     QListWidget *listWidget;
     QStackedWidget *stackedWidget;
-    QWidget *page;
+    QWidget *sendPage;
     QHBoxLayout *horizontalLayout_4;
     QGridLayout *gridLayout_2;
     QVBoxLayout *verticalLayout_11;
@@ -69,7 +69,7 @@ public:
     QVBoxLayout *verticalLayout_12;
     QLineEdit *receiveLineEdit;
     QLineEdit *themeLineEdit;
-    QTextBrowser *textBrowser;
+    QPlainTextEdit *plainTextEdit;
     QLabel *senderInfo;
     QHBoxLayout *horizontalLayout_3;
     QSpacerItem *horizontalSpacer_3;
@@ -77,11 +77,11 @@ public:
     QSpacerItem *horizontalSpacer_4;
     QPushButton *savePushButton;
     QSpacerItem *horizontalSpacer_5;
-    QWidget *page_2;
+    QWidget *receivePage;
     QLabel *label_3;
-    QWidget *page_3;
+    QWidget *draftPage;
     QLabel *label_4;
-    QWidget *page_4;
+    QWidget *unreadPage;
     QLabel *label_5;
     QWidget *courseTab;
     QGridLayout *gridLayout;
@@ -256,25 +256,25 @@ public:
         stackedWidget = new QStackedWidget(homeTab);
         stackedWidget->setObjectName(QStringLiteral("stackedWidget"));
         stackedWidget->setFrameShape(QFrame::StyledPanel);
-        page = new QWidget();
-        page->setObjectName(QStringLiteral("page"));
-        horizontalLayout_4 = new QHBoxLayout(page);
+        sendPage = new QWidget();
+        sendPage->setObjectName(QStringLiteral("sendPage"));
+        horizontalLayout_4 = new QHBoxLayout(sendPage);
         horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
         gridLayout_2 = new QGridLayout();
         gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
         verticalLayout_11 = new QVBoxLayout();
         verticalLayout_11->setObjectName(QStringLiteral("verticalLayout_11"));
-        label_6 = new QLabel(page);
+        label_6 = new QLabel(sendPage);
         label_6->setObjectName(QStringLiteral("label_6"));
 
         verticalLayout_11->addWidget(label_6);
 
-        label_7 = new QLabel(page);
+        label_7 = new QLabel(sendPage);
         label_7->setObjectName(QStringLiteral("label_7"));
 
         verticalLayout_11->addWidget(label_7);
 
-        label_8 = new QLabel(page);
+        label_8 = new QLabel(sendPage);
         label_8->setObjectName(QStringLiteral("label_8"));
 
         verticalLayout_11->addWidget(label_8);
@@ -283,7 +283,7 @@ public:
 
         verticalLayout_11->addItem(verticalSpacer);
 
-        label_2 = new QLabel(page);
+        label_2 = new QLabel(sendPage);
         label_2->setObjectName(QStringLiteral("label_2"));
 
         verticalLayout_11->addWidget(label_2);
@@ -293,22 +293,22 @@ public:
 
         verticalLayout_12 = new QVBoxLayout();
         verticalLayout_12->setObjectName(QStringLiteral("verticalLayout_12"));
-        receiveLineEdit = new QLineEdit(page);
+        receiveLineEdit = new QLineEdit(sendPage);
         receiveLineEdit->setObjectName(QStringLiteral("receiveLineEdit"));
 
         verticalLayout_12->addWidget(receiveLineEdit);
 
-        themeLineEdit = new QLineEdit(page);
+        themeLineEdit = new QLineEdit(sendPage);
         themeLineEdit->setObjectName(QStringLiteral("themeLineEdit"));
 
         verticalLayout_12->addWidget(themeLineEdit);
 
-        textBrowser = new QTextBrowser(page);
-        textBrowser->setObjectName(QStringLiteral("textBrowser"));
+        plainTextEdit = new QPlainTextEdit(sendPage);
+        plainTextEdit->setObjectName(QStringLiteral("plainTextEdit"));
 
-        verticalLayout_12->addWidget(textBrowser);
+        verticalLayout_12->addWidget(plainTextEdit);
 
-        senderInfo = new QLabel(page);
+        senderInfo = new QLabel(sendPage);
         senderInfo->setObjectName(QStringLiteral("senderInfo"));
 
         verticalLayout_12->addWidget(senderInfo);
@@ -322,7 +322,7 @@ public:
 
         horizontalLayout_3->addItem(horizontalSpacer_3);
 
-        sendPushButton = new QPushButton(page);
+        sendPushButton = new QPushButton(sendPage);
         sendPushButton->setObjectName(QStringLiteral("sendPushButton"));
 
         horizontalLayout_3->addWidget(sendPushButton);
@@ -331,7 +331,7 @@ public:
 
         horizontalLayout_3->addItem(horizontalSpacer_4);
 
-        savePushButton = new QPushButton(page);
+        savePushButton = new QPushButton(sendPage);
         savePushButton->setObjectName(QStringLiteral("savePushButton"));
 
         horizontalLayout_3->addWidget(savePushButton);
@@ -346,25 +346,25 @@ public:
 
         horizontalLayout_4->addLayout(gridLayout_2);
 
-        stackedWidget->addWidget(page);
-        page_2 = new QWidget();
-        page_2->setObjectName(QStringLiteral("page_2"));
-        label_3 = new QLabel(page_2);
+        stackedWidget->addWidget(sendPage);
+        receivePage = new QWidget();
+        receivePage->setObjectName(QStringLiteral("receivePage"));
+        label_3 = new QLabel(receivePage);
         label_3->setObjectName(QStringLiteral("label_3"));
         label_3->setGeometry(QRect(210, 160, 241, 111));
-        stackedWidget->addWidget(page_2);
-        page_3 = new QWidget();
-        page_3->setObjectName(QStringLiteral("page_3"));
-        label_4 = new QLabel(page_3);
+        stackedWidget->addWidget(receivePage);
+        draftPage = new QWidget();
+        draftPage->setObjectName(QStringLiteral("draftPage"));
+        label_4 = new QLabel(draftPage);
         label_4->setObjectName(QStringLiteral("label_4"));
         label_4->setGeometry(QRect(240, 250, 161, 71));
-        stackedWidget->addWidget(page_3);
-        page_4 = new QWidget();
-        page_4->setObjectName(QStringLiteral("page_4"));
-        label_5 = new QLabel(page_4);
+        stackedWidget->addWidget(draftPage);
+        unreadPage = new QWidget();
+        unreadPage->setObjectName(QStringLiteral("unreadPage"));
+        label_5 = new QLabel(unreadPage);
         label_5->setObjectName(QStringLiteral("label_5"));
         label_5->setGeometry(QRect(200, 220, 85, 22));
-        stackedWidget->addWidget(page_4);
+        stackedWidget->addWidget(unreadPage);
 
         horizontalLayout_2->addWidget(stackedWidget);
 
