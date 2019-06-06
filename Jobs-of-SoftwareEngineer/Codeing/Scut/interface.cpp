@@ -168,3 +168,38 @@ vector<CourseInfo> getCourseListByTeacherId(std::__cxx11::string id)
     }
     return l;
 }
+
+vector<StudentInfo> getStudentListByCourseId(int id)
+{
+    vector<StudentInfo> l;
+    if(id==1)
+    {
+        l.push_back(StudentInfo("201630610571","LP"));
+        l.push_back(StudentInfo("201630610571","LP"));
+        l.push_back(StudentInfo("201630610571","LP"));
+        l.push_back(StudentInfo("201630610571","LP"));
+        l.push_back(StudentInfo("201630610571","LP"));
+        l.push_back(StudentInfo("201630610571","LP"));
+    }
+    if(id==2)
+    {
+        l.push_back(StudentInfo("201630610571fjkdsljfkdljf","JYP"));
+        l.push_back(StudentInfo("201630610571fjkdsljfkdljf","JYP"));
+        l.push_back(StudentInfo("201630610571fjkdsljfkdljf","JYP"));
+        l.push_back(StudentInfo("201630610571fjkdsljfkdljf","JYP"));
+        l.push_back(StudentInfo("201630610571fjkdsljfkdljf","JYP"));
+        l.push_back(StudentInfo("201630610571fjkdsljfkdljf","JYP"));
+        l.push_back(StudentInfo("201630610571fjkdsljfkdljf","JYP"));
+        l.push_back(StudentInfo("201630610571fjkdsljfkdljf","JYP"));
+    }
+    if(id==3)
+    {
+        l.push_back(StudentInfo("201630000571","TKKKKK"));
+        l.push_back(StudentInfo("201630000571","TKKKKK"));
+        l.push_back(StudentInfo("201630000571","TKKKKK"));
+        l.push_back(StudentInfo("201630000571","TKKKKK"));
+        l.push_back(StudentInfo("201630000571","TKKKKK"));
+        l.push_back(StudentInfo("201630000571","TKKKKK"));
+    }
+    return l;
+}

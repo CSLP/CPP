@@ -25,7 +25,8 @@ SOURCES += main.cpp\
     message.cpp \
     comment.cpp \
     myclock.cpp \
-    courseinfo.cpp
+    courseinfo.cpp \
+    studentinfo.cpp
 
 HEADERS  += login.h \
     signup.h \
@@ -39,7 +40,8 @@ HEADERS  += login.h \
     message.h \
     comment.h \
     myclock.h \
-    courseinfo.h
+    courseinfo.h \
+    studentinfo.h
 
 FORMS    += login.ui \
     signup.ui \

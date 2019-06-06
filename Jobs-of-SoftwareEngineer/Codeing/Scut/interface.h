@@ -8,6 +8,7 @@
 #include<vector>
 #include"message.h"
 #include"courseinfo.h"
+#include"studentinfo.h"
 using std::string;
 using std::list;
 using std::map;
@@ -17,6 +18,7 @@ void signUpInfo(string,string,string,string,string,string,QDate);
 list<string>  getStudentInfoByStudentId(string);
 list<string>  getStudentAttendanceByStudentId(string);
 vector<CourseInfo> getCourseListByTeacherId(string);
+vector<StudentInfo>  getStudentListByCourseId(int);
 map<string,string> getCourseInfoByStudentId(string);
 string getTeacherInfoByCourseName(string);
 string getCourseInfoByCourseName(string);
