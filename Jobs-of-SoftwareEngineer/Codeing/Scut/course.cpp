@@ -24,14 +24,21 @@ Course::Course(QWidget *parent) :
     ui->teaTextBrowser->append("nimasil");
     ui->tabWidget->setCurrentIndex(0);
     topicNum=0;
-    MyClock * clock=new MyClock;
-    QVBoxLayout *la=new QVBoxLayout;
+    clock=new MyClock();
+    Clock *c=new Clock;
+    QScrollArea *y=new QScrollArea;
+    QHBoxLayout *la=new QHBoxLayout;
     QVBoxLayout *lb=new QVBoxLayout;
     QPushButton *btn=new QPushButton;
     QTextBrowser *b=new QTextBrowser;
     //la->addWidget(btn);
-    //la->addWidget(b);
-    la->addWidget(clock);
+    lb->addWidget(btn);
+    lb->addWidget(b);
+    lb->addWidget(clock);
+    la->addWidget(y);
+    la->addLayout(lb);
+    la->setStretch(0,8);
+    la->setStretch(1,1);
     ui->resourceTab->setLayout(la);
 }
 

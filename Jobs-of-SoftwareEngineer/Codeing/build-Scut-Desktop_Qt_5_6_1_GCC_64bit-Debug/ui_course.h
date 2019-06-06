@@ -134,7 +134,7 @@ public:
 
         retranslateUi(Course);
 
-        tabWidget->setCurrentIndex(2);
+        tabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(Course);
@@ -142,7 +142,7 @@ public:
 
     void retranslateUi(QDialog *Course)
     {
-        Course->setWindowTitle(QApplication::translate("Course", "Dialog", 0));
+        Course->setWindowTitle(QApplication::translate("Course", "Course", 0));
         label_3->setText(QApplication::translate("Course", "Homework", 0));
         submitPushButton->setText(QApplication::translate("Course", "SubmitHomework", 0));
         backPushButton->setText(QApplication::translate("Course", "Back", 0));

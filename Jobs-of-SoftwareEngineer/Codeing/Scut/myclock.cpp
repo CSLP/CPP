@@ -16,7 +16,8 @@ MyClock::MyClock(QWidget *parent) :
     connect(timer, SIGNAL(timeout()), this, SLOT(update()));  //连接信号槽，定时器超时触发窗体更新
     timer->start(1000);   //启动定时器
     setWindowTitle(tr("My Clock"));  //设置窗体名称
-    resize(300, 300);  //设置窗体大小
+    this->resize(300, 300);  //设置窗体大小
+    this->setMinimumSize(300,300);
 }
 
 MyClock::~MyClock()

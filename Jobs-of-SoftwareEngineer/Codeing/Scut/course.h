@@ -8,6 +8,7 @@
 #include"interface.h"
 class Topic;
 class QListWidgetItem;
+class MyClock;
 using std::list;
 using std::string;
 using std::vector;
@@ -35,6 +36,7 @@ private:
     vector<Topic*> tops;
     vector<QListWidgetItem*> items;
     int topicNum;
+    MyClock *clock;
 };
 
 #endif // COURSE_H

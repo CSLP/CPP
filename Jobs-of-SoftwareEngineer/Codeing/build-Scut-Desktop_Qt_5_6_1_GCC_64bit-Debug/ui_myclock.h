@@ -26,7 +26,7 @@ public:
     {
         if (MyClock->objectName().isEmpty())
             MyClock->setObjectName(QStringLiteral("MyClock"));
-        MyClock->resize(400, 300);
+        MyClock->resize(573, 468);
 
         retranslateUi(MyClock);
 
