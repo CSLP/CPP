@@ -11,6 +11,7 @@
 #include<QString>
 #include<QPushButton>
 #include<QLineEdit>
+#include<QPlainTextEdit>
 #include"comment.h"
 using std::vector;
 Topic::Topic(Message msg, QWidget *parent) :
@@ -21,6 +22,17 @@ Topic::Topic(Message msg, QWidget *parent) :
     vector<Message>	comments=getCommentsByTopicId(msg.id);
     QVBoxLayout *layout=new QVBoxLayout;
     QString comTitle;
+    QVBoxLayout*la=new QVBoxLayout;
+    QHBoxLayout *lb=new QHBoxLayout;
+    QPushButton *answer=new QPushButton("回答问题");
+    QPushButton *ok=new QPushButton("确定");
+    lb->addWidget(answer);
+    lb->addWidget(ok);
+    lb->setSpacing(30);
+    la->addLayout(lb);
+    QPlainTextEdit *co=new QPlainTextEdit;
+    la->addWidget(co);
+    layout->addLayout(la);
     for(unsigned int i=0;i<comments.size();++i)
     {
         Comment *b=new Comment(comments[i]);
@@ -43,15 +55,4 @@ Topic::~Topic()
 void Topic::setVis(bool v)
 {
     ui->scrollArea->setVisible(v);
-}
-
-
-void Topic::on_showPushButton_clicked()
-{
-    ui->scrollArea->setVisible(true);
-}
-
-void Topic::on_foldPushButton_clicked()
-{
-    ui->scrollArea->setVisible(false);
 }

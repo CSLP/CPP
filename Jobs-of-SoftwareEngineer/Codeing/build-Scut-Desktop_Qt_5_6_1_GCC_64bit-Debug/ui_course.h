@@ -14,6 +14,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QDialog>
+#include <QtWidgets/QFrame>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
@@ -47,6 +48,7 @@ public:
     QTextBrowser *corTextBrowser;
     QWidget *discussTab;
     QWidget *resourceTab;
+    QFrame *line_2;
 
     void setupUi(QDialog *Course)
     {
@@ -78,10 +80,13 @@ public:
 
         submitPushButton = new QPushButton(homeTab);
         submitPushButton->setObjectName(QStringLiteral("submitPushButton"));
+        submitPushButton->setEnabled(true);
         submitPushButton->setGeometry(QRect(260, 580, 211, 32));
+        submitPushButton->setAutoDefault(false);
         backPushButton = new QPushButton(homeTab);
         backPushButton->setObjectName(QStringLiteral("backPushButton"));
-        backPushButton->setGeometry(QRect(750, 590, 120, 32));
+        backPushButton->setGeometry(QRect(740, 580, 120, 32));
+        backPushButton->setAutoDefault(false);
         layoutWidget = new QWidget(homeTab);
         layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
         layoutWidget->setGeometry(QRect(100, 43, 991, 271));
@@ -127,6 +132,11 @@ public:
         tabWidget->addTab(discussTab, QString());
         resourceTab = new QWidget();
         resourceTab->setObjectName(QStringLiteral("resourceTab"));
+        line_2 = new QFrame(resourceTab);
+        line_2->setObjectName(QStringLiteral("line_2"));
+        line_2->setGeometry(QRect(360, 480, 3, 61));
+        line_2->setFrameShape(QFrame::VLine);
+        line_2->setFrameShadow(QFrame::Sunken);
         tabWidget->addTab(resourceTab, QString());
 
         horizontalLayout->addWidget(tabWidget);
@@ -134,7 +144,7 @@ public:
 
         retranslateUi(Course);
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(Course);

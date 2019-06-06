@@ -11,6 +11,7 @@
 #include<QGroupBox>
 #include<QScrollArea>
 #include<QListWidget>
+#include<QPlainTextEdit>
 #include<QDebug>
 #include"message.h"
 #include"myclock.h"
@@ -56,9 +57,29 @@ void Course::courseInfo(std::__cxx11::string corName)
         ui->homTextBrowser->append(QString::fromStdString(a));
     }
     vector<Message> topics=getTopicsByCourseName(corName);
-    QVBoxLayout * layout=new QVBoxLayout;
+    QHBoxLayout * layout=new QHBoxLayout;
+    QVBoxLayout * la=new QVBoxLayout;
+    MyClock * clock=new MyClock;
+    QPushButton * answer=new QPushButton("提问");
+    QPushButton * submit=new QPushButton("确定");
+    submit->hide();
+    QHBoxLayout * lb=new QHBoxLayout;
+    lb->addWidget(answer);
+    lb->addWidget(submit);
+    QPlainTextEdit* brow=new QPlainTextEdit;
+    la->addWidget(clock);
+    la->addLayout(lb);
+    la->addWidget(brow);
+    brow->hide();
+    connect(answer,&QPushButton::clicked,brow,&QPlainTextEdit::show);
+    connect(answer,&QPushButton::clicked,submit,&QPushButton::show);
+    connect(submit,&QPushButton::clicked,brow,&QPlainTextEdit::hide);
+    connect(submit,&QPushButton::clicked,submit,&QPushButton::hide);
     QListWidget *listWidget=new QListWidget;
     layout->addWidget(listWidget);
+    layout->addLayout(la);
+    layout->setStretch(0,2);
+    layout->setStretch(1,1);
     ui->discussTab->setLayout(layout);
     topicNum=topics.size();
     for(int i=0;i<topicNum;++i)

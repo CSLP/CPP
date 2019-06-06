@@ -70,8 +70,6 @@ void Topic::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
         Topic *_t = static_cast<Topic *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->on_showPushButton_clicked(); break;
-        case 1: _t->on_foldPushButton_clicked(); break;
         default: ;
         }
     }

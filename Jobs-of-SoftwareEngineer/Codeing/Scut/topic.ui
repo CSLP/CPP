@@ -15,25 +15,11 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout" stretch="9,2,2">
+    <layout class="QHBoxLayout" name="horizontalLayout" stretch="9">
      <item>
       <widget class="QLabel" name="label">
        <property name="text">
         <string>TextLabel</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="showPushButton">
-       <property name="text">
-        <string>Show</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="foldPushButton">
-       <property name="text">
-        <string>Fold</string>
        </property>
       </widget>
      </item>
@@ -50,7 +36,7 @@
         <x>0</x>
         <y>0</y>
         <width>1182</width>
-        <height>458</height>
+        <height>468</height>
        </rect>
       </property>
      </widget>
