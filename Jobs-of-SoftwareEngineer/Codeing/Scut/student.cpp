@@ -30,6 +30,7 @@ Student::Student(QWidget *parent) :
     ui->label6->setPixmap(pixmap);
     ui->label6->resize(ui->label1->size());
     ui->tabWidget->setCurrentIndex(0);
+    ui->listWidget->setStyleSheet("QListView::item:selected{color:black;background-color:rgb(248,168,0);}");
 }
 
 Student::~Student()
