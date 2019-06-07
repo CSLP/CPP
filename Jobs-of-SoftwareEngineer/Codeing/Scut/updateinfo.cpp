@@ -19,7 +19,7 @@ void UpdateInfo::on_submitPushButton_clicked()
     {
         if(ui->pwd1LineEdit->text()!=ui->pwd2LineEdit->text())
         {
-                int ret1=QMessageBox::warning(this,tr("Warning"),tr("Inconsistent passwords!"),QMessageBox::Ok);
+                int ret1=QMessageBox::warning(this,tr("Warning"),tr("密码不一致!"),QMessageBox::Ok);
                 if(ret1==QMessageBox::Ok)
                 {
                     ui->pwd1LineEdit->clear();ui->pwd2LineEdit->clear();
@@ -28,17 +28,23 @@ void UpdateInfo::on_submitPushButton_clicked()
         else
         {
 
-            int ret2=QMessageBox::information(this,tr("Hint"),tr("Modify Success,Please Re login"),QMessageBox::Ok);
-            if(ret2==QMessageBox::Ok)
+            auto ok=updateInfo(ui->pwd1LineEdit->text().toStdString(),ui->genderLineEdit->text().toStdString(),ui->birLineEdit->text().toStdString(),ui->depLineEdit->text().toStdString());
+            if(ok)
             {
-                close();
-                ui->depLineEdit->clear();
-                ui->pwd1LineEdit->clear();
-                ui->pwd2LineEdit->clear();
-                ui->genderLineEdit->clear();
-                emit  updateStatus(true);
+                QMessageBox::information(this,tr("Hint"),tr("修改成功,请重新登录"),QMessageBox::Ok);
+                if(ret2==QMessageBox::Ok)
+                {
+                    close();
+                    ui->depLineEdit->clear();
+                    ui->pwd1LineEdit->clear();
+                    ui->pwd2LineEdit->clear();
+                    ui->genderLineEdit->clear();
+                    emit  updateStatus(true);
+                }
             }
-            //updateInfo(i->depLineEdit->text().toStdString(),ui->genderLineEdit->text().toStdString(),ui->pwd1LineEdit->text().toStdString(),type.toStdString(),ui->dateEdit->date());
+            else
+                QMessageBox::information(this,tr("Warning"),tr("修改失败"),QMessageBox::Ok);
+
 
         }
 

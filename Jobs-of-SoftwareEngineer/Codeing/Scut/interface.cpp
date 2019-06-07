@@ -218,3 +218,9 @@ vector<StudentInfo> getStudentListByCourseId(int id)
     }
     return l;
 }
+
+bool updateInfo(std::__cxx11::string p, std::__cxx11::string sex, std::__cxx11::string bir, std::__cxx11::string dep)
+{
+    auto ok=user->c_update_info(p,sex,bir,dep);
+    return ok;
+}

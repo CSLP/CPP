@@ -13,7 +13,6 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QDateEdit>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
@@ -41,7 +40,7 @@ public:
     QLineEdit *genderLineEdit;
     QLineEdit *pwd1LineEdit;
     QLineEdit *pwd2LineEdit;
-    QDateEdit *dateEdit;
+    QLineEdit *birLineEdit;
     QLabel *label;
     QPushButton *submitPushButton;
 
@@ -111,10 +110,10 @@ public:
 
         verticalLayout->addWidget(pwd2LineEdit);
 
-        dateEdit = new QDateEdit(layoutWidget);
-        dateEdit->setObjectName(QStringLiteral("dateEdit"));
+        birLineEdit = new QLineEdit(layoutWidget);
+        birLineEdit->setObjectName(QStringLiteral("birLineEdit"));
 
-        verticalLayout->addWidget(dateEdit);
+        verticalLayout->addWidget(birLineEdit);
 
 
         horizontalLayout_2->addLayout(verticalLayout);
@@ -143,7 +142,8 @@ public:
         label_6->setText(QApplication::translate("UpdateInfo", "\345\257\206\347\240\201:", 0));
         label_9->setText(QApplication::translate("UpdateInfo", "\345\206\215\346\254\241\350\276\223\345\205\245\345\257\206\347\240\201:", 0));
         label_4->setText(QApplication::translate("UpdateInfo", "\345\207\272\347\224\237\346\227\245\346\234\237:", 0));
-        dateEdit->setDisplayFormat(QApplication::translate("UpdateInfo", "yyyy/M/d", 0));
+        genderLineEdit->setPlaceholderText(QApplication::translate("UpdateInfo", "boy/girl", 0));
+        birLineEdit->setPlaceholderText(QApplication::translate("UpdateInfo", "2000-00-00", 0));
         label->setText(QApplication::translate("UpdateInfo", "Input New Info", 0));
         submitPushButton->setText(QApplication::translate("UpdateInfo", "\346\217\220\344\272\244", 0));
     } // retranslateUi
