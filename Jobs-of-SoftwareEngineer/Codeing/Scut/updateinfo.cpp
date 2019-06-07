@@ -1,5 +1,6 @@
 #include "updateinfo.h"
 #include "ui_updateinfo.h"
+#include"interface.h"
 #include<QMessageBox>
 UpdateInfo::UpdateInfo(QWidget *parent) :
     QDialog(parent),
@@ -31,7 +32,7 @@ void UpdateInfo::on_submitPushButton_clicked()
             auto ok=updateInfo(ui->pwd1LineEdit->text().toStdString(),ui->genderLineEdit->text().toStdString(),ui->birLineEdit->text().toStdString(),ui->depLineEdit->text().toStdString());
             if(ok)
             {
-                QMessageBox::information(this,tr("Hint"),tr("修改成功,请重新登录"),QMessageBox::Ok);
+                auto ret2=QMessageBox::information(this,tr("Hint"),tr("修改成功,请重新登录"),QMessageBox::Ok);
                 if(ret2==QMessageBox::Ok)
                 {
                     close();

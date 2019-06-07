@@ -5,7 +5,7 @@
 bool loginMatch(string type,string id,string passwd)
 {
         bool y=user->c_login(id,passwd);
-    return y;
+    return y && user->role_type == type;
 }
 
 list<std::__cxx11::string> getStudentInfoByStudentId(string id)

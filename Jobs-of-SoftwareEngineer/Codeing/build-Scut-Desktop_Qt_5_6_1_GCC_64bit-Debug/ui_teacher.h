@@ -73,6 +73,7 @@ public:
     QHBoxLayout *horizontalLayout_7;
     QSpacerItem *horizontalSpacer_3;
     QPushButton *pushButton_3;
+    QPushButton *pushButton_4;
     QSpacerItem *horizontalSpacer_4;
     QMenuBar *menubar;
 
@@ -262,6 +263,11 @@ public:
 
         horizontalLayout_7->addWidget(pushButton_3);
 
+        pushButton_4 = new QPushButton(centralwidget);
+        pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
+
+        horizontalLayout_7->addWidget(pushButton_4);
+
         horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_7->addItem(horizontalSpacer_4);
@@ -309,6 +315,7 @@ public:
         label_6->setText(QApplication::translate("Teacher", "\347\274\272\345\213\244\346\254\241\346\225\260", 0));
         pushButton_2->setText(QApplication::translate("Teacher", "\346\217\220\344\272\244", 0));
         pushButton_3->setText(QApplication::translate("Teacher", "\351\207\215\346\226\260\347\231\273\345\275\225", 0));
+        pushButton_4->setText(QApplication::translate("Teacher", "\344\277\256\346\224\271\344\270\252\344\272\272\344\277\241\346\201\257", 0));
     } // retranslateUi
 
 };

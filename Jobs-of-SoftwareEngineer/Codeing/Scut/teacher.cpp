@@ -5,6 +5,7 @@
 #include<QListWidgetItem>
 #include<studentinfo.h>
 #include<QMessageBox>
+#include"updateinfo.h"
 #include"sendfile.h"
 Teacher::Teacher(QWidget *parent) :
     QMainWindow(parent),
@@ -12,6 +13,7 @@ Teacher::Teacher(QWidget *parent) :
 {
     ui->setupUi(this);
     this->move(400,160);
+    upd=new UpdateInfo(this);
 }
 
 Teacher::~Teacher()
@@ -47,6 +49,12 @@ void Teacher::display(int a)
         }
 }
 
+void Teacher::completUpd(bool x)
+{
+    if(x)
+        close();
+}
+
 void Teacher::clearCache()
 {
     ui->IdLineEdit->clear();
@@ -79,4 +87,9 @@ void Teacher::on_pushButton_clicked()
     {
 
     }
+}
+
+void Teacher::on_pushButton_4_clicked()
+{
+   upd->show();
 }
