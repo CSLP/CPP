@@ -7,7 +7,7 @@
 QT       += core gui
 QMAKE_LFLAGS += -no-pie
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
-
+QMAKE_CXXFLAGS += -std=c++0x -pthread
 TARGET = Scut
 TEMPLATE = app
 
@@ -26,7 +26,11 @@ SOURCES += main.cpp\
     comment.cpp \
     myclock.cpp \
     courseinfo.cpp \
-    studentinfo.cpp
+    studentinfo.cpp \
+    user.cpp \
+    filemanager.cpp \
+    util.cpp \
+    mcrypto.cpp
 
 HEADERS  += login.h \
     signup.h \
@@ -41,7 +45,13 @@ HEADERS  += login.h \
     comment.h \
     myclock.h \
     courseinfo.h \
-    studentinfo.h
+    studentinfo.h \
+    user.h \
+    filemanager.h \
+    head.h \
+    json.hpp \
+    util.h \
+    mcrypto.h
 
 FORMS    += login.ui \
     signup.ui \
@@ -56,3 +66,4 @@ FORMS    += login.ui \
 
 RESOURCES += \
     resource.qrc
+LIBS += -lcrypto -lpthread -lglog
