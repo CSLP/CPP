@@ -60,6 +60,9 @@ void Student::idInfomation(std::__cxx11::string type, std::__cxx11::string idinf
        in<<QString::fromStdString(a);
    }
    ui->senderInfo->setText(QString::fromStdString(user->username+"("+user->u_id+")"));
+   auto a=user->c_get_email();
+   auto b=user->c_get_draft_email();
+   auto c=user->c_get_unread_email();
    for(string &b:inf)
    {
        inn<<QString::fromStdString(b);
@@ -174,8 +177,8 @@ void Student::on_sendPushButton_clicked()
             auto res=QMessageBox::information(this,tr("Hint"),tr("邮件发送成功!"),QMessageBox::Ok);
             if(res)
             {
-                ui->receiveLineEdit->text().clear();
-                ui->themeLineEdit->text().clear();
+                ui->receiveLineEdit->clear();
+                ui->themeLineEdit->clear();
                 ui->plainTextEdit->clear();
             }
 
@@ -183,6 +186,34 @@ void Student::on_sendPushButton_clicked()
        else
        {
             QMessageBox::information(this,tr("Hint"),tr("用户不存在"),QMessageBox::Ok);
+            ui->receiveLineEdit->clear();
+       }
+
+    }
+}
+
+void Student::on_savePushButton_clicked()
+{
+    if(ui->receiveLineEdit->text().isEmpty()||ui->themeLineEdit->text().isEmpty()||ui->plainTextEdit->toPlainText().isEmpty())
+        QMessageBox::warning(this,tr("Warning"),tr("输入不能为空"),QMessageBox::Ok);
+    else
+    {
+       auto ok=user->c_save_draft_email(ui->receiveLineEdit->text().toStdString(),ui->themeLineEdit->text().toStdString(),ui->plainTextEdit->toPlainText().toStdString());
+       if(ok)
+       {
+            auto res=QMessageBox::information(this,tr("Hint"),tr("保存成功!"),QMessageBox::Ok);
+            if(res)
+            {
+                ui->receiveLineEdit->clear();
+                ui->themeLineEdit->clear();
+                ui->plainTextEdit->clear();
+            }
+
+       }
+       else
+       {
+            QMessageBox::information(this,tr("Hint"),tr("用户不存在"),QMessageBox::Ok);
+            ui->receiveLineEdit->clear();
        }
 
     }

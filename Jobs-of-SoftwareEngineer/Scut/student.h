@@ -37,6 +37,8 @@ private slots:
 
     void on_sendPushButton_clicked();
 
+    void on_savePushButton_clicked();
+
 private:
     Ui::Student *ui;
     UpdateInfo * upd;

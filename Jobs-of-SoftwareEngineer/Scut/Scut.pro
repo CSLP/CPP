@@ -30,7 +30,8 @@ SOURCES += main.cpp\
     user.cpp \
     filemanager.cpp \
     util.cpp \
-    mcrypto.cpp
+    mcrypto.cpp \
+    email.cpp
 
 HEADERS  += login.h \
     signup.h \
@@ -51,7 +52,8 @@ HEADERS  += login.h \
     head.h \
     json.hpp \
     util.h \
-    mcrypto.h
+    mcrypto.h \
+    email.h
 
 FORMS    += login.ui \
     signup.ui \
@@ -62,7 +64,8 @@ FORMS    += login.ui \
     updateinfo.ui \
     topic.ui \
     comment.ui \
-    myclock.ui
+    myclock.ui \
+    email.ui
 
 RESOURCES += \
     resource.qrc

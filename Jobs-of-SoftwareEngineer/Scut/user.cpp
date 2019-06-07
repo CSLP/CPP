@@ -223,7 +223,7 @@ bool User::c_send_email(const string &to, const string &topic, const string &con
 json User::c_get_email()
 {
     json msg;
-    msg["E_FROM"] = username;
+    msg["E_FROM"] = u_id;
     msg["type"] = GET_EMAIL;
     send_json(m_sockfd, msg);
     epoll_event events[10];
@@ -236,7 +236,7 @@ json User::c_get_email()
 json User::c_get_draft_email()
 {
     json msg;
-    msg["E_FROM"] = username;
+    msg["E_FROM"] = u_id;
     msg["type"] = GET_DRAFT_EMAIL;
     send_json(m_sockfd, msg);
     epoll_event events[10];
@@ -250,7 +250,7 @@ json User::c_get_draft_email()
 json User::c_get_unread_email()
 {
     json msg;
-    msg["E_FROM"] = username;
+    msg["E_FROM"] = u_id;
     msg["type"] = GET_UNREAD_EMAIL;
     send_json(m_sockfd, msg);
     epoll_event events[10];
