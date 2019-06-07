@@ -171,17 +171,17 @@ vector<Message> getReplysByCommentId(int id)
 
 vector<CourseInfo> getCourseListByTeacherId(std::__cxx11::string id)
 {
+    auto info=user->c_get_course_list();
+    int num=info["info"].size();
+
+    qDebug()<<QString::fromStdString(info["info"][0]["C_ID"].get<string>());
     vector<CourseInfo>  l;
-    if(id=="110")
+    for(int i=0;i<num;++i)
     {
-        l.push_back(CourseInfo(1,"PKI"));
-        l.push_back(CourseInfo(2,"PKI"));
-        l.push_back(CourseInfo(3,"PKI"));
-        l.push_back(CourseInfo(4,"PKI"));
-        l.push_back(CourseInfo(5,"PKI"));
-        l.push_back(CourseInfo(6,"PKI"));
+        l.push_back(CourseInfo(info["info"][i]["C_ID"].get<string>(),info["info"][i]["C_NAME"].get<string>()));
     }
     return l;
+
 }
 
 vector<StudentInfo> getStudentListByCourseId(int id)

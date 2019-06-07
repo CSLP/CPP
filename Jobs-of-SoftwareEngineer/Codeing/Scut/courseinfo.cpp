@@ -1,7 +1,7 @@
 #include "courseinfo.h"
 
-CourseInfo::CourseInfo(int i, std::__cxx11::string name)
+CourseInfo::CourseInfo(std::__cxx11::string i, std::__cxx11::string name)
 {
-        id=i;
+        id=QString::fromStdString(i);
         courseName=QString::fromStdString(name);
 }

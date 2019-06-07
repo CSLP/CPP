@@ -6,8 +6,8 @@ using std::string;
 class CourseInfo
 {
 public:
-    CourseInfo(int,string);
-    int id;
+    CourseInfo(string,string);
+    QString id;
     QString courseName;
 };
 

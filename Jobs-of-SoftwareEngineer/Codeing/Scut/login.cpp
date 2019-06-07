@@ -52,10 +52,10 @@ void Login::on_signInPushButton_clicked()
                 //hide();
             }
             else
-                QMessageBox::warning(this,tr("Warning"),tr("Incorrect ID or password. Please re-enter!"),QMessageBox::Ok);
+                QMessageBox::warning(this,tr("Warning"),tr("用户名或者密码错误,请重新输入!"),QMessageBox::Ok);
     }
     else
-       QMessageBox::warning(this,tr("Warning"),tr("Input cannot be empty!"),QMessageBox::Ok);
+       QMessageBox::warning(this,tr("Warning"),tr("输入不能为空"),QMessageBox::Ok);
 }
 
 void Login::on_signUpPushButton_clicked()

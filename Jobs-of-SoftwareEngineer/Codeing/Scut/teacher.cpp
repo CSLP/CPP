@@ -29,7 +29,7 @@ void Teacher::corListInfo(string type, std::__cxx11::string  id)
         for(unsigned int i=0;i<cor.size();++i)
         {
             QListWidgetItem * item=new QListWidgetItem;
-            t=QString::number(cor[i].id)+"   		"+cor[i].courseName;
+            t=cor[i].id+""+cor[i].courseName;
             item->setText(t);
             ui->listWidget->addItem(item);
             cors.push_back(cor[i]);
@@ -39,7 +39,7 @@ void Teacher::corListInfo(string type, std::__cxx11::string  id)
 
 void Teacher::display(int a)
 {
-        vector<StudentInfo> stu=getStudentListByCourseId(cors[a].id);
+        vector<StudentInfo> stu=getStudentListByCourseId(cors[a].id.toInt());
         QString t;
         ui->textBrowser->clear();
         for(unsigned int i=0;i<stu.size();++i)
