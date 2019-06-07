@@ -37,8 +37,13 @@
      </item>
      <item>
       <widget class="QPushButton" name="showPushButton">
+       <property name="font">
+        <font>
+         <family>FZSongS-Extended</family>
+        </font>
+       </property>
        <property name="text">
-        <string>ShowReply</string>
+        <string>显示回复</string>
        </property>
       </widget>
      </item>
@@ -57,8 +62,13 @@
      </item>
      <item>
       <widget class="QPushButton" name="foldPushButton">
+       <property name="font">
+        <font>
+         <family>FZSongS-Extended</family>
+        </font>
+       </property>
        <property name="text">
-        <string>FoldReply</string>
+        <string>折叠回复</string>
        </property>
       </widget>
      </item>

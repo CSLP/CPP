@@ -24,6 +24,7 @@ public:
 
     FileManager *file_manager;
 public:
+    User(){}
     User(const string &IP, const int PORT);
     ~User();
     bool c_login(string _username, string _password);

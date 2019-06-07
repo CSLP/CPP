@@ -32,7 +32,7 @@ public:
     QLabel *label_8;
     QPushButton *signupPushButton;
     QPushButton *goToLoginPushButton;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QHBoxLayout *horizontalLayout_2;
     QVBoxLayout *verticalLayout_2;
     QLabel *label;
@@ -71,50 +71,50 @@ public:
         goToLoginPushButton = new QPushButton(SignUp);
         goToLoginPushButton->setObjectName(QStringLiteral("goToLoginPushButton"));
         goToLoginPushButton->setGeometry(QRect(460, 520, 120, 32));
-        widget = new QWidget(SignUp);
-        widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(240, 170, 336, 299));
-        horizontalLayout_2 = new QHBoxLayout(widget);
+        layoutWidget = new QWidget(SignUp);
+        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
+        layoutWidget->setGeometry(QRect(240, 170, 337, 299));
+        horizontalLayout_2 = new QHBoxLayout(layoutWidget);
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
         horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
-        label = new QLabel(widget);
+        label = new QLabel(layoutWidget);
         label->setObjectName(QStringLiteral("label"));
 
         verticalLayout_2->addWidget(label);
 
-        label_3 = new QLabel(widget);
+        label_3 = new QLabel(layoutWidget);
         label_3->setObjectName(QStringLiteral("label_3"));
 
         verticalLayout_2->addWidget(label_3);
 
-        label_2 = new QLabel(widget);
+        label_2 = new QLabel(layoutWidget);
         label_2->setObjectName(QStringLiteral("label_2"));
 
         verticalLayout_2->addWidget(label_2);
 
-        label_5 = new QLabel(widget);
+        label_5 = new QLabel(layoutWidget);
         label_5->setObjectName(QStringLiteral("label_5"));
 
         verticalLayout_2->addWidget(label_5);
 
-        label_6 = new QLabel(widget);
+        label_6 = new QLabel(layoutWidget);
         label_6->setObjectName(QStringLiteral("label_6"));
 
         verticalLayout_2->addWidget(label_6);
 
-        label_9 = new QLabel(widget);
+        label_9 = new QLabel(layoutWidget);
         label_9->setObjectName(QStringLiteral("label_9"));
 
         verticalLayout_2->addWidget(label_9);
 
-        label_7 = new QLabel(widget);
+        label_7 = new QLabel(layoutWidget);
         label_7->setObjectName(QStringLiteral("label_7"));
 
         verticalLayout_2->addWidget(label_7);
 
-        label_4 = new QLabel(widget);
+        label_4 = new QLabel(layoutWidget);
         label_4->setObjectName(QStringLiteral("label_4"));
 
         verticalLayout_2->addWidget(label_4);
@@ -124,33 +124,33 @@ public:
 
         verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        userLineEdit = new QLineEdit(widget);
+        userLineEdit = new QLineEdit(layoutWidget);
         userLineEdit->setObjectName(QStringLiteral("userLineEdit"));
 
         verticalLayout->addWidget(userLineEdit);
 
-        depLineEdit = new QLineEdit(widget);
+        depLineEdit = new QLineEdit(layoutWidget);
         depLineEdit->setObjectName(QStringLiteral("depLineEdit"));
 
         verticalLayout->addWidget(depLineEdit);
 
-        idLineEdit = new QLineEdit(widget);
+        idLineEdit = new QLineEdit(layoutWidget);
         idLineEdit->setObjectName(QStringLiteral("idLineEdit"));
 
         verticalLayout->addWidget(idLineEdit);
 
-        genderLineEdit = new QLineEdit(widget);
+        genderLineEdit = new QLineEdit(layoutWidget);
         genderLineEdit->setObjectName(QStringLiteral("genderLineEdit"));
 
         verticalLayout->addWidget(genderLineEdit);
 
-        pwd1LineEdit = new QLineEdit(widget);
+        pwd1LineEdit = new QLineEdit(layoutWidget);
         pwd1LineEdit->setObjectName(QStringLiteral("pwd1LineEdit"));
         pwd1LineEdit->setEchoMode(QLineEdit::Password);
 
         verticalLayout->addWidget(pwd1LineEdit);
 
-        pwd2LineEdit = new QLineEdit(widget);
+        pwd2LineEdit = new QLineEdit(layoutWidget);
         pwd2LineEdit->setObjectName(QStringLiteral("pwd2LineEdit"));
         pwd2LineEdit->setEchoMode(QLineEdit::Password);
 
@@ -158,13 +158,13 @@ public:
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        stuRadioButton = new QRadioButton(widget);
+        stuRadioButton = new QRadioButton(layoutWidget);
         stuRadioButton->setObjectName(QStringLiteral("stuRadioButton"));
         stuRadioButton->setChecked(true);
 
         horizontalLayout->addWidget(stuRadioButton);
 
-        teaRadioButton = new QRadioButton(widget);
+        teaRadioButton = new QRadioButton(layoutWidget);
         teaRadioButton->setObjectName(QStringLiteral("teaRadioButton"));
 
         horizontalLayout->addWidget(teaRadioButton);
@@ -172,7 +172,7 @@ public:
 
         verticalLayout->addLayout(horizontalLayout);
 
-        dateEdit = new QDateEdit(widget);
+        dateEdit = new QDateEdit(layoutWidget);
         dateEdit->setObjectName(QStringLiteral("dateEdit"));
 
         verticalLayout->addWidget(dateEdit);
@@ -189,17 +189,17 @@ public:
     void retranslateUi(QDialog *SignUp)
     {
         SignUp->setWindowTitle(QApplication::translate("SignUp", "SignUp", 0));
-        label_8->setText(QApplication::translate("SignUp", "<html><head/><body><p><span style=\" font-size:20pt;\">Please enter registration information</span></p></body></html>", 0));
-        signupPushButton->setText(QApplication::translate("SignUp", "Sign up", 0));
-        goToLoginPushButton->setText(QApplication::translate("SignUp", "GoToLogin", 0));
-        label->setText(QApplication::translate("SignUp", "Username:", 0));
-        label_3->setText(QApplication::translate("SignUp", "Department:", 0));
+        label_8->setText(QApplication::translate("SignUp", "<html><head/><body><p><span style=\" font-size:20pt;\">\350\257\267\350\276\223\345\205\245\346\263\250\345\206\214\344\277\241\346\201\257</span></p></body></html>", 0));
+        signupPushButton->setText(QApplication::translate("SignUp", "\346\263\250\345\206\214", 0));
+        goToLoginPushButton->setText(QApplication::translate("SignUp", "\350\277\224\345\233\236\347\231\273\345\275\225", 0));
+        label->setText(QApplication::translate("SignUp", "\347\224\250\346\210\267\345\220\215:", 0));
+        label_3->setText(QApplication::translate("SignUp", "\346\211\200\345\234\250\345\255\246\351\231\242:", 0));
         label_2->setText(QApplication::translate("SignUp", "Student ID:", 0));
-        label_5->setText(QApplication::translate("SignUp", "Gender:", 0));
-        label_6->setText(QApplication::translate("SignUp", "Password:", 0));
-        label_9->setText(QApplication::translate("SignUp", "PasswdAgain:", 0));
-        label_7->setText(QApplication::translate("SignUp", "Type:", 0));
-        label_4->setText(QApplication::translate("SignUp", "Birthday:", 0));
+        label_5->setText(QApplication::translate("SignUp", "\346\200\247\345\210\253:", 0));
+        label_6->setText(QApplication::translate("SignUp", "\345\257\206\347\240\201:", 0));
+        label_9->setText(QApplication::translate("SignUp", "\345\206\215\346\254\241\350\276\223\345\205\245\345\257\206\347\240\201:", 0));
+        label_7->setText(QApplication::translate("SignUp", "\350\272\253\344\273\275\347\261\273\345\236\213:", 0));
+        label_4->setText(QApplication::translate("SignUp", "\345\207\272\347\224\237\346\227\245\346\234\237:", 0));
         stuRadioButton->setText(QApplication::translate("SignUp", "Student", 0));
         teaRadioButton->setText(QApplication::translate("SignUp", "Teacher", 0));
         dateEdit->setDisplayFormat(QApplication::translate("SignUp", "yyyy/M/d", 0));

@@ -47,8 +47,9 @@ using json = nlohmann::json;
 #include <fstream> //读取json
 #include <sstream>
 #include <thread>
+class User;
 extern json __C;
-//`extern User *user;
+extern User *user;
 
 
 //计时

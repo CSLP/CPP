@@ -138,14 +138,14 @@ public:
     void retranslateUi(QDialog *UpdateInfo)
     {
         UpdateInfo->setWindowTitle(QApplication::translate("UpdateInfo", "Dialog", 0));
-        label_3->setText(QApplication::translate("UpdateInfo", "Department:", 0));
-        label_5->setText(QApplication::translate("UpdateInfo", "Gender:", 0));
-        label_6->setText(QApplication::translate("UpdateInfo", "Password:", 0));
-        label_9->setText(QApplication::translate("UpdateInfo", "PasswdAgain:", 0));
-        label_4->setText(QApplication::translate("UpdateInfo", "Birthday:", 0));
+        label_3->setText(QApplication::translate("UpdateInfo", "\346\211\200\345\234\250\351\231\242\347\263\273:", 0));
+        label_5->setText(QApplication::translate("UpdateInfo", "\346\200\247\345\210\253:", 0));
+        label_6->setText(QApplication::translate("UpdateInfo", "\345\257\206\347\240\201:", 0));
+        label_9->setText(QApplication::translate("UpdateInfo", "\345\206\215\346\254\241\350\276\223\345\205\245\345\257\206\347\240\201:", 0));
+        label_4->setText(QApplication::translate("UpdateInfo", "\345\207\272\347\224\237\346\227\245\346\234\237:", 0));
         dateEdit->setDisplayFormat(QApplication::translate("UpdateInfo", "yyyy/M/d", 0));
         label->setText(QApplication::translate("UpdateInfo", "Input New Info", 0));
-        submitPushButton->setText(QApplication::translate("UpdateInfo", "Submit", 0));
+        submitPushButton->setText(QApplication::translate("UpdateInfo", "\346\217\220\344\272\244", 0));
     } // retranslateUi
 
 };

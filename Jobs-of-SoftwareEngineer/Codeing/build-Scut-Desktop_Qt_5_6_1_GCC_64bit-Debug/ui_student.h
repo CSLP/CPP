@@ -547,11 +547,11 @@ public:
     void retranslateUi(QMainWindow *Student)
     {
         Student->setWindowTitle(QApplication::translate("Student", "Student", 0));
-        labelb->setText(QApplication::translate("Student", "Bulletin", 0));
-        labela->setText(QApplication::translate("Student", "Information", 0));
-        loginAgainPushButton->setText(QApplication::translate("Student", "LoginAgain", 0));
-        modifyPushButton->setText(QApplication::translate("Student", "ModifyInfo", 0));
-        label->setText(QApplication::translate("Student", "Email", 0));
+        labelb->setText(QApplication::translate("Student", "\345\205\254\345\221\212\346\240\217", 0));
+        labela->setText(QApplication::translate("Student", "\344\270\252\344\272\272\344\277\241\346\201\257", 0));
+        loginAgainPushButton->setText(QApplication::translate("Student", "\350\277\224\345\233\236\347\231\273\345\275\225", 0));
+        modifyPushButton->setText(QApplication::translate("Student", "\344\277\256\346\224\271\344\270\252\344\272\272\344\277\241\346\201\257", 0));
+        label->setText(QApplication::translate("Student", "\351\202\256\344\273\266", 0));
 
         const bool __sortingEnabled = listWidget->isSortingEnabled();
         listWidget->setSortingEnabled(false);
@@ -570,12 +570,12 @@ public:
         label_8->setText(QApplication::translate("Student", "\346\255\243\346\226\207", 0));
         label_2->setText(QApplication::translate("Student", "\345\217\221\344\273\266\344\272\272:", 0));
         senderInfo->setText(QApplication::translate("Student", "\344\275\240\346\230\257\344\270\215\345\202\273(201630610571)", 0));
-        sendPushButton->setText(QApplication::translate("Student", "Send", 0));
-        savePushButton->setText(QApplication::translate("Student", "SaveDraft", 0));
+        sendPushButton->setText(QApplication::translate("Student", "\345\217\221\351\200\201", 0));
+        savePushButton->setText(QApplication::translate("Student", "\344\277\235\345\255\230\345\210\260\350\215\211\347\250\277\347\256\261", 0));
         label_3->setText(QApplication::translate("Student", "accept", 0));
         label_4->setText(QApplication::translate("Student", "draft", 0));
         label_5->setText(QApplication::translate("Student", "to read", 0));
-        tabWidget->setTabText(tabWidget->indexOf(homeTab), QApplication::translate("Student", "Home", 0));
+        tabWidget->setTabText(tabWidget->indexOf(homeTab), QApplication::translate("Student", "\344\270\273\351\241\265", 0));
         label1->setText(QApplication::translate("Student", "<html><head/><body><p><img src=\":/image/1.png\"/></p></body></html>", 0));
         label11->setText(QApplication::translate("Student", "TextLabel", 0));
         pushButton1->setText(QApplication::translate("Student", "PushButton", 0));
@@ -594,7 +594,7 @@ public:
         label6->setText(QApplication::translate("Student", "TextLabel", 0));
         label66->setText(QApplication::translate("Student", "TextLabel", 0));
         pushButton6->setText(QApplication::translate("Student", "PushButton", 0));
-        tabWidget->setTabText(tabWidget->indexOf(courseTab), QApplication::translate("Student", "Courses", 0));
+        tabWidget->setTabText(tabWidget->indexOf(courseTab), QApplication::translate("Student", "\350\257\276\347\250\213", 0));
     } // retranslateUi
 
 };

@@ -63,6 +63,9 @@ public:
 
         showPushButton = new QPushButton(Comment);
         showPushButton->setObjectName(QStringLiteral("showPushButton"));
+        QFont font;
+        font.setFamily(QStringLiteral("FZSongS-Extended"));
+        showPushButton->setFont(font);
 
         horizontalLayout->addWidget(showPushButton);
 
@@ -72,6 +75,7 @@ public:
 
         foldPushButton = new QPushButton(Comment);
         foldPushButton->setObjectName(QStringLiteral("foldPushButton"));
+        foldPushButton->setFont(font);
 
         horizontalLayout->addWidget(foldPushButton);
 
@@ -122,8 +126,8 @@ public:
     {
         Comment->setWindowTitle(QApplication::translate("Comment", "GroupBox", 0));
         Comment->setTitle(QApplication::translate("Comment", "GroupBox", 0));
-        showPushButton->setText(QApplication::translate("Comment", "ShowReply", 0));
-        foldPushButton->setText(QApplication::translate("Comment", "FoldReply", 0));
+        showPushButton->setText(QApplication::translate("Comment", "\346\230\276\347\244\272\345\233\236\345\244\215", 0));
+        foldPushButton->setText(QApplication::translate("Comment", "\346\212\230\345\217\240\345\233\236\345\244\215", 0));
         sendPushButton->setText(QApplication::translate("Comment", "Send", 0));
     } // retranslateUi
 

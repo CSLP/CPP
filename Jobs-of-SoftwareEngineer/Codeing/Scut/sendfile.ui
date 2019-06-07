@@ -17,7 +17,7 @@
    <item>
     <widget class="QLabel" name="label">
      <property name="text">
-      <string>Please select the file to send!</string>
+      <string>请选择要上传的文件</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -107,21 +107,21 @@
      <item>
       <widget class="QPushButton" name="openPushButton">
        <property name="text">
-        <string>Open</string>
+        <string>打开</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="submitPushButton">
        <property name="text">
-        <string>Submit</string>
+        <string>上传</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="cancelPushButton">
        <property name="text">
-        <string>Cancel</string>
+        <string>取消</string>
        </property>
       </widget>
      </item>

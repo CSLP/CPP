@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt;&quot;&gt;Please enter registration information&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt;&quot;&gt;请输入注册信息&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -42,7 +42,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Sign up</string>
+    <string>注册</string>
    </property>
   </widget>
   <widget class="QPushButton" name="goToLoginPushButton">
@@ -55,15 +55,15 @@
     </rect>
    </property>
    <property name="text">
-    <string>GoToLogin</string>
+    <string>返回登录</string>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>240</x>
      <y>170</y>
-     <width>336</width>
+     <width>337</width>
      <height>299</height>
     </rect>
    </property>
@@ -73,14 +73,14 @@
       <item>
        <widget class="QLabel" name="label">
         <property name="text">
-         <string>Username:</string>
+         <string>用户名:</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QLabel" name="label_3">
         <property name="text">
-         <string>Department:</string>
+         <string>所在学院:</string>
         </property>
        </widget>
       </item>
@@ -94,35 +94,35 @@
       <item>
        <widget class="QLabel" name="label_5">
         <property name="text">
-         <string>Gender:</string>
+         <string>性别:</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QLabel" name="label_6">
         <property name="text">
-         <string>Password:</string>
+         <string>密码:</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QLabel" name="label_9">
         <property name="text">
-         <string>PasswdAgain:</string>
+         <string>再次输入密码:</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QLabel" name="label_7">
         <property name="text">
-         <string>Type:</string>
+         <string>身份类型:</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QLabel" name="label_4">
         <property name="text">
-         <string>Birthday:</string>
+         <string>出生日期:</string>
         </property>
        </widget>
       </item>

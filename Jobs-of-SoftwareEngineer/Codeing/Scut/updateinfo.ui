@@ -28,35 +28,35 @@
       <item>
        <widget class="QLabel" name="label_3">
         <property name="text">
-         <string>Department:</string>
+         <string>所在院系:</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QLabel" name="label_5">
         <property name="text">
-         <string>Gender:</string>
+         <string>性别:</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QLabel" name="label_6">
         <property name="text">
-         <string>Password:</string>
+         <string>密码:</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QLabel" name="label_9">
         <property name="text">
-         <string>PasswdAgain:</string>
+         <string>再次输入密码:</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QLabel" name="label_4">
         <property name="text">
-         <string>Birthday:</string>
+         <string>出生日期:</string>
         </property>
        </widget>
       </item>
@@ -129,7 +129,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Submit</string>
+    <string>提交</string>
    </property>
   </widget>
  </widget>

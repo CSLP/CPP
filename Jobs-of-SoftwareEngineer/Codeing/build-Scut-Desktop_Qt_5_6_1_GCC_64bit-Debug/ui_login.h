@@ -94,7 +94,7 @@ public:
 
         layoutWidget2 = new QWidget(Login);
         layoutWidget2->setObjectName(QStringLiteral("layoutWidget2"));
-        layoutWidget2->setGeometry(QRect(250, 330, 272, 34));
+        layoutWidget2->setGeometry(QRect(250, 330, 272, 42));
         horizontalLayout_2 = new QHBoxLayout(layoutWidget2);
         horizontalLayout_2->setSpacing(100);
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
@@ -124,8 +124,8 @@ public:
         label->setText(QApplication::translate("Login", "ID", 0));
         label_2->setText(QApplication::translate("Login", "Password", 0));
         passwdLineEdit->setText(QString());
-        signInPushButton->setText(QApplication::translate("Login", "Sign In", 0));
-        signUpPushButton->setText(QApplication::translate("Login", "Sign Up", 0));
+        signInPushButton->setText(QApplication::translate("Login", "\347\231\273\345\275\225", 0));
+        signUpPushButton->setText(QApplication::translate("Login", "\346\263\250\345\206\214", 0));
     } // retranslateUi
 
 };

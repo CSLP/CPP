@@ -18,7 +18,6 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QListWidget>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QTextBrowser>
@@ -50,7 +49,6 @@ public:
     QWidget *discussTab;
     QWidget *resourceTab;
     QFrame *line_2;
-    QListWidget *listWidget;
 
     void setupUi(QDialog *Course)
     {
@@ -139,18 +137,6 @@ public:
         line_2->setGeometry(QRect(360, 480, 3, 61));
         line_2->setFrameShape(QFrame::VLine);
         line_2->setFrameShadow(QFrame::Sunken);
-        listWidget = new QListWidget(resourceTab);
-        QBrush brush(QColor(0, 0, 0, 0));
-        brush.setStyle(Qt::NoBrush);
-        QListWidgetItem *__qlistwidgetitem = new QListWidgetItem(listWidget);
-        __qlistwidgetitem->setBackground(brush);
-        new QListWidgetItem(listWidget);
-        QListWidgetItem *__qlistwidgetitem1 = new QListWidgetItem(listWidget);
-        __qlistwidgetitem1->setText(QStringLiteral("New Item"));
-        new QListWidgetItem(listWidget);
-        new QListWidgetItem(listWidget);
-        listWidget->setObjectName(QStringLiteral("listWidget"));
-        listWidget->setGeometry(QRect(220, 170, 331, 301));
         tabWidget->addTab(resourceTab, QString());
 
         horizontalLayout->addWidget(tabWidget);
@@ -158,7 +144,7 @@ public:
 
         retranslateUi(Course);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(Course);
@@ -167,32 +153,19 @@ public:
     void retranslateUi(QDialog *Course)
     {
         Course->setWindowTitle(QApplication::translate("Course", "Course", 0));
-        label_3->setText(QApplication::translate("Course", "Homework", 0));
-        submitPushButton->setText(QApplication::translate("Course", "SubmitHomework", 0));
-        backPushButton->setText(QApplication::translate("Course", "Back", 0));
-        label->setText(QApplication::translate("Course", "TeacherInformation", 0));
+        label_3->setText(QApplication::translate("Course", "\344\275\234\344\270\232", 0));
+        submitPushButton->setText(QApplication::translate("Course", "\346\217\220\344\272\244\344\275\234\344\270\232", 0));
+        backPushButton->setText(QApplication::translate("Course", "\350\277\224\345\233\236", 0));
+        label->setText(QApplication::translate("Course", "\346\225\231\345\270\210\344\277\241\346\201\257", 0));
         teaTextBrowser->setHtml(QApplication::translate("Course", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'Ubuntu'; font-size:14pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">fdjlk;kjffkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkjflkjsjdfafds</p></body></html>", 0));
-        label_2->setText(QApplication::translate("Course", "CourseInformation", 0));
-        tabWidget->setTabText(tabWidget->indexOf(homeTab), QApplication::translate("Course", "Home", 0));
-        tabWidget->setTabText(tabWidget->indexOf(discussTab), QApplication::translate("Course", "Discussion", 0));
-
-        const bool __sortingEnabled = listWidget->isSortingEnabled();
-        listWidget->setSortingEnabled(false);
-        QListWidgetItem *___qlistwidgetitem = listWidget->item(0);
-        ___qlistwidgetitem->setText(QApplication::translate("Course", "New Item", 0));
-        QListWidgetItem *___qlistwidgetitem1 = listWidget->item(1);
-        ___qlistwidgetitem1->setText(QApplication::translate("Course", "New Item", 0));
-        QListWidgetItem *___qlistwidgetitem2 = listWidget->item(3);
-        ___qlistwidgetitem2->setText(QApplication::translate("Course", "New Item", 0));
-        QListWidgetItem *___qlistwidgetitem3 = listWidget->item(4);
-        ___qlistwidgetitem3->setText(QApplication::translate("Course", "New Item", 0));
-        listWidget->setSortingEnabled(__sortingEnabled);
-
-        tabWidget->setTabText(tabWidget->indexOf(resourceTab), QApplication::translate("Course", "Resource", 0));
+        label_2->setText(QApplication::translate("Course", "\350\257\276\347\250\213\344\277\241\346\201\257", 0));
+        tabWidget->setTabText(tabWidget->indexOf(homeTab), QApplication::translate("Course", "\344\270\273\351\241\265", 0));
+        tabWidget->setTabText(tabWidget->indexOf(discussTab), QApplication::translate("Course", "\350\256\250\350\256\272\345\214\272", 0));
+        tabWidget->setTabText(tabWidget->indexOf(resourceTab), QApplication::translate("Course", "\350\257\276\347\250\213\350\265\204\346\272\220", 0));
     } // retranslateUi
 
 };

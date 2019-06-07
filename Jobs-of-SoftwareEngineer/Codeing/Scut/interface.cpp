@@ -1,10 +1,11 @@
 #include"interface.h"
+#include"user.h"
+#include"head.h"
+//User user(__C["MAINSERVER"]["IP"].get<string>(), __C["MAINSERVER"]["PORT"].get<int>());
 bool loginMatch(string type,string id,string passwd)
 {
-    if(type=="student"&&id=="110"&&passwd=="scut")
-        return true;
-    return true;
-
+        bool y=user->c_login(id,passwd);
+    return y;
 }
 
 list<std::__cxx11::string> getStudentInfoByStudentId(string id)

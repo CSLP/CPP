@@ -122,10 +122,10 @@ public:
     void retranslateUi(QDialog *SendFile)
     {
         SendFile->setWindowTitle(QApplication::translate("SendFile", "Dialog", 0));
-        label->setText(QApplication::translate("SendFile", "Please select the file to send!", 0));
-        openPushButton->setText(QApplication::translate("SendFile", "Open", 0));
-        submitPushButton->setText(QApplication::translate("SendFile", "Submit", 0));
-        cancelPushButton->setText(QApplication::translate("SendFile", "Cancel", 0));
+        label->setText(QApplication::translate("SendFile", "\350\257\267\351\200\211\346\213\251\350\246\201\344\270\212\344\274\240\347\232\204\346\226\207\344\273\266", 0));
+        openPushButton->setText(QApplication::translate("SendFile", "\346\211\223\345\274\200", 0));
+        submitPushButton->setText(QApplication::translate("SendFile", "\344\270\212\344\274\240", 0));
+        cancelPushButton->setText(QApplication::translate("SendFile", "\345\217\226\346\266\210", 0));
     } // retranslateUi
 
 };

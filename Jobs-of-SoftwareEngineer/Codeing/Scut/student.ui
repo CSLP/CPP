@@ -34,7 +34,7 @@
       </property>
       <widget class="QWidget" name="homeTab">
        <attribute name="title">
-        <string>Home</string>
+        <string>主页</string>
        </attribute>
        <layout class="QHBoxLayout" name="horizontalLayout_6" stretch="1,2">
         <item>
@@ -55,7 +55,7 @@
                </font>
               </property>
               <property name="text">
-               <string>Bulletin</string>
+               <string>公告栏</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignCenter</set>
@@ -85,7 +85,7 @@
                </font>
               </property>
               <property name="text">
-               <string>Information</string>
+               <string>个人信息</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignCenter</set>
@@ -134,14 +134,14 @@
                  <bool>false</bool>
                 </property>
                 <property name="text">
-                 <string>LoginAgain</string>
+                 <string>返回登录</string>
                 </property>
                </widget>
               </item>
               <item>
                <widget class="QPushButton" name="modifyPushButton">
                 <property name="text">
-                 <string>ModifyInfo</string>
+                 <string>修改个人信息</string>
                 </property>
                </widget>
               </item>
@@ -174,7 +174,7 @@
              </font>
             </property>
             <property name="text">
-             <string>Email</string>
+             <string>邮件</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -337,7 +337,7 @@
                     <item>
                      <widget class="QPushButton" name="sendPushButton">
                       <property name="text">
-                       <string>Send</string>
+                       <string>发送</string>
                       </property>
                      </widget>
                     </item>
@@ -357,7 +357,7 @@
                     <item>
                      <widget class="QPushButton" name="savePushButton">
                       <property name="text">
-                       <string>SaveDraft</string>
+                       <string>保存到草稿箱</string>
                       </property>
                      </widget>
                     </item>
@@ -435,7 +435,7 @@
       </widget>
       <widget class="QWidget" name="courseTab">
        <attribute name="title">
-        <string>Courses</string>
+        <string>课程</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout">
         <property name="horizontalSpacing">
