@@ -78,14 +78,8 @@ public:
     QPushButton *savePushButton;
     QSpacerItem *horizontalSpacer_5;
     QWidget *receivePage;
-    QHBoxLayout *horizontalLayout_7;
-    QListWidget *receiveListWidget;
     QWidget *draftPage;
-    QHBoxLayout *horizontalLayout_8;
-    QListWidget *draftListWidget;
     QWidget *unreadPage;
-    QHBoxLayout *horizontalLayout_9;
-    QListWidget *unreadListWidget;
     QWidget *courseTab;
     QGridLayout *gridLayout;
     QVBoxLayout *verticalLayout;
@@ -352,33 +346,12 @@ public:
         stackedWidget->addWidget(sendPage);
         receivePage = new QWidget();
         receivePage->setObjectName(QStringLiteral("receivePage"));
-        horizontalLayout_7 = new QHBoxLayout(receivePage);
-        horizontalLayout_7->setObjectName(QStringLiteral("horizontalLayout_7"));
-        receiveListWidget = new QListWidget(receivePage);
-        receiveListWidget->setObjectName(QStringLiteral("receiveListWidget"));
-
-        horizontalLayout_7->addWidget(receiveListWidget);
-
         stackedWidget->addWidget(receivePage);
         draftPage = new QWidget();
         draftPage->setObjectName(QStringLiteral("draftPage"));
-        horizontalLayout_8 = new QHBoxLayout(draftPage);
-        horizontalLayout_8->setObjectName(QStringLiteral("horizontalLayout_8"));
-        draftListWidget = new QListWidget(draftPage);
-        draftListWidget->setObjectName(QStringLiteral("draftListWidget"));
-
-        horizontalLayout_8->addWidget(draftListWidget);
-
         stackedWidget->addWidget(draftPage);
         unreadPage = new QWidget();
         unreadPage->setObjectName(QStringLiteral("unreadPage"));
-        horizontalLayout_9 = new QHBoxLayout(unreadPage);
-        horizontalLayout_9->setObjectName(QStringLiteral("horizontalLayout_9"));
-        unreadListWidget = new QListWidget(unreadPage);
-        unreadListWidget->setObjectName(QStringLiteral("unreadListWidget"));
-
-        horizontalLayout_9->addWidget(unreadListWidget);
-
         stackedWidget->addWidget(unreadPage);
 
         horizontalLayout_2->addWidget(stackedWidget);
@@ -553,7 +526,7 @@ public:
         QObject::connect(listWidget, SIGNAL(currentRowChanged(int)), stackedWidget, SLOT(setCurrentIndex(int)));
 
         tabWidget->setCurrentIndex(0);
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(Student);

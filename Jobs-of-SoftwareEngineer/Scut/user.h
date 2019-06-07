@@ -1,12 +1,10 @@
-#ifndef USER_H
-#define USER_H
-
+#ifndef DLL_H
+#define DLL_H
 #include "head.h"
 #include "util.h"
 #include "filemanager.h"
 
 class FileManager;
-
 class User
 {
 private:
@@ -21,10 +19,8 @@ public:
     string sex;
     string birth;
     bool is_login;
-
     FileManager *file_manager;
 public:
-    User(){}
     User(const string &IP, const int PORT);
     ~User();
     bool c_login(string _username, string _password);
@@ -44,6 +40,7 @@ public:
     json c_get_draft_email();
     json c_get_unread_email();
     bool c_del_email(const string &e_id);
+    bool c_mark_email(const string &e_id);
     bool c_save_draft_email(const string &to, const string &topic, const string &content);
     bool download(const string &file_path);
     bool upload(const string &file_path);
@@ -61,5 +58,4 @@ public:
 
 };
 
-
-#endif // USER_H
+#endif 

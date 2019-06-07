@@ -27,11 +27,11 @@ SOURCES += main.cpp\
     myclock.cpp \
     courseinfo.cpp \
     studentinfo.cpp \
-    user.cpp \
     filemanager.cpp \
     util.cpp \
     mcrypto.cpp \
-    email.cpp
+    email.cpp \
+    user.cpp
 
 HEADERS  += login.h \
     signup.h \
@@ -47,13 +47,13 @@ HEADERS  += login.h \
     myclock.h \
     courseinfo.h \
     studentinfo.h \
-    user.h \
     filemanager.h \
     head.h \
     json.hpp \
     util.h \
     mcrypto.h \
-    email.h
+    email.h \
+    user.h
 
 FORMS    += login.ui \
     signup.ui \

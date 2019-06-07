@@ -30,6 +30,7 @@ public:
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout;
     QCheckBox *checkBox;
+    QLabel *picLabel;
     QLabel *fromLabel;
     QLabel *themeLabel;
     QLabel *timeLabel;
@@ -51,6 +52,11 @@ public:
 
         horizontalLayout->addWidget(checkBox);
 
+        picLabel = new QLabel(email);
+        picLabel->setObjectName(QStringLiteral("picLabel"));
+
+        horizontalLayout->addWidget(picLabel);
+
         fromLabel = new QLabel(email);
         fromLabel->setObjectName(QStringLiteral("fromLabel"));
 
@@ -58,6 +64,13 @@ public:
 
         themeLabel = new QLabel(email);
         themeLabel->setObjectName(QStringLiteral("themeLabel"));
+        themeLabel->setSizeIncrement(QSize(0, 0));
+        QFont font;
+        font.setPointSize(16);
+        font.setBold(true);
+        font.setWeight(75);
+        themeLabel->setFont(font);
+        themeLabel->setAlignment(Qt::AlignCenter);
 
         horizontalLayout->addWidget(themeLabel);
 
@@ -67,9 +80,10 @@ public:
         horizontalLayout->addWidget(timeLabel);
 
         horizontalLayout->setStretch(0, 1);
-        horizontalLayout->setStretch(1, 2);
-        horizontalLayout->setStretch(2, 16);
-        horizontalLayout->setStretch(3, 2);
+        horizontalLayout->setStretch(1, 1);
+        horizontalLayout->setStretch(2, 2);
+        horizontalLayout->setStretch(3, 16);
+        horizontalLayout->setStretch(4, 2);
 
         verticalLayout->addLayout(horizontalLayout);
 
@@ -99,6 +113,7 @@ public:
     {
         email->setWindowTitle(QApplication::translate("email", "Form", 0));
         checkBox->setText(QString());
+        picLabel->setText(QApplication::translate("email", "TextLabel", 0));
         fromLabel->setText(QApplication::translate("email", "TextLabel", 0));
         themeLabel->setText(QApplication::translate("email", "TextLabel", 0));
         timeLabel->setText(QApplication::translate("email", "TextLabel", 0));

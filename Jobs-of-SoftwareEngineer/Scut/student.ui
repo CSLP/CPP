@@ -248,7 +248,7 @@
                <enum>QFrame::StyledPanel</enum>
               </property>
               <property name="currentIndex">
-               <number>0</number>
+               <number>2</number>
               </property>
               <widget class="QWidget" name="sendPage">
                <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -380,27 +380,9 @@
                 </item>
                </layout>
               </widget>
-              <widget class="QWidget" name="receivePage">
-               <layout class="QHBoxLayout" name="horizontalLayout_7">
-                <item>
-                 <widget class="QListWidget" name="receiveListWidget"/>
-                </item>
-               </layout>
-              </widget>
-              <widget class="QWidget" name="draftPage">
-               <layout class="QHBoxLayout" name="horizontalLayout_8">
-                <item>
-                 <widget class="QListWidget" name="draftListWidget"/>
-                </item>
-               </layout>
-              </widget>
-              <widget class="QWidget" name="unreadPage">
-               <layout class="QHBoxLayout" name="horizontalLayout_9">
-                <item>
-                 <widget class="QListWidget" name="unreadListWidget"/>
-                </item>
-               </layout>
-              </widget>
+              <widget class="QWidget" name="receivePage"/>
+              <widget class="QWidget" name="draftPage"/>
+              <widget class="QWidget" name="unreadPage"/>
              </widget>
             </item>
            </layout>

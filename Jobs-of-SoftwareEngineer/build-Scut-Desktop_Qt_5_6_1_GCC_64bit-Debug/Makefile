@@ -63,11 +63,11 @@ SOURCES       = ../Scut/main.cpp \
 		../Scut/myclock.cpp \
 		../Scut/courseinfo.cpp \
 		../Scut/studentinfo.cpp \
-		../Scut/user.cpp \
 		../Scut/filemanager.cpp \
 		../Scut/util.cpp \
 		../Scut/mcrypto.cpp \
-		../Scut/email.cpp qrc_resource.cpp \
+		../Scut/email.cpp \
+		../Scut/user.cpp qrc_resource.cpp \
 		moc_login.cpp \
 		moc_signup.cpp \
 		moc_student.cpp \
@@ -94,11 +94,11 @@ OBJECTS       = main.o \
 		myclock.o \
 		courseinfo.o \
 		studentinfo.o \
-		user.o \
 		filemanager.o \
 		util.o \
 		mcrypto.o \
 		email.o \
+		user.o \
 		qrc_resource.o \
 		moc_login.o \
 		moc_signup.o \
@@ -260,13 +260,13 @@ DIST          = /home/wuyulp/Qt5.6.1/5.6/gcc_64/mkspecs/features/spec_pre.prf \
 		../Scut/myclock.h \
 		../Scut/courseinfo.h \
 		../Scut/studentinfo.h \
-		../Scut/user.h \
 		../Scut/filemanager.h \
 		../Scut/head.h \
 		../Scut/json.hpp \
 		../Scut/util.h \
 		../Scut/mcrypto.h \
-		../Scut/email.h ../Scut/main.cpp \
+		../Scut/email.h \
+		../Scut/user.h ../Scut/main.cpp \
 		../Scut/login.cpp \
 		../Scut/signup.cpp \
 		../Scut/student.cpp \
@@ -281,11 +281,11 @@ DIST          = /home/wuyulp/Qt5.6.1/5.6/gcc_64/mkspecs/features/spec_pre.prf \
 		../Scut/myclock.cpp \
 		../Scut/courseinfo.cpp \
 		../Scut/studentinfo.cpp \
-		../Scut/user.cpp \
 		../Scut/filemanager.cpp \
 		../Scut/util.cpp \
 		../Scut/mcrypto.cpp \
-		../Scut/email.cpp
+		../Scut/email.cpp \
+		../Scut/user.cpp
 QMAKE_TARGET  = Scut
 DESTDIR       = 
 TARGET        = Scut
@@ -593,8 +593,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../Scut/resource.qrc $(DISTDIR)/
-	$(COPY_FILE) --parents ../Scut/login.h ../Scut/signup.h ../Scut/student.h ../Scut/teacher.h ../Scut/interface.h ../Scut/course.h ../Scut/sendfile.h ../Scut/updateinfo.h ../Scut/topic.h ../Scut/message.h ../Scut/comment.h ../Scut/myclock.h ../Scut/courseinfo.h ../Scut/studentinfo.h ../Scut/user.h ../Scut/filemanager.h ../Scut/head.h ../Scut/json.hpp ../Scut/util.h ../Scut/mcrypto.h ../Scut/email.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../Scut/main.cpp ../Scut/login.cpp ../Scut/signup.cpp ../Scut/student.cpp ../Scut/teacher.cpp ../Scut/interface.cpp ../Scut/course.cpp ../Scut/sendfile.cpp ../Scut/updateinfo.cpp ../Scut/topic.cpp ../Scut/message.cpp ../Scut/comment.cpp ../Scut/myclock.cpp ../Scut/courseinfo.cpp ../Scut/studentinfo.cpp ../Scut/user.cpp ../Scut/filemanager.cpp ../Scut/util.cpp ../Scut/mcrypto.cpp ../Scut/email.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../Scut/login.h ../Scut/signup.h ../Scut/student.h ../Scut/teacher.h ../Scut/interface.h ../Scut/course.h ../Scut/sendfile.h ../Scut/updateinfo.h ../Scut/topic.h ../Scut/message.h ../Scut/comment.h ../Scut/myclock.h ../Scut/courseinfo.h ../Scut/studentinfo.h ../Scut/filemanager.h ../Scut/head.h ../Scut/json.hpp ../Scut/util.h ../Scut/mcrypto.h ../Scut/email.h ../Scut/user.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../Scut/main.cpp ../Scut/login.cpp ../Scut/signup.cpp ../Scut/student.cpp ../Scut/teacher.cpp ../Scut/interface.cpp ../Scut/course.cpp ../Scut/sendfile.cpp ../Scut/updateinfo.cpp ../Scut/topic.cpp ../Scut/message.cpp ../Scut/comment.cpp ../Scut/myclock.cpp ../Scut/courseinfo.cpp ../Scut/studentinfo.cpp ../Scut/filemanager.cpp ../Scut/util.cpp ../Scut/mcrypto.cpp ../Scut/email.cpp ../Scut/user.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../Scut/login.ui ../Scut/signup.ui ../Scut/student.ui ../Scut/teacher.ui ../Scut/course.ui ../Scut/sendfile.ui ../Scut/updateinfo.ui ../Scut/topic.ui ../Scut/comment.ui ../Scut/myclock.ui ../Scut/email.ui $(DISTDIR)/
 
 
@@ -624,6 +624,7 @@ compiler_rcc_clean:
 qrc_resource.cpp: ../Scut/resource.qrc \
 		../Scut/2.png \
 		../Scut/1.png \
+		../Scut/4.png \
 		../Scut/3.png
 	/home/wuyulp/Qt5.6.1/5.6/gcc_64/bin/rcc -name resource ../Scut/resource.qrc -o qrc_resource.cpp
 
@@ -2547,7 +2548,8 @@ student.o: ../Scut/student.cpp ../Scut/student.h \
 		../Scut/json.hpp \
 		../Scut/user.h \
 		../Scut/util.h \
-		../Scut/filemanager.h
+		../Scut/filemanager.h \
+		../Scut/email.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o student.o ../Scut/student.cpp
 
 teacher.o: ../Scut/teacher.cpp ../Scut/teacher.h \
@@ -3985,13 +3987,6 @@ studentinfo.o: ../Scut/studentinfo.cpp ../Scut/studentinfo.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qstringbuilder.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o studentinfo.o ../Scut/studentinfo.cpp
 
-user.o: ../Scut/user.cpp ../Scut/user.h \
-		../Scut/head.h \
-		../Scut/json.hpp \
-		../Scut/util.h \
-		../Scut/filemanager.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o user.o ../Scut/user.cpp
-
 filemanager.o: ../Scut/filemanager.cpp ../Scut/filemanager.h \
 		../Scut/util.h \
 		../Scut/head.h \
@@ -4187,8 +4182,67 @@ email.o: ../Scut/email.cpp ../Scut/email.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qfiledevice.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qvector2d.h \
 		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qtouchdevice.h \
-		ui_email.h
+		ui_email.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/QVariant \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QAction \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qaction.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qicon.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qactiongroup.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QApplication \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qapplication.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qcoreapplication.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qeventloop.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qguiapplication.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qinputmethod.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QButtonGroup \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QCheckBox \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qcheckbox.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QHBoxLayout \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qboxlayout.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qlayout.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qgridlayout.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QHeaderView \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qheaderview.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qframe.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qstyleoption.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qvalidator.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtCore/qregularexpression.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qslider.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qabstractslider.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qstyle.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qtabbar.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qtabwidget.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qrubberband.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QLabel \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qlabel.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QSpacerItem \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QTextBrowser \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qtextbrowser.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/qtextedit.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qtextdocument.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qtextoption.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qtextcursor.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qtextformat.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtGui/qpen.h \
+		/home/wuyulp/Qt5.6.1/5.6/gcc_64/include/QtWidgets/QVBoxLayout
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o email.o ../Scut/email.cpp
+
+user.o: ../Scut/user.cpp ../Scut/user.h \
+		../Scut/head.h \
+		../Scut/json.hpp \
+		../Scut/util.h \
+		../Scut/filemanager.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o user.o ../Scut/user.cpp
 
 qrc_resource.o: qrc_resource.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_resource.o qrc_resource.cpp

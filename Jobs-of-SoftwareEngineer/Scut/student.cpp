@@ -12,6 +12,7 @@
 #include"updateinfo.h"
 #include"head.h"
 #include"user.h"
+#include"email.h"
 Student::Student(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Student)
@@ -60,9 +61,6 @@ void Student::idInfomation(std::__cxx11::string type, std::__cxx11::string idinf
        in<<QString::fromStdString(a);
    }
    ui->senderInfo->setText(QString::fromStdString(user->username+"("+user->u_id+")"));
-   auto a=user->c_get_email();
-   auto b=user->c_get_draft_email();
-   auto c=user->c_get_unread_email();
    for(string &b:inf)
    {
        inn<<QString::fromStdString(b);
@@ -77,6 +75,47 @@ void Student::idInfomation(std::__cxx11::string type, std::__cxx11::string idinf
    ui->listWidget1->insertItems(1,in);
    ui->listWidget1->insertItem(in.size()+1,listWidgetItem2);
    ui->listWidget1->insertItems(in.size()+2,inn);
+   //Email part
+   auto a=user->c_get_email();
+   qDebug()<<a["info"].size();
+   auto b=user->c_get_draft_email();
+   auto c=user->c_get_unread_email();
+   QListWidget *la=new QListWidget;
+   QListWidget* lb=new QListWidget;
+   QListWidget* lc=new QListWidget;
+   QHBoxLayout *laya=new QHBoxLayout;
+   QHBoxLayout *layb=new QHBoxLayout;
+   QHBoxLayout *layc=new QHBoxLayout;
+   for(int i=0;i<a["info"].size();++i)
+   {
+        email *e=new email(a["info"][i]["E_TYPE"].get<string>(),a["info"][i]["E_ID"].get<string>(),a["info"][i]["E_FROM"].get<string>(),a["info"][i]["E_TOPIC"].get<string>(),a["info"][i]["E_TIME"].get<string>(),a["info"][i]["E_CONTENT"].get<string>());
+        QListWidgetItem *ita=new QListWidgetItem;
+        la->addItem(ita);
+        la->setItemWidget(ita,e);
+        ita->setSizeHint(QSize(0,100));
+   }
+   laya->addWidget(la);
+   ui->receivePage->setLayout(laya);
+   for(int i=0;i<b["info"].size();++i)
+   {
+        email *e=new email(b["info"][i]["E_TYPE"].get<string>(),b["info"][i]["E_ID"].get<string>(),b["info"][i]["E_FROM"].get<string>(),b["info"][i]["E_TOPIC"].get<string>(),b["info"][i]["E_TIME"].get<string>(),b["info"][i]["E_CONTENT"].get<string>());
+        QListWidgetItem *itb=new QListWidgetItem;
+        lb->addItem(itb);
+        lb->setItemWidget(itb,e);
+        itb->setSizeHint(QSize(0,100));
+   }
+   layb->addWidget(lb);
+   ui->draftPage->setLayout(layb);
+   for(int i=0;i<c["info"].size();++i)
+   {
+        email *e=new email(c["info"][i]["E_TYPE"].get<string>(),c["info"][i]["E_ID"].get<string>(),c["info"][i]["E_FROM"].get<string>(),c["info"][i]["E_TOPIC"].get<string>(),c["info"][i]["E_TIME"].get<string>(),c["info"][i]["E_CONTENT"].get<string>());
+        QListWidgetItem *itc=new QListWidgetItem;
+        lc->addItem(itc);
+        lc->setItemWidget(itc,e);
+        itc->setSizeHint(QSize(0,100));
+   }
+   layc->addWidget(lc);
+   ui->unreadPage->setLayout(layc);
 }
 
 void Student::courseInformation(std::__cxx11::string  type, std::__cxx11::string id)
