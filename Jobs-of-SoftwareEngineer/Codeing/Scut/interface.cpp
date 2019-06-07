@@ -23,9 +23,23 @@ list<std::__cxx11::string> getStudentInfoByStudentId(string id)
             return x;
 }
 
-void signUpInfo(std::__cxx11::string, std::__cxx11::string, std::__cxx11::string, std::__cxx11::string, std::__cxx11::string, std::__cxx11::string, QDate)
+bool signUpInfo(std::__cxx11::string userName, std::__cxx11::string userId, std::__cxx11::string dep, std::__cxx11::string gender, std::__cxx11::string pwd, std::__cxx11::string type, std::__cxx11::string bir)
 {
-
+    bool res;
+    user->username=userName;
+    user->u_id=userId;
+    user->dept=dep;
+    user->birth=bir;
+    user->password=pwd;
+    string g;
+    if(gender=="boy")
+        g="b";
+    else
+        g="g";
+    user->sex=g;
+    user->role_type=type;
+    res=user->c_register();
+    return res;
 }
 
 map<std::__cxx11::string, std::__cxx11::string> getCourseInfoByStudentId(std::__cxx11::string id)

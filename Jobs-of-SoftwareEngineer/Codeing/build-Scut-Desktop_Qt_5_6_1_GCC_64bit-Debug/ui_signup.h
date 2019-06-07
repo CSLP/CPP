@@ -13,7 +13,6 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QDateEdit>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
@@ -53,7 +52,7 @@ public:
     QHBoxLayout *horizontalLayout;
     QRadioButton *stuRadioButton;
     QRadioButton *teaRadioButton;
-    QDateEdit *dateEdit;
+    QLineEdit *birLineEdit;
 
     void setupUi(QDialog *SignUp)
     {
@@ -172,10 +171,10 @@ public:
 
         verticalLayout->addLayout(horizontalLayout);
 
-        dateEdit = new QDateEdit(layoutWidget);
-        dateEdit->setObjectName(QStringLiteral("dateEdit"));
+        birLineEdit = new QLineEdit(layoutWidget);
+        birLineEdit->setObjectName(QStringLiteral("birLineEdit"));
 
-        verticalLayout->addWidget(dateEdit);
+        verticalLayout->addWidget(birLineEdit);
 
 
         horizontalLayout_2->addLayout(verticalLayout);
@@ -200,9 +199,10 @@ public:
         label_9->setText(QApplication::translate("SignUp", "\345\206\215\346\254\241\350\276\223\345\205\245\345\257\206\347\240\201:", 0));
         label_7->setText(QApplication::translate("SignUp", "\350\272\253\344\273\275\347\261\273\345\236\213:", 0));
         label_4->setText(QApplication::translate("SignUp", "\345\207\272\347\224\237\346\227\245\346\234\237:", 0));
+        genderLineEdit->setPlaceholderText(QApplication::translate("SignUp", "boy/girl", 0));
         stuRadioButton->setText(QApplication::translate("SignUp", "Student", 0));
         teaRadioButton->setText(QApplication::translate("SignUp", "Teacher", 0));
-        dateEdit->setDisplayFormat(QApplication::translate("SignUp", "yyyy/M/d", 0));
+        birLineEdit->setPlaceholderText(QApplication::translate("SignUp", "2000/01/00", 0));
     } // retranslateUi
 
 };

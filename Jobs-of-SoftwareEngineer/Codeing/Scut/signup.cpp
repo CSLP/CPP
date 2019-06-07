@@ -46,9 +46,11 @@ void SignUp::on_signupPushButton_clicked()
                 type="student";
             else
                 type="teacher";
-            QMessageBox::information(this,tr("Hint"),tr("Register Success"),QMessageBox::Ok);
-            signUpInfo(ui->userLineEdit->text().toStdString(),ui->idLineEdit->text().toStdString(),ui->depLineEdit->text().toStdString(),ui->genderLineEdit->text().toStdString(),ui->pwd1LineEdit->text().toStdString(),type.toStdString(),ui->dateEdit->date());
-
+            auto ok=signUpInfo(ui->userLineEdit->text().toStdString(),ui->idLineEdit->text().toStdString(),ui->depLineEdit->text().toStdString(),ui->genderLineEdit->text().toStdString(),ui->pwd1LineEdit->text().toStdString(),type.toStdString(),ui->birLineEdit->text.toStdString());
+            if(ok)
+                QMessageBox::information(this,tr("Hint"),tr("注册成功!"),QMessageBox::Ok);
+            else
+                QMessageBox::information(this,tr("Hint"),tr("注册失败\n用户名或ID已被注册！"),QMessageBox::Ok);
         }
 
     }

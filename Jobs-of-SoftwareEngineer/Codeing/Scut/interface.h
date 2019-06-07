@@ -14,7 +14,7 @@ using std::list;
 using std::map;
 using std::vector;
 bool loginMatch(string ,string ,string );
-void signUpInfo(string,string,string,string,string,string,QDate);
+bool signUpInfo(string,string,string,string,string,string,string);
 list<string>  getStudentInfoByStudentId(string);
 list<string>  getStudentAttendanceByStudentId(string);
 vector<CourseInfo> getCourseListByTeacherId(string);

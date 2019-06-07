@@ -140,7 +140,11 @@
        <widget class="QLineEdit" name="idLineEdit"/>
       </item>
       <item>
-       <widget class="QLineEdit" name="genderLineEdit"/>
+       <widget class="QLineEdit" name="genderLineEdit">
+        <property name="placeholderText">
+         <string>boy/girl</string>
+        </property>
+       </widget>
       </item>
       <item>
        <widget class="QLineEdit" name="pwd1LineEdit">
@@ -178,9 +182,9 @@
        </layout>
       </item>
       <item>
-       <widget class="QDateEdit" name="dateEdit">
-        <property name="displayFormat">
-         <string>yyyy/M/d</string>
+       <widget class="QLineEdit" name="birLineEdit">
+        <property name="placeholderText">
+         <string>2000/01/00</string>
         </property>
        </widget>
       </item>
