@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_Student_t {
-    QByteArrayData data[15];
-    char stringdata0[264];
+    QByteArrayData data[16];
+    char stringdata0[290];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -41,9 +41,10 @@ QT_MOC_LITERAL(8, 125, 22), // "on_pushButton4_clicked"
 QT_MOC_LITERAL(9, 148, 22), // "on_pushButton5_clicked"
 QT_MOC_LITERAL(10, 171, 22), // "on_pushButton6_clicked"
 QT_MOC_LITERAL(11, 194, 27), // "on_modifyPushButton_clicked"
-QT_MOC_LITERAL(12, 222, 12), // "idInfomation"
-QT_MOC_LITERAL(13, 235, 17), // "courseInformation"
-QT_MOC_LITERAL(14, 253, 10) // "completUpd"
+QT_MOC_LITERAL(12, 222, 25), // "on_sendPushButton_clicked"
+QT_MOC_LITERAL(13, 248, 12), // "idInfomation"
+QT_MOC_LITERAL(14, 261, 17), // "courseInformation"
+QT_MOC_LITERAL(15, 279, 10) // "completUpd"
 
     },
     "Student\0corInfo\0\0string\0"
@@ -51,7 +52,8 @@ QT_MOC_LITERAL(14, 253, 10) // "completUpd"
     "on_pushButton1_clicked\0on_pushButton2_clicked\0"
     "on_pushButton3_clicked\0on_pushButton4_clicked\0"
     "on_pushButton5_clicked\0on_pushButton6_clicked\0"
-    "on_modifyPushButton_clicked\0idInfomation\0"
+    "on_modifyPushButton_clicked\0"
+    "on_sendPushButton_clicked\0idInfomation\0"
     "courseInformation\0completUpd"
 };
 #undef QT_MOC_LITERAL
@@ -62,7 +64,7 @@ static const uint qt_meta_data_Student[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      12,   14, // methods
+      13,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -70,25 +72,27 @@ static const uint qt_meta_data_Student[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   74,    2, 0x06 /* Public */,
+       1,    1,   79,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       4,    0,   77,    2, 0x08 /* Private */,
-       5,    0,   78,    2, 0x08 /* Private */,
-       6,    0,   79,    2, 0x08 /* Private */,
-       7,    0,   80,    2, 0x08 /* Private */,
-       8,    0,   81,    2, 0x08 /* Private */,
-       9,    0,   82,    2, 0x08 /* Private */,
-      10,    0,   83,    2, 0x08 /* Private */,
-      11,    0,   84,    2, 0x08 /* Private */,
-      12,    2,   85,    2, 0x0a /* Public */,
-      13,    2,   90,    2, 0x0a /* Public */,
-      14,    1,   95,    2, 0x0a /* Public */,
+       4,    0,   82,    2, 0x08 /* Private */,
+       5,    0,   83,    2, 0x08 /* Private */,
+       6,    0,   84,    2, 0x08 /* Private */,
+       7,    0,   85,    2, 0x08 /* Private */,
+       8,    0,   86,    2, 0x08 /* Private */,
+       9,    0,   87,    2, 0x08 /* Private */,
+      10,    0,   88,    2, 0x08 /* Private */,
+      11,    0,   89,    2, 0x08 /* Private */,
+      12,    0,   90,    2, 0x08 /* Private */,
+      13,    2,   91,    2, 0x0a /* Public */,
+      14,    2,   96,    2, 0x0a /* Public */,
+      15,    1,  101,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, 0x80000000 | 3,    2,
 
  // slots: parameters
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -119,9 +123,10 @@ void Student::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         case 6: _t->on_pushButton5_clicked(); break;
         case 7: _t->on_pushButton6_clicked(); break;
         case 8: _t->on_modifyPushButton_clicked(); break;
-        case 9: _t->idInfomation((*reinterpret_cast< string(*)>(_a[1])),(*reinterpret_cast< string(*)>(_a[2]))); break;
-        case 10: _t->courseInformation((*reinterpret_cast< string(*)>(_a[1])),(*reinterpret_cast< string(*)>(_a[2]))); break;
-        case 11: _t->completUpd((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 9: _t->on_sendPushButton_clicked(); break;
+        case 10: _t->idInfomation((*reinterpret_cast< string(*)>(_a[1])),(*reinterpret_cast< string(*)>(_a[2]))); break;
+        case 11: _t->courseInformation((*reinterpret_cast< string(*)>(_a[1])),(*reinterpret_cast< string(*)>(_a[2]))); break;
+        case 12: _t->completUpd((*reinterpret_cast< bool(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -162,13 +167,13 @@ int Student::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 12)
+        if (_id < 13)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 12;
+        _id -= 13;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 12)
+        if (_id < 13)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 12;
+        _id -= 13;
     }
     return _id;
 }

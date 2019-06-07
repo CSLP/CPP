@@ -7,6 +7,7 @@
 #include<QVBoxLayout>
 #include<QTextBrowser>
 #include<QGroupBox>
+#include<QMessageBox>
 #include<QWidget>
 #include"updateinfo.h"
 Student::Student(QWidget *parent) :
@@ -160,4 +161,28 @@ void Student::on_pushButton6_clicked()
 void Student::on_modifyPushButton_clicked()
 {
     upd->show();
+}
+
+void Student::on_sendPushButton_clicked()
+{
+    if(ui->receiveLineEdit->text().isEmpty()||ui->themeLineEdit->text().isEmpty()||ui->plainTextEdit->toPlainText().isEmpty())
+        QMessageBox::warning(this,tr("Warning"),tr("输入不能为空"),QMessageBox::Ok);
+    else
+    {
+       auto ok=sendEmail(ui->receiveLineEdit->text().toStdString(),ui->themeLineEdit->text().toStdString(),ui->plainTextEdit->toPlainText().toStdString());
+       if(ok)
+       {
+            auto res=QMessageBox::information(this,tr("Hint"),tr("邮件发送成功!"),QMessageBox::Ok);
+            if(res)
+            {
+                ui->receiveLineEdit->text().clear();
+                ui->themeLineEdit->text().clear();
+                ui->plainTextEdit->clear();
+            }
+
+       }
+       else
+            QMessageBox::information(this,tr("Hint"),tr("邮件发送失败!"),QMessageBox::Ok);
+
+    }
 }

@@ -184,10 +184,13 @@ vector<CourseInfo> getCourseListByTeacherId(std::__cxx11::string id)
 
 }
 
-vector<StudentInfo> getStudentListByCourseId(int id)
+vector<StudentInfo> getStudentListByCourseId(std::__cxx11::string id)
 {
     vector<StudentInfo> l;
-    if(id==1)
+    qDebug()<<QString::fromStdString(id);
+    auto info=user->c_get_student_list("1404196");
+    LOG(INFO)<<info.dump();
+    if(id=="1")
     {
         l.push_back(StudentInfo("201630610571","LP"));
         l.push_back(StudentInfo("201630610571","LP"));
@@ -196,7 +199,7 @@ vector<StudentInfo> getStudentListByCourseId(int id)
         l.push_back(StudentInfo("201630610571","LP"));
         l.push_back(StudentInfo("201630610571","LP"));
     }
-    if(id==2)
+    if(id=="1")
     {
         l.push_back(StudentInfo("201630610571fjkdsljfkdljf","JYP"));
         l.push_back(StudentInfo("201630610571fjkdsljfkdljf","JYP"));
@@ -207,7 +210,7 @@ vector<StudentInfo> getStudentListByCourseId(int id)
         l.push_back(StudentInfo("201630610571fjkdsljfkdljf","JYP"));
         l.push_back(StudentInfo("201630610571fjkdsljfkdljf","JYP"));
     }
-    if(id==3)
+    if(id=="3")
     {
         l.push_back(StudentInfo("201630000571","TKKKKK"));
         l.push_back(StudentInfo("201630000571","TKKKKK"));
@@ -222,5 +225,11 @@ vector<StudentInfo> getStudentListByCourseId(int id)
 bool updateInfo(std::__cxx11::string p, std::__cxx11::string sex, std::__cxx11::string bir, std::__cxx11::string dep)
 {
     auto ok=user->c_update_info(p,sex,bir,dep);
+    return ok;
+}
+
+bool sendEmail(std::__cxx11::string name, std::__cxx11::string theme, std::__cxx11::string plain)
+{
+    auto ok=user->c_send_email(name,theme,plain);
     return ok;
 }
