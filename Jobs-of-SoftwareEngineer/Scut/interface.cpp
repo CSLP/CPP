@@ -47,17 +47,14 @@ map<std::__cxx11::string, std::__cxx11::string> getCourseInfoByStudentId(std::__
     map<string,string> x;
     auto info=user->c_get_course_list();
     auto num=info["info"].size();
-    if(id=="110")
+    for(int i=0;i<6;++i)
     {
-        x.insert({"Network","Teacher:Yuanhua"});
-        x.insert({"OS","Teacher:BuSheHui"});
-        x.insert({"PKI","Teacher:XuLinlin"});
-        x.insert({"Math","Teacher:BuSheHui"});
-        x.insert({"Linux","Teacher:BuSheHui"});
-        x.insert({"Ubuntu","Teacher:BuSheHui"});
-        return x;
+        if(i<num)
+            x.insert({info["info"][i]["C_NAME"].get<string>(),info["info"][i]["T_NAME"].get<string>()});
+        else
+            x.insert({ std::to_string(i)," "});
     }
-    else
+    qDebug()<<x.size();
         return x;
 }
 

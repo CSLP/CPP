@@ -40,6 +40,7 @@ void Login::on_signInPushButton_clicked()
                     string id=ui->idLineEdit->text().toStdString();
                     emit idInfo(type,id);
                     student->show();
+
                 }
                 else
                 {
@@ -56,7 +57,7 @@ void Login::on_signInPushButton_clicked()
     }
     else
        QMessageBox::warning(this,tr("Warning"),tr("输入不能为空"),QMessageBox::Ok);
-       */
+
 }
 
 void Login::on_signUpPushButton_clicked()

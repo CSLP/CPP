@@ -27,9 +27,6 @@ void Teacher::corListInfo(string type, std::__cxx11::string  id)
         if(type=="student") return;
         vector<CourseInfo> cor=getCourseListByTeacherId(id);
         QString t;
-//        QListWidgetItem*it=new QListWidgetItem("课程ID   课程名称");
-//        it->setFont(QFont("FZKai-Z03",20));
-//        ui->listWidget->addItem(it);
         for(unsigned int i=0;i<cor.size();++i)
         {
             QListWidgetItem * item=new QListWidgetItem;
@@ -46,7 +43,7 @@ void Teacher::display(int a)
         vector<StudentInfo> stu=getStudentListByCourseId(cors[a].id.toStdString());
         QString t;
         ui->textBrowser->clear();
-//        ui->textBrowser->append("学生ID       姓名         缺课次数");
+        ui->textBrowser->append("学生ID       姓名         缺课次数");
         for(unsigned int i=0;i<stu.size();++i)
         {
             t=stu[i].id+"     	"+stu[i].studentName+"     "+stu[i].absent;

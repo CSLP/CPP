@@ -77,23 +77,24 @@ void Student::courseInformation(std::__cxx11::string  type, std::__cxx11::string
 {
         auto co=getCourseInfoByStudentId(id);
         auto co_it=co.cbegin();
-        ui->label11->setText(QString::fromStdString(co_it->first));
-        ui->pushButton1->setText(QString::fromStdString(co_it->second));
+        qDebug()<<co.size();
+        ui->label66->setText(QString::fromStdString("授课教师"+co_it->second));
+        ui->pushButton6->setText(QString::fromStdString(co_it->first));
         ++co_it;
-        ui->label22->setText(QString::fromStdString(co_it->first));
-        ui->pushButton2->setText(QString::fromStdString(co_it->second));
+        ui->label55->setText(QString::fromStdString("授课教师"+co_it->second));
+        ui->pushButton5->setText(QString::fromStdString(co_it->first));
         ++co_it;
-        ui->label33->setText(QString::fromStdString(co_it->first));
-        ui->pushButton3->setText(QString::fromStdString(co_it->second));
+        ui->label33->setText(QString::fromStdString("授课教师"+co_it->second));
+        ui->pushButton3->setText(QString::fromStdString(co_it->first));
         ++co_it;
-        ui->label44->setText(QString::fromStdString(co_it->first));
-        ui->pushButton4->setText(QString::fromStdString(co_it->second));
+        ui->label44->setText(QString::fromStdString("授课教师"+co_it->second));
+        ui->pushButton4->setText(QString::fromStdString(co_it->first));
         ++co_it;
-        ui->label55->setText(QString::fromStdString(co_it->first));
-        ui->pushButton5->setText(QString::fromStdString(co_it->second));
+        ui->label11->setText(QString::fromStdString("授课教师"+co_it->second));
+        ui->pushButton1->setText(QString::fromStdString(co_it->first));
         ++co_it;
-        ui->label66->setText(QString::fromStdString(co_it->first));
-        ui->pushButton6->setText(QString::fromStdString(co_it->second));
+        ui->label22->setText(QString::fromStdString("授课教师"+co_it->second));
+        ui->pushButton2->setText(QString::fromStdString(co_it->first));
 }
 
 void Student::completUpd(bool x)
