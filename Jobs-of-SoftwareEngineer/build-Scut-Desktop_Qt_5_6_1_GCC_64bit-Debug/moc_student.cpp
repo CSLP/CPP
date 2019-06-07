@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_Student_t {
-    QByteArrayData data[17];
-    char stringdata0[316];
+    QByteArrayData data[18];
+    char stringdata0[324];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -45,7 +45,8 @@ QT_MOC_LITERAL(12, 222, 25), // "on_sendPushButton_clicked"
 QT_MOC_LITERAL(13, 248, 25), // "on_savePushButton_clicked"
 QT_MOC_LITERAL(14, 274, 12), // "idInfomation"
 QT_MOC_LITERAL(15, 287, 17), // "courseInformation"
-QT_MOC_LITERAL(16, 305, 10) // "completUpd"
+QT_MOC_LITERAL(16, 305, 10), // "completUpd"
+QT_MOC_LITERAL(17, 316, 7) // "delItem"
 
     },
     "Student\0corInfo\0\0string\0"
@@ -56,7 +57,7 @@ QT_MOC_LITERAL(16, 305, 10) // "completUpd"
     "on_modifyPushButton_clicked\0"
     "on_sendPushButton_clicked\0"
     "on_savePushButton_clicked\0idInfomation\0"
-    "courseInformation\0completUpd"
+    "courseInformation\0completUpd\0delItem"
 };
 #undef QT_MOC_LITERAL
 
@@ -66,7 +67,7 @@ static const uint qt_meta_data_Student[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      14,   14, // methods
+      15,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -74,22 +75,23 @@ static const uint qt_meta_data_Student[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   84,    2, 0x06 /* Public */,
+       1,    1,   89,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       4,    0,   87,    2, 0x08 /* Private */,
-       5,    0,   88,    2, 0x08 /* Private */,
-       6,    0,   89,    2, 0x08 /* Private */,
-       7,    0,   90,    2, 0x08 /* Private */,
-       8,    0,   91,    2, 0x08 /* Private */,
-       9,    0,   92,    2, 0x08 /* Private */,
-      10,    0,   93,    2, 0x08 /* Private */,
-      11,    0,   94,    2, 0x08 /* Private */,
-      12,    0,   95,    2, 0x08 /* Private */,
-      13,    0,   96,    2, 0x08 /* Private */,
-      14,    2,   97,    2, 0x0a /* Public */,
-      15,    2,  102,    2, 0x0a /* Public */,
-      16,    1,  107,    2, 0x0a /* Public */,
+       4,    0,   92,    2, 0x08 /* Private */,
+       5,    0,   93,    2, 0x08 /* Private */,
+       6,    0,   94,    2, 0x08 /* Private */,
+       7,    0,   95,    2, 0x08 /* Private */,
+       8,    0,   96,    2, 0x08 /* Private */,
+       9,    0,   97,    2, 0x08 /* Private */,
+      10,    0,   98,    2, 0x08 /* Private */,
+      11,    0,   99,    2, 0x08 /* Private */,
+      12,    0,  100,    2, 0x08 /* Private */,
+      13,    0,  101,    2, 0x08 /* Private */,
+      14,    2,  102,    2, 0x0a /* Public */,
+      15,    2,  107,    2, 0x0a /* Public */,
+      16,    1,  112,    2, 0x0a /* Public */,
+      17,    1,  115,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, 0x80000000 | 3,    2,
@@ -108,6 +110,7 @@ static const uint qt_meta_data_Student[] = {
     QMetaType::Void, 0x80000000 | 3, 0x80000000 | 3,    2,    2,
     QMetaType::Void, 0x80000000 | 3, 0x80000000 | 3,    2,    2,
     QMetaType::Void, QMetaType::Bool,    2,
+    QMetaType::Void, QMetaType::QString,    2,
 
        0        // eod
 };
@@ -132,6 +135,7 @@ void Student::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         case 11: _t->idInfomation((*reinterpret_cast< string(*)>(_a[1])),(*reinterpret_cast< string(*)>(_a[2]))); break;
         case 12: _t->courseInformation((*reinterpret_cast< string(*)>(_a[1])),(*reinterpret_cast< string(*)>(_a[2]))); break;
         case 13: _t->completUpd((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 14: _t->delItem((*reinterpret_cast< QString(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -172,13 +176,13 @@ int Student::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 14)
+        if (_id < 15)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 14;
+        _id -= 15;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 14)
+        if (_id < 15)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 14;
+        _id -= 15;
     }
     return _id;
 }

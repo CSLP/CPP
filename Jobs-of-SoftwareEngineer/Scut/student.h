@@ -3,9 +3,13 @@
 
 #include <QMainWindow>
 #include<string>
+#include<map>
+class QListWidgetItem;
+class QListWidget;
 class Course;
 class UpdateInfo;
 using std::string;
+using std::map;
 namespace Ui {
 class Student;
 }
@@ -42,10 +46,17 @@ private slots:
 private:
     Ui::Student *ui;
     UpdateInfo * upd;
+    map<QString,QListWidgetItem *> ma;
+    map<QString,QListWidgetItem *> mb;
+    map<QString,QListWidgetItem *> mc;
+    QListWidget *la;
+    QListWidget *lb;
+    QListWidget *lc;
 public slots:
     void idInfomation(string,string);
     void courseInformation(string,string);
     void completUpd(bool);
+    void delItem(QString);
 signals:
     void corInfo(string);
 

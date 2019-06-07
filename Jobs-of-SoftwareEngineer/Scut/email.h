@@ -15,9 +15,12 @@ class email : public QWidget
 public:
     explicit email(string,string,string,string,string,string,QWidget *parent = 0);
     ~email();
-
+private slots:
+    void des();
+signals:
+    void re(QString);
 private:
-    Ui::email *ui;
+    Ui::email*ui;
     QString id;
     QString from;
     QString time;

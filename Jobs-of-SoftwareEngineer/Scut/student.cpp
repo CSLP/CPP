@@ -35,7 +35,6 @@ Student::Student(QWidget *parent) :
     ui->label6->resize(ui->label1->size());
     ui->tabWidget->setCurrentIndex(0);
     ui->listWidget->setStyleSheet("QListView::item:selected{color:black;background-color:rgb(248,168,0);}");
-
 }
 
 Student::~Student()
@@ -80,19 +79,27 @@ void Student::idInfomation(std::__cxx11::string type, std::__cxx11::string idinf
    qDebug()<<a["info"].size();
    auto b=user->c_get_draft_email();
    auto c=user->c_get_unread_email();
-   QListWidget *la=new QListWidget;
-   QListWidget* lb=new QListWidget;
-   QListWidget* lc=new QListWidget;
+   la=new QListWidget;
+   lb=new QListWidget;
+   lc=new QListWidget;
+   la->setStyleSheet("QListView::item:selected{color:black;background-color:rgb(255,255,255);}");
+   lb->setStyleSheet("QListView::item:selected{color:black;background-color:rgb(255,255,255);}");
+   lc->setStyleSheet("QListView::item:selected{color:black;background-color:rgb(255,255,255);}");
    QHBoxLayout *laya=new QHBoxLayout;
    QHBoxLayout *layb=new QHBoxLayout;
    QHBoxLayout *layc=new QHBoxLayout;
+   //Email
    for(int i=0;i<a["info"].size();++i)
    {
         email *e=new email(a["info"][i]["E_TYPE"].get<string>(),a["info"][i]["E_ID"].get<string>(),a["info"][i]["E_FROM"].get<string>(),a["info"][i]["E_TOPIC"].get<string>(),a["info"][i]["E_TIME"].get<string>(),a["info"][i]["E_CONTENT"].get<string>());
         QListWidgetItem *ita=new QListWidgetItem;
+        if(i%2)
+        auto res=user->c_mark_email(a["info"][i]["E_ID"].get<string>());
         la->addItem(ita);
         la->setItemWidget(ita,e);
+        ma.insert({QString::fromStdString(a["info"][i]["E_ID"].get<string>()),ita});
         ita->setSizeHint(QSize(0,100));
+        connect(e,&email::re,this,&Student::delItem);
    }
    laya->addWidget(la);
    ui->receivePage->setLayout(laya);
@@ -102,7 +109,9 @@ void Student::idInfomation(std::__cxx11::string type, std::__cxx11::string idinf
         QListWidgetItem *itb=new QListWidgetItem;
         lb->addItem(itb);
         lb->setItemWidget(itb,e);
+        mb.insert({QString::fromStdString(b["info"][i]["E_ID"].get<string>()),itb});
         itb->setSizeHint(QSize(0,100));
+        connect(e,&email::re,this,&Student::delItem);
    }
    layb->addWidget(lb);
    ui->draftPage->setLayout(layb);
@@ -112,10 +121,13 @@ void Student::idInfomation(std::__cxx11::string type, std::__cxx11::string idinf
         QListWidgetItem *itc=new QListWidgetItem;
         lc->addItem(itc);
         lc->setItemWidget(itc,e);
+        mc.insert({QString::fromStdString(c["info"][i]["E_ID"].get<string>()),itc});
         itc->setSizeHint(QSize(0,100));
+        connect(e,&email::re,this,&Student::delItem);
    }
    layc->addWidget(lc);
    ui->unreadPage->setLayout(layc);
+   ui->stackedWidget->setCurrentIndex(0);
 }
 
 void Student::courseInformation(std::__cxx11::string  type, std::__cxx11::string id)
@@ -148,6 +160,11 @@ void Student::completUpd(bool x)
         ui->listWidget1->clear();
         close();
    }
+}
+
+void Student::delItem(QString id)
+{
+    la->removeItemWidget(ma[id]);
 }
 
 
