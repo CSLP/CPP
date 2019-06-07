@@ -78,11 +78,14 @@ public:
     QPushButton *savePushButton;
     QSpacerItem *horizontalSpacer_5;
     QWidget *receivePage;
-    QLabel *label_3;
+    QHBoxLayout *horizontalLayout_7;
+    QListWidget *receiveListWidget;
     QWidget *draftPage;
-    QLabel *label_4;
+    QHBoxLayout *horizontalLayout_8;
+    QListWidget *draftListWidget;
     QWidget *unreadPage;
-    QLabel *label_5;
+    QHBoxLayout *horizontalLayout_9;
+    QListWidget *unreadListWidget;
     QWidget *courseTab;
     QGridLayout *gridLayout;
     QVBoxLayout *verticalLayout;
@@ -349,21 +352,33 @@ public:
         stackedWidget->addWidget(sendPage);
         receivePage = new QWidget();
         receivePage->setObjectName(QStringLiteral("receivePage"));
-        label_3 = new QLabel(receivePage);
-        label_3->setObjectName(QStringLiteral("label_3"));
-        label_3->setGeometry(QRect(210, 160, 241, 111));
+        horizontalLayout_7 = new QHBoxLayout(receivePage);
+        horizontalLayout_7->setObjectName(QStringLiteral("horizontalLayout_7"));
+        receiveListWidget = new QListWidget(receivePage);
+        receiveListWidget->setObjectName(QStringLiteral("receiveListWidget"));
+
+        horizontalLayout_7->addWidget(receiveListWidget);
+
         stackedWidget->addWidget(receivePage);
         draftPage = new QWidget();
         draftPage->setObjectName(QStringLiteral("draftPage"));
-        label_4 = new QLabel(draftPage);
-        label_4->setObjectName(QStringLiteral("label_4"));
-        label_4->setGeometry(QRect(240, 250, 161, 71));
+        horizontalLayout_8 = new QHBoxLayout(draftPage);
+        horizontalLayout_8->setObjectName(QStringLiteral("horizontalLayout_8"));
+        draftListWidget = new QListWidget(draftPage);
+        draftListWidget->setObjectName(QStringLiteral("draftListWidget"));
+
+        horizontalLayout_8->addWidget(draftListWidget);
+
         stackedWidget->addWidget(draftPage);
         unreadPage = new QWidget();
         unreadPage->setObjectName(QStringLiteral("unreadPage"));
-        label_5 = new QLabel(unreadPage);
-        label_5->setObjectName(QStringLiteral("label_5"));
-        label_5->setGeometry(QRect(200, 220, 85, 22));
+        horizontalLayout_9 = new QHBoxLayout(unreadPage);
+        horizontalLayout_9->setObjectName(QStringLiteral("horizontalLayout_9"));
+        unreadListWidget = new QListWidget(unreadPage);
+        unreadListWidget->setObjectName(QStringLiteral("unreadListWidget"));
+
+        horizontalLayout_9->addWidget(unreadListWidget);
+
         stackedWidget->addWidget(unreadPage);
 
         horizontalLayout_2->addWidget(stackedWidget);
@@ -538,7 +553,7 @@ public:
         QObject::connect(listWidget, SIGNAL(currentRowChanged(int)), stackedWidget, SLOT(setCurrentIndex(int)));
 
         tabWidget->setCurrentIndex(0);
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(3);
 
 
         QMetaObject::connectSlotsByName(Student);
@@ -572,9 +587,6 @@ public:
         senderInfo->setText(QApplication::translate("Student", "\344\275\240\346\230\257\344\270\215\345\202\273(201630610571)", 0));
         sendPushButton->setText(QApplication::translate("Student", "\345\217\221\351\200\201", 0));
         savePushButton->setText(QApplication::translate("Student", "\344\277\235\345\255\230\345\210\260\350\215\211\347\250\277\347\256\261", 0));
-        label_3->setText(QApplication::translate("Student", "accept", 0));
-        label_4->setText(QApplication::translate("Student", "draft", 0));
-        label_5->setText(QApplication::translate("Student", "to read", 0));
         tabWidget->setTabText(tabWidget->indexOf(homeTab), QApplication::translate("Student", "\344\270\273\351\241\265", 0));
         label1->setText(QApplication::translate("Student", "<html><head/><body><p><img src=\":/image/1.png\"/></p></body></html>", 0));
         label11->setText(QApplication::translate("Student", "TextLabel", 0));

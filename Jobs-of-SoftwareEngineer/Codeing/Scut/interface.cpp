@@ -177,9 +177,7 @@ vector<CourseInfo> getCourseListByTeacherId(std::__cxx11::string id)
     qDebug()<<QString::fromStdString(info["info"][0]["C_ID"].get<string>());
     vector<CourseInfo>  l;
     for(int i=0;i<num;++i)
-    {
         l.push_back(CourseInfo(info["info"][i]["C_ID"].get<string>(),info["info"][i]["C_NAME"].get<string>()));
-    }
     return l;
 
 }
@@ -189,37 +187,10 @@ vector<StudentInfo> getStudentListByCourseId(std::__cxx11::string id)
     vector<StudentInfo> l;
     qDebug()<<QString::fromStdString(id);
     auto info=user->c_get_student_list(id);
-
+    auto num=info["info"].size();
     LOG(INFO)<<info.dump();
-    if(id=="1")
-    {
-        l.push_back(StudentInfo("201630610571","LP"));
-        l.push_back(StudentInfo("201630610571","LP"));
-        l.push_back(StudentInfo("201630610571","LP"));
-        l.push_back(StudentInfo("201630610571","LP"));
-        l.push_back(StudentInfo("201630610571","LP"));
-        l.push_back(StudentInfo("201630610571","LP"));
-    }
-    if(id=="1")
-    {
-        l.push_back(StudentInfo("201630610571fjkdsljfkdljf","JYP"));
-        l.push_back(StudentInfo("201630610571fjkdsljfkdljf","JYP"));
-        l.push_back(StudentInfo("201630610571fjkdsljfkdljf","JYP"));
-        l.push_back(StudentInfo("201630610571fjkdsljfkdljf","JYP"));
-        l.push_back(StudentInfo("201630610571fjkdsljfkdljf","JYP"));
-        l.push_back(StudentInfo("201630610571fjkdsljfkdljf","JYP"));
-        l.push_back(StudentInfo("201630610571fjkdsljfkdljf","JYP"));
-        l.push_back(StudentInfo("201630610571fjkdsljfkdljf","JYP"));
-    }
-    if(id=="3")
-    {
-        l.push_back(StudentInfo("201630000571","TKKKKK"));
-        l.push_back(StudentInfo("201630000571","TKKKKK"));
-        l.push_back(StudentInfo("201630000571","TKKKKK"));
-        l.push_back(StudentInfo("201630000571","TKKKKK"));
-        l.push_back(StudentInfo("201630000571","TKKKKK"));
-        l.push_back(StudentInfo("201630000571","TKKKKK"));
-    }
+    for(int i=0;i<num;i++)
+        l.push_back(StudentInfo(info["info"][i]["U_ID"].get<string>(),info["info"][i]["USERNAME"].get<string>(),info["info"][i]["ABSENT_CNT"].get<string>()));
     return l;
 }
 

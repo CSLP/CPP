@@ -248,7 +248,7 @@
                <enum>QFrame::StyledPanel</enum>
               </property>
               <property name="currentIndex">
-               <number>0</number>
+               <number>3</number>
               </property>
               <widget class="QWidget" name="sendPage">
                <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -381,49 +381,25 @@
                </layout>
               </widget>
               <widget class="QWidget" name="receivePage">
-               <widget class="QLabel" name="label_3">
-                <property name="geometry">
-                 <rect>
-                  <x>210</x>
-                  <y>160</y>
-                  <width>241</width>
-                  <height>111</height>
-                 </rect>
-                </property>
-                <property name="text">
-                 <string>accept</string>
-                </property>
-               </widget>
+               <layout class="QHBoxLayout" name="horizontalLayout_7">
+                <item>
+                 <widget class="QListWidget" name="receiveListWidget"/>
+                </item>
+               </layout>
               </widget>
               <widget class="QWidget" name="draftPage">
-               <widget class="QLabel" name="label_4">
-                <property name="geometry">
-                 <rect>
-                  <x>240</x>
-                  <y>250</y>
-                  <width>161</width>
-                  <height>71</height>
-                 </rect>
-                </property>
-                <property name="text">
-                 <string>draft</string>
-                </property>
-               </widget>
+               <layout class="QHBoxLayout" name="horizontalLayout_8">
+                <item>
+                 <widget class="QListWidget" name="draftListWidget"/>
+                </item>
+               </layout>
               </widget>
               <widget class="QWidget" name="unreadPage">
-               <widget class="QLabel" name="label_5">
-                <property name="geometry">
-                 <rect>
-                  <x>200</x>
-                  <y>220</y>
-                  <width>85</width>
-                  <height>22</height>
-                 </rect>
-                </property>
-                <property name="text">
-                 <string>to read</string>
-                </property>
-               </widget>
+               <layout class="QHBoxLayout" name="horizontalLayout_9">
+                <item>
+                 <widget class="QListWidget" name="unreadListWidget"/>
+                </item>
+               </layout>
               </widget>
              </widget>
             </item>
