@@ -30,10 +30,10 @@ bool User::c_login(string _username, string _password)
     {
         is_login = true;
         file_manager = new FileManager(_username, 1);
-        username = _username;
+        u_id= _username;
         password = _password;
         sex = task["info"][0]["SEX"].get<string>();
-        u_id = task["info"][0]["U_ID"].get<string>();
+        username= task["info"][0]["USERNAME"].get<string>();
         dept = task["info"][0]["DEPT"].get<string>();
         birth = task["info"][0]["BIRTH"].get<string>();
         role_type = task["info"][0]["ROLE_TYPE"].get<string>();
@@ -206,7 +206,7 @@ bool User::c_insert_reply(const string &topic_id, const string &to, const string
 bool User::c_send_email(const string &to, const string &topic, const string &content)
 {
     json msg;
-    msg["E_FROM"] = username;
+    msg["E_FROM"] = u_id;
     msg["E_TO"] = to;
     msg["E_TOPIC"] = topic;
     msg["E_CONTENT"] = content;

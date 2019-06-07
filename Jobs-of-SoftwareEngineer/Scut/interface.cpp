@@ -11,15 +11,11 @@ bool loginMatch(string type,string id,string passwd)
 list<std::__cxx11::string> getStudentInfoByStudentId(string id)
 {
         list<string> x;
-        if(id=="110")
-        {
-            x.push_back("ID: 201630610571");
-            x.push_back("Gender: Man");
-            x.push_back("Departant: Computer");
-            x.push_back("Birthday: 1996/02/11");
-            return x;
-        }
-        else
+            x.push_back("ID:"+user->u_id);
+            x.push_back("用户名:"+user->username);
+            x.push_back("性别:"+user->sex);
+            x.push_back("院系:"+user->dept);
+            x.push_back("生日:"+user->birth);
             return x;
 }
 
@@ -54,7 +50,6 @@ map<std::__cxx11::string, std::__cxx11::string> getCourseInfoByStudentId(std::__
         else
             x.insert({ std::to_string(i)," "});
     }
-    qDebug()<<x.size();
         return x;
 }
 
@@ -110,11 +105,10 @@ bool sendToSubmitFilePaths(list<std::__cxx11::string> paths)
 list<std::__cxx11::string> getStudentAttendanceByStudentId(std::__cxx11::string id)
 {
         list<string> x;
-        if(id=="110")
+        auto info=user->c_get_course_list();
+        for(int i=0;i<info["info"].size();++i)
         {
-            x.push_back("PKI:1");
-            x.push_back("Linux:1");
-            x.push_back("Ubuntu:2");
+            x.push_back(info["info"][i]["C_NAME"].get<string>()+": "+info["info"][i]["ABSENT_CNT"].get<string>());
         }
         return x;
 }

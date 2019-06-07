@@ -10,6 +10,8 @@
 #include<QMessageBox>
 #include<QWidget>
 #include"updateinfo.h"
+#include"head.h"
+#include"user.h"
 Student::Student(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Student)
@@ -57,6 +59,7 @@ void Student::idInfomation(std::__cxx11::string type, std::__cxx11::string idinf
    {
        in<<QString::fromStdString(a);
    }
+   ui->senderInfo->setText(QString::fromStdString(user->username+"("+user->u_id+")"));
    for(string &b:inf)
    {
        inn<<QString::fromStdString(b);
@@ -69,31 +72,30 @@ void Student::idInfomation(std::__cxx11::string type, std::__cxx11::string idinf
    listWidgetItem2->setTextColor("red");
    ui->listWidget1->insertItem(0,listWidgetItem1);
    ui->listWidget1->insertItems(1,in);
-   ui->listWidget1->insertItem(5,listWidgetItem2);
-   ui->listWidget1->insertItems(6,inn);
+   ui->listWidget1->insertItem(in.size()+1,listWidgetItem2);
+   ui->listWidget1->insertItems(in.size()+2,inn);
 }
 
 void Student::courseInformation(std::__cxx11::string  type, std::__cxx11::string id)
 {
         auto co=getCourseInfoByStudentId(id);
         auto co_it=co.cbegin();
-        qDebug()<<co.size();
         ui->label66->setText(QString::fromStdString("授课教师"+co_it->second));
         ui->pushButton6->setText(QString::fromStdString(co_it->first));
         ++co_it;
-        ui->label55->setText(QString::fromStdString("授课教师"+co_it->second));
+        ui->label55->setText(QString::fromStdString("授课教师:"+co_it->second));
         ui->pushButton5->setText(QString::fromStdString(co_it->first));
         ++co_it;
-        ui->label33->setText(QString::fromStdString("授课教师"+co_it->second));
+        ui->label33->setText(QString::fromStdString("授课教师:"+co_it->second));
         ui->pushButton3->setText(QString::fromStdString(co_it->first));
         ++co_it;
-        ui->label44->setText(QString::fromStdString("授课教师"+co_it->second));
+        ui->label44->setText(QString::fromStdString("授课教师:"+co_it->second));
         ui->pushButton4->setText(QString::fromStdString(co_it->first));
         ++co_it;
-        ui->label11->setText(QString::fromStdString("授课教师"+co_it->second));
+        ui->label11->setText(QString::fromStdString("授课教师:"+co_it->second));
         ui->pushButton1->setText(QString::fromStdString(co_it->first));
         ++co_it;
-        ui->label22->setText(QString::fromStdString("授课教师"+co_it->second));
+        ui->label22->setText(QString::fromStdString("授课教师:"+co_it->second));
         ui->pushButton2->setText(QString::fromStdString(co_it->first));
 }
 
@@ -179,7 +181,9 @@ void Student::on_sendPushButton_clicked()
 
        }
        else
-            QMessageBox::information(this,tr("Hint"),tr("邮件发送失败!"),QMessageBox::Ok);
+       {
+            QMessageBox::information(this,tr("Hint"),tr("用户不存在"),QMessageBox::Ok);
+       }
 
     }
 }
