@@ -46,12 +46,11 @@ void UpdateInfo::on_submitPushButton_clicked()
             else
                 QMessageBox::information(this,tr("Warning"),tr("修改失败"),QMessageBox::Ok);
 
-
         }
 
     }
     else
     {
-       QMessageBox::information(this,tr("Warning"),tr("Input cannot be empty!"),QMessageBox::Ok);
+       QMessageBox::information(this,tr("Warning"),tr("输入不能为空!"),QMessageBox::Ok);
     }
 }

@@ -14,6 +14,7 @@ Teacher::Teacher(QWidget *parent) :
     ui->setupUi(this);
     this->move(400,160);
     upd=new UpdateInfo(this);
+    connect(upd,&UpdateInfo::updateStatus,this,&Teacher::completUpd);
 }
 
 Teacher::~Teacher()
