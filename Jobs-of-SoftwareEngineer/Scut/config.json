@@ -1,0 +1,14 @@
+{
+    "FILESERVER":{
+        "IP": "125.216.246.22",
+        "PORT": 9998
+    },
+    "MAINSERVER":
+    {
+        "IP": "125.216.246.22",
+        "PORT": 9999
+    },
+    "HASH_TYPE": "md5",
+    "BUF_SIZE": 1024,
+    "MAX_EVENT": 1024
+}
