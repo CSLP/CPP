@@ -24,6 +24,7 @@ Course::Course(QWidget *parent) :
     this->resize(1300,750);
     ui->teaTextBrowser->append("nimasil");
     ui->tabWidget->setCurrentIndex(0);
+//    courseId=i;
     topicNum=0;
     connect(ui->tabWidget,&QTabWidget::currentChanged,this,&Course::changeTag);
     connect(this,&Course::perfect,this,&Course::display);
@@ -48,11 +49,14 @@ void Course::on_submitPushButton_clicked()
 void Course::courseInfo(std::__cxx11::string corName)
 {
     courseName=QString::fromStdString(corName);
-    string teacherInfo=getTeacherInfoByCourseName(corName);
+    list<string> teacherInfo=getTeacherInfoByCourseName(corName);
     string courseInfo=getCourseInfoByCourseName(corName);
     list<string> homeworkInfo=getHomeworkInfoByCourseName(corName);
     ui->teaTextBrowser->clear();
-    ui->teaTextBrowser->setText(QString::fromStdString(teacherInfo));
+    for(auto a:teacherInfo)
+    {
+        ui->teaTextBrowser->append(QString::fromStdString(a));
+    }
     ui->corTextBrowser->clear();
     ui->corTextBrowser->setText(QString::fromStdString(courseInfo));
     ui->homTextBrowser->clear();

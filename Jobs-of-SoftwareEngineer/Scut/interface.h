@@ -23,7 +23,7 @@ list<string>  getStudentAttendanceByStudentId(string);
 vector<CourseInfo> getCourseListByTeacherId(string);
 vector<StudentInfo>  getStudentListByCourseId(string);
 multimap<string,string> getCourseInfoByStudentId(string);
-string getTeacherInfoByCourseName(string);
+list<string> getTeacherInfoByCourseName(string);
 string getCourseInfoByCourseName(string);
 vector<Message> getTopicsByCourseName(string);
 vector<Message> getCommentsByTopicId(int);

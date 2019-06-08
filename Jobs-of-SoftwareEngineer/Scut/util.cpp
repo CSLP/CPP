@@ -179,7 +179,9 @@ bool receive_json(int epollfd, int sockfd, json &task)
     while(true) //ET模式, 读到EAGAIN || EWOULDBLOCK为止
     {
         memset(buf, 0, sizeof buf);
+
         int res = recv(sockfd, buf, __C["BUF_SIZE"].get<int>()-1, 0);
+        cout<<buf<<endl;
         if(res < 0)
         {
             if((errno == EWOULDBLOCK) || (errno == EAGAIN))  //对于非阻塞IO，表示已经读完

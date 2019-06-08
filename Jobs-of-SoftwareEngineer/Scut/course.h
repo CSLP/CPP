@@ -41,6 +41,7 @@ private:
     int topicNum;
     int tag;
     QString courseName;
+//    QString courseId;
 
 };
 
