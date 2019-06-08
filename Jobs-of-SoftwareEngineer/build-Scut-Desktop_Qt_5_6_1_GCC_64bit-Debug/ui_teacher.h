@@ -51,7 +51,7 @@ public:
     QPushButton *pushButton;
     QPushButton *pushButton_5;
     QVBoxLayout *verticalLayout_2;
-    QLineEdit *nameLineEdit;
+    QLineEdit *idLineEdit;
     QTextEdit *textEdit;
     QGroupBox *groupBox_2;
     QHBoxLayout *horizontalLayout_6;
@@ -152,10 +152,10 @@ public:
 
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
-        nameLineEdit = new QLineEdit(groupBox);
-        nameLineEdit->setObjectName(QStringLiteral("nameLineEdit"));
+        idLineEdit = new QLineEdit(groupBox);
+        idLineEdit->setObjectName(QStringLiteral("idLineEdit"));
 
-        verticalLayout_2->addWidget(nameLineEdit);
+        verticalLayout_2->addWidget(idLineEdit);
 
         textEdit = new QTextEdit(groupBox);
         textEdit->setObjectName(QStringLiteral("textEdit"));
@@ -300,7 +300,7 @@ public:
         Teacher->setWindowTitle(QApplication::translate("Teacher", "Teacher", 0));
         groupBox->setTitle(QString());
         label->setText(QApplication::translate("Teacher", "\345\217\221\351\200\232\347\237\245&\344\270\212\344\274\240\346\235\220\346\226\231", 0));
-        label_3->setText(QApplication::translate("Teacher", "\350\257\276\347\250\213", 0));
+        label_3->setText(QApplication::translate("Teacher", "\350\257\276\347\250\213ID", 0));
         label_4->setText(QApplication::translate("Teacher", "\346\255\243\346\226\207", 0));
         pushButton->setText(QApplication::translate("Teacher", "\345\217\221\351\200\201", 0));
         pushButton_5->setText(QApplication::translate("Teacher", "\344\270\212\344\274\240", 0));

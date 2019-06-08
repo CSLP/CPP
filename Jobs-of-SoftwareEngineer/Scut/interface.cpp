@@ -79,11 +79,11 @@ std::__cxx11::string getCourseInfoByCourseName(std::__cxx11::string corName)
 
 }
 
-list<std::__cxx11::string> getHomeworkInfoByCourseName(std::__cxx11::string corName)
+list<std::__cxx11::string> getHomeworkInfoByCourseName(std::__cxx11::string corId)
 {
     list<string> homeInfo;
 //    auto info=user->c_get_course_notice()
-    if(corName=="Linux")
+    if(corId=="Linux")
     {
         homeInfo.push_back("p10 exercise 2");
         homeInfo.push_back("p10 exercise 2");

@@ -7,6 +7,8 @@
 #include<QMessageBox>
 #include"updateinfo.h"
 #include"sendfile.h"
+#include"user.h"
+#include"head.h"
 Teacher::Teacher(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Teacher)
@@ -33,6 +35,7 @@ void Teacher::corListInfo(string type, std::__cxx11::string  id)
             t=cor[i].id+"    "+cor[i].courseName;
             item->setText(t);
             ui->listWidget->addItem(item);
+            match.insert(cor[i].id,cor[i].courseName);
             cors.push_back(cor[i]);
         }
         connect(ui->listWidget,&QListWidget::currentRowChanged,this,&Teacher::display);
@@ -59,7 +62,7 @@ void Teacher::completUpd(bool x)
 
 void Teacher::clearCache()
 {
-    ui->nameLineEdit->clear();
+    ui->idLineEdit->clear();
     ui->textEdit->clear();
 }
 
@@ -71,11 +74,11 @@ void Teacher::on_pushButton_3_clicked()
 
 void Teacher::on_pushButton_5_clicked()
 {
-    if(ui->nameLineEdit->text().isEmpty())
+    if(ui->idLineEdit->text().isEmpty())
         QMessageBox::warning(this,tr("Warning"),tr("上传材料需要指明课程ID!"),QMessageBox::Ok);
     else
     {
-        SendFile *s=new SendFile(ui->nameLineEdit->text(),this);
+        SendFile *s=new SendFile(match[ui->idLineEdit->text()],this);
         s->show();
     }
     clearCache();
@@ -83,11 +86,11 @@ void Teacher::on_pushButton_5_clicked()
 
 void Teacher::on_pushButton_clicked()//fa tong zhi
 {
-    if(ui->nameLineEdit->text().isEmpty()||ui->textEdit->toPlainText().isEmpty())
+    if(ui->idLineEdit->text().isEmpty()||ui->textEdit->toPlainText().isEmpty())
         QMessageBox::warning(this,tr("Warning"),tr("输入不能为空!"),QMessageBox::Ok);
     else
     {
-
+        auto res=user->c_publish_course_notice(ui->idLineEdit->text().toStdString(),ui->textEdit->toPlainText().toStdString());
     }
 }
 

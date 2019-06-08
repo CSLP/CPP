@@ -3,11 +3,14 @@
 
 #include <QMainWindow>
 #include<string>
+#include<QMap>
 #include<vector>
+#include<map>
 class CourseInfo;
 class UpdateInfo;
 using std::vector;
 using std::string;
+using std::map;
 namespace Ui {
 class Teacher;
 }
@@ -23,6 +26,7 @@ public:
 private:
     Ui::Teacher *ui;
     vector<CourseInfo> cors;
+    QMap<QString,QString> match;
     UpdateInfo *upd;
     void clearCache();
 public slots:
