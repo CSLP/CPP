@@ -139,9 +139,10 @@ public:
         labelb = new QLabel(homeTab);
         labelb->setObjectName(QStringLiteral("labelb"));
         QFont font;
+        font.setFamily(QStringLiteral("FZShuSong-Z01"));
         font.setPointSize(30);
         font.setBold(true);
-        font.setItalic(true);
+        font.setItalic(false);
         font.setWeight(75);
         labelb->setFont(font);
         labelb->setAlignment(Qt::AlignCenter);
@@ -162,6 +163,7 @@ public:
         labela = new QLabel(homeTab);
         labela->setObjectName(QStringLiteral("labela"));
         QFont font1;
+        font1.setFamily(QStringLiteral("FZHei-B01"));
         font1.setPointSize(30);
         font1.setBold(false);
         font1.setItalic(false);

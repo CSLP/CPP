@@ -67,8 +67,10 @@ void Student::idInfomation(std::__cxx11::string type, std::__cxx11::string idinf
    QListWidgetItem * listWidgetItem1=new QListWidgetItem;
    QListWidgetItem * listWidgetItem2=new QListWidgetItem;
    listWidgetItem1->setText("          基本信息");
+   listWidgetItem1->setFont(QFont("FZKai-Z03",15));
    listWidgetItem1->setTextColor("blue");
    listWidgetItem2->setText("       缺勤记录  ");
+   listWidgetItem2->setFont(QFont("FZKai-Z03",15));
    listWidgetItem2->setTextColor("red");
    ui->listWidget1->insertItem(0,listWidgetItem1);
    ui->listWidget1->insertItems(1,in);
