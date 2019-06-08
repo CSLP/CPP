@@ -81,7 +81,7 @@ void Teacher::on_pushButton_5_clicked()
     clearCache();
 }
 
-void Teacher::on_pushButton_clicked()
+void Teacher::on_pushButton_clicked()//fa tong zhi
 {
     if(ui->nameLineEdit->text().isEmpty()||ui->textEdit->toPlainText().isEmpty())
         QMessageBox::warning(this,tr("Warning"),tr("输入不能为空!"),QMessageBox::Ok);
