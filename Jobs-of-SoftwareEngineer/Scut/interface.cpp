@@ -38,9 +38,9 @@ bool signUpInfo(std::__cxx11::string userName, std::__cxx11::string userId, std:
     return res;
 }
 
-map<std::__cxx11::string, std::__cxx11::string> getCourseInfoByStudentId(std::__cxx11::string id)
+multimap<std::__cxx11::string, std::__cxx11::string> getCourseInfoByStudentId(std::__cxx11::string id)
 {
-    map<string,string> x;
+    multimap<string,string> x;
     auto info=user->c_get_course_list();
     auto num=info["info"].size();
     for(int i=0;i<6;++i)
@@ -48,7 +48,7 @@ map<std::__cxx11::string, std::__cxx11::string> getCourseInfoByStudentId(std::__
         if(i<num)
             x.insert({info["info"][i]["C_NAME"].get<string>(),info["info"][i]["T_NAME"].get<string>()});
         else
-            x.insert({ std::to_string(i)," "});
+            x.insert({" "," "});
     }
         return x;
 }

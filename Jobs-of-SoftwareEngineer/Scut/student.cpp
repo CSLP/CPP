@@ -100,7 +100,7 @@ void Student::idInfomation(std::__cxx11::string type, std::__cxx11::string idinf
         la->addItem(ita);
         la->setItemWidget(ita,e);
         ma.insert({QString::fromStdString(a["info"][i]["E_ID"].get<string>()),ita});
-        ita->setSizeHint(QSize(0,100));
+        ita->setSizeHint(QSize(0,130));
         connect(e,&email::re,this,&Student::delItem);
    }
    laya->addWidget(la);
@@ -112,7 +112,7 @@ void Student::idInfomation(std::__cxx11::string type, std::__cxx11::string idinf
         lb->addItem(itb);
         lb->setItemWidget(itb,e);
         mb.insert({QString::fromStdString(b["info"][i]["E_ID"].get<string>()),itb});
-        itb->setSizeHint(QSize(0,100));
+        itb->setSizeHint(QSize(0,130));
         connect(e,&email::re,this,&Student::delItem);
    }
    layb->addWidget(lb);
@@ -124,7 +124,7 @@ void Student::idInfomation(std::__cxx11::string type, std::__cxx11::string idinf
         lc->addItem(itc);
         lc->setItemWidget(itc,e);
         mc.insert({QString::fromStdString(c["info"][i]["E_ID"].get<string>()),itc});
-        itc->setSizeHint(QSize(0,100));
+        itc->setSizeHint(QSize(0,130));
         connect(e,&email::re,this,&Student::delItem);
    }
    layc->addWidget(lc);
@@ -135,6 +135,8 @@ void Student::idInfomation(std::__cxx11::string type, std::__cxx11::string idinf
 void Student::courseInformation(std::__cxx11::string  type, std::__cxx11::string id)
 {
         auto co=getCourseInfoByStudentId(id);
+        if(co.size()!=6)
+            return;
         auto co_it=co.cbegin();
         ui->label66->setText(QString::fromStdString("授课教师"+co_it->second));
         ui->pushButton6->setText(QString::fromStdString(co_it->first));
@@ -167,6 +169,13 @@ void Student::completUpd(bool x)
 void Student::delItem(QString id)
 {
     la->removeItemWidget(ma[id]);
+
+    if(mb.find("2")!=mb.end())
+        lb->removeItemWidget(mb[id]);
+    qDebug()<<mb.count("2");
+    if(mc.find("1")!=mc.end())
+        lc->removeItemWidget(mc[id]);
+    qDebug()<<mb.count("1");
 }
 
 
