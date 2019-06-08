@@ -7,12 +7,13 @@
 #include"interface.h"
 using std::string;
 using std::list;
-SendFile::SendFile(QWidget *parent) :
+SendFile::SendFile(QString cor,QWidget *parent) :
     QDialog(parent),
     ui(new Ui::SendFile)
 {
     ui->setupUi(this);
     ui->textBrowser->hide();
+    corName=cor;
 }
 
 SendFile::~SendFile()

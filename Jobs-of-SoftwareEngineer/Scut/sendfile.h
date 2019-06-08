@@ -12,7 +12,7 @@ class SendFile : public QDialog
     Q_OBJECT
 
 public:
-    explicit SendFile(QWidget *parent = 0);
+    explicit SendFile(QString, QWidget *parent = 0);
     ~SendFile();
 
 private slots:
@@ -25,6 +25,7 @@ private slots:
 private:
     Ui::SendFile *ui;
     QStringList filePaths;
+    QString corName;
 };
 
 #endif // SENDFILE_H

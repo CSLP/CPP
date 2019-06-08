@@ -40,6 +40,8 @@ private:
     vector<QListWidgetItem*> items;
     int topicNum;
     int tag;
+    QString courseName;
+
 };
 
 #endif // COURSE_H

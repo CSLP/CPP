@@ -95,7 +95,7 @@ void Student::idInfomation(std::__cxx11::string type, std::__cxx11::string idinf
    {
         email *e=new email(a["info"][i]["E_TYPE"].get<string>(),a["info"][i]["E_ID"].get<string>(),a["info"][i]["E_FROM"].get<string>(),a["info"][i]["E_TOPIC"].get<string>(),a["info"][i]["E_TIME"].get<string>(),a["info"][i]["E_CONTENT"].get<string>());
         QListWidgetItem *ita=new QListWidgetItem;
-        if(i%2)
+        if(i%3)
         auto res=user->c_mark_email(a["info"][i]["E_ID"].get<string>());
         la->addItem(ita);
         la->setItemWidget(ita,e);
@@ -169,13 +169,17 @@ void Student::completUpd(bool x)
 void Student::delItem(QString id)
 {
     la->removeItemWidget(ma[id]);
-
-    if(mb.find("2")!=mb.end())
+    qDebug()<<ma.size();
+    qDebug()<<mb.size();
+    qDebug()<<mc.size();
+    for(auto i=mb.begin();i!=mb.end();i++)
+        qDebug()<<i->first;
+     for(auto i=mc.begin();i!=mc.end();i++)
+        qDebug()<<i->first;
+    if(mb.find(id)!=mb.end())
         lb->removeItemWidget(mb[id]);
-    qDebug()<<mb.count("2");
-    if(mc.find("1")!=mc.end())
+    if(mc.find(id)!=mc.end())
         lc->removeItemWidget(mc[id]);
-    qDebug()<<mb.count("1");
 }
 
 

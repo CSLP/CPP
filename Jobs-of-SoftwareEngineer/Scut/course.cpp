@@ -41,12 +41,13 @@ void Course::on_backPushButton_clicked()
 
 void Course::on_submitPushButton_clicked()
 {
-   SendFile *s=new SendFile(this);
+   SendFile *s=new SendFile(courseName,this);
    s->show();
 }
 
 void Course::courseInfo(std::__cxx11::string corName)
 {
+    courseName=QString::fromStdString(corName);
     string teacherInfo=getTeacherInfoByCourseName(corName);
     string courseInfo=getCourseInfoByCourseName(corName);
     list<string> homeworkInfo=getHomeworkInfoByCourseName(corName);
