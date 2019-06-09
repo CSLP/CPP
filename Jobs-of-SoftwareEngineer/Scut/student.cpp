@@ -51,6 +51,7 @@ void Student::on_loginAgainPushButton_clicked()
 
 void Student::idInfomation(std::__cxx11::string type, std::__cxx11::string idinfo)
 {
+   if(type=="teacher") return ;
    list<string> info =getStudentInfoByStudentId(idinfo);
    list<string> inf=getStudentAttendanceByStudentId(idinfo);
    QStringList in;
@@ -134,7 +135,19 @@ void Student::idInfomation(std::__cxx11::string type, std::__cxx11::string idinf
 
 void Student::courseInformation(std::__cxx11::string  type, std::__cxx11::string id)
 {
+        if(type=="teacher") return;
         auto co=getCourseInfoByStudentId(id);
+        auto re=user->c_get_course_list();
+        string ms;
+        for(int i=0;i<re["info"].size();i++)
+        {
+            auto msg=user->c_get_course_notice(re["info"][i]["C_ID"]);
+            for(int j=0;j<msg["info"].size();++j)
+            {
+                ms=re["info"][i]["C_NAME"].get<string>()+":"+msg["info"][j]["M_CONTENT"].get<string>()+"      "+msg["info"][j]["M_TIME"].get<string>();
+                ui->textBrowser->append(QString::fromStdString(ms));
+            }
+        }
         if(co.size()!=6)
             return;
         auto co_it=co.cbegin();

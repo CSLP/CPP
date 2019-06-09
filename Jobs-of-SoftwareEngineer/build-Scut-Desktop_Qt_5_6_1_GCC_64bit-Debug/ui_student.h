@@ -27,6 +27,7 @@
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTabWidget>
+#include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -43,7 +44,7 @@ public:
     QVBoxLayout *verticalLayout_10;
     QVBoxLayout *verticalLayout_8;
     QLabel *labelb;
-    QListWidget *listWidget2;
+    QTextBrowser *textBrowser;
     QVBoxLayout *verticalLayout_7;
     QLabel *labela;
     QListWidget *listWidget1;
@@ -149,10 +150,10 @@ public:
 
         verticalLayout_8->addWidget(labelb);
 
-        listWidget2 = new QListWidget(homeTab);
-        listWidget2->setObjectName(QStringLiteral("listWidget2"));
+        textBrowser = new QTextBrowser(homeTab);
+        textBrowser->setObjectName(QStringLiteral("textBrowser"));
 
-        verticalLayout_8->addWidget(listWidget2);
+        verticalLayout_8->addWidget(textBrowser);
 
 
         verticalLayout_10->addLayout(verticalLayout_8);
@@ -527,7 +528,7 @@ public:
         retranslateUi(Student);
         QObject::connect(listWidget, SIGNAL(currentRowChanged(int)), stackedWidget, SLOT(setCurrentIndex(int)));
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(0);
         stackedWidget->setCurrentIndex(2);
 
 

@@ -1,7 +1,6 @@
 #include"interface.h"
 #include"user.h"
 #include"head.h"
-//User user(__C["MAINSERVER"]["IP"].get<string>(), __C["MAINSERVER"]["PORT"].get<int>());
 bool loginMatch(string type,string id,string passwd)
 {
         bool y=user->c_login(id,passwd);
@@ -68,13 +67,13 @@ list<std::__cxx11::string> getTeacherInfoByCourseName(std::__cxx11::string corNa
 std::__cxx11::string getCourseInfoByCourseName(std::__cxx11::string corName)
 {
     string  corInfo;
-//    auto info=user->c_get_course_list();
-//    int num=info["info"].size();
-//    for(int i=0;i<num;++i)
-//    {
-//       if(corName==info["info"][i]["C_NAME"].get<string>())
-//           corInfo=info["info"][i]["ABSENT_CNT"].get<string>();
-//    }
+    auto info=user->c_get_course_list();
+    int num=info["info"].size();
+    for(int i=0;i<num;++i)
+    {
+       if(corName==info["info"][i]["C_NAME"].get<string>())
+           corInfo=info["info"][i]["ABSENT_CNT"].get<string>();
+    }
    return corInfo;
 
 }
@@ -82,17 +81,18 @@ std::__cxx11::string getCourseInfoByCourseName(std::__cxx11::string corName)
 list<std::__cxx11::string> getHomeworkInfoByCourseName(std::__cxx11::string corId)
 {
     list<string> homeInfo;
-//    auto info=user->c_get_course_notice()
-    if(corId=="Linux")
+    auto corli=user->c_get_course_list();
+    for(int i=0;i<corli["info"].size();i++)
     {
-        homeInfo.push_back("p10 exercise 2");
-        homeInfo.push_back("p10 exercise 2");
-        homeInfo.push_back("p10 exercise 2");
-        homeInfo.push_back("p10 exercise 2");
-        homeInfo.push_back("p10 exercise 2");
-        return homeInfo;
+        if(corId==corli["info"][i]["C_NAME"].get<string>())
+        {
+            auto re=user->c_get_course_notice(corli["info"][i]["C_ID"].get<string>());
+            for(int j=0;j<re["info"].size();j++)
+            {
+                homeInfo.push_back(re["info"][j]["M_CONTENT"].get<string>()+"   "+re["info"][j]["M_TIME"].get<string>());
+            }
+        }
     }
-    else
         return homeInfo;
 }
 
@@ -108,12 +108,12 @@ bool sendToSubmitFilePaths(list<std::__cxx11::string> paths)
 list<std::__cxx11::string> getStudentAttendanceByStudentId(std::__cxx11::string id)
 {
         list<string> x;
-     /*   auto info=user->c_get_course_list();
+        auto info=user->c_get_course_list();
         for(int i=0;i<info["info"].size();++i)
         {
             x.push_back(info["info"][i]["C_NAME"].get<string>()+": "+info["info"][i]["ABSENT_CNT"].get<string>());
         }
-        */
+
         return x;
 }
 
@@ -168,15 +168,16 @@ vector<Message> getReplysByCommentId(int id)
 
 vector<CourseInfo> getCourseListByTeacherId(std::__cxx11::string id)
 {
-   /* auto info=user->c_get_course_list();
+    qDebug()<<"xintaibengle";
+    auto info=user->c_get_course_list();
+    qDebug()<<"nimasiel";
     int num=info["info"].size();
 
     qDebug()<<QString::fromStdString(info["info"][0]["C_ID"].get<string>());
-    */
     vector<CourseInfo>  l;
-    /*for(int i=0;i<num;++i)
+    for(int i=0;i<num;++i)
+
         l.push_back(CourseInfo(info["info"][i]["C_ID"].get<string>(),info["info"][i]["C_NAME"].get<string>()));
-        */
     return l;
 
 }

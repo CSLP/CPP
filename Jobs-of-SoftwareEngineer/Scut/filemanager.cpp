@@ -16,7 +16,6 @@ FileManager::FileManager()
 
 }
 */
-FileManager::FileManager(){}
 FileManager::FileManager(string _username, int n)
 {
     thread_number = n;
@@ -36,17 +35,17 @@ void FileManager::set_thread_number(int _n)
     thread_number = _n;
 }
 
-bool FileManager::upload(const string &file_path) //单线程上传文件
+bool FileManager::upload(const string &file_path, const string &dst) //单线程上传文件
 {
     json files;
     files_to_json(file_path, files);
     distribute(files, 1);
     //cout<<(*config).dump(4)<<endl;
     LOG(INFO) << (*config).dump(4);
-    return upload_ing(file_path); //??
+    return upload_ing(file_path, dst); //??
 }
 
-//向服务端请求待下载的文件信息
+//向服务端请求待下载的文件信息 
 bool FileManager::download(const string &file_path)
 {
     //if(file_path[file_path.length() - 1] == '/')  //去掉最后的`/`
@@ -58,10 +57,10 @@ bool FileManager::download(const string &file_path)
     string download_dir = "../Downloads";
     int res = -1;
     res = mkdir(download_dir.c_str(), 0755);  //已存在就是返回-1, errno = EEXIST
-
+    
     size_t pos = file_path.find_last_of('/');
     if(pos == string::npos)
-    {
+    {   
         cout<<"下载路径存在问题，没有找到/\n";
         return 0;
     }
@@ -89,14 +88,14 @@ bool FileManager::download(const string &file_path)
         int fd = unblock_connect(__C["FILESERVER"]["IP"].get<string>().c_str(), __C["FILESERVER"]["PORT"].get<int>(), 10); //连接到服务器
         json msg;
         msg["type"] = QUERY_FILE_OR_DIR;
-        msg["file"] = file_path;
+        msg["file"] = file_path; 
         auto res = send_json(fd, msg);
         assert(res > 0);
 
         string data_received;
         char buf[__C["BUF_SIZE"].get<int>()];
         //TODO:这里要求对方发完之后关闭socket，这边才能收到EOF，不然会阻塞到这里，后续可以改用epoll
-        while(true) //获取文件列表，即config
+        while(true) //获取文件列表，即config  
         {
             int _n = read(fd, buf, __C["BUF_SIZE"].get<int>());
             if(_n <= 0)
@@ -110,7 +109,7 @@ bool FileManager::download(const string &file_path)
                 {
                     break;
                 }
-
+                
             }
             data_received += string(buf, buf + _n);
         }
@@ -139,7 +138,7 @@ bool FileManager::download(const string &file_path)
         distribute(files, thread_number);
         close(fd);
         res = download_ing();
-        //cout<<(*config).dump(4)<<endl;
+        //cout<<(*config).dump(4)<<endl;    
         auto ed = std::chrono::high_resolution_clock::now();
         auto time_span = std::chrono::duration_cast<std::chrono::duration<double>>(ed-st);
         cout<<"Time: "<<time_span.count()<<" seconds\n";
@@ -173,7 +172,7 @@ void FileManager::distribute(json &files, int thread_n)
     cout<<"file cnt: "<<n<<"\ntotal bytes: "<<total<<endl;
     int segment = total / thread_n;  //每个线程需要下载的长度
     //cout<<"total:"<<total<<"  segment:"<<segment<<endl;
-
+    
     //分配任务
     if(config)
     {
@@ -195,7 +194,7 @@ void FileManager::distribute(json &files, int thread_n)
         {
             //cout<<files.dump(4)<<endl;
             int toread = files[cur]["file-length"].get<size_t>() - files[cur]["cur-pos"].get<size_t>();
-            //cout<<toread<<endl;
+            //cout<<toread<<endl; 
             if(toread <= temp)
             {
                 temp -= toread;
@@ -230,7 +229,7 @@ void FileManager::do_download(int id, json *config)
 {
     cout<<id<<" start\n";
     auto cfg = *config;
-    json tasks = cfg["info"][id];
+    json tasks = cfg["info"][id]; 
     int task_number = tasks.size(); //为了分解任务,每个线程可能传输多个文件的部分片段
     cout<<"task_number: "<<task_number<<endl;
     int sockfd = unblock_connect(__C["FILESERVER"]["IP"].get<string>().c_str(), __C["FILESERVER"]["PORT"].get<int>(), 10); //连接到服务器
@@ -243,11 +242,11 @@ void FileManager::do_download(int id, json *config)
         send_json(sockfd, task);
         //cout<<"send task done\n";
         string save_file = task["file-name"].get<string>();
-        save_file = save_file.substr(save_file.find_first_of('/', 8) + 1);
+        save_file = save_file.substr(save_file.find_first_of('/', 8) + 1); 
         string file = "./Downloads/" + save_file;
         __off64_t file_off = task["st"].get<long>() + task["cur-pos"].get<long>(); // 文件偏移
         size_t length_to_download = task["file-length"].get<size_t>(); //需要下载的文件长度
-        int savefd = my_open(file);
+        int savefd = my_open(file); 
         cout<<"save to file: "<<file<<endl;
         //cout<<"file: "<<savefd<<endl;
 
@@ -304,25 +303,37 @@ bool FileManager::download_ing()
     }
     return true;
 }
-bool FileManager::upload_ing(const string &file_path)
+bool FileManager::upload_ing(const string &file_path, const string &dst)
 {
     int fd = unblock_connect(__C["FILESERVER"]["IP"].get<string>().c_str(), __C["FILESERVER"]["PORT"].get<int>(), 10);
     auto msg = *config;
     msg["type"] = UPLOAD_FILE;
-    msg["username"] = username;
+    msg["dst"] = dst;
     msg["home_dir"] = file_path;
     send_json(fd, msg);
 
     char buf[1];
     read(fd, buf, 1);
 
-    json tasks = msg["info"][0];
+    json tasks = msg["info"][0]; 
     int task_number = tasks.size(); //为了分解任务,每个线程可能传输多个文件的部分片段
     cout<<"task_number: "<<task_number<<endl;
     for(int i = 0; i < task_number; i++)
     {
         file_to_socket(tasks[i], fd);
     }
+    close(fd);
+    return true;
+}
+
+bool FileManager::delete_file(const string &file_path)
+{
+    int fd = unblock_connect(__C["FILESERVER"]["IP"].get<string>().c_str(), __C["FILESERVER"]["PORT"].get<int>(), 10);
+    json msg;
+    msg["type"] = DELETE_FILE;
+    msg["path"] = file_path;
+    send_json(fd, msg);
+    //默认要删除的文件都存在
     close(fd);
     return true;
 }

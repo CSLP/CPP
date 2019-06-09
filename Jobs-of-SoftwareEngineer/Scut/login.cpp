@@ -38,6 +38,7 @@ void Login::on_signInPushButton_clicked()
                 if(type=="student")
                 {
                     string id=ui->idLineEdit->text().toStdString();
+                    qDebug()<<"niah";
                     emit idInfo(type,id);
                     student->show();
 

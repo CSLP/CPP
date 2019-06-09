@@ -68,8 +68,8 @@ void Teacher::clearCache()
 
 void Teacher::on_pushButton_3_clicked()
 {
-    close();
     ui->listWidget->clear();
+    close();
 }
 
 void Teacher::on_pushButton_5_clicked()
