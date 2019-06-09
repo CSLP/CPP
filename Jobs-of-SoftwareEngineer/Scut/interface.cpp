@@ -71,7 +71,7 @@ std::__cxx11::string getCourseInfoByCourseName(std::__cxx11::string corName)
     if(corName=="高等数学")corInfo="指相对于初等数学而言，数学的对象及方法较为繁杂的一部分\
                广义地说，初等数学之外的数学都是高等数学，也有将中学较深入的代数、几何以及简单的集合论初步、逻辑初步称为中等数学的，将其作为中小学阶段的初等数学与大学阶段的高等数学的过渡。\
                通常认为，高等数学是由微积分学，较深入的代数学、几何学以及它们之间的交叉内容所形成的一门基础学科。";
-   if(corName=="数值优化")corInfo="数值分析(numerical analysis)，是数学的一个分支，是研究分析用计算机求解数学计算问题的数值计算方法及其理论的学科。它以数字计算机求解数学问题的理论和方法为研究对象，为计算数学的主体部分。";
+   if(corName=="数值分析")corInfo="数值分析(numerical analysis)，是数学的一个分支，是研究分析用计算机求解数学计算问题的数值计算方法及其理论的学科。它以数字计算机求解数学问题的理论和方法为研究对象，为计算数学的主体部分。";
    if(corName=="概率论")corInfo="概率论与数理统计是数学的一个有特色且又十分活跃的分支，一方面，它有别开生面的研究课题，有自己独特的概念和方法，内容丰富，结果深刻;另一方面，它与其他学科又有紧密的联系，是近代数学的重要组成部分。由于它近年来突飞猛进的发展与应用的广泛性，目前已发展成为一门独立的一级学科。概率论与数理统计的理论与方法已广泛应用于工业、农业、军事和科学技术中，如预测和滤波应用于空间技术和自动控制，时间序列分析应用于石油勘测和经济管理，马尔科夫过程与点过程统计分析应用于地震预测等，同时他又向基础学科、工科学科渗透，与其他学科相结合发展成为边缘学科，这是概率论与数理统计发展的一个新趋势。";
    if(corName=="微分方程定性理论")corInfo="《微分方程定性理论》是作者在常微分方程定性理论的多年教学和科研工作的基础上写成的，着重介绍平面定性理论的主要内容和方法，重点是：平面奇点，极限环的存在，唯一性及个数，无穷远奇点，二维周期系统的调和解，环面上的常微系统，二维流形上的结构稳定性。《微分方程定性理论》各章均附有习题。";
    if(corName=="Java程序设计")corInfo="Java是一种优秀的面向对象的语言，具有跨平台性、用途广泛、容易学习等特点，众多的开源项目都是用Java实现的，可以说Java是程序设计必学的语言。这门课程掌握Java语言、面向对象的特点，掌握Java在多线程、图形用户界面、网络等方面的应用，同时要养成良好的编程习惯，能够编写有一定规模的应用程序。";
@@ -93,10 +93,9 @@ list<std::__cxx11::string> getHomeworkInfoByCourseName(std::__cxx11::string corI
                 homeInfo.push_back(re["info"][j]["M_CONTENT"].get<string>()+"   "+re["info"][j]["M_TIME"].get<string>());
             }
         }
-        else
-            homeInfo.push_back("暂无");
-
     }
+    if(homeInfo.size()==0)
+        homeInfo.push_back("暂无");
         return homeInfo;
 }
 
@@ -124,6 +123,14 @@ list<std::__cxx11::string> getStudentAttendanceByStudentId(std::__cxx11::string 
 vector<Message> getTopicsByCourseName(std::__cxx11::string corname)
 {
     vector<Message> topic;
+    auto se=user->c_get_course_list();
+    for(int i=0;i<se["info"].size();i++)
+    {
+            if(se["info"][i]["C_NAME"].get<string>()==corname)
+            {
+                auto res=user->c_get_topic(se["info"][i]["C_ID"].get<string>());
+            }
+    }
     if(corname=="Linux")
     {
        topic.push_back(Message("wuyulp","PKI的第七章第八题考不考?",1,"2017-02-02",""));
