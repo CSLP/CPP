@@ -129,6 +129,10 @@ vector<Message> getTopicsByCourseName(std::__cxx11::string corname)
             if(se["info"][i]["C_NAME"].get<string>()==corname)
             {
                 auto res=user->c_get_topic(se["info"][i]["C_ID"].get<string>());
+                for(int j=0;j<res["info"].size();j++)
+                {
+                    topic->push_back(Message(res["info"][j]["USERNAME"].get<strng>(),res["info"][j]["M_CONTENT"].get<string>(),res["info"][j]["M_ID"].get<string>(),res["info"][j]["M_TIME"].get<string>());
+                }
             }
     }
     if(corname=="Linux")

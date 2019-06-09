@@ -7,10 +7,10 @@ using std::string;
 class Message
 {
 public:
-    Message(string,string,int,string,string);
+    Message(string=" ",string=" ",string=" ",string=" ",string=" ");
     QString author;
     QString content;
-    int  id;
+    QString  id;
     QString time;
     QString sendTo;
     Message();
