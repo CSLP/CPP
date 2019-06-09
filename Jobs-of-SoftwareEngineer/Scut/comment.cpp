@@ -12,7 +12,7 @@ Comment::Comment(Message c,QWidget *parent) :
     ui->setupUi(this);
     this->setTitle(c.author+"                                           "+c.time);
     ui->comTextBrowser->setText(c.content);
-    vector<Message>  replys=getReplysByCommentId(c.id);
+    vector<Message>  replys=getReplysByCommentId(c.id.toStdString());
     QString reply;
     for(unsigned int i=0;i<replys.size();++i)
     {

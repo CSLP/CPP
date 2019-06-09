@@ -131,52 +131,33 @@ vector<Message> getTopicsByCourseName(std::__cxx11::string corname)
                 auto res=user->c_get_topic(se["info"][i]["C_ID"].get<string>());
                 for(int j=0;j<res["info"].size();j++)
                 {
-                    topic->push_back(Message(res["info"][j]["USERNAME"].get<strng>(),res["info"][j]["M_CONTENT"].get<string>(),res["info"][j]["M_ID"].get<string>(),res["info"][j]["M_TIME"].get<string>());
+                    topic.push_back(Message(res["info"][j]["USERNAME"].get<string>(),res["info"][j]["M_CONTENT"].get<string>(),res["info"][j]["M_ID"].get<string>(),res["info"][j]["M_TIME"].get<string>()));
                 }
             }
-    }
-    if(corname=="Linux")
-    {
-       topic.push_back(Message("wuyulp","PKI的第七章第八题考不考?",1,"2017-02-02",""));
-       topic.push_back(Message("jyp","软件工程大作业怎么做?",2,"2019-06-04",""));
-       topic.push_back(Message("LP","你是真的牛逼?",3,"2000-02-02",""));
     }
     return topic;
 }
 
-vector<Message> getCommentsByTopicId(int id)
+vector<Message> getCommentsByTopicId(std::__cxx11::string id)
 {
     vector<Message> comment;
-    switch(id)
+    auto res=user->c_get_comment(id);
+    for(int i=0;i<res["info"].size();i++)
     {
-        case 1:
-                {
-                    comment.push_back(Message("Tom","去年秋冬，ONE实验室作者生活在《乘风破浪》剧组中间，见证了拍摄过\n\
-fsdffdsafffffffffffffffffffffffffffffffffffffffffffff写给那个茶水妹的《乘风破浪》诞生记写给那个茶水妹的《乘风破浪》诞生记\
-写给那个茶水妹的《乘风破浪》诞生记写给那个茶水妹的《乘风破浪》诞生记写给那个茶水妹的《乘风破浪》诞生记写给那个茶水妹的《乘风破浪》诞生记"
-                                                   ,1,"2000-02-02",""));
-                    comment.push_back(Message("Brunce","去年秋冬，ONE实验室作者生活在《乘风破浪》剧组中间，见证了拍摄过\n\
-fsdffdsafffffffffffffffffffffffffffffffffffffffffffff写给那个茶水妹的《乘风破浪》诞生记写给那个茶水妹的《乘风破浪》诞生记\
-写给那个茶水妹的《乘风破浪》诞生记写给那个茶水妹的《乘风破浪》诞生记写给那个茶水妹的《乘风破浪》诞生记写给那个茶水妹的《乘风破浪》诞生记"
-                                                   ,2,"2000-02-02",""));
-                    comment.push_back(Message("Tony","去年秋冬，ONE实验室作者生活在《乘风破浪》剧组中间，见证了拍摄过\n\
-                                                    fsdffdsafffffffffffffffffffffffffffffffffffffffffffff\n\
-                                                    fjadksl;fjadsjfl;jadslkfjla;dksjflk;dasjlfkjadlks;jfkl;"
-                                                   ,3,"2000-02-02",""));
-                 }
+        comment.push_back(Message(res["info"][i]["USERNAME"].get<string>(),res["info"][i]["M_CONTENT"].get<string>(),res["info"][i]["M_ID"].get<string>(),res["info"][i]["M_TIME"].get<string>()));
     }
     return comment;
 }
 
-vector<Message> getReplysByCommentId(int id)
+vector<Message> getReplysByCommentId(std::__cxx11::string id)
 {
+
     vector<Message> reply;
-    switch(id)
+    auto res=user->c_get_reply(id);
+    for(int i=0;i<res["info"].size();i++)
     {
-        case 1:
-            reply.push_back(Message("File","求你不要真眼说瞎话了",1,"2000-02-02","LP"));
-            reply.push_back(Message("Edit","求你不要真眼说瞎话了",2,"2000-02-02","JYP"));
-            reply.push_back(Message("Build","求你不要真眼说瞎话了",3,"2000-02-02","ZYH"));
+        reply.push_back(Message(res["info"][i]["USERNAME"].get<string>(),res["info"][i]["M_CONTENT"].get<string>(),res["info"][i]["M_ID"].get<string>(),res["info"][i]["M_TIME"].get<string>(),res["info"][i]["M_TO"].get<string>()));
+
     }
     return reply;
 }

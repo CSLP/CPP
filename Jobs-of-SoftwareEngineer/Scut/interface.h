@@ -26,8 +26,8 @@ multimap<string,string> getCourseInfoByStudentId(string);
 list<string> getTeacherInfoByCourseName(string);
 string getCourseInfoByCourseName(string);
 vector<Message> getTopicsByCourseName(string);
-vector<Message> getCommentsByTopicId(int);
-vector<Message> getReplysByCommentId(int);
+vector<Message> getCommentsByTopicId(string);
+vector<Message> getReplysByCommentId(string);
 list<string> getHomeworkInfoByCourseName(string);
 bool sendToSubmitFilePaths(list<string>);
 #endif // INTERFACE_H

@@ -6,6 +6,8 @@
 #include<list>
 #include<vector>
 #include"interface.h"
+class  QListWidget;
+class  QPlainTextEdit;
 class Topic;
 class QListWidgetItem;
 class MyClock;
@@ -32,6 +34,7 @@ public slots:
     void courseInfo(string);
     void display(int);
     void changeTag(int);
+    void subTop();
 signals:
     void perfect(int);
 private:
@@ -41,8 +44,9 @@ private:
     int topicNum;
     int tag;
     QString courseName;
-//    QString courseId;
-
+    QString courseId;
+    QPlainTextEdit* brow;
+    QListWidget *listWidget;
 };
 
 #endif // COURSE_H

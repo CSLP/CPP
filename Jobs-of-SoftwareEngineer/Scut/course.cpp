@@ -15,6 +15,8 @@
 #include<QDebug>
 #include"message.h"
 #include"myclock.h"
+#include"head.h"
+#include"user.h"
 Course::Course(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Course)
@@ -74,7 +76,7 @@ void Course::courseInfo(std::__cxx11::string corName)
     QHBoxLayout * lb=new QHBoxLayout;
     lb->addWidget(answer);
     lb->addWidget(submit);
-    QPlainTextEdit* brow=new QPlainTextEdit;
+    brow=new QPlainTextEdit;
     la->addWidget(clock);
     la->addLayout(lb);
     la->addWidget(brow);
@@ -83,7 +85,8 @@ void Course::courseInfo(std::__cxx11::string corName)
     connect(answer,&QPushButton::clicked,submit,&QPushButton::show);
     connect(submit,&QPushButton::clicked,brow,&QPlainTextEdit::hide);
     connect(submit,&QPushButton::clicked,submit,&QPushButton::hide);
-    QListWidget *listWidget=new QListWidget;
+    connect(submit,&QPushButton::clicked,this,&Course::subTop);
+    listWidget=new QListWidget;
     listWidget->setStyleSheet("QListView::item:selected{color:black;background-color:rgb(255,255,255);}");
     layout->addWidget(listWidget);
     layout->addLayout(la);
@@ -125,4 +128,16 @@ void Course::changeTag(int a)
 {
    a+=10;
    emit perfect(a);
+}
+
+void Course::subTop()
+{
+    auto rx=user->c_get_course_list();
+    for(int i=0;i<rx["info"][i].size();++i)
+    {
+        if(rx["info"][i]["C_NAME"].get<string>()==courseName.toStdString())
+           courseId==QString::fromStdString(rx["info"][i]["C_ID"].get<string>());
+    }
+    auto re=user->c_insert_topic(brow->toPlainText().toStdString(),courseId.toStdString());
+
 }

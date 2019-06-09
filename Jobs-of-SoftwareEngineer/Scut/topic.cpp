@@ -20,7 +20,7 @@ Topic::Topic(Message msg, QWidget *parent) :
     ui(new Ui::Topic)
 {
     ui->setupUi(this);
-    vector<Message>	comments=getCommentsByTopicId(msg.id);
+    vector<Message>	comments=getCommentsByTopicId(msg.id.toStdString());
     QVBoxLayout *layout=new QVBoxLayout;
     QString comTitle;
     QVBoxLayout*la=new QVBoxLayout;

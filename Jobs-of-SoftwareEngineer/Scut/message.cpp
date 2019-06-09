@@ -11,9 +11,9 @@ Message::Message(std::__cxx11::string a, std::__cxx11::string c, std::__cxx11::s
 
 Message::Message()
 {
-    author="";
-    content="";
-    id=0;
-    time="";
-    sendTo="";
+    author=" ";
+    content=" ";
+    id=" ";
+    time=" ";
+    sendTo=" ";
 }
