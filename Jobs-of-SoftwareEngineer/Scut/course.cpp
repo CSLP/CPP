@@ -17,6 +17,7 @@
 #include"myclock.h"
 #include"head.h"
 #include"user.h"
+#include<QMessageBox>
 Course::Course(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Course)
@@ -136,8 +137,10 @@ void Course::subTop()
     for(int i=0;i<rx["info"][i].size();++i)
     {
         if(rx["info"][i]["C_NAME"].get<string>()==courseName.toStdString())
-           courseId==QString::fromStdString(rx["info"][i]["C_ID"].get<string>());
+           courseId=QString::fromStdString(rx["info"][i]["C_ID"].get<string>());
     }
-    auto re=user->c_insert_topic(brow->toPlainText().toStdString(),courseId.toStdString());
+    auto re=user->c_insert_topic(courseId.toStdString(),brow->toPlainText().toStdString());
+    if(re)
+           QMessageBox::information(this,tr("Hint"),tr("注册成功!"),QMessageBox::Ok);
 
 }
