@@ -1,5 +1,6 @@
 #include "topic.h"
 #include "ui_topic.h"
+#include<QMessageBox>
 #include<QString>
 #include<QDebug>
 #include<vector>
@@ -14,12 +15,15 @@
 #include<QPlainTextEdit>
 #include"comment.h"
 #include<QLabel>
+#include"user.h"
+#include"head.h"
 using std::vector;
 Topic::Topic(Message msg, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Topic)
 {
     ui->setupUi(this);
+    id=msg.id;
     vector<Message>	comments=getCommentsByTopicId(msg.id.toStdString());
     QVBoxLayout *layout=new QVBoxLayout;
     QString comTitle;
@@ -31,9 +35,9 @@ Topic::Topic(Message msg, QWidget *parent) :
     la->addWidget(answer);
     la->addWidget(ok);
     lb->addLayout(la);
-    QPlainTextEdit *co=new QPlainTextEdit;
+    co=new QPlainTextEdit;
     lb->addWidget(co);
-
+    connect(ok,&QPushButton::clicked,this,&Topic::subCo);
     layout->addLayout(lb);
     for(unsigned int i=0;i<comments.size();++i)
     {
@@ -58,3 +62,11 @@ void Topic::setVis(bool v)
 {
     ui->scrollArea->setVisible(v);
 }
+
+void Topic::subCo()
+{
+    auto res=user->c_insert_comment(id.toStdString(),co->toPlainText().toStdString());
+    if(res)
+        QMessageBox::information(this,tr("Hint"),tr("提问成功!"),QMessageBox::Ok);
+}
+

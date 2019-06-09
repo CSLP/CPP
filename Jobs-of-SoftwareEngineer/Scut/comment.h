@@ -20,8 +20,11 @@ private slots:
 
     void on_foldPushButton_clicked();
 
+    void on_sendPushButton_clicked();
+
 private:
     Ui::Comment *ui;
+    QString coId;
 };
 
 #endif // COMMENT_H

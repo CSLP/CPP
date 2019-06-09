@@ -94,14 +94,32 @@
        <widget class="QTextBrowser" name="repTextBrowser"/>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="8,1,2,1">
         <item>
-         <widget class="QLineEdit" name="lineEdit"/>
+         <widget class="QLineEdit" name="contentLineEdit"/>
+        </item>
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="font">
+           <font>
+            <family>FZHei-B01</family>
+           </font>
+          </property>
+          <property name="text">
+           <string>回复:</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="toLineEdit"/>
         </item>
         <item>
          <widget class="QPushButton" name="sendPushButton">
           <property name="text">
-           <string>Send</string>
+           <string>发送</string>
           </property>
          </widget>
         </item>

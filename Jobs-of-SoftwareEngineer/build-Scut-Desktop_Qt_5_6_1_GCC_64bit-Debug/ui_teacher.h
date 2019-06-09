@@ -63,8 +63,8 @@ public:
     QLabel *label_5;
     QLabel *label_6;
     QVBoxLayout *verticalLayout_5;
-    QLineEdit *lineEdit_2;
-    QLineEdit *lineEdit_3;
+    QLineEdit *idLineEdit1;
+    QLineEdit *cLineEdit;
     QHBoxLayout *horizontalLayout_4;
     QSpacerItem *horizontalSpacer;
     QPushButton *pushButton_2;
@@ -208,15 +208,15 @@ public:
 
         verticalLayout_5 = new QVBoxLayout();
         verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
-        lineEdit_2 = new QLineEdit(widget_2);
-        lineEdit_2->setObjectName(QStringLiteral("lineEdit_2"));
+        idLineEdit1 = new QLineEdit(widget_2);
+        idLineEdit1->setObjectName(QStringLiteral("idLineEdit1"));
 
-        verticalLayout_5->addWidget(lineEdit_2);
+        verticalLayout_5->addWidget(idLineEdit1);
 
-        lineEdit_3 = new QLineEdit(widget_2);
-        lineEdit_3->setObjectName(QStringLiteral("lineEdit_3"));
+        cLineEdit = new QLineEdit(widget_2);
+        cLineEdit->setObjectName(QStringLiteral("cLineEdit"));
 
-        verticalLayout_5->addWidget(lineEdit_3);
+        verticalLayout_5->addWidget(cLineEdit);
 
 
         horizontalLayout_3->addLayout(verticalLayout_5);

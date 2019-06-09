@@ -141,6 +141,6 @@ void Course::subTop()
     }
     auto re=user->c_insert_topic(courseId.toStdString(),brow->toPlainText().toStdString());
     if(re)
-           QMessageBox::information(this,tr("Hint"),tr("注册成功!"),QMessageBox::Ok);
+           QMessageBox::information(this,tr("Hint"),tr("提问成功!"),QMessageBox::Ok);
 
 }

@@ -110,6 +110,9 @@ void Teacher::on_pushButton_2_clicked()
 {
     auto  res=user->c_update_absent(ui->idLineEdit1->text().toStdString(),ui->cLineEdit->text().toInt());
     if(res)
+    {
+        
            QMessageBox::information(this,tr("Hint"),tr("更新成功"),QMessageBox::Ok);
+    }
 
 }

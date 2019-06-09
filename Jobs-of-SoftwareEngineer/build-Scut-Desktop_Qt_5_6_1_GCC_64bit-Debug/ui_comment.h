@@ -16,6 +16,7 @@
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
@@ -40,7 +41,9 @@ public:
     QVBoxLayout *verticalLayout;
     QTextBrowser *repTextBrowser;
     QHBoxLayout *horizontalLayout_2;
-    QLineEdit *lineEdit;
+    QLineEdit *contentLineEdit;
+    QLabel *label;
+    QLineEdit *toLineEdit;
     QPushButton *sendPushButton;
 
     void setupUi(QGroupBox *Comment)
@@ -97,16 +100,34 @@ public:
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
-        lineEdit = new QLineEdit(widget);
-        lineEdit->setObjectName(QStringLiteral("lineEdit"));
+        contentLineEdit = new QLineEdit(widget);
+        contentLineEdit->setObjectName(QStringLiteral("contentLineEdit"));
 
-        horizontalLayout_2->addWidget(lineEdit);
+        horizontalLayout_2->addWidget(contentLineEdit);
+
+        label = new QLabel(widget);
+        label->setObjectName(QStringLiteral("label"));
+        QFont font1;
+        font1.setFamily(QStringLiteral("FZHei-B01"));
+        label->setFont(font1);
+        label->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_2->addWidget(label);
+
+        toLineEdit = new QLineEdit(widget);
+        toLineEdit->setObjectName(QStringLiteral("toLineEdit"));
+
+        horizontalLayout_2->addWidget(toLineEdit);
 
         sendPushButton = new QPushButton(widget);
         sendPushButton->setObjectName(QStringLiteral("sendPushButton"));
 
         horizontalLayout_2->addWidget(sendPushButton);
 
+        horizontalLayout_2->setStretch(0, 8);
+        horizontalLayout_2->setStretch(1, 1);
+        horizontalLayout_2->setStretch(2, 2);
+        horizontalLayout_2->setStretch(3, 1);
 
         verticalLayout->addLayout(horizontalLayout_2);
 
@@ -128,7 +149,8 @@ public:
         Comment->setTitle(QApplication::translate("Comment", "GroupBox", 0));
         showPushButton->setText(QApplication::translate("Comment", "\346\230\276\347\244\272\345\233\236\345\244\215", 0));
         foldPushButton->setText(QApplication::translate("Comment", "\346\212\230\345\217\240\345\233\236\345\244\215", 0));
-        sendPushButton->setText(QApplication::translate("Comment", "Send", 0));
+        label->setText(QApplication::translate("Comment", "\345\233\236\345\244\215:", 0));
+        sendPushButton->setText(QApplication::translate("Comment", "\345\217\221\351\200\201", 0));
     } // retranslateUi
 
 };
