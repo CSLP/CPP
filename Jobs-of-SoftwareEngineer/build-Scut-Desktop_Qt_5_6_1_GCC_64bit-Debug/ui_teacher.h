@@ -61,9 +61,11 @@ public:
     QHBoxLayout *horizontalLayout_3;
     QVBoxLayout *verticalLayout_4;
     QLabel *label_5;
+    QLabel *label_7;
     QLabel *label_6;
     QVBoxLayout *verticalLayout_5;
     QLineEdit *idLineEdit1;
+    QLineEdit *idLineEdit2;
     QLineEdit *cLineEdit;
     QHBoxLayout *horizontalLayout_4;
     QSpacerItem *horizontalSpacer;
@@ -71,10 +73,9 @@ public:
     QSpacerItem *horizontalSpacer_2;
     QSpacerItem *verticalSpacer_2;
     QHBoxLayout *horizontalLayout_7;
-    QSpacerItem *horizontalSpacer_3;
     QPushButton *pushButton_3;
     QPushButton *pushButton_4;
-    QSpacerItem *horizontalSpacer_4;
+    QPushButton *pushButton_6;
     QMenuBar *menubar;
 
     void setupUi(QMainWindow *Teacher)
@@ -198,6 +199,11 @@ public:
 
         verticalLayout_4->addWidget(label_5);
 
+        label_7 = new QLabel(widget_2);
+        label_7->setObjectName(QStringLiteral("label_7"));
+
+        verticalLayout_4->addWidget(label_7);
+
         label_6 = new QLabel(widget_2);
         label_6->setObjectName(QStringLiteral("label_6"));
 
@@ -212,6 +218,11 @@ public:
         idLineEdit1->setObjectName(QStringLiteral("idLineEdit1"));
 
         verticalLayout_5->addWidget(idLineEdit1);
+
+        idLineEdit2 = new QLineEdit(widget_2);
+        idLineEdit2->setObjectName(QStringLiteral("idLineEdit2"));
+
+        verticalLayout_5->addWidget(idLineEdit2);
 
         cLineEdit = new QLineEdit(widget_2);
         cLineEdit->setObjectName(QStringLiteral("cLineEdit"));
@@ -254,10 +265,6 @@ public:
 
         horizontalLayout_7 = new QHBoxLayout();
         horizontalLayout_7->setObjectName(QStringLiteral("horizontalLayout_7"));
-        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_7->addItem(horizontalSpacer_3);
-
         pushButton_3 = new QPushButton(centralwidget);
         pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
 
@@ -268,9 +275,10 @@ public:
 
         horizontalLayout_7->addWidget(pushButton_4);
 
-        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        pushButton_6 = new QPushButton(centralwidget);
+        pushButton_6->setObjectName(QStringLiteral("pushButton_6"));
 
-        horizontalLayout_7->addItem(horizontalSpacer_4);
+        horizontalLayout_7->addWidget(pushButton_6);
 
 
         verticalLayout_7->addLayout(horizontalLayout_7);
@@ -313,10 +321,12 @@ public:
         groupBox_2->setTitle(QString());
         label_2->setText(QApplication::translate("Teacher", "\350\200\203\345\213\244", 0));
         label_5->setText(QApplication::translate("Teacher", "\345\255\246\347\224\237ID", 0));
+        label_7->setText(QApplication::translate("Teacher", "\350\257\276\347\250\213ID", 0));
         label_6->setText(QApplication::translate("Teacher", "\347\274\272\345\213\244\346\254\241\346\225\260", 0));
         pushButton_2->setText(QApplication::translate("Teacher", "\346\217\220\344\272\244", 0));
         pushButton_3->setText(QApplication::translate("Teacher", "\351\207\215\346\226\260\347\231\273\345\275\225", 0));
         pushButton_4->setText(QApplication::translate("Teacher", "\344\277\256\346\224\271\344\270\252\344\272\272\344\277\241\346\201\257", 0));
+        pushButton_6->setText(QApplication::translate("Teacher", "\346\224\266\344\275\234\344\270\232", 0));
     } // retranslateUi
 
 };

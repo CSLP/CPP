@@ -1,8 +1,109 @@
 #include "util.h"
 #include "mcrypto.h"
-#include<QDebug>
-using std::cout;
 string CONFIG = "../Scut/config.json";
+
+
+Tree::Tree()
+{
+    rt = new Node;
+}
+void Tree::clear(Node *cur)
+{
+    if(cur)
+    {
+        for(int i = 0; i < cur->sub_dirs.size(); i++)
+        {
+            clear(cur->sub_dirs[i]);
+        }
+        delete cur;
+    }
+}
+Tree::~Tree()
+{
+    clear(rt);
+}
+
+bool Tree::insert(const string &path)
+{
+    LOG(INFO) << path;
+    size_t st = 0;
+    size_t pos = -1;
+    Node *cur = rt;
+    while((pos = path.find('/', st)) != string::npos)
+    {
+        string item = path.substr(st, pos - st);
+        st = pos + 1;
+        bool flag = false;
+        for(int i = 0; i < cur->sub_dirs.size(); i++)
+        {
+            if(cur->sub_dirs[i]->name == item)
+            {
+                //找到该目录
+                cur = cur->sub_dirs[i];
+                flag = true;
+                break;
+            }
+        }
+        if(!flag)
+        {
+            //没有找到该目录
+            Node *temp = new Node;
+            temp->name = item;
+            cur->sub_dirs.push_back(temp);
+            cur = temp;
+        }
+    }
+    string file = path.substr(st); //文件
+    Node *temp = new Node;
+    temp->name = file;
+    cur->sub_dirs.push_back(temp);
+    return true;
+}
+bool Tree::build(const json &files)
+{
+    auto temp = files[0]["file-name"].get<string>().substr(8); // "../home/"占8个字符，从这之后开始解析
+    int len = temp.find_first_of('/');
+    LOG(INFO) << "Parse files: " << temp.substr(0, len);
+    int n = files.size();
+    rt->name = temp.substr(0, len);
+    for(int i = 0; i < n; i++)
+    {
+        if(!insert(files[i]["file-name"].get<string>().substr(8 + len + 1)))
+        //if(!insert(files[i]["file-name"].get<string>().substr(8)))
+        {
+            return false;
+        }
+    }
+    return true;
+}
+Node* Tree::get_root()
+{
+    return rt;
+}
+void Tree::print()
+{
+    std::queue<Node*> q;
+    q.push(rt);
+    while(!q.empty())
+    {
+        auto temp = q.front();
+        q.pop();
+        cout<<temp->name<<endl;
+        for(int i = 0; i < temp->sub_dirs.size(); i++)
+        {
+            q.push(temp->sub_dirs[i]);
+        }
+    }
+}
+
+Tree easy_parse(json files)
+{
+    Tree tree;
+    tree.build(files);
+    return tree;
+}
+
+
 int setNonblock(int fd)
 {
     int old_option = fcntl(fd, F_GETFL);
@@ -123,7 +224,7 @@ ssize_t rio_readn(int fd, char *usrbuf, size_t n)
             {
                 return -1;
             }
-
+            
         }
         else if(nread == 0)
         {
@@ -167,7 +268,7 @@ bool send_json(int fd, json &task)
 {
     string str_msg = task.dump();
     cout<<"send: "<<str_msg<<endl;
-    ssize_t res = rio_writen(fd, const_cast<char *>(str_msg.c_str()), str_msg.length());
+    ssize_t res = rio_writen(fd, const_cast<char *>(str_msg.c_str()), str_msg.length()); 
     return res == str_msg.length();
 }
 //ET模式下调用
@@ -179,9 +280,8 @@ bool receive_json(int epollfd, int sockfd, json &task)
     while(true) //ET模式, 读到EAGAIN || EWOULDBLOCK为止
     {
         memset(buf, 0, sizeof buf);
-
         int res = recv(sockfd, buf, __C["BUF_SIZE"].get<int>()-1, 0);
-        cout<<buf<<endl;
+        LOG(WARNING) << buf;
         if(res < 0)
         {
             if((errno == EWOULDBLOCK) || (errno == EAGAIN))  //对于非阻塞IO，表示已经读完
@@ -204,11 +304,10 @@ bool receive_json(int epollfd, int sockfd, json &task)
             msg += string(buf, buf + res);
         }
     }
-    cout<<"服务端发来的消息：\n";
+    cout<<"客户端发来的消息：\n";
+    cout<<msg<<endl;
     std::stringstream ss(msg);
     ss >> task;
-    cout<<task.dump(2);
-    cout<<endl;
     return false;
 }
 
@@ -250,7 +349,7 @@ vector<string> walk(const string &dir)
     {
         /*
         //# ref: man 7 inode | grep -A 50 "The file type and mode"
-        subdir->d_type;
+        subdir->d_type;  
         */
         string filename = dir + "/" + string(subdir->d_name);
         struct stat file_info;
@@ -281,10 +380,10 @@ string file_to_socket(const json &cfg, const int sockfd)
     // json格式
         file-name:string
         st: long
-        cur-pos: long
+        cur-pos: long 
         file-length: size_t
     */
-    Hash mm(__C["HASH_TYPE"].get<string>());
+    Hash mm(__C["HASH_TYPE"].get<string>());   
 
     string file = cfg["file-name"].get<string>();
     int file_fd = open(file.c_str(), O_RDWR);

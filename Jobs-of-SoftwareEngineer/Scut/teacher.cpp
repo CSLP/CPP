@@ -108,8 +108,18 @@ void Teacher::on_pushButton_4_clicked()
 
 void Teacher::on_pushButton_2_clicked()
 {
-    auto  res=user->c_update_absent(ui->idLineEdit1->text().toStdString(),ui->cLineEdit->text().toInt());
+    if(ui->cLineEdit->text().isEmpty()||ui->idLineEdit1->text().isEmpty()||ui->idLineEdit2->text().isEmpty())
+       QMessageBox::warning(this,tr("Warning"),tr("输入不能为空!"),QMessageBox::Ok);
+    else
+    {
+    auto  res=user->c_update_absent(ui->idLineEdit1->text().toStdString(),ui->idLineEdit2->text().toStdString(),ui->cLineEdit->text().toInt());
     if(res)
+    {
            QMessageBox::information(this,tr("Hint"),tr("更新成功"),QMessageBox::Ok);
+           ui->idLineEdit1->clear();
+           ui->idLineEdit2->clear();
+           ui->cLineEdit->clear();
+    }
+    }
 
 }

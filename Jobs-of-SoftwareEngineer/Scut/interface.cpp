@@ -56,11 +56,19 @@ list<std::__cxx11::string> getTeacherInfoByCourseName(std::__cxx11::string corNa
 {
 
         list<string> x;
-            x.push_back("ID:"+user->u_id);
-            x.push_back("用户名:"+user->username);
-            x.push_back("性别:"+user->sex);
-            x.push_back("院系:"+user->dept);
-            x.push_back("生日:"+user->birth);
+            auto info=user->c_get_course_list();
+            auto num=info["info"].size();
+            for(int i=0;i<6;++i)
+            {
+                if(info["info"][i]["C_NAME"].get<string>()==corName)
+                   {
+                        x.push_back("ID:"+info["info"][i]["T_ID"].get<string>());
+                        x.push_back("用户名:"+info["info"][i]["T_NAME"].get<string>());
+                        x.push_back("性别:"+info["info"][i]["T_SEX"].get<string>());
+                        x.push_back("院系:"+info["info"][i]["T_DEPT"].get<string>());
+                        x.push_back("生日:"+user->birth);
+                    }
+            }
             return x;
 }
 

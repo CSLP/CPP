@@ -168,6 +168,13 @@ p, li { white-space: pre-wrap; }
                    </widget>
                   </item>
                   <item>
+                   <widget class="QLabel" name="label_7">
+                    <property name="text">
+                     <string>课程ID</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
                    <widget class="QLabel" name="label_6">
                     <property name="text">
                      <string>缺勤次数</string>
@@ -180,6 +187,9 @@ p, li { white-space: pre-wrap; }
                  <layout class="QVBoxLayout" name="verticalLayout_5">
                   <item>
                    <widget class="QLineEdit" name="idLineEdit1"/>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="idLineEdit2"/>
                   </item>
                   <item>
                    <widget class="QLineEdit" name="cLineEdit"/>
@@ -247,19 +257,6 @@ p, li { white-space: pre-wrap; }
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_7">
           <item>
-           <spacer name="horizontalSpacer_3">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
            <widget class="QPushButton" name="pushButton_3">
             <property name="text">
              <string>重新登录</string>
@@ -274,17 +271,11 @@ p, li { white-space: pre-wrap; }
            </widget>
           </item>
           <item>
-           <spacer name="horizontalSpacer_4">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
+           <widget class="QPushButton" name="pushButton_6">
+            <property name="text">
+             <string>收作业</string>
             </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
+           </widget>
           </item>
          </layout>
         </item>
