@@ -44,8 +44,9 @@ Student::~Student()
 
 void Student::on_loginAgainPushButton_clicked()
 {
-    this->parentWidget()->show();
+    ui->textBrowser->clear();
     ui->listWidget1->clear();
+    emit sclose();
     close();
 }
 
@@ -146,6 +147,7 @@ void Student::courseInformation(std::__cxx11::string  type, std::__cxx11::string
             {
                 ms=re["info"][i]["C_NAME"].get<string>()+":"+msg["info"][j]["M_CONTENT"].get<string>()+"      "+msg["info"][j]["M_TIME"].get<string>();
                 ui->textBrowser->append(QString::fromStdString(ms));
+                ui->textBrowser->append("                 ");
             }
         }
         if(co.size()!=6)

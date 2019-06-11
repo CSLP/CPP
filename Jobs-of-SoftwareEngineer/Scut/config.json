@@ -9,6 +9,6 @@
         "PORT": 9999
     },
     "HASH_TYPE": "md5",
-    "BUF_SIZE": 1024,
+    "BUF_SIZE": 4096,
     "MAX_EVENT": 1024
 }

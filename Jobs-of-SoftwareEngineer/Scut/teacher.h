@@ -8,6 +8,7 @@
 #include<map>
 class CourseInfo;
 class UpdateInfo;
+class StudentInfo;
 using std::vector;
 using std::string;
 using std::map;
@@ -27,6 +28,7 @@ private:
     Ui::Teacher *ui;
     vector<CourseInfo> cors;
     QMap<QString,QString> match;
+    vector<StudentInfo> stu;
     UpdateInfo *upd;
     void clearCache();
 public slots:
@@ -40,6 +42,8 @@ private slots:
     void on_pushButton_4_clicked();
     void on_pushButton_2_clicked();
     void on_pushButton_6_clicked();
+signals:
+    void sclose();
 };
 
 #endif // TEACHER_H

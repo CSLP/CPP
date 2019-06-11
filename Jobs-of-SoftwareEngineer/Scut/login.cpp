@@ -15,8 +15,11 @@ Login::Login(QWidget *parent) :
     teacher=new Teacher(this);
     signup=new SignUp(this);
     connect(this,&Login::idInfo,student,&Student::idInfomation);
+    connect(student,&Student::sclose,this,&Login::reshow);
     connect(this,&Login::idInfo,student,&Student::courseInformation);
+    connect(teacher,&Teacher::sclose,this,&Login::reshow);
     connect(this,&Login::idInfo,teacher,&Teacher::corListInfo);
+    connect(signup,&SignUp::sclose,this,&Login::reshow);
 }
 
 Login::~Login()
@@ -51,7 +54,7 @@ void Login::on_signInPushButton_clicked()
                 }
                 ui->idLineEdit->clear();
                 ui->passwdLineEdit->clear();
-                //hide();
+                hide();
             }
             else
                 QMessageBox::warning(this,tr("Warning"),tr("用户名或者密码错误,请重新输入!"),QMessageBox::Ok);
@@ -64,6 +67,12 @@ void Login::on_signInPushButton_clicked()
 void Login::on_signUpPushButton_clicked()
 {
     signup->show();
+    hide();
     ui->idLineEdit->clear();
     ui->passwdLineEdit->clear();
+}
+
+void Login::reshow()
+{
+    this->show();
 }

@@ -19,7 +19,8 @@ private slots:
     void on_goToLoginPushButton_clicked();
 
     void on_signupPushButton_clicked();
-
+signals:
+    void sclose();
 private:
     Ui::SignUp *ui;
 };

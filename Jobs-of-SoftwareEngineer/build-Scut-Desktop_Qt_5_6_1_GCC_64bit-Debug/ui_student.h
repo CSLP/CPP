@@ -364,6 +364,8 @@ public:
 
         verticalLayout_9->addLayout(horizontalLayout_2);
 
+        verticalLayout_9->setStretch(0, 1);
+        verticalLayout_9->setStretch(1, 20);
 
         horizontalLayout_6->addLayout(verticalLayout_9);
 
@@ -528,8 +530,8 @@ public:
         retranslateUi(Student);
         QObject::connect(listWidget, SIGNAL(currentRowChanged(int)), stackedWidget, SLOT(setCurrentIndex(int)));
 
-        tabWidget->setCurrentIndex(1);
-        stackedWidget->setCurrentIndex(2);
+        tabWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(Student);

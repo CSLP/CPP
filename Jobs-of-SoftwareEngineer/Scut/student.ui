@@ -30,7 +30,7 @@
        <enum>Qt::CustomContextMenu</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="homeTab">
        <attribute name="title">
@@ -167,7 +167,7 @@
          </layout>
         </item>
         <item>
-         <layout class="QVBoxLayout" name="verticalLayout_9">
+         <layout class="QVBoxLayout" name="verticalLayout_9" stretch="1,20">
           <item>
            <widget class="QLabel" name="label">
             <property name="font">
@@ -250,7 +250,7 @@
                <enum>QFrame::StyledPanel</enum>
               </property>
               <property name="currentIndex">
-               <number>2</number>
+               <number>0</number>
               </property>
               <widget class="QWidget" name="sendPage">
                <layout class="QHBoxLayout" name="horizontalLayout_4">

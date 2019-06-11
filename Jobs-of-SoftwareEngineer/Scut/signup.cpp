@@ -17,6 +17,7 @@ SignUp::~SignUp()
 
 void SignUp::on_goToLoginPushButton_clicked()
 {
+    emit sclose();
     close();
     ui->userLineEdit->clear();
     ui->idLineEdit->clear();

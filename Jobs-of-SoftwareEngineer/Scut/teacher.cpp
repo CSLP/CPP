@@ -17,6 +17,7 @@ Teacher::Teacher(QWidget *parent) :
     this->move(400,160);
     upd=new UpdateInfo(this);
     connect(upd,&UpdateInfo::updateStatus,this,&Teacher::completUpd);
+    connect(ui->listWidget,&QListWidget::currentRowChanged,this,&Teacher::display);
 }
 
 Teacher::~Teacher()
@@ -34,16 +35,15 @@ void Teacher::corListInfo(string type, std::__cxx11::string  id)
             QListWidgetItem * item=new QListWidgetItem;
             t=cor[i].id+"    "+cor[i].courseName;
             item->setText(t);
-            ui->listWidget->addItem(item);
+            ui->listWidget->insertItem(i,item);
             match.insert(cor[i].id,cor[i].courseName);
             cors.push_back(cor[i]);
         }
-        connect(ui->listWidget,&QListWidget::currentRowChanged,this,&Teacher::display);
 }
 
 void Teacher::display(int a)
 {
-        vector<StudentInfo> stu=getStudentListByCourseId(cors[a].id.toStdString());
+        stu=getStudentListByCourseId(cors[a].id.toStdString());
         QString t;
         ui->textBrowser->clear();
         ui->textBrowser->append("学生ID       姓名         缺课次数");
@@ -68,7 +68,9 @@ void Teacher::clearCache()
 
 void Teacher::on_pushButton_3_clicked()
 {
+    disconnect(ui->listWidget,&QListWidget::currentRowChanged,this,&Teacher::display);
     ui->listWidget->clear();
+    emit sclose();
     close();
 }
 

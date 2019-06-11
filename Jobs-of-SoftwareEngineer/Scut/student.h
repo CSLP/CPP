@@ -59,6 +59,7 @@ public slots:
     void delItem(QString);
 signals:
     void corInfo(string);
+    void sclose();
 
 };
 

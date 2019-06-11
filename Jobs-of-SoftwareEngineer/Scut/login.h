@@ -22,6 +22,7 @@ private slots:
     void on_signInPushButton_clicked();
 
     void on_signUpPushButton_clicked();
+    void reshow();
 
 private:
     Ui::Login *ui;

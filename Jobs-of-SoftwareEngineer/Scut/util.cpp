@@ -61,14 +61,14 @@ bool Tree::insert(const string &path)
 }
 bool Tree::build(const json &files)
 {
-    auto temp = files[0]["file-name"].get<string>().substr(8); // "../home/"占8个字符，从这之后开始解析
+    auto temp = files["info"][0]["file-name"].get<string>().substr(8); // "../home/"占8个字符，从这之后开始解析
     int len = temp.find_first_of('/');
     LOG(INFO) << "Parse files: " << temp.substr(0, len);
-    int n = files.size();
+    int n = files["info"].size();
     rt->name = temp.substr(0, len);
     for(int i = 0; i < n; i++)
     {
-        if(!insert(files[i]["file-name"].get<string>().substr(8 + len + 1)))
+        if(!insert(files["info"][i]["file-name"].get<string>().substr(8 + len + 1)))
         //if(!insert(files[i]["file-name"].get<string>().substr(8)))
         {
             return false;
@@ -281,7 +281,7 @@ bool receive_json(int epollfd, int sockfd, json &task)
     {
         memset(buf, 0, sizeof buf);
         int res = recv(sockfd, buf, __C["BUF_SIZE"].get<int>()-1, 0);
-        LOG(WARNING) << buf;
+//        LOG(WARNING) << buf;
         if(res < 0)
         {
             if((errno == EWOULDBLOCK) || (errno == EAGAIN))  //对于非阻塞IO，表示已经读完
