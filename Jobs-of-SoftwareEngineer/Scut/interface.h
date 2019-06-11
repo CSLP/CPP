@@ -29,5 +29,5 @@ vector<Message> getTopicsByCourseName(string);
 vector<Message> getCommentsByTopicId(string);
 vector<Message> getReplysByCommentId(string);
 list<string> getHomeworkInfoByCourseName(string);
-bool sendToSubmitFilePaths(string,list<string>);
+bool sendToSubmitFilePaths(string,string,list<string>);
 #endif // INTERFACE_H

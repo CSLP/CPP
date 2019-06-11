@@ -45,13 +45,19 @@ void Course::on_backPushButton_clicked()
 
 void Course::on_submitPushButton_clicked()
 {
-   SendFile *s=new SendFile(courseName,this);
+   SendFile *s=new SendFile("s",courseName,this);
    s->show();
 }
 
 void Course::courseInfo(std::__cxx11::string corName)
 {
     courseName=QString::fromStdString(corName);
+    auto rx=user->c_get_course_list();
+    for(int i=0;i<rx["info"][i].size();++i)
+    {
+        if(rx["info"][i]["C_NAME"].get<string>()==courseName.toStdString())
+           courseId=QString::fromStdString(rx["info"][i]["C_ID"].get<string>());
+    }
     list<string> teacherInfo=getTeacherInfoByCourseName(corName);
     string courseInfo=getCourseInfoByCourseName(corName);
     list<string> homeworkInfo=getHomeworkInfoByCourseName(corName);
@@ -106,6 +112,15 @@ void Course::courseInfo(std::__cxx11::string corName)
         item->setSizeHint(QSize(0,50));
     }
     connect(listWidget,&QListWidget::currentRowChanged,this,&Course::display);
+
+
+
+    //download  section
+    auto res=user->c_get_course_files(courseId.toStdString());
+    auto tree=easy_parse(res);
+    tree.print();
+    cout<<res.dump(4)<<endl;
+
 }
 
 void Course::display(int a)
@@ -133,12 +148,7 @@ void Course::changeTag(int a)
 
 void Course::subTop()
 {
-    auto rx=user->c_get_course_list();
-    for(int i=0;i<rx["info"][i].size();++i)
-    {
-        if(rx["info"][i]["C_NAME"].get<string>()==courseName.toStdString())
-           courseId=QString::fromStdString(rx["info"][i]["C_ID"].get<string>());
-    }
+
     auto re=user->c_insert_topic(courseId.toStdString(),brow->toPlainText().toStdString());
     if(re)
            QMessageBox::information(this,tr("Hint"),tr("提问成功!"),QMessageBox::Ok);

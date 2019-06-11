@@ -50,6 +50,7 @@ public:
     QSpacerItem *verticalSpacer;
     QPushButton *pushButton;
     QPushButton *pushButton_5;
+    QPushButton *pushButton_6;
     QVBoxLayout *verticalLayout_2;
     QLineEdit *idLineEdit;
     QTextEdit *textEdit;
@@ -73,9 +74,10 @@ public:
     QSpacerItem *horizontalSpacer_2;
     QSpacerItem *verticalSpacer_2;
     QHBoxLayout *horizontalLayout_7;
+    QSpacerItem *horizontalSpacer_3;
     QPushButton *pushButton_3;
     QPushButton *pushButton_4;
-    QPushButton *pushButton_6;
+    QSpacerItem *horizontalSpacer_4;
     QMenuBar *menubar;
 
     void setupUi(QMainWindow *Teacher)
@@ -147,6 +149,11 @@ public:
         pushButton_5->setObjectName(QStringLiteral("pushButton_5"));
 
         verticalLayout->addWidget(pushButton_5);
+
+        pushButton_6 = new QPushButton(groupBox);
+        pushButton_6->setObjectName(QStringLiteral("pushButton_6"));
+
+        verticalLayout->addWidget(pushButton_6);
 
 
         horizontalLayout_2->addLayout(verticalLayout);
@@ -265,6 +272,10 @@ public:
 
         horizontalLayout_7 = new QHBoxLayout();
         horizontalLayout_7->setObjectName(QStringLiteral("horizontalLayout_7"));
+        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_7->addItem(horizontalSpacer_3);
+
         pushButton_3 = new QPushButton(centralwidget);
         pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
 
@@ -275,10 +286,9 @@ public:
 
         horizontalLayout_7->addWidget(pushButton_4);
 
-        pushButton_6 = new QPushButton(centralwidget);
-        pushButton_6->setObjectName(QStringLiteral("pushButton_6"));
+        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        horizontalLayout_7->addWidget(pushButton_6);
+        horizontalLayout_7->addItem(horizontalSpacer_4);
 
 
         verticalLayout_7->addLayout(horizontalLayout_7);
@@ -307,11 +317,12 @@ public:
     {
         Teacher->setWindowTitle(QApplication::translate("Teacher", "Teacher", 0));
         groupBox->setTitle(QString());
-        label->setText(QApplication::translate("Teacher", "\345\217\221\351\200\232\347\237\245&\344\270\212\344\274\240\346\235\220\346\226\231", 0));
+        label->setText(QApplication::translate("Teacher", "\345\217\221\351\200\232\347\237\245&\344\270\212\344\274\240\346\235\220\346\226\231&\346\224\266\344\275\234\344\270\232", 0));
         label_3->setText(QApplication::translate("Teacher", "\350\257\276\347\250\213ID", 0));
         label_4->setText(QApplication::translate("Teacher", "\346\255\243\346\226\207", 0));
         pushButton->setText(QApplication::translate("Teacher", "\345\217\221\351\200\201", 0));
         pushButton_5->setText(QApplication::translate("Teacher", "\344\270\212\344\274\240", 0));
+        pushButton_6->setText(QApplication::translate("Teacher", "\346\224\266\344\275\234\344\270\232", 0));
         textEdit->setHtml(QApplication::translate("Teacher", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
@@ -326,7 +337,6 @@ public:
         pushButton_2->setText(QApplication::translate("Teacher", "\346\217\220\344\272\244", 0));
         pushButton_3->setText(QApplication::translate("Teacher", "\351\207\215\346\226\260\347\231\273\345\275\225", 0));
         pushButton_4->setText(QApplication::translate("Teacher", "\344\277\256\346\224\271\344\270\252\344\272\272\344\277\241\346\201\257", 0));
-        pushButton_6->setText(QApplication::translate("Teacher", "\346\224\266\344\275\234\344\270\232", 0));
     } // retranslateUi
 
 };

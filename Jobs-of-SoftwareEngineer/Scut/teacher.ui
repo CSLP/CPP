@@ -48,7 +48,7 @@
                 </font>
                </property>
                <property name="text">
-                <string>发通知&amp;上传材料</string>
+                <string>发通知&amp;上传材料&amp;收作业</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -100,6 +100,13 @@
                   <widget class="QPushButton" name="pushButton_5">
                    <property name="text">
                     <string>上传</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="pushButton_6">
+                   <property name="text">
+                    <string>收作业</string>
                    </property>
                   </widget>
                  </item>
@@ -257,6 +264,19 @@ p, li { white-space: pre-wrap; }
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_7">
           <item>
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
            <widget class="QPushButton" name="pushButton_3">
             <property name="text">
              <string>重新登录</string>
@@ -271,11 +291,17 @@ p, li { white-space: pre-wrap; }
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_6">
-            <property name="text">
-             <string>收作业</string>
+           <spacer name="horizontalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
             </property>
-           </widget>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
           </item>
          </layout>
         </item>

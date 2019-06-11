@@ -107,11 +107,12 @@ list<std::__cxx11::string> getHomeworkInfoByCourseName(std::__cxx11::string corI
         return homeInfo;
 }
 
-bool sendToSubmitFilePaths(string corName,list<std::__cxx11::string> paths)
+bool sendToSubmitFilePaths(string ty,string corName,list<std::__cxx11::string> paths)
 {
     for(auto a:paths)
     {
-        auto res=user->upload_homework(corName,a);
+        if(ty=="s")auto res=user->upload_homework(corName,a);
+        else       auto res=user->upload_ppt(corName,a);
     }
     return true;
 }

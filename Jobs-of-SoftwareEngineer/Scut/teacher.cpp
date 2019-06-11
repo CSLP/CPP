@@ -78,7 +78,7 @@ void Teacher::on_pushButton_5_clicked()
         QMessageBox::warning(this,tr("Warning"),tr("上传材料需要指明课程ID!"),QMessageBox::Ok);
     else
     {
-        SendFile *s=new SendFile(match[ui->idLineEdit->text()],this);
+        SendFile *s=new SendFile("t",match[ui->idLineEdit->text()],this);
         s->show();
     }
     clearCache();
@@ -122,4 +122,18 @@ void Teacher::on_pushButton_2_clicked()
     }
     }
 
+}
+
+void Teacher::on_pushButton_6_clicked()
+{
+    if(ui->idLineEdit->text().isEmpty())
+        QMessageBox::warning(this,tr("Warning"),tr("收作业需要指明课程ID!"),QMessageBox::Ok);
+    else
+    {
+        auto res=user->download_homework(match[ui->idLineEdit->text()].toStdString());
+        if(res)
+        {
+             QMessageBox::information(this,tr("Hint"),tr("下载成功"),QMessageBox::Ok);
+        }
+    }
 }
