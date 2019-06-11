@@ -304,7 +304,7 @@ bool receive_json(int epollfd, int sockfd, json &task)
             msg += string(buf, buf + res);
         }
     }
-    cout<<"客户端发来的消息：\n";
+    cout<<"服务端发来的消息：\n";
     cout<<msg<<endl;
     std::stringstream ss(msg);
     ss >> task;
