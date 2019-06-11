@@ -116,10 +116,14 @@ void Course::courseInfo(std::__cxx11::string corName)
 
 
     //download  section
+    qDebug()<<courseId;
+    qDebug()<<courseId;
+    qDebug()<<courseId;
+    qDebug()<<courseId;
     auto res=user->c_get_course_files(courseId.toStdString());
     auto tree=easy_parse(res);
     tree.print();
-    cout<<res.dump(4)<<endl;
+//    cout<<res.dump(4)<<endl;
 
 }
 
