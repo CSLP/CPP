@@ -107,11 +107,11 @@ list<std::__cxx11::string> getHomeworkInfoByCourseName(std::__cxx11::string corI
         return homeInfo;
 }
 
-bool sendToSubmitFilePaths(list<std::__cxx11::string> paths)
+bool sendToSubmitFilePaths(string corName,list<std::__cxx11::string> paths)
 {
     for(auto a:paths)
     {
-        qDebug()<<QString::fromStdString(a);
+        auto res=user->upload_homework(corName,a);
     }
     return true;
 }

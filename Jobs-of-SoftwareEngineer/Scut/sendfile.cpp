@@ -55,7 +55,7 @@ void SendFile::on_submitPushButton_clicked()
     }
     for(int i=0;i<100000;i++)
         ui->progressBar->setValue(i);
-    if(sendToSubmitFilePaths(paths))
+    if(sendToSubmitFilePaths(corName.toStdString(),paths))
     {
         ui->textBrowser->hide();
         QMessageBox::information(this,tr("Info"),tr("Submit Success!"),QMessageBox::Ok);
