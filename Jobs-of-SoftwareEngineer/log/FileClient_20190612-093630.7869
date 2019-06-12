@@ -1,0 +1,33 @@
+Log file created at: 2019/06/12 09:36:30
+Running on machine: cslp
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0612 09:36:30.240104  7869 util.cpp:66] Parse files: 高等数学
+I0612 09:36:30.240255  7869 util.cpp:28] ppt/src/mcrypto.cpp
+I0612 09:36:30.240274  7869 util.cpp:28] ppt/src/mcrypto.h
+I0612 09:36:30.240280  7869 util.cpp:28] ppt/src/head.h
+I0612 09:36:30.240284  7869 util.cpp:28] ppt/src/json.hpp
+I0612 09:36:30.240288  7869 util.cpp:28] ppt/src/msql.cpp
+I0612 09:36:30.240293  7869 util.cpp:28] ppt/src/mainServer.cpp
+I0612 09:36:30.240295  7869 util.cpp:28] ppt/src/FileServer.cpp
+I0612 09:36:30.240299  7869 util.cpp:28] ppt/log/mainServer_20190607-205455.22868
+I0612 09:36:30.240304  7869 util.cpp:28] ppt/log/mainServer_20190607-205842.22869
+I0612 09:36:30.240309  7869 util.cpp:28] ppt/log/mainServer_20190607-203454.22866
+I0612 09:36:30.240312  7869 util.cpp:28] ppt/log/mainServer_20190607-203454.22867
+I0612 09:36:30.240315  7869 util.cpp:28] ppt/log/FileServer.INFO
+I0612 09:36:30.240319  7869 util.cpp:28] ppt/log/FileServer_20190611-165806.21291
+I0612 09:36:30.240324  7869 util.cpp:28] ppt/components.xml
+I0612 09:36:30.385191  7869 util.cpp:66] Parse files: 高等数学
+I0612 09:36:30.385205  7869 util.cpp:28] ppt/src/mcrypto.cpp
+I0612 09:36:30.385210  7869 util.cpp:28] ppt/src/mcrypto.h
+I0612 09:36:30.385215  7869 util.cpp:28] ppt/src/head.h
+I0612 09:36:30.385219  7869 util.cpp:28] ppt/src/json.hpp
+I0612 09:36:30.385222  7869 util.cpp:28] ppt/src/msql.cpp
+I0612 09:36:30.385226  7869 util.cpp:28] ppt/src/mainServer.cpp
+I0612 09:36:30.385231  7869 util.cpp:28] ppt/src/FileServer.cpp
+I0612 09:36:30.385233  7869 util.cpp:28] ppt/log/mainServer_20190607-205455.22868
+I0612 09:36:30.385238  7869 util.cpp:28] ppt/log/mainServer_20190607-205842.22869
+I0612 09:36:30.385242  7869 util.cpp:28] ppt/log/mainServer_20190607-203454.22866
+I0612 09:36:30.385246  7869 util.cpp:28] ppt/log/mainServer_20190607-203454.22867
+I0612 09:36:30.385251  7869 util.cpp:28] ppt/log/FileServer.INFO
+I0612 09:36:30.385254  7869 util.cpp:28] ppt/log/FileServer_20190611-165806.21291
+I0612 09:36:30.385259  7869 util.cpp:28] ppt/components.xml

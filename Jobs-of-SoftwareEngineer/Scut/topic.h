@@ -19,9 +19,7 @@ public:
 public :
     void setVis(bool);
 private slots:
-    void on_showPushButton_clicked();
     void subCo();
-    void on_foldPushButton_clicked();
 
 private:
     Ui::Topic *ui;

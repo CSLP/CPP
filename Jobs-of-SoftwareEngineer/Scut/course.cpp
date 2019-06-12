@@ -146,10 +146,11 @@ void Course::courseInfo(std::__cxx11::string corName)
             }
         }
         */
-        treeWidget->show();
+//        treeWidget->show();
+        treeWidget->expandAll();
         ui->resourceTab->setLayout(lay);
+        connect(treeWidget,&QTreeWidget::itemClicked,this,&Course::download);
     }
-    connect(treeWidget,&QTreeWidget::itemClicked,this,&Course::download);
 }
 
 void Course::display(int a)
@@ -179,10 +180,10 @@ void Course::download(QTreeWidgetItem *i, int)
         if(x.toStdString().find(i->text(0).toStdString())!=string::npos)
         {
             qDebug()<<x;
-            auto yyy=x.toStdString().find("ppt");
+            auto yyy=x.toStdString().find("home");
             if(yyy!=string::npos)
             {
-                auto result=x.toStdString().substr(yyy+4);
+                auto result=x.toStdString().substr(yyy+5);
                 auto ok=user->download_ppt(result);
                 if(ok)
                     QMessageBox::information(this,tr("Hint"),tr("下载成功"),QMessageBox::Ok);

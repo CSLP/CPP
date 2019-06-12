@@ -146,7 +146,7 @@ void Student::courseInformation(std::__cxx11::string  type, std::__cxx11::string
             for(int j=0;j<msg["info"].size();++j)
             {
                 ms=re["info"][i]["C_NAME"].get<string>()+":"+msg["info"][j]["M_CONTENT"].get<string>()+"      "+msg["info"][j]["M_TIME"].get<string>();
-                ui->textBrowser->append(QString::fromStdString(ms));
+                ui->textBrowser->append(QString::fromStdString("<bold>" + ms + "</bold>"));
                 ui->textBrowser->append("                 ");
             }
         }
@@ -170,6 +170,11 @@ void Student::courseInformation(std::__cxx11::string  type, std::__cxx11::string
         ++co_it;
         ui->label22->setText(QString::fromStdString("授课教师:"+co_it->second));
         ui->pushButton2->setText(QString::fromStdString(co_it->first));
+        auto info=user->c_get_course_list();
+        for(int i=0;i<info["info"].size();i++)
+        {
+            match.insert(QString::fromStdString(info["info"][i]["C_ID"].get<string>()),QString::fromStdString(info["info"][i]["C_NAME"].get<string>()));
+        }
 }
 
 void Student::completUpd(bool x)

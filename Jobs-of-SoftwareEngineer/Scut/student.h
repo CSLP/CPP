@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include<string>
 #include<map>
+#include<QMap>
 class QListWidgetItem;
 class QListWidget;
 class Course;
@@ -49,6 +50,7 @@ private:
     map<QString,QListWidgetItem *> ma;
     map<QString,QListWidgetItem *> mb;
     map<QString,QListWidgetItem *> mc;
+    QMap<QString,QString> match;
     QListWidget *la;
     QListWidget *lb;
     QListWidget *lc;
