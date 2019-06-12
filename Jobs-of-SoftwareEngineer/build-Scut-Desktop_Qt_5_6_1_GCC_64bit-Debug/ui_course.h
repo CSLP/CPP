@@ -14,7 +14,6 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QDialog>
-#include <QtWidgets/QFrame>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
@@ -48,7 +47,6 @@ public:
     QTextBrowser *corTextBrowser;
     QWidget *discussTab;
     QWidget *resourceTab;
-    QFrame *line_2;
 
     void setupUi(QDialog *Course)
     {
@@ -132,11 +130,6 @@ public:
         tabWidget->addTab(discussTab, QString());
         resourceTab = new QWidget();
         resourceTab->setObjectName(QStringLiteral("resourceTab"));
-        line_2 = new QFrame(resourceTab);
-        line_2->setObjectName(QStringLiteral("line_2"));
-        line_2->setGeometry(QRect(360, 480, 3, 61));
-        line_2->setFrameShape(QFrame::VLine);
-        line_2->setFrameShadow(QFrame::Sunken);
         tabWidget->addTab(resourceTab, QString());
 
         horizontalLayout->addWidget(tabWidget);
@@ -144,7 +137,7 @@ public:
 
         retranslateUi(Course);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(Course);

@@ -3,6 +3,7 @@
 #include"sendfile.h"
 #include"topic.h"
 #include<QDir>
+#include<QTreeWidget>
 #include<QFileSystemModel>
 #include<QTreeView>
 #include<QVBoxLayout>
@@ -15,8 +16,6 @@
 #include<QDebug>
 #include"message.h"
 #include"myclock.h"
-#include"head.h"
-#include"user.h"
 #include<QMessageBox>
 Course::Course(QWidget *parent) :
     QDialog(parent),
@@ -116,15 +115,41 @@ void Course::courseInfo(std::__cxx11::string corName)
 
 
     //download  section
-    qDebug()<<courseId;
-    qDebug()<<courseId;
-    qDebug()<<courseId;
-    qDebug()<<courseId;
     auto res=user->c_get_course_files(courseId.toStdString());
-    auto tree=easy_parse(res);
-    tree.print();
-    cout<<res.dump(4)<<endl;
-
+    for(int i=0;i<res["info"].size();i++)
+    {
+       files<<QString::fromStdString(res["info"][i]["file-name"].get<string>());
+    }
+    if(res["OK"].get<bool>()==true)
+    {
+        auto tree=easy_parse(res);
+        tree.print();
+        cout<<res.dump(4)<<endl;
+        QHBoxLayout * lay=new QHBoxLayout;
+        treeWidget=new QTreeWidget;
+        lay->addWidget(treeWidget);
+        treeWidget->setColumnCount(1);
+        qDebug()<<"nimasile";
+        auto root=tree.rt;
+        QTreeWidgetItem*g1=new QTreeWidgetItem(treeWidget);
+        build(g1,root);
+      /*  std::queue<QTreeWidgetItem*> q;
+        q.push(g1);
+        while(!q.empty())
+        {
+            QTreeWidgetItem *temp = q.front();
+            q.pop();
+            qDebug()<<temp->text(0);
+            for(int i = 0; i<temp->childCount(); i++)
+            {
+                q.push(temp->child(i));
+            }
+        }
+        */
+        treeWidget->show();
+        ui->resourceTab->setLayout(lay);
+    }
+    connect(treeWidget,&QTreeWidget::itemClicked,this,&Course::download);
 }
 
 void Course::display(int a)
@@ -144,6 +169,28 @@ void Course::display(int a)
     }
 }
 
+void Course::download(QTreeWidgetItem *i, int)
+{
+    qDebug()<<i->text(0);
+    auto res=QMessageBox::information(this,tr("Hint"),tr("你要下载此文件吗?"),QMessageBox::Yes,QMessageBox::No);
+    if(res==QMessageBox::No) return;
+    for(auto x:files)
+    {
+        if(x.toStdString().find(i->text(0).toStdString())!=string::npos)
+        {
+            qDebug()<<x;
+            auto yyy=x.toStdString().find("ppt");
+            if(yyy!=string::npos)
+            {
+                auto result=x.toStdString().substr(yyy+4);
+                auto ok=user->download_ppt(result);
+                if(ok)
+                    QMessageBox::information(this,tr("Hint"),tr("下载成功"),QMessageBox::Ok);
+            }
+        }
+    }
+}
+
 void Course::changeTag(int a)
 {
    a+=10;
@@ -157,4 +204,16 @@ void Course::subTop()
     if(re)
            QMessageBox::information(this,tr("Hint"),tr("提问成功!"),QMessageBox::Ok);
 
+}
+
+void Course::build(QTreeWidgetItem *qnode, Node *node)
+{
+       qnode->setText(0,QString::fromStdString(node->name));
+       for(auto child:node->sub_dirs)
+       {
+           QTreeWidgetItem*temp=new QTreeWidgetItem();
+           build(temp,child);
+           qnode->addChild(temp);
+       }
+       return ;
 }

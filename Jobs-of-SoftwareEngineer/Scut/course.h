@@ -5,11 +5,16 @@
 #include<string>
 #include<list>
 #include<vector>
+#include<QModelIndex>
 #include"interface.h"
+#include"head.h"
+#include"user.h"
 class  QListWidget;
 class  QPlainTextEdit;
+class QTreeWidget;
 class Topic;
 class QListWidgetItem;
+class QTreeWidgetItem;
 class MyClock;
 using std::list;
 using std::string;
@@ -33,6 +38,7 @@ private slots:
 public slots:
     void courseInfo(string);
     void display(int);
+    void download(QTreeWidgetItem *, int);
     void changeTag(int);
     void subTop();
 signals:
@@ -47,6 +53,9 @@ private:
     QString courseId;
     QPlainTextEdit* brow;
     QListWidget *listWidget;
+    QTreeWidget *treeWidget;
+    QStringList files;
+    void build(QTreeWidgetItem*,Node*);
 };
 
 #endif // COURSE_H

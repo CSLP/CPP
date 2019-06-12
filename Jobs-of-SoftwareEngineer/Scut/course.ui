@@ -17,7 +17,7 @@
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="homeTab">
       <attribute name="title">
@@ -150,19 +150,6 @@ p, li { white-space: pre-wrap; }
       <attribute name="title">
        <string>课程资源</string>
       </attribute>
-      <widget class="Line" name="line_2">
-       <property name="geometry">
-        <rect>
-         <x>360</x>
-         <y>480</y>
-         <width>3</width>
-         <height>61</height>
-        </rect>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-      </widget>
      </widget>
     </widget>
    </item>

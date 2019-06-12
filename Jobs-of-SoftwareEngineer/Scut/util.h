@@ -12,12 +12,12 @@ struct Node
 class Tree
 {
 private:
-    Node *rt;
     bool insert(const string &path);
     void clear(Node *cur);
 public:
     Tree();
     ~Tree();
+    Node *rt;
     bool build(const json &files);
     Node* get_root();
     void print();

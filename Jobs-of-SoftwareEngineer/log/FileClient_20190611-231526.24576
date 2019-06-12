@@ -1,0 +1,18 @@
+Log file created at: 2019/06/11 23:15:26
+Running on machine: cslp
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0611 23:15:26.662518 24576 util.cpp:66] Parse files: 高等数学
+I0611 23:15:26.662688 24576 util.cpp:28] ppt/src/mcrypto.cpp
+I0611 23:15:26.662708 24576 util.cpp:28] ppt/src/mcrypto.h
+I0611 23:15:26.662714 24576 util.cpp:28] ppt/src/head.h
+I0611 23:15:26.662719 24576 util.cpp:28] ppt/src/json.hpp
+I0611 23:15:26.662722 24576 util.cpp:28] ppt/src/msql.cpp
+I0611 23:15:26.662729 24576 util.cpp:28] ppt/src/mainServer.cpp
+I0611 23:15:26.662734 24576 util.cpp:28] ppt/src/FileServer.cpp
+I0611 23:15:26.662737 24576 util.cpp:28] ppt/log/mainServer_20190607-205455.22868
+I0611 23:15:26.662742 24576 util.cpp:28] ppt/log/mainServer_20190607-205842.22869
+I0611 23:15:26.662747 24576 util.cpp:28] ppt/log/mainServer_20190607-203454.22866
+I0611 23:15:26.662751 24576 util.cpp:28] ppt/log/mainServer_20190607-203454.22867
+I0611 23:15:26.662756 24576 util.cpp:28] ppt/log/FileServer.INFO
+I0611 23:15:26.662760 24576 util.cpp:28] ppt/log/FileServer_20190611-165806.21291
+I0611 23:15:26.662765 24576 util.cpp:28] ppt/components.xml
