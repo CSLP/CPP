@@ -2,11 +2,17 @@
 using std::cout;
 using std::cin;
 using std::endl;
-void swapPointer(int *&a,int *&b)
+void swapPointerByReference(int *&a,int *&b)
 {
     int *tmp=a;
     a=b;
     b=tmp;
+}
+void swapPointerByPointer(int **a,int **b)
+{
+    int *tmp=*a;
+    *a=*b;
+    *b=tmp;
 }
 int main()
 {
@@ -14,6 +20,8 @@ int main()
     int *pa,*pb;
     pa=&a;pb=&b;
     cout<<pa<<pb<<endl;
-    swapPointer(pa,pb);
+    swapPointerByReference(pa,pb);
+    cout<<pa<<pb<<endl;
+    swapPointerByPointer(&pa,&pb);
     cout<<pa<<pb<<endl;
 }
