@@ -62,6 +62,8 @@ int main()
         cerr<<"No data?!"<<endl;
     }
 */
+//7.3
+/*
     Sales_data total;
     double price;
     if(cin>>total.bookNo>>total.units_sold>>price)
@@ -88,4 +90,49 @@ int main()
     {
         cerr<<"No data!"<<endl;
     }
+*/
+//7.7
+/*
+    Sales_data total;
+    double price;
+    if(read(cin,total))
+    {
+        Sales_data cur;
+        while(read(cin,cur))
+        {
+            if(total.isbn()==cur.isbn())
+            {
+                total.combine(cur);
+            }
+            else
+            {
+               print(cout,total);
+               total=cur;
+            }
+        }
+            print(cout,total);
+    }
+    else
+    {
+        cerr<<"No data!"<<endl;
+    }
+*/
+//7.12
+    Sales_data total(cin);
+    double price;
+        Sales_data cur;
+        while(read(cin,cur))
+        {
+            if(total.isbn()==cur.isbn())
+            {
+                total.combine(cur);
+            }
+            else
+            {
+               print(cout,total);
+               total=cur;
+            }
+        }
+            print(cout,total);
+
 }
