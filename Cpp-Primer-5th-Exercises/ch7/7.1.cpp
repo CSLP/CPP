@@ -8,6 +8,8 @@ using std::cerr;
 using std::endl;
 int main()
 {
+//7.1
+/*
     Sales_data total;
     double price;
     if(cin>>total.bookNo>>total.units_sold>>price)
@@ -35,7 +37,7 @@ int main()
     {
         cerr<<"No data!"<<endl;
     }
-    
+*/
 /*使用类接口的版本,当前类还未定义,所以不能使用
     Sales_data  total;
     if(read(cin,total))
@@ -60,4 +62,30 @@ int main()
         cerr<<"No data?!"<<endl;
     }
 */
+    Sales_data total;
+    double price;
+    if(cin>>total.bookNo>>total.units_sold>>price)
+    {
+        total.revenue=total.units_sold*price;
+        Sales_data cur;
+        while(cin>>cur.bookNo>>cur.units_sold>>price)
+        {
+            cur.revenue=cur.units_sold*price;
+            if(total.isbn()==cur.isbn())
+            {
+                total.combine(cur);
+            }
+            else
+            {
+               cout<<total.bookNo<<" "<<total.units_sold<<" "<<total.revenue<<" "<<total.revenue/total.units_sold<<endl;
+               total=cur;
+            }
+        }
+        cout<<total.bookNo<<" "<<total.units_sold<<" "<<total.revenue<<" "<<total.revenue/total.units_sold<<endl;
+
+    }
+    else
+    {
+        cerr<<"No data!"<<endl;
+    }
 }
