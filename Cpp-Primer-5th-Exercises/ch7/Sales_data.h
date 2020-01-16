@@ -13,7 +13,8 @@ class Sales_data
     unsigned units_sold=0;
     double revenue=0.0;
     // Sales_data()=default; 
-    Sales_data():units_sold(0),revenue(0){};
+    // Sales_data():units_sold(0),revenue(0){};
+    Sales_data():bookNo(""),units_sold(0),revenue(0.0){};
     Sales_data(const string &a):bookNo(a){};
     Sales_data(const string &a,unsigned u,double p):bookNo(a),units_sold(u),revenue(u*p){};
     Sales_data(istream&a);

@@ -117,7 +117,8 @@ int main()
         cerr<<"No data!"<<endl;
     }
 */
-//7.12
+//7.12  自己版本,有点垃圾,cin>>a,也可以先cin>>a在判断cin的状态,cin>>a,if(cin)与if(cin>>a);等价
+/*
     Sales_data total(cin);
     double price;
         Sales_data cur;
@@ -135,4 +136,28 @@ int main()
         }
             print(cout,total);
 
+*/
+//7.12 pro
+    Sales_data total(cin);
+    if(cin)
+    {
+        Sales_data cur(cin);
+        while(cin)
+        {
+            if(total.isbn()==cur.isbn())
+                total.combine(cur);
+            else
+            {
+                print(cout,total);
+                total=cur;
+            }
+            read(cin,cur); 
+        }
+        print(cout,total);
+    }
+    else
+    {
+        cout<<"No Data!"<<endl;
+    }
+    
 }
