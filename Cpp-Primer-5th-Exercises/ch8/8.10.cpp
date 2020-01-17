@@ -8,12 +8,15 @@ using std::vector;
 using std::istringstream;
 using std::ifstream;
 using std::cout;
+using std::cin;
 using std::endl;
 using std::cerr;
 int main(int argc ,char * argv[])
 {
     vector<string> article;
-    ifstream in(argv[1]); 
+    string fileName;
+    cin>>fileName;
+    ifstream in(fileName);
     istringstream line;
     string lin;
     string word;
