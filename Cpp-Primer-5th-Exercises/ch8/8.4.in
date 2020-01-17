@@ -1,0 +1,10 @@
+hello world
+#include<iostream>;
+using std::cout;
+using std::cin;
+using std::istream;
+istream&print(istream&in);
+{
+	int a;
+	int.clear();
+}
