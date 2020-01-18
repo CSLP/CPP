@@ -28,7 +28,7 @@ int main()
     {
         if(*begin%2)
         {
-            bbegin=fintList.insert_after(bbegin,*begin);
+            bbegin=fintList.insert_after(bbegin,*begin);//插入在bbegin之后其实本质上是插入在当前元素之前,,,,,,
             ++bbegin;
             ++begin;
         }
