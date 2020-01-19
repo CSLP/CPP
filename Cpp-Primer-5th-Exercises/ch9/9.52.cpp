@@ -14,7 +14,7 @@ int main()
 {
 	try
 	{
-       	    string test1="-((   1-21  )*3/(5+11)+-8)*12+23 ";
+       	string test1="-((   1-21  )*3/(5+11)+-8)*12+23 ";
 	    string test="((3+5*2)+3)/5+(-6)/4*2+3";
 	    print(test1);	
 	    preProcess(test1);
