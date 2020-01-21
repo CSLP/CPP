@@ -4,7 +4,7 @@
 using namespace std;
 shared_ptr<vector<int>> func1()
 {
-    shared_ptr<vector<int>> a=make_shared<vector<int>>();
+    shared_ptr<vector<int> a=make_shared<vector<int>>();
     return a;
 }
 shared_ptr<vector<int>> func2(shared_ptr<vector<int>> a)
