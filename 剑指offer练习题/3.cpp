@@ -1,7 +1,8 @@
 #include<cstdio>
 #include<iostream>
 using std::cout;
-//v1  快速排序+扫描  O(nlogin+n)+O(1){时间+空间复杂度}
+/*
+ *v1  快速排序递归版+扫描  O(nlogin+n)+O(1){时间+空间复杂度}
 int partition(int *numbers,int lo,int hi)
 {
     int pivot=numbers[lo];
@@ -17,7 +18,7 @@ int partition(int *numbers,int lo,int hi)
 }
 void quickSort(int *numbers,int lo,int hi)
 {
-    if(lo==hi) return;
+    if(hi-lo<2) return;
     int mi=partition(numbers,lo,hi);
     quickSort(numbers,lo,mi);
     quickSort(numbers,mi+1,hi);
@@ -41,8 +42,113 @@ bool duplicate(int numbers[],int length,int *duplication)
     }
     else return false;
 }
+*/
+// *v1.0 快速排序迭代版+扫描 O(nlogn+n)+O(1)
+int partition(int *numbers,int lo,int hi)
+{
+    int pivot=numbers[lo];
+    while(numbers[--hi]>=pivot);
+    numbers[lo]=numbers[hi];
+    while(numbers[--lo]<=pivot);
+    numbers[hi]=numbers[lo];
+    numbers[lo]=pivot;
+}
+void quickSort(int *numbers,int lo,int hi)
+{
+    while(lo!=hi)
+    {
+        int mi=partition(numbers,lo,hi);
+        partitioon
+    }
+}
 /*
- *v2  哈希表+原数组  O(n)+O(n){时间+空间复杂度}
+* v1.1 递归归并排序(占用n辅助空间)+扫描  O(nlogin+n)+O(n){时间+空间复杂度}
+void mergeSort1(int *numbers,int lo,int hi) 
+{
+    if(hi-lo<2) return;
+    int mi=(lo+hi)/2;
+    mergeSort1(numbers,lo,mi);
+    mergeSort1(numbers,mi,hi);
+    int n1=mi-lo,n2=hi-mi;
+    int l=lo,m=mi;
+    int *a=new int[n1];
+    for(unsigned i=0;i<n1;++i)
+        a[i]=numbers[l++];
+    int *b=new int[n2];
+    for(unsigned j=0;j<n2;++j)
+        b[j]=numbers[m++];
+    int i=0,j=0;
+    while(i<n1||j<n2)
+    {
+        while((i<n1)&&(j>=n2||a[i]<=b[j])) numbers[lo++]=a[i++];
+        while((j<n2)&&(i>=n1||b[j]<=a[i])) numbers[lo++]=b[j++];
+    }
+    delete []a;delete[]b;a=b=nullptr;
+bool duplicate(int numbers[],int length,int *duplication)
+{
+    if(length>0)
+    {
+        mergeSort1(numbers,0,length);
+        for(unsigned i=0;i<length-1;++i)
+        {
+            if(numbers[i]>=length) return false;
+            if(numbers[i]==numbers[i+1]) 
+            {
+                *duplication=numbers[i];
+                return true;
+            }
+
+        }
+        return false;
+    }
+    else return false;
+}
+*/
+/*
+* v1.2递归归并排序(占用n/2辅助空间)+扫描
+void mergeSort2(int *numbers,int lo,int hi)
+{
+    if(hi-lo<2) return;
+    int mi=(lo+hi)/2;
+    mergeSort2(numbers,lo,mi);
+    mergeSort2(numbers,mi,hi);
+    int n1=mi-lo,n2=hi-mi;
+    int l=lo;
+    int *a=new int[n1];
+    for(unsigned i=0;i<n1;++i)
+        a[i]=numbers[l++];
+    int i=0,j=mi;
+    while(i<n1||j<hi)
+    {
+        while(i<n1&&(j>=hi||a[i]<=numbers[j])) numbers[lo++]=a[i++];
+        while(j<hi&&(i>=n1||numbers[j]<=a[i])) numbers[lo++]=numbers[j++];//切记两个队头比较时记得等于的情况
+    }
+    delete []a;a=nullptr;
+}
+bool duplicate(int numbers[],int length,int *duplication)
+{
+    if(length>0)
+    {
+        mergeSort2(numbers,0,length);
+        for(unsigned i=0;i<length-1;++i)
+        {
+            if(numbers[i]>=length) return false;
+            if(numbers[i]==numbers[i+1]) 
+            {
+                *duplication=numbers[i];
+                return true;
+            }
+
+        }
+        return false;
+    }
+    else return false;
+}
+*/
+
+
+/*
+ *v2  哈希表+原数组  O(n+n)+O(n){时间+空间复杂度}
 bool duplicate(int numbers[],int length,int *duplication)
 {
     if(length>0)

@@ -2,28 +2,35 @@
 #include<cstring>
 #include<iostream>
 using std::cout;
-void quickSort(int *numbers,int lo,int hi)
+void mergeSort1(int *numbers,int lo,int hi) 
 {
-    if(lo==hi) return;
-    int a=lo,b=hi;
-    int pivot=numbers[lo];
-    while(hi>lo)
+    if(hi-lo<2) return;
+    int mi=(lo+hi)>>1;
+    mergeSort1(numbers,lo,mi);
+    mergeSort1(numbers,mi,hi);
+    int n1=mi-lo,n2=hi-mi;
+    int l=lo,m=mi;
+    int *a=new int[n1];
+    for(unsigned i=0;i<n1;++i)
+        a[i]=numbers[l++];
+    int *b=new int[n2];
+    for(unsigned j=0;j<n2;++j)
+        b[j]=numbers[m++];
+    int i=0,j=0;
+    while(i<n1||j<n2)
     {
-        while(hi>lo&&numbers[--hi]>=pivot);
-        numbers[lo]=numbers[hi];
-        while(hi>lo&&numbers[++lo]<pivot);
-        numbers[hi]=numbers[lo];
+        while((i<n1&&(j>=n2||a[i]<=b[j]))) numbers[lo++]=a[i++];
+        while((j<n2&&(i>=n1||b[j]<=a[i]))) numbers[lo++]=b[j++];
     }
-    numbers[lo]=pivot;
-    
-    quickSort(numbers,a,lo);
-    quickSort(numbers,lo+1,b);
+    delete []a;
+    delete []b;
+    a=nullptr;b=nullptr;
 }
 int main()
 {
-    int a[]={11,2,3,4,5,6,7,8,9,20,19,18,16,22,15,14,13,12,11,10};
+    int a[]={2,1,3,1,4,5};
     int c[5]={2,1,3,1,4};
-    quickSort(a,0,20);
-    for(unsigned i=0;i<20;i++)
-        cout<<a[i];
+    mergeSort1(a,0,6);
+    for(unsigned i=0;i<6;i++)
+        cout<<a[i]<<" ";
 }
