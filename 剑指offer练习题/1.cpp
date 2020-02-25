@@ -23,6 +23,19 @@ CMystring &CMystring::operator=(const CMystring&str)
     strcpy(m_pData,str.m_pData);
     return *this;
 }
+/*异常安全版本,考虑申请内存是不够,但是此时被赋值对象已被释放,即被破坏,原则就是先申请后释放.:
+CMystring&CMystring::operator=(const CMystring&str)
+{
+    if(this!=str)
+    {
+        CMystring temp(str);
+        char *pTemp=m_pData;
+        m_pData=temp.m_pData;
+        temp.m_pData=pTemp;
+    }
+    return *this;
+}
+*/
 CMystring::CMystring(char *pData)
 {
     if(pData==nullptr)
