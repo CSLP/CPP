@@ -43,24 +43,6 @@ bool duplicate(int numbers[],int length,int *duplication)
     else return false;
 }
 */
-// *v1.0 快速排序迭代版+扫描 O(nlogn+n)+O(1)
-int partition(int *numbers,int lo,int hi)
-{
-    int pivot=numbers[lo];
-    while(numbers[--hi]>=pivot);
-    numbers[lo]=numbers[hi];
-    while(numbers[--lo]<=pivot);
-    numbers[hi]=numbers[lo];
-    numbers[lo]=pivot;
-}
-void quickSort(int *numbers,int lo,int hi)
-{
-    while(lo!=hi)
-    {
-        int mi=partition(numbers,lo,hi);
-        partitioon
-    }
-}
 /*
 * v1.1 递归归并排序(占用n辅助空间)+扫描  O(nlogin+n)+O(n){时间+空间复杂度}
 void mergeSort1(int *numbers,int lo,int hi) 
@@ -81,7 +63,7 @@ void mergeSort1(int *numbers,int lo,int hi)
     while(i<n1||j<n2)
     {
         while((i<n1)&&(j>=n2||a[i]<=b[j])) numbers[lo++]=a[i++];
-        while((j<n2)&&(i>=n1||b[j]<=a[i])) numbers[lo++]=b[j++];
+        while((j<n2)&&(i>=n1||b[j]<a[i])) numbers[lo++]=b[j++];//前半部分用<=,后半部分用<即可,这样保证稳定性
     }
     delete []a;delete[]b;a=b=nullptr;
 bool duplicate(int numbers[],int length,int *duplication)
@@ -105,7 +87,7 @@ bool duplicate(int numbers[],int length,int *duplication)
 }
 */
 /*
-* v1.2递归归并排序(占用n/2辅助空间)+扫描
+* v1.2递归归并排序(占用n/2辅助空间)+扫描:
 void mergeSort2(int *numbers,int lo,int hi)
 {
     if(hi-lo<2) return;
@@ -121,7 +103,7 @@ void mergeSort2(int *numbers,int lo,int hi)
     while(i<n1||j<hi)
     {
         while(i<n1&&(j>=hi||a[i]<=numbers[j])) numbers[lo++]=a[i++];
-        while(j<hi&&(i>=n1||numbers[j]<=a[i])) numbers[lo++]=numbers[j++];//切记两个队头比较时记得等于的情况
+        while(j<hi&&(i>=n1||numbers[j]<a[i])) numbers[lo++]=numbers[j++];//切记两个队头比较时记得等于的情况(记入前者,这样保证排序稳定性)
     }
     delete []a;a=nullptr;
 }
@@ -182,6 +164,48 @@ bool duplicate(int numbers[],int length,int *duplication)
         return false;
 }
 */
+//v3 v2改进版  O(n)+O(1):基于数字范围在0~n-1之间,当排序号后,若某一数字已就绪,则它与其下标相等.
+bool duplicate(int numbers[],int length,int *duplication)
+{
+    if(length>0&&numbers!=nullptr)
+    {
+        // for(unsigned i=0;i<length;)
+        // {
+        //     if(numbers[i]>=length||numbers[]<0) return false;
+        //     if(numbers[i]==i) ++i;
+        //     else if(numbers[i]==numbers[numbers[i]]) 
+        //     {
+        //         *duplication=numbers[i];
+        //         return true;
+        //     }
+        //     else 
+        //     {
+        //         int temp=numbers[numbers[i]];
+        //         numbers[numbers[i]]=numbers[i];
+        //         numbers[i]=temp;
+        //     }
+        // }
+        // return false;
+        for(unsigned i=0;i<length;++i)
+            if(numbers[i]>length-1||numbers[i]<0) return false;
+        for(unsigned i=0;i<length;++i)
+        {
+            while(numbers[i]!=i)
+            {
+                if(numbers[i]==numbers[numbers[i]])
+                {
+                    *duplication=numbers[i];
+                    return true;
+                }
+                int temp=numbers[i];
+                numbers[i]=numbers[temp];
+                numbers[temp]=temp;
+            }
+        }
+        return false;
+    }
+    else return false;
+}
 bool contains(int array[],int length,int number)
 {
     for(int i=0;i<length;++i)
