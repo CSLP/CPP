@@ -1,4 +1,4 @@
-//最大子区段和问题或者说是最大连续子序列和问题
+//最大子区段和问题或者说是最大连续子序列和问题 greatestest slice,或者说是最大子数组问题maximum subarray
 int gs_BF(int a[],int n)//brute force 蛮力算法 O(n^3)
 {
     int gs=a[0];int s=0;
@@ -52,4 +52,8 @@ int gs_DC(int a[],int lo,int hi) //分治Divide and Conquer  O(n*logn)
         if(s>gsR) gsR=s;
     }
     return max(gs_DC(a,lo,mi),gsL+gsR,gs_DC(a,mi,hi));
+}
+int gs_LS(int a[],int n) //Linear Scan
+{
+    
 }

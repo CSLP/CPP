@@ -19,7 +19,7 @@ int fibIt(int n)//计算第n项，迭代版
 //for(int i=0;i<n;++i)等价于while(0<n--)无敌
     return g;
 }
-int fibRe(int n) //二分迭代版
+int fibRe(int n) //二分递归版
 {
     // if(n==0) return 0;
     // if(n==1) return 1;
