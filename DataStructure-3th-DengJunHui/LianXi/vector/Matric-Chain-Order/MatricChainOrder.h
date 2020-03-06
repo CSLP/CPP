@@ -25,7 +25,7 @@ int matricChainOrder(int *p,int n,int *m,int *s)
     }
     return *(m+n-1);
 }
-void print(int i,int j,int *s,int n)
+void print(int i,int j,int *s,int n)//以括号形式递归地输出结果
 {
     if(i==j)
     cout<<"A"<<i;
