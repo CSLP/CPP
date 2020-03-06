@@ -1,5 +1,7 @@
 //钢条切割问题
 #include<math.h>
+#include<iostream>
+using namespace std;
 int * price(int *p,int n)
 {
     for(unsigned i=0;i<n;++i)
@@ -30,13 +32,13 @@ int dpReTopDownMemoized(int *p,int *m,int n)//自顶向下带备忘的动态规�
     {
         q=-1;
         for(int i=1;i<=n;++i)
-            q=max(q,p[i]+dpReTopDownMemoized(p,m,n-i));
+            q=max(q,p[i-1]+dpReTopDownMemoized(p,m,n-i));
     }
     m[n]=q;
     return q;
 }
 int sequ=0;
-int deReTopDownMemoizedExtended(int *p,int *m,int *s,int n) //扩展板，给出收益值得同时给出切割方案，及从左到右的各段的长度
+int dpReTopDownMemoizedExtended(int *p,int *m,int *s,int n) //扩展板，给出收益值(最优解的值)的同时给出切割方案(最优解)，及从左到右的各段的长度
 {
     if(m[n]>=0) return m[n];
     int q=-1;
@@ -47,19 +49,16 @@ int deReTopDownMemoizedExtended(int *p,int *m,int *s,int n) //扩展板，给出
         for(int i=1;i<=n;++i)
         {
             int temp=q;
-            q=max(q,p[i]+deReTopDownMemoizedExtended(p,m,s,n-i));
-            if(q!=temp) s[sequ]=i; 
+            q=max(q,p[i-1]+dpReTopDownMemoizedExtended(p,m,s,n-i));
+            if(q!=temp) s[n]=i; 
         }
     }
     m[n]=q;
-    sequ++;
     return q;
 }
 
-int dpBottomUp(int *p,int *s,int n) //自底向上的动态规划方法,无需递归,直接抓本质，直接从下到上回归，就无须递的过程了
+int dpBottomUp(int *p,int *m,int *s,int n) //自底向上的动态规划方法,无需递归,直接抓本质，直接从下到上回归，就无须递的过程了
 {
-    int sequ=0;
-    int *m=new int[n];
     m[0]=0;
     for(int i=1;i<=n;i++)
     {
@@ -67,11 +66,29 @@ int dpBottomUp(int *p,int *s,int n) //自底向上的动态规划方法,无需�
         for(int j=1;j<=i;++j)
         {
             int temp=q;
-            q=max(q,p[j]+m[i-j]);
-            if(q!=temp) s[sequ]=j;
+            q=max(q,p[j-1]+m[i-j]);
+            if(q!=temp) s[i]=j;
         }
-        sequ++;
         m[i]=q;
     }
     return m[n];
+}
+void printCutRodSolution(int *p,int n)
+{
+    int *m=new int[n];
+    int *s=new int[n];
+    int value=0;
+    for(int i=0;i<n;i++)
+    {
+        m[i]=s[i]=-1;
+    }
+    value=dpBottomUp(p,m,s,n);
+    cout<<"The value is: "<<value<<endl;
+    cout<<"The solution is: ";
+    while(n>0)
+    {
+        cout<<s[n]<<" ";
+        n=n-s[n];
+    }
+    cout<<endl;
 }
