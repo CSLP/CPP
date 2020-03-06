@@ -17,7 +17,7 @@ int  simpleRe(int *p,int n)
     if(n==0) return 0;
     int q=-1; 
     for(int i=1;i<=n;i++)
-        q=max(q,p[i]+simpleRe(p,n-i));
+        q=max(q,p[i-1]+simpleRe(p,n-i));
     return q;
 }
 int dpReTopDownMemoized(int *p,int *m,int n)//自顶向下带备忘的动态规划方法递归。其实是好理解，本质上递的过程依然没有求解，归的过程才求解
