@@ -8,4 +8,5 @@ int main()
     cout<<gs_BF1(a,8)<<endl;
     cout<<gs_BF(a,8)<<endl;
     cout<<gs_DC(a,0,8)<<endl;
+    system("pause");
 }
