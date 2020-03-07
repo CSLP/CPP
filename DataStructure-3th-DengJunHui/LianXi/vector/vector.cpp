@@ -34,7 +34,7 @@ int vector::insert(int r,const int &e)
         _elem[i]=_elem[i-1];
     _elem[r]=e;_size++;return r;
 }
-int vector::remove(int lo,int hi)
+int vector::remove(int lo,int hi) //怪不得说show me your code 这区间删除算法是真的优美
 {
     if(lo==hi) return 0;
     while(hi<_size)
@@ -48,11 +48,13 @@ int vector::remove(int r)
     remove(r,r+1);
     return e;
 }
-int vector::find(const int &e,int lo,int hi)const
+//无序向量查找
+int vector::find(const int &e,int lo,int hi)const//这代码写的我跪了，太强了。命中时返回命中的秩，不命中则返回lo-1
 {
-    while(lo<hi--&&_elem[hi]!=e);
+    while(lo<hi--&&_elem[hi]!=e);//hi=lo或者命中时结束。当hi=lo时，若elem[hi]！=e,那么还会进行判断此时lo<hi--判断失败，短路借宿,此时hi=lo-1
     return hi;
 }
+//无需向量去重,唯一化
 int vector::deduplicate()
 {
     int oldSize=_size;
@@ -67,14 +69,16 @@ void vector::traverse()
     for(unsigned i=0;i<_size;i++)
         _elem[i]=1;
 }
-int vector::disordered()const
+//返回逆序数
+int vector::disordered()const//这代码尼玛的就简洁的离谱。
 {
     int n=0;
     for(int i=1;i<_size;++i)
         n+=(_elem[i]<_elem[i-1]);
     return n;
 }
-int vector::uniquify()
+//有序向量去重，唯一化
+int vector::uniquify()//已经不想说话了，这代码写的真好，优美，自己写的那种只能实现功能的代码简直跟屎一样
 {
     int i=0,j=0;
     while(++j<_size)
@@ -85,7 +89,7 @@ int vector::uniquify()
     _size=++i;shrink();
     return j-i;
 }
-int vector::search(const int e,int lo,int hi)
+int vector::search(const int e,int lo,int hi)//查找算法同一接口:
 {
     // return (rand()%2)?binSearch1(_elem,e,lo,hi):fibSearch(_elem,e,lo,hi);
     return binSearch2(_elem,e,lo,hi);
