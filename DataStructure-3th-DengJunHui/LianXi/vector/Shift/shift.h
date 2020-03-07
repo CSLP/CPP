@@ -3,13 +3,9 @@ void shift(int *a,int n,int k) //笨比循环,O(k*n)+O(1)
 {
     for(int i=0;i<k;i++ )
     {
-        // int temp=a[0];
-        int temp=0;
+        int temp=a[0];
         for(int j=0;j<n-1;j++)
-        {
-            temp=a[0];
             a[j]=a[j+1]; 
-        }
         a[n-1]=temp;
     }
 }

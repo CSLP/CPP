@@ -8,7 +8,7 @@ int main()
     for(int i=0;i<21;i++)
         cout<<a[i]<<" ";
     cout<<endl;
-    shift(a,21,1); 
+    shift(a,21,6); 
     for(int i=0;i<21;i++)
         cout<<a[i]<<" ";
     cout<<endl;
