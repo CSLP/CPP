@@ -18,7 +18,7 @@ int dpTopDownReExtend(string a,string b,int i,int j,int *m,int *s)//自顶向下
    int q=*(m+i*(b.size()+1)+j);
    if(q>=0) return q;
    if(i==0||j==0) *(m+i*(b.size()+1)+j)=0;
-   else if(a[i-1]==b[j-1]) *(m+i*(b.size()+1)+j)=dpTopDownReExtend(a,b,i-1,j-1,m,s)+1;
+   else if(a[i-1]==b[i-1]) *(m+i*(b.size()+1)+j)=dpTopDownReExtend(a,b,i-1,j-1,m,s)+1;
    else *(m+i*(b.size()+1)+j)=max(dpTopDownReExtend(a,b,i-1,j,m,s),dpTopDownReExtend(a,b,i,j-1,m,s));
    return *(m+i*(b.size()+1)+j);
 }
