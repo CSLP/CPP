@@ -53,7 +53,14 @@ int gs_DC(int a[],int lo,int hi) //分治Divide and Conquer  O(n*logn)
     }
     return max(gs_DC(a,lo,mi),gsL+gsR,gs_DC(a,mi,hi));
 }
-int gs_LS(int a[],int n) //Linear Scan
+int gs_LS(int a[],int n) //Linear Scan O(n);
 {
-    
+    int gs=a[0];int i=n;int s=0;
+    while(i-->0)
+    {
+        s+=a[i];
+        if(s>gs) gs=s;
+        if(s<=0) s=0;
+    }
+    return gs;
 }
