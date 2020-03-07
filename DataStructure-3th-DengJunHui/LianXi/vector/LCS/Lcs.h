@@ -93,4 +93,22 @@ void Lcs(string a,string b)
         cout<<lc.top();
         lc.pop();
     }
+    cout<<endl;
+    stack<char> lcc;   //不借助s表，直接用m表输出LCS
+    int p=a.size();int q=b.size();
+    while(p>0&&q>0)
+    {   
+        if (*(m+p*(b.size()+1)+q)==*(m+(p-1)*(b.size()+1)+q)) p--;
+        else if(*(m+p*(b.size()+1)+q)==(*(m+(p-1)*(b.size()+1)+q-1)+1))  
+        {
+            lcc.push(a[p-1]);p--;q--;
+        } 
+        else q--;
+    }
+    while(!lcc.empty())
+    {
+        cout<<lcc.top();
+        lcc.pop();
+    }
+    cout<<endl;
 }
