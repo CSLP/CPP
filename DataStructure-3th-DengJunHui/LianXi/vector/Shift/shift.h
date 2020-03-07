@@ -1,4 +1,5 @@
 //数组循环位移问题,将给定数组向左循环位移k位。k非负，要求就地算法。
+#include<cmath>
 void shift0(int *a,int n,int k) //笨比循环,O(k*n)+O(1)
 {
     k=k%n;                         //有可能k大于n，当k=n时，相当于没移动,所以当k>n时，移动k位相当于移动k%n位。加了这句。时间复杂度变为O(n*n)
@@ -66,4 +67,14 @@ void shift3(int *a,int n,int k)  //模仿邓俊辉那个教案，看不懂，放
         // if(cnt>=n) break;
     }
 }
-
+void swap(int *a,int i,int j)
+{
+    int temp=a[i];
+    a[i]=a[j];
+    a[j]=temp;
+}
+void shuffle(int *a,int n) //补充一个数组随机置乱算法
+{
+    while(n>0)
+        swap(a,a[rand()%n],a[--n]);
+}
