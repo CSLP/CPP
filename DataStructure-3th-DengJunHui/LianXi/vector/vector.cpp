@@ -256,12 +256,31 @@ void vector::sort(int lo,int hi)
 
 //     }
 // }
-void vector::bubbleSort(int lo,int hi)//继续精简，上面的精简方案集中于减少扫描的趟数，但是注意，没经k趟扫描，必然有k个元素已经就位，所以扫描没必要把整个数组都扫描，扫描n-k个元素就行了
+// void vector::bubbleSort(int lo,int hi)//继续精简，上面的精简方案集中于减少扫描的趟数，但是注意，每经k趟扫描，必然有k个元素已经就位，所以扫描没必要把整个数组都扫描，扫描n-k个元素就行了
+// {
+//     int cnt=0;
+//     for(bool sorted=false;sorted=!sorted;cnt++)
+//     {
+//         for(int i=lo+1;i<hi-cnt;i++)
+//         {
+//             if(_elem[i]<_elem[i-1])
+//             {
+//                 sorted=false;
+//                 int temp=_elem[i];
+//                 _elem[i]=_elem[i-1];
+//                 _elem[i-1]=temp;
+//             }
+//         }
+//     }
+// }
+//究极最优版本，上面的优化考虑了就绪时不扫描，考虑了经过k趟扫描，必然有k个元素已经就位。但是对于更好的情况还没有优化，比如第k次扫描结束，可能
+//此时只有最前面的第一或者第2个相邻对儿是逆序的，换言之，经过k趟扫描，好情况下，虽然可能依然有逆序对，但是可能此时已经有大于k个元素就位了。。因此还可以在优化
+void vector::bubbleSort(int lo,int hi)//我真是服了邓俊辉了，这还能优化，果然是大佬，一个起泡排序被玩出花儿了  
 {
-    int cnt=0;
-    for(bool sorted=false;sorted=!sorted;cnt++)
+    int last=hi;
+    for(bool sorted=false;sorted=!sorted;hi=last)
     {
-        for(int i=lo+1;i<hi-cnt;i++)
+        for(int i=lo+1;i<hi;i++)
         {
             if(_elem[i]<_elem[i-1])
             {
@@ -269,13 +288,8 @@ void vector::bubbleSort(int lo,int hi)//继续精简，上面的精简方案集�
                 int temp=_elem[i];
                 _elem[i]=_elem[i-1];
                 _elem[i-1]=temp;
+                last=i;              //第k趟扫描，last记录了最后一次逆序交换的i的秩，[last,hi)一定已经就位[last,hi)一定不小于hi-k
             }
         }
     }
-}
-//究极最优版本，上面的优化考虑了就绪时不扫描，考虑了经过k趟扫描，必然有k个元素已经就位。但是对于更好的情况还没有优化，比如第k次扫描结束，可能
-//此时只有最前面的第一或者第2个相邻对儿是逆序的，换言之，经过k趟扫描，好情况下，虽然可能依然有逆序对，但是可能此时已经有大于k个元素就为了。。因此还可以在优化
-void vector::bubbleSort(int lo,int hi)//我真是服了邓俊辉了，这还能优化，果然是大佬，一个起泡排序被玩出花儿了  
-{
-
 }
