@@ -176,7 +176,7 @@ int vector::fibSearch(const int *a,const int e ,int lo,int hi)
 }
 void vector::sort(int lo,int hi)
 {
-    switch(0)
+    switch(3)
     {
         case 0:bubbleSort(lo,hi);break;
         case 1:selectionSort(lo,hi);break;
@@ -292,4 +292,26 @@ void vector::bubbleSort(int lo,int hi)//我真是服了邓俊辉了，这还能�
             }
         }
     }
+}
+void vector::merge(int lo,int mi,int hi) //二路归并
+{
+    int a=mi-lo,b=hi-mi;int c=lo;
+    int *m=new int[a];
+    for(int i=0;i<a;i++)
+        m[i]=_elem[c++];   //前半段并不一定从0开始哦，所以m[i]=_elem[i]纯属脑瘫
+    int i=0,j=mi;
+    while(a>0||b>0)
+    {
+        if(!b||(a>0&&m[i]<=_elem[j])) { _elem[lo++]=m[i++];a--;} //别忘了等号，很关键，而且等号加在前半段，让前半段的相同元素出现在前面,保证排序稳定性
+        if(!a||(b>0&&_elem[j]<m[i])) {_elem[lo++]=_elem[j++];b--;}
+    }
+    delete []m;m=nullptr;//记得别内存泄漏
+}
+void vector::mergeSort(int lo,int hi)
+{
+    if(hi-lo<2) return;
+    int mi=(lo+hi)>>1;
+    mergeSort(lo,mi);
+    mergeSort(mi,hi);
+    merge(lo,mi,hi);
 }

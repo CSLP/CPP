@@ -15,6 +15,7 @@ protected:
     void bubbleSort(int ,int);
     void insertSort(int,int);
     void selectionSort(int,int);
+    void merge(int,int,int);
     void mergeSort(int,int);
     void heapSort(int,int);
     void quickSort(int,int);
