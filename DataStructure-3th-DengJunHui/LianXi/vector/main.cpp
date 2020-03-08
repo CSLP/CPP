@@ -2,8 +2,8 @@
 #include<iostream>
 int main()
 {
-    int a[]={1,2,3,4,5,6};
-    vector b(a,0,6);
-    std::cout<<b.search(1,0,b.size());
+    int a[]={1,2,3,4,4,6,6,7};
+    vector b(a,0,8);
+    std::cout<<b.search(5,0,b.size());
     system("pause");
 }

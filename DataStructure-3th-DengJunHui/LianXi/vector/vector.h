@@ -7,9 +7,11 @@ protected:
     void copyFrom(const int*,int,int);
     void expand();
     void shrink();
+    int binSearch(const int*,int,int,int);
     int binSearch1(const int*,int,int,int);
     int binSearch2(const int*,int,int,int);
     int binSearch3(const int*,int,int,int);
+    int binSearch3e(const int*,int,int,int);
     int fibSearch(const int*,int,int,int);
 public:
     int ssize;
@@ -39,4 +41,15 @@ public:
     int uniquify(); 
     void traverse();
 
+};
+class Fib //Fibonacci数列类
+{
+private:
+    int f,g;//f=fib(k-1),g=fib(k).
+public:
+    Fib(int n)
+    {f=1;g=0;while(g<n) next();}//初始化为大于等于n的最小Fibonacci项目。
+    int get(){return g;}
+    int next() {g+=f;f=g-f;return g;}
+    int prev() {f=g-f;g-=f;return g;}
 };
