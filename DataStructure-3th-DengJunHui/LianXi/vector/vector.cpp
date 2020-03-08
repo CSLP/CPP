@@ -188,18 +188,36 @@ void vector::sort(int lo,int hi)
         default:break;
     }
 }
+// void vector::bubbleSort(int lo,int hi) 最基础版本
+// {
+//     for(int i=lo;i<hi;i++)
+//     {
+//         for(int i=lo+1;i<hi;i++)
+//         {
+//             if(_elem[i]<_elem[i-1])
+//             {
+//                 int temp=_elem[i];
+//                 _elem[i]=_elem[i-1];
+//                 _elem[i-1]=temp;
+//             }
+//         }
+//     }
+// }
 void vector::bubbleSort(int lo,int hi)
 {
-    for(int i=lo;i<hi;i++)
+    for(int i=lo;i<hi;++i)
     {
-        for(int i=lo+1;i<hi;i++)
+        bool sorted=true;
+        for(int j=lo+1;j<hi;j++)
         {
-            if(_elem[i]<_elem[i-1])
+            if(_elem[j]<_elem[j-1])
             {
-                int temp=_elem[i];
-                _elem[i]=_elem[i-1];
-                _elem[i-1]=temp;
+                sorted=false;
+                int temp=_elem[j];
+                _elem[j]=_elem[j-1];
+                _elem[j-1]=temp;
             }
         }
+        if(sorted) return;
     }
 }
