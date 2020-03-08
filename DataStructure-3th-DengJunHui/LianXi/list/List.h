@@ -1,3 +1,6 @@
+#include<iostream>
+using std::cout;
+using std::endl;
 using posi=ListNode*;
 struct ListNode
 {
@@ -31,10 +34,11 @@ class List
             int remove(posi p);//删除p节点,返回其数值
             int disorder()const;//判断是否有序，返回逆序数
             void sort();
-            posi find(int e);
+            posi find(int e)const;//查找,查找失败返回空指针
+            posi find(int e,int n,posi p)const;//区间查找,从后往前查找，若命中返回秩最大者，
             posi search(int e);
-            void deduplicate();
-            void uniquify();
+            int deduplicate(); //无序向量去重，返回删除元素的个数
+            int uniquify();//有序向量去重返回删除元素的个数
             void traverse();
 };
 posi ListNode::insertAsPred(const int e)
@@ -111,3 +115,49 @@ void List::copyNodes(posi p,int n)
         p=p->succ;
     }
 }
+posi List::find(int e,int n,posi p)const//类似vector无序向量，从后向前查找,从p开始往前查找n个,不包括p本身
+{
+    while(n--) 
+        if(e==(p=p->pred)->data) return p;
+    return nullptr;
+}
+posi List::find(int e)const
+{
+    return find(e,_size,trailer);
+}
+int List::deduplicate()
+{
+    int oldsize=_size;
+    posi p=first();
+    for(int r=0;p!=trailer;p=p->succ)
+    {   
+        if(find(p->data,r,p))
+            remove(p);
+        else 
+            r++;
+    }
+    return oldsize-_size;
+}
+void List::traverse()
+{
+    posi p=header;
+    // while(p->succ!=trailer) 笨比写法
+    // {
+    //     cout<<p->succ->data<<" ";        
+    //     p=p->succ;
+    // }
+    while((p=p->succ)!=trailer)
+        cout<<p->data<<" ";
+    cout<<endl;
+}
+int List::uniquify()
+{
+    if(_size<2) return 0;
+    int oldsize=_size;
+    posi p=first();posi q;
+    while((q=p->succ)!=trailer)    //以为链表的特殊性，删除只需要常数时间，所以不用像vector那样花里胡哨，直接找到一个删除一个，按顺序遍历即可
+        if(q->data!=p->data) p=q;
+        else remove(q);
+    return oldsize-_size;
+}
+
