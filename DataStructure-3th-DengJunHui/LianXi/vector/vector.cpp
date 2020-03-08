@@ -357,7 +357,7 @@ void vector::selectionSort(int lo,int hi)
         int max=lo;
         for(int j=lo;j<hi-i;j++)
         {
-            if(_elem[j]>=_elem[max])  
+            if(_elem[j]>=_elem[max]) //取等号，保证排序稳定性 
             max=j;
         }
         int temp=_elem[max]; 
