@@ -203,21 +203,79 @@ void vector::sort(int lo,int hi)
 //         }
 //     }
 // }
-void vector::bubbleSort(int lo,int hi)
+// void vector::bubbleSort(int lo,int hi) //改进.外层循环还是拘泥于n趟扫描，如果扫描一遍发现都已就位，则终止外层的循环
+// {
+//     for(int i=lo;i<hi;++i)
+//     {
+//         bool sorted=true;
+//         for(int j=lo+1;j<hi;j++)
+//         {
+//             if(_elem[j]<_elem[j-1])
+//             {
+//                 sorted=false;
+//                 int temp=_elem[j];
+//                 _elem[j]=_elem[j-1];
+//                 _elem[j-1]=temp;
+//             }
+//         }
+//         if(sorted) return;
+//     }
+// }
+// void vector::bubbleSort(int lo,int hi)//本质是一趟一趟的扫描，一旦就位，则停止扫描
+// {
+//     bool sorted=false;  //本质的逻辑是扫描一直执行，一旦没有交换，则扫描停止，但是这样程序不好写。换一种等价的逻辑
+//     while(!sorted)      //扫描只进行一次，一旦交换了，就继续扫描，这样程序好实现
+//     {
+//         sorted=true;
+//         for(int i=lo+1;i<hi;i++)
+//         {
+//             if(_elem[i]<_elem[i-1])
+//             {
+//                 sorted=false;
+//                 int temp=_elem[i];
+//                 _elem[i]=_elem[i-1];
+//                 _elem[i-1]=temp;
+//             }
+//         }
+//     }
+// }
+// void vector::bubbleSort(int lo,int hi) //上面的代码在精简,邓俊辉这代码真的屌，精简到极致
+// {
+//     for(bool sorted=false;sorted=!sorted;)
+//     {
+//         for(int i=lo+1;i<hi;i++)
+//         {
+//             if(_elem[i]<_elem[i-1])
+//             {
+//                 sorted=false;
+//                 int temp=_elem[i];
+//                 _elem[i]=_elem[i-1];
+//                 _elem[i-1]=temp;
+//             }
+//         }
+
+//     }
+// }
+void vector::bubbleSort(int lo,int hi)//继续精简，上面的精简方案集中于减少扫描的趟数，但是注意，没经k趟扫描，必然有k个元素已经就位，所以扫描没必要把整个数组都扫描，扫描n-k个元素就行了
 {
-    for(int i=lo;i<hi;++i)
+    int cnt=0;
+    for(bool sorted=false;sorted=!sorted;cnt++)
     {
-        bool sorted=true;
-        for(int j=lo+1;j<hi;j++)
+        for(int i=lo+1;i<hi-cnt;i++)
         {
-            if(_elem[j]<_elem[j-1])
+            if(_elem[i]<_elem[i-1])
             {
                 sorted=false;
-                int temp=_elem[j];
-                _elem[j]=_elem[j-1];
-                _elem[j-1]=temp;
+                int temp=_elem[i];
+                _elem[i]=_elem[i-1];
+                _elem[i-1]=temp;
             }
         }
-        if(sorted) return;
     }
+}
+//究极最优版本，上面的优化考虑了就绪时不扫描，考虑了经过k趟扫描，必然有k个元素已经就位。但是对于更好的情况还没有优化，比如第k次扫描结束，可能
+//此时只有最前面的第一或者第2个相邻对儿是逆序的，换言之，经过k趟扫描，好情况下，虽然可能依然有逆序对，但是可能此时已经有大于k个元素就为了。。因此还可以在优化
+void vector::bubbleSort(int lo,int hi)//我真是服了邓俊辉了，这还能优化，果然是大佬，一个起泡排序被玩出花儿了  
+{
+
 }
