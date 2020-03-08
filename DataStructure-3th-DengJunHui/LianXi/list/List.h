@@ -46,4 +46,5 @@ class List
             int uniquify();//有序向量去重返回删除元素的个数
             void traverse();
             void selectionSort(posi p,int n);//从p开始（包括p）的n个连续的区间排序，隐含假设p有效且这个区间长度小于_size
+            void insertionSort(posi p,int n);//从p开始（包括p）的n个连续的区间排序，隐含假设p有效且这个区间长度小于_size
 };
