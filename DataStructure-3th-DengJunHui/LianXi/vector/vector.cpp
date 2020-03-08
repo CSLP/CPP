@@ -176,7 +176,7 @@ int vector::fibSearch(const int *a,const int e ,int lo,int hi)
 }
 void vector::sort(int lo,int hi)
 {
-    switch(3)
+    switch(5)
     {
         case 0:bubbleSort(lo,hi);break;
         case 1:selectionSort(lo,hi);break;
@@ -293,19 +293,34 @@ void vector::bubbleSort(int lo,int hi)//我真是服了邓俊辉了，这还能�
         }
     }
 }
-void vector::merge(int lo,int mi,int hi) //二路归并
+// void vector::merge(int lo,int mi,int hi) //二路归并 ,最开始写的垃圾版本，留着当做以后的教训吧。
+// {
+//     int a=mi-lo,b=hi-mi;int c=lo;
+//     int *m=new int[a];
+//     for(int i=0;i<a;i++)
+//         m[i]=_elem[i];   //前半段并不一定从0开始哦，所以m[i]=_elem[i]纯属脑瘫
+//     int i=0,j=mi;
+//     while(a>0||b>0)
+//     {
+//         if(!b||(m[i]<=_elem[j])) { _elem[lo++]=m[i++];a--;} //别忘了等号，很关键，而且等号加在前半段，让前半段的相同元素出现在前面,保证排序稳定性
+//         if(!a||(_elem[j]<m[i])) {_elem[lo++]=_elem[j++];b--;}
+//     }
+//     delete []m;m=nullptr;//记得别内存泄漏
+// }
+void vector::merge(int lo,int mi,int hi)
 {
-    int a=mi-lo,b=hi-mi;int c=lo;
-    int *m=new int[a];
-    for(int i=0;i<a;i++)
-        m[i]=_elem[c++];   //前半段并不一定从0开始哦，所以m[i]=_elem[i]纯属脑瘫
+    int as=mi-lo,bs=hi-mi;
+    int loo=lo;
+    int *a=new int[as];
+    for(int i=0;i<as;i++)
+        a[i]=_elem[loo++];
     int i=0,j=mi;
-    while(a>0||b>0)
+    while(as>0||bs>0)
     {
-        if(!b||(a>0&&m[i]<=_elem[j])) { _elem[lo++]=m[i++];a--;} //别忘了等号，很关键，而且等号加在前半段，让前半段的相同元素出现在前面,保证排序稳定性
-        if(!a||(b>0&&_elem[j]<m[i])) {_elem[lo++]=_elem[j++];b--;}
+        if(!bs||(as>0&&a[i]<=_elem[j])){_elem[lo++]=a[i++];as--;}
+        if(!as||(bs>0&&_elem[j]<a[i])){_elem[lo++]=_elem[j++];bs--;}
     }
-    delete []m;m=nullptr;//记得别内存泄漏
+    delete []a;a=nullptr;//凡是动态申请内存，一定注意别内存泄漏
 }
 void vector::mergeSort(int lo,int hi)
 {
@@ -314,4 +329,24 @@ void vector::mergeSort(int lo,int hi)
     mergeSort(lo,mi);
     mergeSort(mi,hi);
     merge(lo,mi,hi);
+}
+int vector::partition(int lo,int hi)
+{
+    int pivot=_elem[lo];
+    while(lo<hi)
+    {
+        while(lo<hi&&_elem[--hi]>pivot);
+            _elem[lo]=_elem[hi];
+        while(lo<hi&&_elem[++lo]<pivot);
+            _elem[hi]=_elem[lo];
+    }
+    _elem[lo]=pivot;
+    return lo;
+}
+void vector::quickSort(int lo,int hi)
+{
+    if(hi-lo<2) return;
+    int pivot=partition(lo,hi);
+    quickSort(lo,pivot);
+    quickSort(pivot+1,hi);
 }

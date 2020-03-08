@@ -18,6 +18,7 @@ protected:
     void merge(int,int,int);
     void mergeSort(int,int);
     void heapSort(int,int);
+    int partition(int,int);
     void quickSort(int,int);
     void shellSort(int,int);
     int fibSearch(const int*,int,int,int);
