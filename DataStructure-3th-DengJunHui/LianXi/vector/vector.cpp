@@ -176,7 +176,7 @@ int vector::fibSearch(const int *a,const int e ,int lo,int hi)
 }
 void vector::sort(int lo,int hi)
 {
-    switch(5)
+    switch(2)
     {
         case 0:bubbleSort(lo,hi);break;
         case 1:selectionSort(lo,hi);break;
@@ -349,4 +349,40 @@ void vector::quickSort(int lo,int hi)
     int pivot=partition(lo,hi);
     quickSort(lo,pivot);
     quickSort(pivot+1,hi);
+}
+void vector::selectionSort(int lo,int hi)
+{
+    for(int i=0;i<hi-lo;i++)
+    {
+        int max=lo;
+        for(int j=lo;j<hi-i;j++)
+        {
+            if(_elem[j]>=_elem[max])  
+            max=j;
+        }
+        int temp=_elem[max]; 
+        _elem[max]=_elem[hi-i-1];
+        _elem[hi-i-1]=temp;
+    }
+}
+void vector::insertSort(int lo,int hi)
+{
+    for(int i=lo+1;i<hi;i++)
+    {
+        int insertPoint=i;
+        for(int j=lo;j<i;j++)
+            if(_elem[j]>_elem[i]) 
+            {
+                insertPoint=j; //查找插入点，可以调用search O(logn)
+                break;
+            }
+        if(insertPoint==i) continue;
+        else 
+        {
+            int temp=_elem[i];
+            for(int k=i;k>insertPoint;k--)   //插入O(n)
+                _elem[k]=_elem[k-1];
+            _elem[insertPoint]=temp;
+        }
+    }
 }

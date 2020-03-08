@@ -35,8 +35,8 @@ class List
             int disorder()const;//判断是否有序，返回逆序数
             void sort();
             posi find(int e)const;//查找,查找失败返回空指针
-            posi find(int e,int n,posi p)const;//区间查找,从后往前查找，若命中返回秩最大者，
-            posi search(int e);
+            posi find(int e,int n,posi p)const;//区间查找，在p的前n个前缀节点中,从后往前查找，若命中返回秩最大者，
+            posi search(int e,int n,posi p)const;//区间查找,在p的前n个前缀节点中,从后往前查找，若命中返回秩最大者，,跟无序向量的版本一样，因为链表的特殊性，只能顺序的访问，不能随机访问
             int deduplicate(); //无序向量去重，返回删除元素的个数
             int uniquify();//有序向量去重返回删除元素的个数
             void traverse();
@@ -160,4 +160,12 @@ int List::uniquify()
         else remove(q);
     return oldsize-_size;
 }
-
+posi List::search(int e,int n,posi p)const
+{
+    for(int i=0;i<n;i++)
+    {
+        p=p->pred;
+        if(p->data<=e) break;
+    }
+    return p;
+}
