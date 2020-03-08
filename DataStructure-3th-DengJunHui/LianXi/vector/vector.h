@@ -12,6 +12,13 @@ protected:
     int binSearch2(const int*,int,int,int);
     int binSearch3(const int*,int,int,int);
     int binSearch3e(const int*,int,int,int);
+    void bubbleSort(int ,int);
+    void insertSort(int,int);
+    void selectionSort(int,int);
+    void mergeSort(int,int);
+    void heapSort(int,int);
+    void quickSort(int,int);
+    void shellSort(int,int);
     int fibSearch(const int*,int,int,int);
 public:
     int ssize;
@@ -34,7 +41,7 @@ public:
     int remove(int,int);
     int remove(int);
     int disordered()const;//返回逆序对的数目
-    void sort();
+    void sort(int,int);
     int find(const int &,int lo,int hi)const;
     int search(const int,int,int);
     int deduplicate();

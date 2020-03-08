@@ -1,5 +1,8 @@
 #include"vector.h"
 #include<math.h>
+#include<iostream>
+using std::cout;
+using std::endl;
 void vector::copyFrom(const int *a,int lo,int hi)
 {
     _elem=new int[_capacity=2*(hi-lo)];
@@ -67,7 +70,8 @@ int vector::deduplicate()
 void vector::traverse()
 {
     for(unsigned i=0;i<_size;i++)
-        _elem[i]=1;
+        cout<<_elem[i]<<" ";
+    cout<<endl;
 }
 //返回逆序数
 int vector::disordered()const//这代码尼玛的就简洁的离谱。
@@ -91,7 +95,7 @@ int vector::uniquify()//已经不想说话了，这代码写的真好，优美�
 }
 int vector::search(const int e,int lo,int hi)//查找算法统一接口:
 {
-    switch(5)
+    switch(rand()%6)
     {
         case 0:return binSearch1(_elem,e,lo,hi);break;
         case 1:return binSearch2(_elem,e,lo,hi);break;
@@ -169,4 +173,33 @@ int vector::fibSearch(const int *a,const int e ,int lo,int hi)
         else return mi;
     }
     return -1;
+}
+void vector::sort(int lo,int hi)
+{
+    switch(0)
+    {
+        case 0:bubbleSort(lo,hi);break;
+        case 1:selectionSort(lo,hi);break;
+        case 2:insertSort(lo,hi);break;
+        case 3:mergeSort(lo,hi);break;
+        case 4:heapSort(lo,hi);break;
+        case 5:quickSort(lo,hi);break;
+        case 6:shellSort(lo,hi);break;
+        default:break;
+    }
+}
+void vector::bubbleSort(int lo,int hi)
+{
+    for(int i=lo;i<hi;i++)
+    {
+        for(int i=lo+1;i<hi;i++)
+        {
+            if(_elem[i]<_elem[i-1])
+            {
+                int temp=_elem[i];
+                _elem[i]=_elem[i-1];
+                _elem[i-1]=temp;
+            }
+        }
+    }
 }
