@@ -74,7 +74,7 @@ void vector::traverse()
     cout<<endl;
 }
 //返回逆序数
-int vector::disordered()const//这代码尼玛的就简洁的离谱。
+int vector::disordered()const//这代码尼玛的就简洁的离谱。看起来就是很舒服，，无敌
 {
     int n=0;
     for(int i=1;i<_size;++i)
@@ -275,6 +275,7 @@ void vector::sort(int lo,int hi)
 // }
 //究极最优版本，上面的优化考虑了就绪时不扫描，考虑了经过k趟扫描，必然有k个元素已经就位。但是对于更好的情况还没有优化，比如第k次扫描结束，可能
 //此时只有最前面的第一或者第2个相邻对儿是逆序的，换言之，经过k趟扫描，好情况下，虽然可能依然有逆序对，但是可能此时已经有大于k个元素就位了。。因此还可以在优化
+//通过last变量记录上一次最后扫描的位置，这次扫描室，扫描到这里就可以了。显然hi-last>=hi-k
 void vector::bubbleSort(int lo,int hi)//我真是服了邓俊辉了，这还能优化，果然是大佬，一个起泡排序被玩出花儿了  
 {
     int last=hi;
@@ -317,8 +318,8 @@ void vector::merge(int lo,int mi,int hi)
     int i=0,j=mi;
     while(as>0||bs>0)
     {
-        if(!bs||(as>0&&a[i]<=_elem[j])){_elem[lo++]=a[i++];as--;}
-        if(!as||(bs>0&&_elem[j]<a[i])){_elem[lo++]=_elem[j++];bs--;}
+        if(as&&(!bs||a[i]<=_elem[j])){_elem[lo++]=a[i++];as--;}
+        if(bs&&(!as||_elem[j]<a[i])){_elem[lo++]=_elem[j++];bs--;}
     }
     delete []a;a=nullptr;//凡是动态申请内存，一定注意别内存泄漏
 }
