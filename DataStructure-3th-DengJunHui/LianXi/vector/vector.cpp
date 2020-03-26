@@ -21,7 +21,7 @@ void vector::expand()
 }
 void vector::shrink()
 {
-    if((double)_size/_capacity>0.3) return;
+    if(static_cast<double>(_size)/_capacity>0.3) return;
     int *oldElem=_elem;
     _elem=new int[_capacity>>=1];
     for(int i=0;i<_size;++i)
