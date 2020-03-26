@@ -37,7 +37,7 @@ int vector::insert(int r,const int &e)
         _elem[i]=_elem[i-1];
     _elem[r]=e;_size++;return r;
 }
-int vector::remove(int lo,int hi) //怪不得说show me your code 这区间删除算法是真的优美
+int vector::remove(int lo,int hi) //怪不得说show me your code 这区间删除算法是真的优美,好好学习，天天向上，Dream Car
 {
     if(lo==hi) return 0;
     while(hi<_size)
