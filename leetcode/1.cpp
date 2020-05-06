@@ -6,31 +6,20 @@
 #include<iterator>
 #include<stack>
 using namespace std;
-struct ListNode {
-      int val;
-      ListNode *next;
-      ListNode(int x) : val(x), next(NULL) {}
-};
-ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
+int searchInsert(vector<int>& nums, int target) 
+{
+    int lo=0,hi=nums.size();
+    while(hi-lo>1)
     {
-        ListNode head(l1->val>l2->val?l1->val:l2->val);
+        int mid=(lo+hi)>>1;
+        if(target<nums[mid]) hi=mid;
+        else lo=mid;
     }
-    else
-    {
-        if(l1)  ListNode head(l1->val);
-        else    ListNode head(l2->val);
-    }
-    ListNode *p;
-    while(l1||l2)
-    {
-        while(l1&&((l2&&l1->val<l2->val)||!l2) 
-        {
-            head->next=l1;l1=l1->next;
-        }
-    }
+    return target<nums[lo]?lo-1:lo;
 }
 int main()
 {
-    cout<<isValid("]");
+    vector<int> test{1,1,2};
+    cout<<searchInsert(test,2);
     system("pause");
 }
