@@ -1,3 +1,0 @@
-file edit view search terminal help  figure show an implementation for huffman tree nodes this implementation is similar to the varbin node implementation of figure there is an abstract base class named huffnode and towa subclass nae distinctly different information figure shows the 
-huffman tree budilding is an example of a greedy algorith m at each step the algorithm makes a greedy decisin to merge the two subtrees with least weight this makes the algorithm simple but does it give the seired result this
-aaaaaaiiii
